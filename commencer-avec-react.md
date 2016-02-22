@@ -60,17 +60,17 @@ La ressource qui fait référence est celle de [2ality](http://www.2ality.com/) 
 2. de prendre en main les indispensables&nbsp;:
     - `const` et `let`
     - `import` de modules (**très important**)
-    - `class` qui sont importantes pour React mais controversées
+    - `class` qui sont importantes pour React mais [controversées](https://github.com/joshburgess/not-awesome-es6-classes/)
 3. de prendre en main les moins indispensables&nbsp;:
     - `arrow-functions`
     - `destructuring`
     - `spread operator`
 
-Il existe d'autres éléments tout aussi intéressants telles que les `blocks`, les `generators`, les `templates literals`, les `Map`, ou autres fonctionnalités qui ont été ajoutées. L'idée est de savoir qu'elles existent pour être capable de les apprendre quand vous en aurez besoin, pas avant.
+Il existe d'autres éléments tout aussi intéressants telles que les `blocks`, les `generators`, les `templates literals`, les `Map`, ou autres fonctionnalités qui ont été ajoutées. L'idée est de savoir qu'elles existent pour être capable de les apprendre quand vous en aurez besoin&nbsp;: pas avant.
 
 #### Babel
 
-Afin de faire du ES6 dès aujourd'hui, il faut le compiler, ou le *transpiler* (si on veut faire genre on s'y connaît). Pour cela il y a notamment [Babel](https://babeljs.io/) qui va transformer pour vous le code en ES5 (version qui est supportée par tous les navigateurs modernes). Il peut faire aussi tout un tas d'autres choses grâce à un écosystème de plugin très riche.
+Afin de faire du ES6 dès aujourd'hui, il faut le compiler, ou le *transpiler* (si on veut faire genre on s'y connaît). Pour cela il y a notamment [Babel](https://babeljs.io/) qui va transformer pour vous le code en ES5 (version qui est supportée par tous les navigateurs modernes). Il peut aller plus loin que de l'ES6 et a tendance à proposer des solutions via un système de plugin pour les propositions qui sont parfois encore en draft.
 
 Heureusement, il y a le système de `preset` qui permet de regrouper les plugins et configurations, afin de ne pas avoir à tout gérer soit même. Notamment, pour ES6 il y a `babel-preset-es2015` et pour React il y a `babel-preset-react`.
 
@@ -79,14 +79,14 @@ Voici la commande pour installer toutes ces dépendances avec npm&nbsp;:
 npm install --save-dev babel-cli babel-preset-es2015 babel-preset-react
 ```
 
-Ensuite, la commande magique qui va compiler un fichier `source.js` en un fichier `output.js` qui est en ES5 et qui est du React lisible par le navigateur (sans JSX), est&nbsp;:
+Ensuite, la commande magique qui va compiler un fichier `source.js` en un fichier `output.js` qui est en ES5 et qui est du React lisible par le navigateur (sans [JSX](#react)), est&nbsp;:
 ```
 babel source.js -o output.js --presets es2015,react
 ```
 
 ## Bundlers
 
-Le bundler vous permet de condenser tout le code de votre application en un seul fichier javascript. Il permet ainsi de n'avoir qu'un seul fichier javascript à importer dans votre page HTML. L'intérêt majeur c'est que vous n'êtes plus contraints d'avoir un fichier obèse quand vous codez du JavaScript, où il est impossible de retrouver votre fonction. Vous pouvez faire des modules (fichiers isolés), y faire référence dans un autre fichier et tout de même être capable de les utiliser dans le navigateur sans ajouter une balise `<script>` à chaque fois que vous ajoutez un fichier. 
+Le bundler vous permet de condenser tout le code de votre application en un seul fichier javascript. Il permet ainsi de n'avoir qu'un seul fichier javascript à importer dans votre page HTML. L'intérêt majeur c'est que vous n'êtes plus contraints d'avoir un fichier obèse quand vous codez du JavaScript, où il est impossible de retrouver votre fonction. Vous pouvez faire des modules (fichiers isolés), y faire référence dans un autre fichier et tout de même être capable de les utiliser dans le navigateur sans ajouter une balise `<script>` à chaque fois que vous ajoutez un fichier.
 
 Les deux outils majeurs sur le marché sont [Browserify](http://browserify.org/) et [Webpack](https://webpack.github.io/docs/). Le premier se contente de bundler, tandis que l'autre a tendance à faire le café en plus. Préférant avoir des outils n'ayant qu'une seule responsabilité, j'utilise Browserify.
 
@@ -97,7 +97,7 @@ Ajoutez donc dans un premier temps les dépendances avec npm&nbsp;:
 npm install --save-dev browserify babelify watchify babel-preset-es2015 babel-preset-2016
 ```
 
-Ensuite, la nouvelle commande magique, qui va compiler un fichier `source.js` en un fichier `output.js` qui est en ES5, qui est du React lisible par le navigateur (sans JSX) et qui contient tous les modules et sous-modules nécessaires au fichier source.js, est&nbsp;:
+Ensuite, la nouvelle commande magique, qui va compiler un fichier `source.js` en un fichier `output.js` qui est en ES5, qui est du React lisible par le navigateur (sans [JSX](#react)) et qui contient tous les modules et sous-modules nécessaires au fichier source.js, est&nbsp;:
 `browserify source.js -o output.js -t [ babelify --presets [ es2015 react ] ]`
 
 Vous pouvez ensuite importer directement votre fichier output.js dans votre code html comme vous l'auriez fait avant de mettre en place cette stack d'outils.
@@ -108,7 +108,7 @@ Vous pouvez ensuite importer directement votre fichier output.js dans votre code
 
 Maintenant que vous avez plein de nouvelles connaissances qui vous sont déjà utiles dans tous vos autres projets, vous pouvez mettre les pieds dans le plat. C'est finalement la partie où je vais vous être le moins utile.
 
-Le [tutoriel officiel de React](https://facebook.github.io/react/docs/tutorial.html) est vraiment une très bonne ressource. Il est d'ailleurs en ES5 pour ne pas dépayser ceux n'ayant pas encore fait le pas. Pour les plus frileux en anglais, rassurez vous, il est largement fourni en exemple de code, ce qui devrait normalement faciliter le processus. Les notions importantes sont les `Components`, les `properties`, le `state` et le `JSX`. Un bon premier exercice pour les appréhender serait de transformer le résultat de ce tutoriel en ES6. Vous pouvez trouver comment faire encore une fois sur [la documentation officielle](https://facebook.github.io/react/docs/reusable-components.html#es6-classes).
+Le [tutoriel officiel de React](https://facebook.github.io/react/docs/tutorial.html) est vraiment une très bonne ressource. Il est d'ailleurs en ES5 pour ne pas dépayser ceux n'ayant pas encore fait le pas. Pour les plus frileux en anglais, rassurez vous, il est largement fourni en exemple de code, ce qui devrait normalement faciliter le processus. Les notions importantes sont les `Components` que l'on peut déclarer avec des *classes* ou des *fonctions*, les `properties`, le `state` et le `JSX`. Ce dernier n'est par contre que du sucre syntaxique pour avoir l'impression d'écrire du HTML : [vous pouvez vous en passer](https://facebook.github.io/react/docs/jsx-in-depth.html). Un bon premier exercice pour faire du React serait de transformer le résultat du tutoriel officiel en ES6. Vous pouvez trouver comment faire encore une fois sur [la documentation officielle](https://facebook.github.io/react/docs/reusable-components.html#es6-classes).
 
 Si vous avez de bonnes ressources françaises en tête, je suis preneur afin de les ajouter ici même. J'ai cependant du mal à en trouver, sachant qu'elles sont souvent pleines de raccourcis qui parlent à des personnes qui se sont déjà battus avec React, mais qui sont abstraits pas pour les débutants.
 
@@ -120,9 +120,9 @@ Cependant, le plus agréable pour vous sera certainement de commencer un projet 
 ## Pour la suite, que faire ?
 
 Une fois que vous avez un peu plus de maîtrise sur le sujet, vous pouvez commencer à regarder ce qui gravite autour. Vous pouvez commencer où bon vous semble selon vos besoins. Cependant, l'ordre affiché est en fait ce qui vous permettra de gagner en compétence dans des domaines qui vous serviront aussi en dehors de React.
-- [Immutable.js](https://facebook.github.io/immutable-js/)&nbsp;: Un des fondements du paradigme fonctionnel. Vous pouvez le mettre en place avec du JavaScript pur, mais cette librairie expose une API que je trouve bien pratique.
-- [Observables](http://reactivex.io/documentation/observable.html)&nbsp;: Un moyen de gérer les évènements très pragmatique quand on commence à apprécier la programmation fonctionelle. La librairie la plus connue est [RxJS](https://github.com/Reactive-Extensions/RxJS).
-- [Flux](https://facebook.github.io/flux/docs/overview.html)&nbsp;: Une architecture alternative au MVC. Son implémentation la plus populaire est [Redux](http://redux.js.org/). [Un cours vidéo](https://egghead.io/series/getting-started-with-redux) est d'ailleurs disponible (en anglais) pour expliquer le principe de Redux. Il y a tout un éco-système autour qui vous permettra de résoudre des problèmes concrets. Je pense notamment à [redux-saga](https://github.com/yelouafi/redux-saga), [redux-thunk](https://github.com/gaearon/redux-thunk) 
+- [Immutable.js](https://facebook.github.io/immutable-js/)&nbsp;: L'immutabilité et un des fondements du paradigme fonctionnel. Vous pouvez le mettre en place avec du JavaScript pur, mais cette librairie expose une API que je trouve bien pratique.
+- [Observables](http://reactivex.io/documentation/observable.html)&nbsp;: Un moyen de gérer les évènements très pragmatique quand on commence à apprécier la programmation fonctionnelle. La librairie la plus connue est [RxJS](https://github.com/Reactive-Extensions/RxJS).
+- [Flux](https://facebook.github.io/flux/docs/overview.html)&nbsp;: Une architecture alternative au MVC. Son implémentation la plus populaire est [Redux](http://redux.js.org/). [Un cours vidéo](https://egghead.io/series/getting-started-with-redux) est d'ailleurs disponible (en anglais) pour expliquer le principe de Redux. Il y a tout un écosystème autour qui vous permettra de résoudre des problèmes concrets. Je pense notamment à [redux-saga](https://github.com/yelouafi/redux-saga), [redux-thunk](https://github.com/gaearon/redux-thunk)
 - Routing: Pour faire des Single Page Applications, vous aurez besoin de mapper l'URL avec des composants. Généralement, les gens utilisent [React Router](https://github.com/reactjs/react-router).
 
 Le but est de toute façon de prendre les problèmes un par un. Ne cherchez pas à tout connaître sur le bout des doigts. Il faut se contenter de connaître vaguement les solutions qui existent pour pouvoir ensuite les approfondir le jour où vous tombez face à ces problèmes.

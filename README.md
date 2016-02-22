@@ -1,11 +1,10 @@
 # Le blog du Julien "Vlynn" Pradet
 
 ## Publiés
-- 404 Not Found
+- [Comment appréhender l'écosystème React ?](https://github.com/JulienPradet/blog-posts/blob/master/commencer-avec-react.md)
 
 ## En cours de rédaction
-- Comment appréhender l'écosystème React ?
-- Comment construire son outillage de développement front ?
+- Découvrir React
 
 ## A propos
 
