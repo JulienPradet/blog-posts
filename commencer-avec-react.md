@@ -14,23 +14,23 @@ Le plus difficile cependant est d'éviter la [Javascript Fatigue](https://medium
 
 Je ne conseillerais pas de commencer par React, mais d'apprendre dans cet ordre&nbsp;:
 
-1. [npm](#npm)&nbsp;: Vous permet de gérer vos dépendances et de lancer des scripts pour automatiser les phases de votre projet
-- [ECMAScript6](#ecmascript6)&nbsp;: Le nouveau standard JavaScript qui vous permet d'écrire du code plus concis et plus robuste
-- [Bundlers](#bundlers)&nbsp;: Vous permet de transformer plusieurs fichiers en un seul pour l'incorporer directement dans votre navigateur.
+1. [npm](#npm)&nbsp;: Gère vos dépendances et de lancer des scripts pour automatiser les phases de votre projet
+- [ECMAScript6](#ecmascript6)&nbsp;: Le nouveau standard JavaScript pour écrire du code plus concis et plus robuste
+- [Bundlers](#bundlers)&nbsp;: Transforme plusieurs fichiers en un seul pour l'incorporer directement dans votre navigateur.
 - [React](#react)&nbsp;: Enfin !
 
 ## npm
 
-[npm](https://docs.npmjs.com/getting-started/what-is-npm) vous permettra de faire deux choses&nbsp;: gérer vos dépendances et lancer des scripts. [@maxdow](https://twitter.com/maxdow) a fait une [excellente](http://maxlab.fr/2015/03/comprendre-npm-astuces-et-configuration/) [série](http://maxlab.fr/2015/03/comprendre-npm-astuces-et-configuration/) d'[articles](http://maxlab.fr/2015/07/maitriser-npm-au-coeur-du-workflow/) pour bien comprendre son fonctionnement. Cependant, en bref, voici une explication de ce que vous pouvez attendre de cet outil.
+[npm](https://docs.npmjs.com/getting-started/what-is-npm) fait deux choses&nbsp;: gérer vos dépendances et lancer des scripts. [@maxdow](https://twitter.com/maxdow) a fait une [excellente](http://maxlab.fr/2015/03/comprendre-npm-astuces-et-configuration/) [série](http://maxlab.fr/2015/03/comprendre-npm-astuces-et-configuration/) d'[articles](http://maxlab.fr/2015/07/maitriser-npm-au-coeur-du-workflow/) pour bien comprendre son fonctionnement. Cependant, en bref, voici une explication de ce que vous pouvez attendre de cet outil.
 
 #### La gestion de dépendance
 
-La gestion de dépendance permet de vous assurer que les librairies que vous utilisez sont à jour. Vous aviez peut-être l'habitude de travailler avant avec bower. Eh bien, c'est la même chose, mais npm est beaucoup plus suivi par la communauté React, et il vous permet aussi de gérer toutes vos dépendances en node. Si vous n'êtes pas familiers avec bower ou un autre gestionnaire de dépendance, le plus simple est de se dire qu'il va s'occuper pour vous de télécharger vos librairies, les mettre à disposition et les mettre à jour tout seul pour éviter de se retrouver avec des outils dépassés. Pour ce faire, vous pouvez déclarer vos dépendances dans un fichier `package.json`. Il faut alors renseigner le nom des librairies ainsi que les numéros de version qui conviennent à votre projet. npm se chargera alors de les retrouver et de les installer pour vous.
+La gestion de dépendance vous assure que les librairies que vous utilisez sont à jour. Vous aviez peut-être l'habitude de travailler avant avec bower. Eh bien, c'est la même chose, mais npm est beaucoup plus suivi par la communauté React, et il vous gère toutes vos dépendances en node. Si vous n'êtes pas familiers avec bower ou un autre gestionnaire de dépendance, le plus simple est de se dire qu'il va s'occuper pour vous de télécharger vos librairies, les mettre à disposition et les mettre à jour tout seul pour éviter de se retrouver avec des outils dépassés. Pour ce faire, vous pouvez déclarer vos dépendances dans un fichier `package.json`. Il faut alors renseigner le nom des librairies ainsi que les numéros de version qui conviennent à votre projet. npm se chargera alors de les retrouver et de les installer pour vous.
 
 
 #### Les scripts
 
-Le lanceur de script, lui, permet de lancer les différentes tâches dont vous avez besoin dans votre projet&nbsp;: la compilation, le démarrage de l'application, etc. C'est aussi un excellent moyen d'unifier les projets en proposant des standards valables sur tous les projets. Quand vous récupérez un projet dans le Grand Internet, généralement vous aurez les commandes suivantes&nbsp;:
+Le lanceur de script exécute les différentes tâches dont vous avez besoin dans votre projet&nbsp;: la compilation, le démarrage de l'application, etc. C'est aussi un excellent moyen d'unifier les projets en proposant des standards valables sur tous les projets. Quand vous récupérez un projet dans le Grand Internet, généralement vous aurez les commandes suivantes&nbsp;:
 - `npm install`&nbsp;: installe le projet sur votre machine.
 - `npm start`&nbsp;: démarre le projet. Par exemple, sur un serveur web, il va faire toutes les étapes nécessaires pour le démarrer et vous n'aurez plus qu'à ouvrir votre navigateur au bon endroit.
 - `npm run test`&nbsp;: lance les tests du projet.
@@ -40,9 +40,9 @@ L'intérêt du lanceur de script réside surtout dans le fait que vous n'avez qu
 
 #### Ne prenez pas peur
 
-En créant votre propre `package.json` (fichier de configuration de npm), vous apprendrez par vous même quels outils utiliser. Ne commencez pas un projet en vous disant que vous voulez avoir une suite d'outils parfaite. Faîtes à chaque fois le minimum vital qui vous permettra d'avancer dans votre projet, puis incrémentez quand vous en ressentez le besoin.
+En créant votre propre `package.json` (fichier de configuration de npm), vous apprendrez par vous même quels outils utiliser. Ne commencez pas un projet en vous disant que vous voulez avoir une suite d'outils parfaite. Faîtes à chaque fois le minimum vital pour avancer dans votre projet, puis incrémentez quand vous en ressentez le besoin.
 
-[Keith Cirkel](https://twitter.com/keithamus) présente dans [cet article](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) comment construire ses scripts pour qu'ils soient maintenables. Cela se permet de se rendre compte que votre `package.json` se fait par étape et n'apparaît pas magiquement.
+[Keith Cirkel](https://twitter.com/keithamus) présente dans [cet article](http://blog.keithcirkel.co.uk/how-to-use-npm-as-a-build-tool/) comment construire ses scripts pour qu'ils soient maintenables. Vous réaliserez que votre `package.json` se construit par étape et n'apparaît pas magiquement.
 
 #### Un exemple minimal
 
@@ -72,7 +72,7 @@ Il existe d'autres éléments tout aussi intéressants telles que les `blocks`, 
 
 Afin de faire du ES6 dès aujourd'hui, il faut le compiler, ou le *transpiler* (si on veut faire genre on s'y connaît). Pour cela il y a notamment [Babel](https://babeljs.io/) qui va transformer pour vous le code en ES5 (version qui est supportée par tous les navigateurs modernes). Il peut aller plus loin que de l'ES6 et a tendance à proposer des solutions via un système de plugin pour les propositions qui sont parfois encore en draft.
 
-Heureusement, il y a le système de `preset` qui permet de regrouper les plugins et configurations, afin de ne pas avoir à tout gérer soit même. Notamment, pour ES6 il y a `babel-preset-es2015` et pour React il y a `babel-preset-react`.
+Heureusement, il y a le système de `preset` qui regroupe les plugins et configurations, afin de ne pas avoir à tout gérer soit même. Notamment, pour ES6 il y a `babel-preset-es2015` et pour React il y a `babel-preset-react`.
 
 Voici la commande pour installer toutes ces dépendances avec npm&nbsp;:
 ```
@@ -86,7 +86,7 @@ babel source.js -o output.js --presets es2015,react
 
 ## Bundlers
 
-Le bundler vous permet de condenser tout le code de votre application en un seul fichier javascript. Il permet ainsi de n'avoir qu'un seul fichier javascript à importer dans votre page HTML. L'intérêt majeur c'est que vous n'êtes plus contraints d'avoir un fichier obèse quand vous codez du JavaScript, où il est impossible de retrouver votre fonction. Vous pouvez faire des modules (fichiers isolés), y faire référence dans un autre fichier et tout de même être capable de les utiliser dans le navigateur sans ajouter une balise `<script>` à chaque fois que vous ajoutez un fichier.
+Le bundler condense tout le code de votre application pour n'avoir qu'un seul fichier javascript à importer dans votre page HTML. L'intérêt majeur c'est que vous n'êtes plus contraints d'avoir un fichier obèse quand vous codez du JavaScript, où il est impossible de retrouver votre fonction. Vous pouvez faire des modules (fichiers isolés), y faire référence dans un autre fichier et tout de même être capable de les utiliser dans le navigateur sans ajouter une balise `<script>` à chaque fois que vous ajoutez un fichier.
 
 Les deux outils majeurs sur le marché sont [Browserify](http://browserify.org/) et [Webpack](https://webpack.github.io/docs/). Le premier se contente de bundler, tandis que l'autre a tendance à faire le café en plus. Préférant avoir des outils n'ayant qu'une seule responsabilité, j'utilise Browserify.
 
@@ -112,17 +112,17 @@ Le [tutoriel officiel de React](https://facebook.github.io/react/docs/tutorial.h
 
 Si vous avez de bonnes ressources françaises en tête, je suis preneur afin de les ajouter ici même. J'ai cependant du mal à en trouver, sachant qu'elles sont souvent pleines de raccourcis qui parlent à des personnes qui se sont déjà battus avec React, mais qui sont abstraits pas pour les débutants.
 
-Cependant, le plus agréable pour vous sera certainement de commencer un projet et de chercher vos réponses au fur et à mesure que les problèmes surviennent. Si vous n'êtes pas inspirés, vous pouvez partir sur des [katas](http://codingdojo.org/cgi-bin/index.pl?KataCatalogue) (petits exercices de programmation) et essayer de les adapter au web. Surtout que en prenant les choses dans l'ordre, cela vous permettra de&nbsp;:
+Cependant, le plus agréable pour vous sera certainement de commencer un projet et de chercher vos réponses au fur et à mesure que les problèmes surviennent. Si vous n'êtes pas inspirés, vous pouvez partir sur des [katas](http://codingdojo.org/cgi-bin/index.pl?KataCatalogue) (petits exercices de programmation) et essayer de les adapter au web. Surtout que en prenant les choses dans l'ordre, vous pourrez&nbsp;:
 
 1. Pratiquer de l'ES6 dans un premier temps pour la partie algorithmique
 2. Implémenter une interface un peu plus cool que du `console.log`
 
 ## Pour la suite, que faire ?
 
-Une fois que vous avez un peu plus de maîtrise sur le sujet, vous pouvez commencer à regarder ce qui gravite autour. Vous pouvez commencer où bon vous semble selon vos besoins. Cependant, l'ordre affiché est en fait ce qui vous permettra de gagner en compétence dans des domaines qui vous serviront aussi en dehors de React.
+Une fois que vous avez un peu plus de maîtrise sur le sujet, vous pouvez commencer à regarder ce qui gravite autour. Vous pouvez commencer où bon vous semble selon vos besoins. Cependant, l'ordre affiché vous fera gagner en compétence dans des domaines qui vous serviront aussi en dehors de React.
 - [Immutable.js](https://facebook.github.io/immutable-js/)&nbsp;: L'immutabilité et un des fondements du paradigme fonctionnel. Vous pouvez le mettre en place avec du JavaScript pur, mais cette librairie expose une API que je trouve bien pratique.
 - [Observables](http://reactivex.io/documentation/observable.html)&nbsp;: Un moyen de gérer les évènements très pragmatique quand on commence à apprécier la programmation fonctionnelle. La librairie la plus connue est [RxJS](https://github.com/Reactive-Extensions/RxJS).
-- [Flux](https://facebook.github.io/flux/docs/overview.html)&nbsp;: Une architecture alternative au MVC. Son implémentation la plus populaire est [Redux](http://redux.js.org/). [Un cours vidéo](https://egghead.io/series/getting-started-with-redux) est d'ailleurs disponible (en anglais) pour expliquer le principe de Redux. Il y a tout un écosystème autour qui vous permettra de résoudre des problèmes concrets. Je pense notamment à [redux-saga](https://github.com/yelouafi/redux-saga), [redux-thunk](https://github.com/gaearon/redux-thunk)
+- [Flux](https://facebook.github.io/flux/docs/overview.html)&nbsp;: Une architecture alternative au MVC. Son implémentation la plus populaire est [Redux](http://redux.js.org/). [Un cours vidéo](https://egghead.io/series/getting-started-with-redux) est d'ailleurs disponible (en anglais) pour expliquer le principe de Redux. Son écosystème vous aidera à résoudre des problèmes concrets. Je pense notamment à [redux-saga](https://github.com/yelouafi/redux-saga), [redux-thunk](https://github.com/gaearon/redux-thunk)
 - Routing: Pour faire des Single Page Applications, vous aurez besoin de mapper l'URL avec des composants. Généralement, les gens utilisent [React Router](https://github.com/reactjs/react-router).
 
 Le but est de toute façon de prendre les problèmes un par un. Ne cherchez pas à tout connaître sur le bout des doigts. Il faut se contenter de connaître vaguement les solutions qui existent pour pouvoir ensuite les approfondir le jour où vous tombez face à ces problèmes.
