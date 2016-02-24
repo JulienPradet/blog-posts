@@ -1,6 +1,6 @@
 # Comment appréhender l'écosystème React ?
 
-> *Disclaimer&nbsp;: Le but de cet article n'est pas de vous présenter la méthode parfaite. Cependant, il s'adresse aux personnes qui ne savent plus où commencer tellement il y a de choses à voir.*
+> *Disclaimer&nbsp;: Le but de cet article n'est pas de vous présenter la méthode parfaite. Cependant, il s'adresse aux personnes qui ne savent plus où commencer tellement il y a de choses à voir. [Vous pouvez poser vos questions et commentaires dans cette issue.](https://github.com/JulienPradet/blog-posts/issues/2)*
 
 Depuis que j'ai découvert React, j'en parle à qui je peux. Non pas parce que c'est à la mode, ou que je pense que React est **la** technologie qui va enfin durer dans le web. Mais parce que je pense que c'est une approche qui simplifie drastiquement le développement web, et que la communauté qui gravite autour est particulièrement dynamique et intéressante. Il y a des chances que cela fasse évoluer la façon dont vous concevez les applications web, y compris sur des anciennes technologies.
 
