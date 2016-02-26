@@ -19,6 +19,8 @@ Je ne conseillerais pas de commencer par React, mais d'apprendre dans cet ordre&
 - [Bundlers](#bundlers)&nbsp;: Transforme plusieurs fichiers en un seul pour l'incorporer directement dans votre navigateur.
 - [React](#react)&nbsp;: Enfin !
 
+Pete Hunt aborde aussi [le sujet](https://github.com/petehunt/react-howto), mais sous un angle différent. Pour lui, React est le point de départ. Pour moi, en commençant par des notions plus générales, vous améliorerez votre développement web de manière plus durable et vous vous forgerez des armes pour mieux comprendre les ressources qui tournent autour de React.
+
 ## npm
 
 [npm](https://docs.npmjs.com/getting-started/what-is-npm) fait deux choses&nbsp;: gérer vos dépendances et lancer des scripts. [@maxdow](https://twitter.com/maxdow) a fait une [excellente](http://maxlab.fr/2015/03/comprendre-npm-astuces-et-configuration/) [série](http://maxlab.fr/2015/03/comprendre-npm-astuces-et-configuration/) d'[articles](http://maxlab.fr/2015/07/maitriser-npm-au-coeur-du-workflow/) pour bien comprendre son fonctionnement. Cependant, en bref, voici une explication de ce que vous pouvez attendre de cet outil.
