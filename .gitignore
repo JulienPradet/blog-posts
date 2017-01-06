@@ -1,2 +1,6 @@
+# node / npm
 node_modules
-output.js
+*.log
+
+# phenomic build
+dist
