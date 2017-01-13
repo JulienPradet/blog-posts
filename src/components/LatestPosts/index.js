@@ -10,7 +10,7 @@ const LatestPosts = ({numberOfPosts = defaultNumberOfPosts}, { collection }) => 
     filter: { layout: 'Post' },
     sort: 'date',
     reverse: true
-  })
+  }).filter(({__url}) => !(/^\/wip/.test(__url)))
 
   if (numberOfPosts) {
     posts = posts.slice(0, numberOfPosts)

@@ -8,8 +8,6 @@ import PageError from './layouts/PageError'
 import Homepage from './layouts/Homepage'
 import Post from './layouts/Post'
 
-import InjectDataExample from './examples/injecter-des-donnees-react'
-
 const PageContainer = (props) => (
   <PhenomicPageContainer
     {...props}
@@ -24,7 +22,6 @@ const PageContainer = (props) => (
 
 export default (
   <Route component={AppContainer}>
-    <Route path='/wip/injecter-des-donnees-react/exemple' component={InjectDataExample} />
     <Route path='*' component={PageContainer} />
   </Route>
 )
