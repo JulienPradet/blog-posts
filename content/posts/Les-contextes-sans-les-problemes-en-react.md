@@ -5,8 +5,6 @@ layout: Post
 description: Un des inconvenients de React est le passage d'informations d'un composant à un autre. Une des solutions est d'utiliser les contextes. Mais il peut y avoir des problèmes. Lesquels et comment les éviter ?
 ---
 
-Prérequis&nbsp;: Savoir ce qu'est React et avoir déjà fait un Hello World.
-
 L'idée derrière React est de construire un arbre de composants. Le père indique au fils comment s'afficher en lui passant des propriétés. Le fils passe à son tour des propriétés à ses propres fils, etc. Pourtant, aujourd'hui je ne vais pas vous parler des propriétés, mais je vais plutôt vous parler de comment éviter de passer des propriétés.
 
 En effet, quand les gens commencent sur cette techno, la première déception est la verbosité que cela impose&nbsp;: il faut passer les propriétés une par une. D'autant plus qu'il fortement conseillé de réduire la taille de ses composants. Le nombre de passations à faire explose rapidement.
@@ -204,6 +202,8 @@ En attendant, vous pouvez jouer avec le contenu de cet article sur ce [jsFiddle]
 Si vous avez des questions, si un point n'est pas clair ou si vous avez juste envie de discuter n'hésitez pas à me [contacter](https://twitter.com/JulienPradet).
 
 A la semaine prochaine&nbsp;!
+
+**MaJ :** [Partie 2](/posts/Les-contextes-sans-les-problemes-en-react-2/) 
 
 ---------
 
