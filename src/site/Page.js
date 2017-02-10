@@ -1,14 +1,16 @@
 import React from 'react'
+import {Link} from 'react-router-dom'
 import Helmet from 'react-helmet'
 import {withSite} from './Site'
 import PageHeader from './PageHeader'
 import PageContent from './PageContent'
 import PageFooter from './PageFooter'
 import PageList from './PageList'
+import GlobalFooter from './GlobalFooter'
 
 const Page = (props) => {
   return (
-    <div>
+    <div className='page'>
       <Helmet
         titleTemplate={`%s | ${props.site.meta.author.name}`}
         defaultTitle='Blog'
@@ -35,20 +37,24 @@ const Page = (props) => {
             {rel: 'stylesheet', href: `/css/prism-onedark.css`}
         ]}
       />
-      <PageHeader page={props.page} />
-      <PageContent>
-        {props.children}
-        <hr />
-        {props.page.isPost && (
-          <div>
-            <PageFooter />
-            <hr />
-          </div>
-        )}
-        {!props.page.standalone && (
-          <PageList length={props.page.isHome ? 0 : 2} />
-        )}
-      </PageContent>
+      <div>
+        <PageHeader page={props.page} />
+        <PageContent>
+          {props.children}
+          <hr />
+          {props.page.isPost && (
+            <div>
+              <PageFooter />
+              <hr />
+            </div>
+          )}
+          {!props.page.standalone && (
+            <PageList length={props.page.isHome ? 0 : 2} />
+          )}
+          {!props.page.isHome && <Link to='/'>Revenir à la page d'accueil</Link>}
+        </PageContent>
+      </div>
+      <GlobalFooter />
     </div>
   )
 }

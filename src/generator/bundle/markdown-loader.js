@@ -3,7 +3,7 @@ var markdown = require('markdown-it')
 require('prismjs/components/prism-jsx')
 
 const md = markdown({
-  html: false,
+  html: true,
   xhtmlOut: false,
   breaks: false,
   linkify: false,

@@ -16,6 +16,7 @@ const PageList = (props) => {
           }
           return 0
         })
+        .slice(0, props.length > 0 ? props.length : undefined)
         .map((page) => (
           <li key={page.location} className='page-list__item'>
             <PagePreview page={page} />

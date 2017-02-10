@@ -17,9 +17,11 @@ const PagePreview = ({page}) => (
       {page.description}
       {' '}
     </div>
-    <Link to={page.location} className='page-preview__read-more'>
-      Lire la suite →
-    </Link>
+    <div className='page-preview__read-more'>
+      <Link to={page.location}>
+        Lire la suite →
+      </Link>
+    </div>
   </div>
 )
 

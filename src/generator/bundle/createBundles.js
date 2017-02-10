@@ -28,6 +28,14 @@ const baseConfig = (paths) => (pages, entryPath) => {
         {
           test: /\.md$/,
           loader: './' + path.relative(process.cwd(), 'src/generator/bundle/markdown-loader.js')
+        },
+        {
+          test: /\.code$/,
+          loader: 'raw-loader'
+        },
+        {
+          test: /\.svg$/,
+          loader: 'raw-loader'
         }
       ]
     },
@@ -40,11 +48,11 @@ const baseConfig = (paths) => (pages, entryPath) => {
       }),
       new webpack.DefinePlugin({
         'process.env': {
-          NODE_ENV: JSON.stringify('development' || process.env.NODE_ENV || 'production')
+          NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'production')
         }
       })
     ].concat(
-      process.env.NODE_ENV === 'production'
+      false && process.env.NODE_ENV === 'production'
         ? [
           new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
