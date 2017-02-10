@@ -6,6 +6,12 @@ const log = require('../util/log')('BUNDLE')
 const baseConfig = (paths) => (pages, entryPath) => {
   return {
     devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'cheap-module-source-map',
+    resolve: {
+      alias: {
+        'react': 'preact-compat',
+        'react-dom': 'preact-compat'
+      }
+    },
     module: {
       rules: [
         {

@@ -1,6 +1,6 @@
 import path from 'path'
 import React from 'react'
-import { renderToString } from 'react-dom/server'
+import renderToString from 'preact-render-to-string'
 import { StaticRouter } from 'react-router'
 import Helmet from 'react-helmet'
 import App from '../tmp/App'
