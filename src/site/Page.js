@@ -20,6 +20,7 @@ const Page = (props) => {
             {name: 'viewport', content: 'width=device-width, initial-scale=1'},
             {name: 'description', content: props.page.description},
             {property: 'twitter:site', content: '@JulienPradet'},
+            {property: 'twitter:card', content: 'summary'},
             {property: 'twitter:creator', content: '@JulienPradet'},
             {property: 'twitter:title', content: props.page.title},
             {property: 'twitter:description', content: (props.page.twitter && props.page.twitter.description) || props.page.description},
