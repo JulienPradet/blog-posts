@@ -1,5 +1,5 @@
 
-Cet article fait suite à [celui de la semaine dernière](posts/Les-contextes-sans-les-problemes-en-react/).
+Cet article fait suite à [celui de la semaine dernière](/posts/Les-contextes-sans-les-problemes-en-react/).
 Dans ce dernier, nous avons vu comment éviter de noyer nos composants React avec des milliers de propriétés en tirant partie des contextes qui sont une fonctionnalité native de React. Nous nous sommes aussi préparés aux futurs *breaking changes*, étant donné que les contextes sont une fonctionnalité dite *expérimentale*.
 
 Pour cela on a créé deux types de composants&nbsp;:
