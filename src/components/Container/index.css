@@ -1,7 +1,0 @@
-.container {
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  border: 0.8em solid var(--colorPrimary);
-  padding: 1em;
-}
