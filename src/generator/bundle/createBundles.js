@@ -6,12 +6,6 @@ const log = require('../util/log')('BUNDLE')
 const baseConfig = (paths) => (pages, entryPath) => {
   return {
     devtool: process.env.NODE_ENV === 'production' ? 'source-map' : 'cheap-module-source-map',
-    resolve: {
-      alias: {
-        'react': 'preact-compat',
-        'react-dom': 'preact-compat'
-      }
-    },
     module: {
       rules: [
         {
@@ -58,11 +52,11 @@ const baseConfig = (paths) => (pages, entryPath) => {
         }
       })
     ].concat(
-      false && process.env.NODE_ENV === 'production'
+      process.env.NODE_ENV === 'production'
         ? [
           new webpack.optimize.UglifyJsPlugin({
             sourceMap: true,
-            output: { comments: false }
+            compress: { warnings: false }
           })
         ]
         : []
@@ -100,7 +94,7 @@ const webpackConfig = (paths) => (pages, entryPath) => {
   serverEntry.externals = /^[\w-\d]$/
   serverEntry.output = {
     path: path.join(__dirname, '../tmp'),
-    filename: 'server.js',
+    filename: '[name].js',
     chunkFilename: '[name].js',
     publicPath: '/',
     libraryTarget: 'commonjs2'

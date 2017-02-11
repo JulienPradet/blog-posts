@@ -1,6 +1,6 @@
 import path from 'path'
 import React from 'react'
-import renderToString from 'preact-render-to-string'
+import { renderToString } from 'react-dom/server'
 import { StaticRouter } from 'react-router'
 import Helmet from 'react-helmet'
 import App from '../tmp/App'
@@ -60,7 +60,7 @@ const renderPageToHtml = (paths) => (jsPath, htmlPath, stats) => {
             <div id='root' dangerouslySetInnerHTML={{__html: html}} />
             <script dangerouslySetInnerHTML={{__html: `${STATE_IDENTIFIER} = ${JSON.stringify(state)}`}} />
             {getPathsFromChunks(paths)(stats.children[0], htmlPath).map((jsPath, key) => (
-              <script async src={jsPath} key={key} />
+              <script defer src={jsPath} key={key} />
             ))}
           </body>
         </html>
