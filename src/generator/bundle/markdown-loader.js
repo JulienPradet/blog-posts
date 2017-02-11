@@ -17,6 +17,11 @@ const md = markdown({
     return `<pre class="language-${lang}"><code>${Prism.highlight(code, Prism.languages[lang])}</code></pre>`
   }
 })
+.use(require('markdown-it-anchor'), {
+  permalink: true,
+  permalinkBefore: true,
+  permalinkSymbol: '#'
+})
 
 module.exports = function markdownLoader (content) {
   return 'module.exports = ' + JSON.stringify(md.render(content))

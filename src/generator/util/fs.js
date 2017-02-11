@@ -85,7 +85,7 @@ function getRecursiveFiles (inputDir$) {
     .flatMap((files) => files) // flatten all files
     .flatMap((filepath) => stat(filepath))
     .map(({filepath, stats}) => ({ filepath, stats, isDirectory: stats.isDirectory() }))
-    .expand(({filepath, stats, isDirectory}) => isDirectory ? getRecursiveFiles(Observable.just(filepath)) : Observable.empty())
+    .expand(({filepath, stats, isDirectory}) => isDirectory ? getRecursiveFiles(Observable.of(filepath)) : Observable.empty())
     .filter(({isDirectory}) => !isDirectory)
     .map(({isDirectory, filepath, stats}) => ({filepath, stats}))
 }

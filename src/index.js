@@ -9,7 +9,7 @@ log('info', 'Starting static site building')
 generate({
   sitePath: path.join(__dirname, './site'),
   contentPath: path.join(__dirname, './content'),
-  stylePath: path.join(__dirname, './style'),
+  publicPath: path.join(__dirname, './public'),
   buildPath: path.join(__dirname, '../build')
 }).subscribe(
   () => log('success', 'Compiled.'),

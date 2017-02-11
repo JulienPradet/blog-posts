@@ -2926,6 +2926,12 @@ map-stream@~0.1.0:
   version "0.1.0"
   resolved "https://registry.yarnpkg.com/map-stream/-/map-stream-0.1.0.tgz#e56aa94c4c8055a16404a0674b78f215f7c8e194"
 
+markdown-it-anchor@^3.0.0:
+  version "3.0.0"
+  resolved "https://registry.yarnpkg.com/markdown-it-anchor/-/markdown-it-anchor-3.0.0.tgz#a6c0cc6dbda47b37b16ec36195f436d6949671df"
+  dependencies:
+    string "^3.0.1"
+
 markdown-it@^8.2.2:
   version "8.2.2"
   resolved "https://registry.yarnpkg.com/markdown-it/-/markdown-it-8.2.2.tgz#e39593d976f9c4b7ee7f338a3a1e9e10c3db4e36"
@@ -4297,6 +4303,10 @@ string-width@^2.0.0:
   dependencies:
     is-fullwidth-code-point "^2.0.0"
     strip-ansi "^3.0.0"
+
+string@^3.0.1:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/string/-/string-3.3.3.tgz#5ea211cd92d228e184294990a6cc97b366a77cb0"
 
 string_decoder@^0.10.25, string_decoder@~0.10.x:
   version "0.10.31"
