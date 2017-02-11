@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 GIT_DEPLOY_REPO=https://github.com/JulienPradet/julienpradet.github.io.git
 
-cd dist && \
+cd build && \
 rm -rf .git && \
 git init && \
 git add . && \
