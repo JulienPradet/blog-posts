@@ -13,7 +13,7 @@ const GlobalFooter = () => (
         </a>
       </li>
       <li>
-        <a href={`github.com/JulienPradet`}>
+        <a href={`https://github.com/JulienPradet/blog-posts`}>
           <Svg svg={githubSvg} cleanup />
           <span className='name'>JulienPradet</span>
         </a>

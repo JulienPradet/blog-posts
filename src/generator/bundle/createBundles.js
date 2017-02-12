@@ -76,8 +76,8 @@ const webpackConfig = (paths) => (pages, entryPath) => {
   )
   browserEntry.output = {
     path: paths.buildPath,
-    filename: '[name].js',
-    chunkFilename: '[name].js',
+    filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].js',
     publicPath: '/'
   }
 

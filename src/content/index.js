@@ -1,20 +1,10 @@
 import React from 'react'
-import Page from '../site/Page'
-import content from './home.md'
-import meta from './meta'
+import home from './home.md'
 
-export default class Home extends React.Component {
-  render () {
-    return (
-      <Page page={meta} path={this.props.match.path} isHome>
-        <div dangerouslySetInnerHTML={{__html: content}} />
-      </Page>
-    )
-  }
-}
+const Article = (props) => (
+  <div>
+    <div dangerouslySetInnerHTML={{__html: home}} />
+  </div>
+)
 
-Home.propTypes = {
-  match: React.PropTypes.shape({
-    path: React.PropTypes.string.isRequired
-  }).isRequired
-}
+export default Article

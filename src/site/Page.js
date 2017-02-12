@@ -14,6 +14,7 @@ const Page = (props) => {
       <Helmet
         titleTemplate={`%s | ${props.site.meta.author.name}`}
         defaultTitle='Blog'
+        title={props.page.title}
         meta={[
             {charset: 'utf-8'},
             {'http-equiv': 'X-UA-Compatible', content: 'IE=edge'},

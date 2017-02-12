@@ -23,7 +23,7 @@ const makeMeta = () => {
 const makePages = (paths) => (pages) => {
   return pages
     .map((pagePath) => {
-      const location = '/' + path.relative(paths.contentPath, path.dirname(pagePath))
+      const location = path.relative(paths.contentPath, path.dirname(pagePath))
       const metaPath = path.join(path.dirname(pagePath), 'meta.js')
 
       let meta
@@ -49,7 +49,8 @@ const makeEntry = (paths) => (matches$) => {
         const Route = require('react-router-dom').Route
         const createAsyncComponent = require('react-async-component').createAsyncComponent
         const SiteProvider = require('../../site/Site').default
-        require('react-helmet')
+        const Page = require('../../site/Page').default
+        const Loading = require('../../site/Loading').default
 
         const asyncPages = {}
 
