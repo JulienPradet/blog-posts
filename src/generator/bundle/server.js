@@ -46,7 +46,8 @@ const renderPageToHtml = (paths) => (jsPath, htmlPath, stats) => {
       } = result
 
       const html = renderToString(appWithAsyncComponents)
-        .replace(/href="\/\/"/, 'href="/"')
+        .replace(/href="\/\//g, 'href="/')
+
       const head = Helmet.rewind()
 
       const topHead = Object.keys(head)
