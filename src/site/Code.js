@@ -1,7 +1,4 @@
 import React from 'react'
-import Prism from 'prismjs'
-import 'prismjs/components/prism-jsx'
-import prettier from 'prettier'
 
 class Code extends React.Component {
   constructor () {
@@ -38,27 +35,18 @@ class Code extends React.Component {
       this.state.width !== nextState.width
   }
 
-  transformCode (code) {
-    return Prism.highlight(
-      prettier.format(
-        code,
-        {
-          printWidth: this.state.width,
-          tabWidth: 2,
-          singleQuote: false,
-          trailingComma: false,
-          bracketSpacing: true,
-          parser: 'babylon'
-        }
-      ),
-      Prism.languages[this.props.lang || 'jsx']
-    )
+  getCode (codeFormats) {
+    return codeFormats
+      .find(({printWidth}, index) => (
+        printWidth <= this.state.width || index === codeFormats.length - 1
+      ))
+      .code
   }
 
   render () {
     return (
       <pre className={`language-${this.props.lang || 'jsx'}`} ref={(node) => { this.code = node }}>
-        <code dangerouslySetInnerHTML={{__html: this.transformCode(this.props.children)}} />
+        <code dangerouslySetInnerHTML={{__html: this.getCode(this.props.children)}} />
       </pre>
     )
   }

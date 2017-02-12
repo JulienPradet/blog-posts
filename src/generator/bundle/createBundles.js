@@ -15,10 +15,8 @@ const baseConfig = (paths) => (pages, entryPath) => {
         },
         {
           test: /\.js$/,
-          exclude: [
-            /(node_modules|bower_components)/
-          ],
           loader: 'babel-loader',
+          exclude: [/node_modules/],
           options: {
             presets: [
               'react-app'
@@ -31,7 +29,7 @@ const baseConfig = (paths) => (pages, entryPath) => {
         },
         {
           test: /\.code$/,
-          loader: 'raw-loader'
+          loader: './' + path.relative(process.cwd(), 'src/generator/bundle/code-loader.js')
         },
         {
           test: /\.svg$/,
