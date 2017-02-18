@@ -46,12 +46,10 @@ class Page extends React.Component {
           ]}
           link={[
             {rel: 'canonical', href: `${this.props.site.meta.homepage}${this.props.path}`},
+            {rel: 'preload', href: '/css/main.css', as: 'style'},
             {rel: 'stylesheet', href: `/css/main.css`},
-            {rel: 'stylesheet', href: `/css/prism-onedark.css`},
             {rel: 'shortcut icon', href: '/favicon.ico', type: 'image/x-icon'},
             {rel: 'icon', href: '/favicon.ico', type: 'image/x-icon'},
-            {rel: 'preload', href: '/css/main.css', as: 'style'},
-            {rel: 'preload', href: '/css/prism-onedark.css', as: 'style'},
             {rel: 'manifest', href: '/manifest.json'}
           ]}
         />

@@ -1,10 +1,12 @@
 import React from 'react'
+import Helmet from 'react-helmet'
 
 class Code extends React.Component {
   constructor () {
     super()
     this.state = {
-      width: 70
+      width: 70,
+      loadCss: false
     }
     this.updatePrintWidth = this.updatePrintWidth.bind(this)
   }
@@ -20,6 +22,7 @@ class Code extends React.Component {
 
   updatePrintWidth () {
     this.setState({
+      loadCss: true,
       width: Math.max(
         40,
         Math.floor(
@@ -32,7 +35,8 @@ class Code extends React.Component {
   shouldComponentUpdate (nextProps, nextState) {
     return this.props.lang !== nextProps.lang ||
       this.props.children !== nextProps.children ||
-      this.state.width !== nextState.width
+      this.state.width !== nextState.width ||
+      this.state.loadCss !== nextState.loadCss
   }
 
   getCode (codeFormats) {
@@ -46,6 +50,7 @@ class Code extends React.Component {
   render () {
     return (
       <pre className={`language-${this.props.lang || 'jsx'}`} ref={(node) => { this.code = node }}>
+        {this.state.loadCss && <Helmet link={[{rel: 'stylesheet', href: '/css/prism-onedark.css'}]} />}
         <code dangerouslySetInnerHTML={{__html: this.getCode(this.props.children)}} />
       </pre>
     )
