@@ -1,5 +1,6 @@
 const Prism = require('prismjs')
 require('prismjs/components/prism-jsx')
+require('prismjs/components/prism-css')
 const prettier = require('prettier')
 
 const prettify = (printWidth, tabWidth) => (code) => (
@@ -21,7 +22,11 @@ const highlight = (lang) => (code) => (
 )
 
 const transformCode = (printWidth, tabWidth, lang) => (code) => (
-  highlight(lang)(prettify(printWidth, tabWidth)(code))
+  highlight(lang)(
+    ['js', 'react', 'jsx'].indexOf(lang) > -1
+      ? prettify(printWidth, tabWidth)(code)
+      : code
+  )
 )
 
 const getLangFromQuery = (query) => {
@@ -31,7 +36,7 @@ const getLangFromQuery = (query) => {
 }
 
 module.exports = function markdownLoader (content) {
-  const lang = getLangFromQuery(this.query)
+  const lang = getLangFromQuery(this.resourceQuery)
   return 'module.exports = ' + JSON.stringify([
     {
       printWidth: 70,

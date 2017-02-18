@@ -34,7 +34,7 @@ body {
 }
 
 a {
-  color: #00c9c9;
+  color: #008080;
 }
 
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
@@ -51,6 +51,39 @@ hr {
 
 abbr {
   border-bottom: 1px dashed #444;
+}
+
+img {
+  display: block;
+  text-align: center;
+  max-width: 100%;
+}
+figure:focus img {
+  max-width: none;
+}
+figure {
+  width: 100%;
+  margin: 0;
+}
+figcaption {
+  margin-top: 0.5em;
+  text-align: center;
+  font-size: 0.8em;
+  opacity: 0.6;
+  transition: opacity 0.5s ease;
+}
+figure figcaption:hover {
+  opacity: 1;
+}
+@media screen and (min-width: 51em) {
+  figure {
+    margin: 0 40px;
+    width: calc(100% - 80px);
+  }
+  figure:focus {
+    margin: 0;
+    width: 100%;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -143,23 +176,31 @@ h1:hover .header-anchor, h2:hover .header-anchor, h3:hover .header-anchor, h4:ho
 .code-tab__list {
   padding: 0;
   margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
 }
 .code-tab__list > li {
-  display: inline-block;
+  display: block;
+  flex: 1;
 }
 .code-tab__button {
+  width: 100%;
+  height: 100%;
   font-size: 1em;
   opacity: 0.6;
   border: 1px solid #444;
   padding: 0.5em;
   font-family: Consolas, Monaco, 'Andale Mono', 'Ubuntu Mono', monospace;
   border-bottom: none;
+  cursor: pointer;
 }
 .code-tab__button.active {
   opacity: 1;
   background: #282c34;
   color: #abb2bf;
   border-color: #282c34;
+  cursor: default;
 }
 .code-tab pre[class*="language-"], .code-tab pre {
   margin-top: 0;

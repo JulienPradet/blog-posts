@@ -15,7 +15,7 @@ class Code extends React.Component {
   }
 
   componentWillUnmount () {
-    window.removeEventListener(this.updatePrintWidth)
+    window.removeEventListener('resize', this.updatePrintWidth)
   }
 
   updatePrintWidth () {
