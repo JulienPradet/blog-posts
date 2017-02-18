@@ -1,8 +1,7 @@
 const path = require('path')
-const Observable = require('rxjs').Observable
 const fs = require('../util/fs')
-const reduceObservable = require('../util/reduceObservable')
-const log = require('../util/log')('RSS')
+const log = require('../util/log')('SEO')
+const getMetas = require('./getMetas')
 const sitemap = require('sitemap')
 
 const createRss = (paths) => () => {
@@ -10,26 +9,7 @@ const createRss = (paths) => () => {
 
   const url = 'https://www.julienpradet.fr/'
 
-  const meta$ = fs.getRecursiveFiles(Observable.of(paths.contentPath))
-    .filter(({filepath}) => filepath.endsWith('meta.js'))
-    .map(({filepath}) => {
-      let meta
-      try { meta = require(filepath) } catch (e) { return }
-
-      return Object.assign(
-        {},
-        {location: path.relative(paths.contentPath, path.dirname(filepath))},
-        meta
-      )
-    })
-    .filter((meta) => meta)
-    .filter((meta) => meta.isListed)
-
-  return reduceObservable(
-    (acc, meta) => [...acc, meta],
-    [],
-    meta$
-  )
+  return getMetas(paths)()
     .map((metas) => metas.sort((metaA, metaB) => {
       if (metaA.date < metaB.date) {
         return 1
@@ -42,9 +22,10 @@ const createRss = (paths) => () => {
       return sitemap.createSitemap({
         hostname: url,
         urls: [
-          { url: '/' },
+          { url: '/', changefreq: 'weekly' },
           ...metas.map((meta) => ({
-            url: meta.location + '/'
+            url: meta.location + '/',
+            lastmodISO: (new Date(meta.date)).toISOString()
           }))
         ]
       })

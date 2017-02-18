@@ -2,8 +2,8 @@ const createApp = require('./app/createApp')
 const createBundles = require('./bundle/createBundles')
 const createStaticHtml = require('./static/createStaticHtml')
 const createPublic = require('./public/createPublic')
-const createRss = require('./rss/createRss')
-const createSitemap = require('./sitemap/createSitemap')
+const createRss = require('./seo/createRss')
+const createSitemap = require('./seo/createSitemap')
 const createPwaFiles = require('./pwa/createPwaFiles')
 
 const generate = (paths) => {
