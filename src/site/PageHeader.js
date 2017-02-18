@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {formatDate} from './dateFormats'
 
 const PageHeader = (props) => {
   return <div className='page-header'>
@@ -7,7 +8,7 @@ const PageHeader = (props) => {
     <header>
       {props.page.date && (
         <time>
-          {(new Date(props.page.date)).toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+          {formatDate(new Date(props.page.date))}
         </time>
       )}
     </header>

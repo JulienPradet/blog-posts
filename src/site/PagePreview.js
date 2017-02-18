@@ -1,5 +1,6 @@
 import React from 'react'
 import {Link} from 'react-router-dom'
+import {formatDate} from './dateFormats'
 
 const PagePreview = ({page}) => (
   <div className='page-preview'>
@@ -9,7 +10,7 @@ const PagePreview = ({page}) => (
     <div className='page-preview__meta'>
       {page.date && (
         <time>
-          {page.date.toLocaleDateString('fr-FR', { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' })}
+          {formatDate(page.date)}
         </time>
       )}
     </div>

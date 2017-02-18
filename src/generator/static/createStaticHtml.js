@@ -1,3 +1,4 @@
+
 const path = require('path')
 const {Observable} = require('rxjs')
 const fs = require('../util/fs')
@@ -24,6 +25,7 @@ const createHtml = (paths) => (entry$, stats$) => {
             path.relative(paths.contentPath, htmlPath)
           )
 
+          require('../bundle/date-polyfill')
           const renderToHtml = require(path.join(__dirname, '../tmp/server.js'))
 
           log('debug', '/' + path.relative(paths.contentPath, htmlPath).replace('index.html', ''))

@@ -46,7 +46,6 @@ const renderPageToHtml = (paths) => (jsPath, htmlPath, stats) => {
       } = result
 
       const html = renderToString(appWithAsyncComponents)
-        .replace(/href="\/\//g, 'href="/')
 
       const head = Helmet.rewind()
 
@@ -62,7 +61,7 @@ const renderPageToHtml = (paths) => (jsPath, htmlPath, stats) => {
             <div id='root' dangerouslySetInnerHTML={{__html: html}} />
             <script dangerouslySetInnerHTML={{__html: `${STATE_IDENTIFIER} = ${JSON.stringify(state)}`}} />
             {getPathsFromChunks(paths)(stats.children[0], htmlPath).map((jsPath, key) => (
-              <script defer src={jsPath} key={key} />
+              <script async src={jsPath} key={key} />
             ))}
           </body>
         </html>
