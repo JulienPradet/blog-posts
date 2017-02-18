@@ -15,7 +15,8 @@
   "scripts": {
     "prebuild": "rm -rf build/*",
     "build": "NODE_ENV=production node ./src/index.js",
-    "start": "NODE_ENV=development node ./src/index.js"
+    "start": "NODE_ENV=development node ./src/index.js",
+    "lighthouse": "lighthouse https://www.julienpradet.fr/"
   },
   "dependencies": {
     "react": "^15.4.2",
@@ -47,6 +48,7 @@
     "eslint-plugin-react": "^6.9.0",
     "extract-text-webpack-plugin": "2.0.0-rc.3",
     "fs": "^0.0.1-security",
+    "lighthouse": "^1.5.1",
     "markdown-it": "^8.2.2",
     "markdown-it-anchor": "^3.0.0",
     "mkdirp": "^0.5.1",
