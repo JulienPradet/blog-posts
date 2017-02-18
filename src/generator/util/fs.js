@@ -102,17 +102,29 @@ function copyfile (sourcePath, destPath, recursive = false) {
   let file$
   if (recursive) {
     file$ = getRecursiveFiles(Observable.of(sourcePath))
-      .flatMap(({filepath}) => readfile(filepath))
+      .flatMap(({filepath}) => copyfile(
+        filepath,
+        path.join(destPath, path.relative(sourcePath, filepath))
+      ))
   } else {
-    file$ = readfile(sourcePath)
+    file$ = mkdirp(path.dirname(destPath)).flatMap(() => (
+      Observable.create((observer) => {
+        const readStream = fs.createReadStream(sourcePath)
+        const writeStream = fs.createWriteStream(destPath)
+
+        writeStream.on('close', () => {
+          observer.next(destPath)
+          observer.complete()
+        })
+        writeStream.on('error', (err) => observer.error(err))
+        readStream.on('error', (err) => observer.error(err))
+
+        readStream.pipe(writeStream)
+      })
+    ))
   }
 
-  return saveFiles(
-    file$.map(({file, filepath}) => ({
-      file,
-      filepath: path.join(destPath, path.relative(sourcePath, filepath))
-    }))
-  )
+  return file$
 }
 
 module.exports = {

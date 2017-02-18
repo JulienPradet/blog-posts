@@ -8,7 +8,7 @@ const RSS = require('rss')
 const createRss = (paths) => () => {
   log('info', 'Creating feed')
 
-  const url = 'https://julienpradet.github.io/'
+  const url = 'https://www.julienpradet.fr/'
   const author = 'Julien Pradet'
 
   let rss = new RSS({

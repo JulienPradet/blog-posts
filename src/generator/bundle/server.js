@@ -56,7 +56,7 @@ const renderPageToHtml = (paths) => (jsPath, htmlPath, stats) => {
         .join('')
 
       return renderToString(
-        <html>
+        <html lang='fr'>
           <head dangerouslySetInnerHTML={{__html: topHead}} />
           <body>
             <div id='root' dangerouslySetInnerHTML={{__html: html}} />
