@@ -1,0 +1,14 @@
+<body>
+  <nav>
+    <h1>Titre</h1>
+    <ul>
+      <li>Menu 1</li>
+      <li>Menu 2</li>
+      <li>Menu 3</li>
+    </ul>
+  </nav>
+  <main>
+    <h2>Ma page</h2>
+    <p>Lorem ipsum dolor sit amet</p>
+  </main>
+</body>

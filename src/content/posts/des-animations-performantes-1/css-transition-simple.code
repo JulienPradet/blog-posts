@@ -1,0 +1,6 @@
+button {
+  transition: transform 0.3s ease;
+}
+button:hover, button:focus {
+  transform: scale(1.2);
+}
