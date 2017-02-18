@@ -3,6 +3,7 @@ const createBundles = require('./bundle/createBundles')
 const createStaticHtml = require('./static/createStaticHtml')
 const createPublic = require('./public/createPublic')
 const createRss = require('./rss/createRss')
+const createSitemap = require('./sitemap/createSitemap')
 const createPwaFiles = require('./pwa/createPwaFiles')
 
 const generate = (paths) => {
@@ -12,6 +13,7 @@ const generate = (paths) => {
   return html$
     .flatMap(() => createPublic(paths)())
     .flatMap(() => createRss(paths)())
+    .flatMap(() => createSitemap(paths)())
     .flatMap(() => createPwaFiles(paths)(stats$))
 }
 
