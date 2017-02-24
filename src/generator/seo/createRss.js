@@ -19,14 +19,6 @@ const createRss = (paths) => () => {
   })
 
   return getMetas(paths)()
-    .map((metas) => metas.sort((metaA, metaB) => {
-      if (metaA.date < metaB.date) {
-        return 1
-      } else if (metaA.date > metaB.date) {
-        return -1
-      }
-      return 0
-    }))
     .do((metas) => {
       metas.forEach((meta) => {
         rss.item({

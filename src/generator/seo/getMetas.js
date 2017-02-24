@@ -24,6 +24,14 @@ const getMetas = (paths) => () => {
     [],
     meta$
   )
+    .map((metas) => metas.sort((metaA, metaB) => {
+      if (metaA.date < metaB.date) {
+        return 1
+      } else if (metaA.date > metaB.date) {
+        return -1
+      }
+      return 0
+    }))
 }
 
 module.exports = getMetas

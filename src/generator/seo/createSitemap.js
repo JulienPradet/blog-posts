@@ -10,14 +10,6 @@ const createRss = (paths) => () => {
   const url = 'https://www.julienpradet.fr/'
 
   return getMetas(paths)()
-    .map((metas) => metas.sort((metaA, metaB) => {
-      if (metaA.date < metaB.date) {
-        return 1
-      } else if (metaA.date > metaB.date) {
-        return -1
-      }
-      return 0
-    }))
     .map((metas) => {
       return sitemap.createSitemap({
         hostname: url,
