@@ -1,5 +1,6 @@
 import React from 'react'
 import content from './content.md'
+import withPrismCss from '../../../site/withPrismCss'
 
 const Article = (props) => (
   <div>
@@ -7,4 +8,4 @@ const Article = (props) => (
   </div>
 )
 
-export default Article
+export default withPrismCss()(Article)

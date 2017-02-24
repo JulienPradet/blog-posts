@@ -45,9 +45,9 @@ const renderPageToHtml = (paths) => (jsPath, htmlPath, stats) => {
         STATE_IDENTIFIER
       } = result
 
+      let head = Helmet.rewind()
       const html = renderToString(appWithAsyncComponents)
-
-      const head = Helmet.rewind()
+      head = Helmet.rewind()
 
       const topHead = Object.keys(head)
         .filter((key) => key !== 'script')
