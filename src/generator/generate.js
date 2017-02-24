@@ -1,3 +1,5 @@
+const Observable = require('rxjs').Observable
+const reduceObservable = require('./util/reduceObservable')
 const createApp = require('./app/createApp')
 const createBundles = require('./bundle/createBundles')
 const createStaticHtml = require('./static/createStaticHtml')
@@ -9,12 +11,22 @@ const createPwaFiles = require('./pwa/createPwaFiles')
 const generate = (paths) => {
   const app$ = createApp(paths)().share()
   const stats$ = createBundles(paths)(app$)
-  const html$ = createStaticHtml(paths)(app$, stats$)
-  return html$
-    .flatMap(() => createPublic(paths)())
-    .flatMap(() => createRss(paths)())
-    .flatMap(() => createSitemap(paths)())
-    .flatMap(() => createPwaFiles(paths)(stats$))
+
+  return stats$
+    .withLatestFrom(app$, (stats, app) => ({stats, app}))
+    .flatMap(({stats, app}) => {
+      return reduceObservable(
+        (acc, result) => {},
+        null,
+        Observable.merge(
+          createStaticHtml(paths)(Observable.of(app), Observable.of(stats)),
+          createPublic(paths)(),
+          createRss(paths)(),
+          createSitemap(paths)(),
+          createPwaFiles(paths)(Observable.of(stats))
+        )
+      )
+    })
 }
 
 module.exports = generate

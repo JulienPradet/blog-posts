@@ -1,7 +1,7 @@
 const path = require('path')
 const fs = require('../util/fs')
 
-const createContent = (paths) => (stats) => {
+const createContent = (paths) => () => {
   const manifest = {
     'short_name': 'Julien P.',
     'name': 'Enchanté, Julien Pradet',
@@ -14,10 +14,10 @@ const createContent = (paths) => (stats) => {
   return JSON.stringify(manifest)
 }
 
-const createManifest = (paths) => (stats) => {
+const createManifest = (paths) => () => {
   return fs.writefile(
     path.join(paths.buildPath, 'manifest.json'),
-    createContent(paths)(stats)
+    createContent(paths)()
   )
 }
 
