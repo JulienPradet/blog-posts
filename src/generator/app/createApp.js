@@ -35,6 +35,14 @@ const makePages = (paths) => (pages) => {
     })
     .filter((page) => page)
     .filter((page) => page.isListed)
+    .sort((metaA, metaB) => {
+      if (metaA.date < metaB.date) {
+        return 1
+      } else if (metaA.date > metaB.date) {
+        return -1
+      }
+      return 0
+    })
 }
 
 const makeEntry = (paths) => (matches$) => {
