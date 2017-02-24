@@ -10,13 +10,7 @@ html, body {
   min-width: 240px;
 }
 
-html {
-  overflow: hidden;
-}
-
 body {
-  height: 100vh;
-  overflow-y: auto;
   background: #faffff;
   color: #222;
   font-size: 1rem;

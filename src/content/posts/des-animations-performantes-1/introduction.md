@@ -7,7 +7,7 @@ Cela dit, c'est un sujet très vaste, qui mériterait bien plus que quelques art
 Celle-ci sera découpée en trois parties&nbsp;:
 
 1. [Animer les bonnes propriétés CSS](/posts/des-animations-performantes-1) (Vous êtes ici.)
-2. Préparer le navigateur aux animations
+2. [Préparer le navigateur aux animations](/posts/des-animations-performantes-2)
 3. Faire les choses dans le bon ordre en JS
 
-Ces trois parties seront assez théoriques et expliqueront qu'est ce qu'il faut éviter et pourquoi. Il faudra attendre la deuxième série sur les animations pour parler d'implémentations concrètes.
+Ces trois parties sont assez théoriques et expliquent qu'est ce qu'il faut éviter et pourquoi. Il faudra attendre la deuxième série sur les animations pour parler d'implémentations concrètes.
