@@ -72,7 +72,8 @@ class Page extends React.Component {
             {rel: 'stylesheet', href: `/css/main.css`},
             {rel: 'shortcut icon', href: '/favicon.ico', type: 'image/x-icon'},
             {rel: 'icon', href: '/favicon.ico', type: 'image/x-icon'},
-            {rel: 'manifest', href: '/manifest.json'}
+            {rel: 'manifest', href: '/manifest.json'},
+            {rel: 'alternate', type: 'application/rss+xml', title: 'Le flux RSS de Julien Pradet', href: `${this.props.site.meta.homepage}/feed.xml`}
           ]}
         />
         <div>
