@@ -4,10 +4,10 @@ import {formatDate} from './dateFormats'
 
 const PageHeader = (props) => {
   return <div className='page-header'>
-    <h1><Link to='/'>{props.page.title}</Link></h1>
+    <h1 {...(props.isPost ? {itemProp: 'name'} : {})}><Link to='/'>{props.page.title}</Link></h1>
     <header>
       {props.page.date && (
-        <time>
+        <time {...(props.isPost ? {itemProp: 'datePublished'} : {})} dateTime={(new Date(props.page.date)).toISOString()}>
           {formatDate(new Date(props.page.date))}
         </time>
       )}

@@ -1,0 +1,23 @@
+// Durée de l'animation
+const totalDuration = 300
+// Point de départ de l'animation
+const start = performance.now()
+
+// Méthode qui fait passer l'animation à l'étape suivante
+const animate = () => {
+  // Calcul de l'état d'avancement
+  // progress commence à 0 et finit à 1
+  const durationFromStart = performance.now() - start
+  const progress = durationFromStart / totalDuration
+
+  // Changement du DOM ici
+  // ...
+
+  // Lancement de la prochaine étape si ce n'est pas fini
+  if (progress < 1) {
+    requestAnimationFrame(animate)
+  }
+}
+
+// Lancement de l'animation
+requestAnimationFrame(animate)

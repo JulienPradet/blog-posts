@@ -8,6 +8,28 @@ import PageFooter from './PageFooter'
 import PageList from './PageList'
 import GlobalFooter from './GlobalFooter'
 
+const DefaultPage = (props) => (
+  <div>
+    <PageHeader page={props.page} />
+    <PageContent>
+      {props.children}
+    </PageContent>
+  </div>
+)
+
+const Post = (props) => (
+  <div itemScope itemType='http://schema.org/Article'>
+    <PageHeader page={props.page} isPost />
+    <PageContent isPost>
+      {props.children}
+    </PageContent>
+    <hr />
+    <div className='page-content'>
+      <PageFooter isPost />
+    </div>
+  </div>
+)
+
 class Page extends React.Component {
   constructor () {
     super()
@@ -54,21 +76,24 @@ class Page extends React.Component {
           ]}
         />
         <div>
-          <PageHeader page={this.props.page} />
-          <PageContent>
-            {this.props.children}
-            <hr />
-            {this.props.page.isPost && (
-              <div>
-                <PageFooter />
-                <hr />
-              </div>
+          {this.props.page.isPost
+            ? (
+              <Post page={this.props.page}>
+                {this.props.children}
+              </Post>
+            )
+            : (
+              <DefaultPage page={this.props.page}>
+                {this.props.children}
+              </DefaultPage>
             )}
+          <hr />
+          <div className='page-content'>
             {!this.props.page.standalone && (
               <PageList length={this.props.page.isHome ? 0 : 2} />
             )}
             {!this.props.page.isHome && <Link to='/'>Revenir à la page d'accueil</Link>}
-          </PageContent>
+          </div>
         </div>
         <GlobalFooter />
       </div>

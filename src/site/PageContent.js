@@ -1,9 +1,11 @@
 import React from 'react'
 
 const PageContent = (props) => (
-  <div className='page-content'>
-    {props.children}
-  </div>
+  <main className='page-content' role='main'>
+    {props.isPost
+      ? <article itemProp='articleBody'>{props.children}</article>
+      : props.children}
+  </main>
 )
 
 export default PageContent

@@ -1,0 +1,8 @@
+const buttons = document.querySelectorAll('button')
+
+buttons.forEach((button) => {
+  let width = button.offsetWidth
+  requestAnimationFrame(() => {
+    button.style.width = (width * 2) + 'px'
+  })
+})

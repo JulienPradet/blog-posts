@@ -8,6 +8,7 @@ html, body {
   margin: 0;
   padding: 0;
   min-width: 240px;
+  min-height: 100vh;
 }
 
 body {
@@ -49,7 +50,7 @@ abbr {
 
 img {
   display: block;
-  text-align: center;
+  margin: 0 auto;
   max-width: 100%;
 }
 figure:focus img {

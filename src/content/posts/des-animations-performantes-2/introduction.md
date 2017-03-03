@@ -6,6 +6,6 @@ Pour rappel, cette série dédiée aux animations performantes est découpée en
 
 1. [Animer les bonnes propriétés CSS](/posts/des-animations-performantes-1)
 2. [Préparer le navigateur aux animations](/posts/des-animations-performantes-2) (Vous êtes ici.)
-3. Faire les choses dans le bon ordre en JS
+3. [Faire les choses dans le bon ordre en JS](/posts/des-animations-performantes-3)
 
-Ces trois parties sont assez théoriques et expliquent qu'est-ce qu'il faut éviter et pourquoi. Il faudra attendre la deuxième série sur les animations pour parler d'implémentations concrètes.
+Ces trois parties sont assez théoriques et expliquent ce qu'il faut éviter et pourquoi. Il faudra attendre la deuxième série sur les animations pour parler d'implémentations concrètes.
