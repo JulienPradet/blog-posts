@@ -33,7 +33,7 @@ Pour le constater par vous même, vous pouvez ouvrir vos DevTools dans votre nav
 <figcaption>Voici à quoi ressemble la Timeline enregistrée via Chrome</figcaption>
 </figure>
 
-Et ce qui va vous intéresser, c'est la partie violette (commun à tous les DevTools) où il y a écrit *Layout*. Si elle est présente tout au long de votre animation, c'est que votre animation est couteuse. Et, bien que cela puisse s'afficher correctement dans votre navigateur, pensez aux mobiles qui auront du mal à suivre le rythme&nbsp;!
+Et ce qui va vous intéresser, c'est la partie où il y a écrit *Layout* (en violet). Si elle est présente tout au long de votre animation, c'est que votre animation est couteuse. Et, bien que cela puisse s'afficher correctement dans votre navigateur, pensez aux mobiles qui auront du mal à suivre le rythme&nbsp;!
 
 Il est important de faire le test sur plusieurs navigateurs car l'animation peut être rapide sur l'un et lente sur l'autre.
 

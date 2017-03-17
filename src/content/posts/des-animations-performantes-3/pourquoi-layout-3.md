@@ -2,7 +2,7 @@ Cependant, si vous allez voir dans les DevTools, dans le deuxième cas de figure
 
 <figure tabindex="0">
 <img src="/images/posts/des-animations-performantes/layout-thrashing.png" alt="Illustration du Layout Thrashing" />
-<figcaption>Les rectangles violets ont des petits drapeaux rouges</figcaption>
+<figcaption>Les indicateurs de Layout ont des petits drapeaux triangulaires en haut à droite</figcaption>
 </figure>
 
 Et si vous passez la souris sur ces petits drapeaux rouges, vous pouvez lire&nbsp;: *Forced reflow is likely a performance bottleneck*. En d'autres termes, dans le code JavaScript il y a une opération qui oblige le navigateur à recalculer le layout. Comment est-ce possible&nbsp;?
