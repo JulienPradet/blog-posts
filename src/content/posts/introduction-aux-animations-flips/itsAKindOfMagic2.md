@@ -1,0 +1,1 @@
+La solution est de séparer les différents éléments et de faire un petit peu de mise en scène, en décalant certaines transitions par rapport à d'autres et en jouant sur l'opacité. En reprenant la démo au dessus, on pourrait faire quelque chose de ce style&nbsp;:

@@ -1,0 +1,56 @@
+// Récupération de l'élément
+const element = document.getElementById('flip')
+
+// Récupération de la position de départ (First)
+const first = element.getBoundingClientRect()
+
+// Mise à jour de l'élement dans sa position finale
+// La mise à jour peut se faire depuis n'importe où.
+// Ca n'a pas besoin d'être une classe sur l'élement.
+// Ca peut par exemple être la création d'un nouvel
+// élément dans une liste.
+element.classList.add('opened')
+
+// Récupération de la position finale (Last)
+const last = element.getBoundingClientRect()
+
+// Calcul de la différence (Invert)
+const invert = {
+    top: first.top - last.top, // 100 - 130 = -30
+    left: first.left - last.left // 50 - 50 = 0
+}
+
+// Mise à jour visuelle de l'élément pour qu'il
+// soit dans la position initiale
+element.style.transform = `translate(
+    ${invert.left}px,
+    ${invert.top}px
+)`
+
+// Lancement de l'animation (Play)
+let start = window.performance.now()
+requestAnimationFrame(animate)
+
+const duration = 300
+const animate = () => {
+    // Calcul du pourcentage d'avancement de l'animation
+    let progress = (window.performance.now() - start) / duration
+    let progress = Math.max(0, Math.min(1, progress))
+
+    // Mise à jour visuelle
+    // Si progress = 0.2
+    // translate(0px, (-30 * (1 - 0.2))px)
+    // <=> translate(0px, -24px)
+    element.style.transform = `translate(
+        ${invert.left * (1 - progress)}px,
+        ${invert.top * (1 - progress)}px
+    )`
+
+    if (progress === 1) {
+        // Fin de l'animation
+        element.style.transform = null
+    } else {
+        // On passe à l'étape suivante de l'animation
+        requestAnimationFrame(animate)
+    }
+}

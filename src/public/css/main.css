@@ -325,3 +325,7 @@ h1:hover .header-anchor, h2:hover .header-anchor, h3:hover .header-anchor, h4:ho
   animation: spin 1.2s cubic-bezier(0.7, 0.2, 0.3, 0.8) infinite;
 }
 @keyframes spin { 100% { -webkit-transform: rotate(360deg); transform:rotate(360deg); } }
+
+.hidden {
+  opacity: 0;
+}
