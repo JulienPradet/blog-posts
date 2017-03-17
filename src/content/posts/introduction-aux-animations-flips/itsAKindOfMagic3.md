@@ -26,7 +26,7 @@ Ainsi, quand c'est le contenu qui change et que vous vous demandez si vous pouve
 
 Les animations FLIP ne sont pas une solution miracle. Par contre, c'est une technique qu'il est toujours bon d'avoir dans son sac.
 
-Si vous voulez voir comment j'ai codé les exemples, c'est du React et c'est accessible sur github. Le code est un peu crado, mais je vous prépare un article plus complet en me concentrant sur l'implémentation en React :)
+Si vous voulez voir comment j'ai codé les exemples, c'est du React et c'est [accessible sur github](https://github.com/JulienPradet/blog-posts/blob/a371cef950777e149193396eb488ab80f4a24830/src/content/posts/introduction-aux-animations-flips/scaleSolution.js). Le code est un peu crado, mais je vous prépare un article plus complet en me concentrant sur l'implémentation en React :)
 
 En attendant, si vous avez des questions ou si vous connaissez d'autres patterns performants pour réaliser des animations sur le web, n'hésitez pas à venir me voir sur Twitter&nbsp;: ce sera avec plaisir&nbsp;!
 
