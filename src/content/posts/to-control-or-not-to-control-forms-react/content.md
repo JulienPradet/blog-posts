@@ -52,7 +52,7 @@ Cette fois ci, votre input sera convenablement mis à jour.
 
 ### Quels avantages ?
 
-Le principal avantage est que vous *controllez* la valeur de vos composants.
+Le principal avantage est que vous *contrôlez* la valeur de vos composants.
 
 Ainsi, si vous décidez de rajouter de la validation sur votre champ, vous pouvez le faire sur votre fonction de mise à jour de l'état (ici `onChange`)&nbsp;:
 
@@ -141,7 +141,7 @@ Le principal avantage est que vous n'avez pas besoin de *controller* la valeur d
 
 Ca peut être très utile si vous avez déjà une librairie qui sait gérer des formulaires mais qui n'est pas écrite en React. Cependant, je vais plutôt vous parler d'un cas concret sans utiliser de librairie externe.
 
-En effet, si vous ne controllez pas vous même les valeurs, ça veut aussi dire que vous pouvez plus facilement décaler l'impact du changement dans le temps. Un cas concret serait un input qui change le contenu d'une recherche asynchrone.
+En effet, si vous ne contrôlez pas vous même les valeurs, ça veut aussi dire que vous pouvez plus facilement décaler l'impact du changement dans le temps. Un cas concret serait un input qui change le contenu d'une recherche asynchrone.
 
 Par exemple, si cette recherche demande trop de ressources, vous ne voudrez pas quelle soit lancée au moindre changement. Vous voudrez plutôt minimiser le nombre de requêtes en faisant par exemple appel à un `debounce` dont le but est de n'envoyer la requête que s'il n'y en a pas eu dans les X dernières secondes. A quoi est-ce que ça peut ressembler ?
 
@@ -185,12 +185,12 @@ class SearchFilters extends React.Component {
 }
 ```
 
-En voyant ce bout de code, on se rend compte que la mise à jour de la recherche via `this.props.setSearchFilters` est décalée dans le temps. Si on était dans le cadre d'une valeur controllée, l'input serait donc mis à jour 500ms trop tard et du coup désagréable à l'utilisation.
+En voyant ce bout de code, on se rend compte que la mise à jour de la recherche via `this.props.setSearchFilters` est décalée dans le temps. Si on était dans le cadre d'une valeur contrôlée, l'input serait donc mis à jour 500ms trop tard et du coup désagréable à l'utilisation.
 
 ## Que choisir ?
 
 Pour moi, le choix se résume à savoir si vos inputs ont besoin d'avoir des validations/resets/transformations. Si oui, partez sur des *Controlled Components*. Si non, vous pouvez vous contenter d'*Uncontrolled Components*, ce qui sera généralement moins prise de tête.
 
-Une petite note de fin cependant pour dire qu'il est aussi possible de cumuler les deux. En effet, il faudrait que le formulaire soit controllé, mais que l'écoute des changements se fasse au niveau du formulaire complet plutôt que de l'input. Cela permet d'avoir le meilleur des deux mondes, même si c'est un peu plus lourd à mettre en place.
+Une petite note de fin cependant pour dire qu'il est aussi possible de cumuler les deux. En effet, il faudrait que le formulaire soit contrôlé, mais que l'écoute des changements se fasse au niveau du formulaire complet plutôt que de l'input. Cela permet d'avoir le meilleur des deux mondes, même si c'est un peu plus lourd à mettre en place.
 
 Du coup, comme d'habitude, ce que vous pourrez utiliser dépendra de votre cas d'utilisation et du contexte de développement. Ca peut être fatiguant, mais s'adapter au besoin est aussi ce qu'il y a de plus intéressant dans le développement&nbsp;! :)
