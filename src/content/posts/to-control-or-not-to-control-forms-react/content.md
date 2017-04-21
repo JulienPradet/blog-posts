@@ -137,7 +137,7 @@ Il y a alors plusieurs manières possibles de récupérer les données entrées 
 
 ### Quels avantages ?
 
-Le principal avantage est que vous n'avez pas besoin de *controller* la valeur de vos inputs.
+Le principal avantage est que vous n'avez pas besoin de *contrôler* la valeur de vos inputs.
 
 Ca peut être très utile si vous avez déjà une librairie qui sait gérer des formulaires mais qui n'est pas écrite en React. Cependant, je vais plutôt vous parler d'un cas concret sans utiliser de librairie externe.
 
