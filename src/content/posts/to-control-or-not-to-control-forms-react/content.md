@@ -39,7 +39,7 @@ class ControlledInput extends React.Component {
   render () {
     return <input
       type="text"
-      value="valeur de l'input"
+      value={this.state.value}
       onChange={this.onChange}
     />
   }
