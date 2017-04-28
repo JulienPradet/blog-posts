@@ -90,7 +90,7 @@ function User(props) {
 Ce qui est gênant ici, c'est que la partie qui apporte réellement de la valeur (*comment est-ce que j'affiche un user*) et noyée avec la partie qui s'occupe de l'affichage du chargement. On va donc l'extraire&nbsp;:
 
 ```jsx
-function DumbUser () {
+function DumbUser (props) {
   return (
     <div>
       {props.user.name}
@@ -101,7 +101,7 @@ function DumbUser () {
 function User (props) {
   return props.loading
     ? <StylishSpinner />
-    : <DumbUser />
+    : <DumbUser {...props} />
 }
 ```
 
@@ -235,7 +235,7 @@ NB&nbsp;: Il est possible que vous ayez plus de mal à comprendre le fonctionnem
 Maintenant qu'on a deux HOC, on peut se dire qu'on va essayer de faire un HOC plus général qui permettra de faire directement le lien entre `LoggedUser` et `DumbUser`. En effet, pour l'instant ça ne s'enchaîne pas très bien&nbsp;:
 
 ```jsx
-function DumbUser () {
+function DumbUser (props) {
   return (
     <div>
       {props.user.name}
