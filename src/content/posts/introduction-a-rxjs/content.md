@@ -290,7 +290,7 @@ const messageListSource = Observable.create((observer) => {
 
 Et voilà&nbsp;! On a une nouvelle source de données qui contient la liste complète des messages à chaque fois qu'un nouveau message arrive. Pour afficher la liste des messages, il ne vous reste plus qu'à écrire un `subscribe` qui déclenchera `displayMessageList`.
 
-Le hic, c'est que ça fait beaucoup de code et ce n'est pas forcément très lisible. Heureusement, le jour où vous lirez du code écrit en Rx, vous ne verrez jamais rien de tel. En fait, je vous ai montré cette méthode pour bien vous montrer que lorsqu'on utilise les *opérateurs* en Rx, cela ne fait finalement rien de magique. Les opérateurs se contentent de créer un nouvel *Observable* (`messageListSource`) qui récupère ses données depuis le précédent (`messageSource`).
+Le hic, c'est que ça fait beaucoup de code et ce n'est pas forcément très lisible. Heureusement, le jour où vous lirez du code écrit en Rx, vous ne verrez jamais rien de tel. En fait, je me suis attardé sur cette méthode pour bien vous montrer que lorsqu'on utilise les *opérateurs* en Rx, cela ne fait finalement rien de magique. Les opérateurs se contentent de créer un nouvel *Observable* (`messageListSource`) qui récupère ses données depuis le précédent (`messageSource`).
 
 Et donc en RxJS, pour faire le bout de code que j'ai écrit au dessus, on va plutôt utiliser l'*opérateur* [`scan`](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-scan)&nbsp;:
 
