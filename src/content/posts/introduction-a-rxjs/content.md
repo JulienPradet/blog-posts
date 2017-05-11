@@ -64,7 +64,7 @@ La valeur ajoutée de notre code sera donc uniquement dans la façon dont on ré
 
 ### Coder réactif
 
-Comment est-ce que RxJS s'insère dans ce mode de pensée ? Il va falloir qu'il réponde à deux questions&nbsp;:
+Comment est-ce que RxJS s'insère dans ce mode de pensées ? Il va falloir qu'il réponde à deux questions&nbsp;:
 * Comment est-ce qu'on met à disposition une source de données ?
 * Comment est-ce qu'on réagit à celle-ci ?
 
@@ -244,7 +244,7 @@ messageSource.subscribe(
 )
 ```
 
-Mais en voyant ce code, j'ai une alerte qui flashouille dans ma tête. En effet, même si on a décalé la complexité dans un `subscribe`, ce dernier fait trop de choses choses&nbsp;: il transforme la source de données (message&nbsp;&rarr;&nbsp;messageList) **et** l'affiche (`displayMessageList`).
+Mais en voyant ce code, j'ai une alerte qui flashouille dans ma tête. En effet, même si on a décalé la complexité dans un `subscribe`, ce dernier fait trop de choses&nbsp;: il transforme la source de données (message&nbsp;&rarr;&nbsp;messageList) **et** l'affiche (`displayMessageList`).
 
 Le but va donc être de séparer ces deux actions en partant du principe que `displayMessageList` a besoin d'une source de données qui contient la liste des messages agglomérés plutôt qu'une source qui envoie les messages un par un.
 
