@@ -42,7 +42,7 @@ Pour répondre à cette question, demandons-nous d'abord de quel genre de donné
     ```
 * etc.
 
-Cela fait un sacré paquet de possibilités déjà. Pourtant dans chacun des exemples ci-dessus le but est d'afficher un message via la méthode `displayMessage`.
+Cela fait un sacré paquet de possibilités déjà. Pourtant dans chacun des exemples ci-dessus le but est d'afficher un message via la méthode `displayMessage`. C'est ce que j'appelle des sources de données&nbsp;: ce sont les bouts de codes qui seront à l'origine d'autres actions.
 
 Maintenant, imaginons que nous voulons réutiliser les sources de données qu'on a mis en place pour en faire autre chose. Si maintenant, on veut afficher le nombre de messages reçus, comment fait-on&nbsp;? Et le nombre de messages envoyés&nbsp;? Et si on veut uniquement compter le nombre de nouveaux messages depuis un temps donné&nbsp;?
 
