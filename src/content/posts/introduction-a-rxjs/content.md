@@ -192,7 +192,7 @@ Maintenant que nous avons créé les sources de données, le but va être de ré
 
 ```js
 source.subscribe(
-  (data) => console.log('next', data),
+  (data) => displayMessage(data),
   (error) => console.error('error', error),
   () => console.log('complete')
 )
@@ -209,12 +209,12 @@ const source = Observer.create((observer) => {
 })
 ```
 
-Alors, dans notre console s'affichera&nbsp;:
+Alors, il se passera cette suite d'opération&nbsp;:
 ```
-next 1
-next 2
-next 3
-complete
+displayMessage(1)
+displayMessage(2)
+displayMessage(3)
+console.log('complete')
 ```
 
 Ca y est. Nous avons une source de données réactive. Elle ne sait pas ce qu'il va advenir de ses données, mais d'autres peuvent venir s'enregistrer pour réaliser des actions sur ces données. Cool.
