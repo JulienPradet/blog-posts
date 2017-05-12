@@ -335,7 +335,7 @@ En tout cas, n'espérez pas tout faire parfaitement du premier coup. Si vous n'a
 
 Merci à [Quentin](https://twitter.com/quentinpradet), [Maxime](https://twitter.com/01BoDuke01), [Euzèbe](https://github.com/eusebe), [Caroline](https://twitter.com/CaroBee31) et [Enguerran](https://twitter.com/ticabri) pour leur relecture attentive !
 
-Si vous êtes intéressés pour jouer le rôle de beta lecteur, n'hésitez pas jeter à surveiller les pulls requests de mon [dépôt github](https://github.com/JulienPradet/blog-posts). J'en ferai régulièrement en quête de feedback.
+Si vous êtes intéressés pour jouer le rôle de beta lecteur, n'hésitez pas à surveiller les pulls requests de mon [dépôt github](https://github.com/JulienPradet/blog-posts). J'en ferai régulièrement en quête de feedback.
 
 ------
 
