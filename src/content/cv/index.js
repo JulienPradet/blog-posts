@@ -65,7 +65,7 @@ const SectionExperienceProfessionnelle = () => (
       <ul>
         <li>Création d'extensions personnalisées</li>
         <li>Création de thèmes complets</li>
-        <li>Mise à niveau de boutiques sur les dernières versions</li>
+        <li>Mise à niveau de boutiques sur les dernières versions Magento</li>
         <li>Correction d'anomalies</li>
       </ul>
     </Experience>
