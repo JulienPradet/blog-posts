@@ -55,7 +55,7 @@ const SectionExperienceProfessionnelle = () => (
         Réalisation d'applications web spécifiques
       </h4>
       <ul>
-        <li>Etude du besoin et conseils de solutions</li>
+        <li>Étude du besoin et conseils de solutions</li>
         <li>Mise en place de systèmes complexes (Event Sourcing, CQRS, …)</li>
       </ul>
 
@@ -80,7 +80,7 @@ const SectionExperienceProfessionnelle = () => (
       </h4>
       <ul>
         <li>
-          Etude de faisabilité et Intégration d’un calendrier web (JavaScript)
+          Étude de faisabilité et Intégration d’un calendrier web (JavaScript)
         </li>
         <li>Intégration de la maquette (Sass)</li>
         <li>
@@ -217,7 +217,9 @@ const SectionConferences = () => (
     >
       <h4>Coach React</h4>
       <p>
-        <a href="https://github.com/monkeytechdays/mktd-2-exercices">
+        <a
+          href="https://github.com/monkeytechdays/mktd-2-exercices/tree/react-wording"
+        >
           https://github.com/monkeytechdays/mktd-2-exercices
         </a>
       </p>
