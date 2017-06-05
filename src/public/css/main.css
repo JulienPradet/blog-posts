@@ -46,6 +46,7 @@ hr {
 
 abbr {
   border-bottom: 1px dashed #444;
+  text-decoration: none;
 }
 
 img {
