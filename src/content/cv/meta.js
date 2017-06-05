@@ -1,5 +1,5 @@
 module.exports = {
   isPage: false,
-  title: "CV Julien Pradet",
+  title: "Curriculum Vitae",
   description: "CV Julien Pradet"
 };

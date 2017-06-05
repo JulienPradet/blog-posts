@@ -103,12 +103,11 @@ class Page extends React.Component {
   }
 
   render() {
-    console.log(this.props.page.title);
     const helmet = (
       <Helmet
-        titleTemplate={`%s | ${this.props.site.meta.author.name}`}
-        defaultTitle="Blog"
-        title={this.props.page.title}
+        title={
+          `${this.props.page.title || "Blog"} | ${this.props.site.meta.author.name}`
+        }
         meta={makeMeta(this.props)}
         link={makeLink(this.props)}
       />
@@ -142,6 +141,7 @@ class Page extends React.Component {
     } else {
       return (
         <div className="page">
+          {helmet}
           {this.props.children}
         </div>
       );
