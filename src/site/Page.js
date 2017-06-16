@@ -112,6 +112,7 @@ class Page extends React.Component {
 
   componentDidMount() {
     this.setState({ appendCodeCss: true });
+    window.scrollTo(0, 0);
   }
 
   render() {
