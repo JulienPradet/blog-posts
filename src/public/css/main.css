@@ -249,6 +249,7 @@ h1:hover .header-anchor, h2:hover .header-anchor, h3:hover .header-anchor, h4:ho
 .home-link {
   max-width: 40em;
   text-align: center;
+  margin: 0 auto;
 }
 
 .footer {
