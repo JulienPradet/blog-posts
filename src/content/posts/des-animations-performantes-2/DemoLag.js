@@ -1,37 +1,38 @@
-import React from 'react'
+import React from "react";
 
 class MovingBoxShadow extends React.Component {
-  constructor () {
-    super()
+  constructor() {
+    super();
     this.state = {
       animating: true
-    }
-    this.toggleAnimation = this.toggleAnimation.bind(this)
-    this.animate = this.animate.bind(this)
+    };
+    this.toggleAnimation = this.toggleAnimation.bind(this);
+    this.animate = this.animate.bind(this);
   }
 
-  componentDidMount () {
-    window.requestAnimationFrame(this.animate)
+  componentDidMount() {
+    window.requestAnimationFrame(this.animate);
   }
 
-  animate (t) {
+  animate(t) {
     if (this.state.animating) {
-      const pos = Math.sin(t / 1000) * 80 + 80
-      this.node.style.transform = `translate(${pos}px)`
-      window.requestAnimationFrame(this.animate)
+      const pos = Math.sin(t / 1000) * 80 + 80;
+      this.node.style.transform = `translate(${pos}px)`;
+      window.requestAnimationFrame(this.animate);
     }
   }
 
-  toggleAnimation () {
-    this.setState(
-      {animating: !this.state.animating},
-      () => window.requestAnimationFrame(this.animate)
-    )
+  toggleAnimation() {
+    this.setState({ animating: !this.state.animating }, () =>
+      window.requestAnimationFrame(this.animate));
   }
 
-  render () {
-    return <div id={`${this.props.id}-container`} onClick={this.toggleAnimation}>
-      <style dangerouslySetInnerHTML={{__html: `
+  render() {
+    return (
+      <div id={`${this.props.id}-container`} onClick={this.toggleAnimation}>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
         #${this.props.id}-container {
           position: relative;
           margin: 0em auto;
@@ -148,20 +149,23 @@ class MovingBoxShadow extends React.Component {
           0.25em 0.25em 7em #77ffff,
           0.25em 0.25em 7em #77ffff
           ;
-          ${this.props.fast && 'will-change: transform;'}
+          ${this.props.fast && "will-change: transform;"}
         }
-    `}} />
-      <div id={`${this.props.id}-box`} ref={(node) => this.node = node}>
-        Bonjour,
-        Je suis une boîte avec des propriétés couteuses.
+    `
+          }}
+        />
+        <div id={`${this.props.id}-box`} ref={node => this.node = node}>
+          Bonjour,
+          Je suis une boîte avec des propriétés couteuses.
+        </div>
+        <button className="button" onClick={this.toggleAnimation}>
+          {this.state.animating
+            ? "Cliquer pour mettre en pause"
+            : "Cliquer pour animer"}
+        </button>
       </div>
-      <button className='button' onClick={this.toggleAnimation}>
-        {this.state.animating
-          ? 'Cliquer pour mettre en pause'
-          : 'Cliquer pour animer'}
-      </button>
-    </div>
+    );
   }
 }
 
-export default MovingBoxShadow
+export default MovingBoxShadow;

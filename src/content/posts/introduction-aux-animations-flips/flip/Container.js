@@ -1,10 +1,10 @@
-import React from 'react';
-import Flip from './flip';
+import React from "react";
+import Flip from "./flip";
 
 const shouldAnimate = props =>
-  typeof props.shouldAnimate === 'undefined' || props.shouldAnimate;
+  typeof props.shouldAnimate === "undefined" || props.shouldAnimate;
 const shouldUpdateFirst = props =>
-  typeof props.shouldUpdateFirst === 'undefined' || props.shouldUpdateFirst;
+  typeof props.shouldUpdateFirst === "undefined" || props.shouldUpdateFirst;
 
 class FlipContainer extends React.Component {
   constructor() {
@@ -42,7 +42,7 @@ class FlipContainer extends React.Component {
           this.state.elements.map(({ flip }) => flip.play())
         ).then(() => this.setState({ animating: false }));
       })
-      .catch(() => console.log('Animation stopped'));
+      .catch(() => console.log("Animation stopped"));
   }
 
   getChildContext() {

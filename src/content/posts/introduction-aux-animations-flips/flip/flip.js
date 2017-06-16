@@ -30,7 +30,7 @@ class Flip {
     this.options = Object.assign(
       {},
       defaultOptions,
-      typeof this.originalOptions === 'function'
+      typeof this.originalOptions === "function"
         ? this.originalOptions()
         : this.originalOptions
     );
@@ -86,8 +86,8 @@ class Flip {
       parseInt(this._first.zIndex, 10) || 0,
       parseInt(this._last.zIndex, 10) || 0
     );
-    this.element.style.transformOrigin = '0 0';
-    this.element.style.willChange = 'transform, opacity';
+    this.element.style.transformOrigin = "0 0";
+    this.element.style.willChange = "transform, opacity";
     return Promise.resolve(true);
   }
 

@@ -1,10 +1,10 @@
-import React from 'react'
-import content from './content.md'
+import React from "react";
+import content from "./content.md";
 
-const Article = (props) => (
+const Article = props => (
   <div>
-    <div dangerouslySetInnerHTML={{__html: content}} />
+    <div dangerouslySetInnerHTML={{ __html: content }} />
   </div>
-)
+);
 
-export default Article
+export default Article;
