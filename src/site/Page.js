@@ -10,10 +10,7 @@ import GlobalFooter from "./GlobalFooter";
 
 const DefaultPage = props => (
   <div>
-    <PageHeader
-      page={props.page}
-      url={`${props.site.meta.homepage}${props.path}`}
-    />
+    <PageHeader page={props.page} url={props.path} />
     <PageContent>
       {props.children}
     </PageContent>
@@ -31,11 +28,10 @@ const Post = props => (
         `
       }}
     />
-    <PageHeader
-      page={props.page}
-      url={`${props.site.meta.homepage}${props.path}`}
-      isPost
-    />
+    <div className="home-link">
+      <a href="/" title="Accueil">Accueil</a>
+    </div>
+    <PageHeader page={props.page} url={props.path} isPost />
     <PageContent isPost>
       {props.children}
     </PageContent>
@@ -159,7 +155,7 @@ class Page extends React.Component {
                 <Link to="/">Revenir à la page d'accueil</Link>}
             </div>
           </div>
-          <GlobalFooter />
+          <GlobalFooter isPost={this.props.page.isPost} />
         </div>
       );
     } else {
