@@ -10,7 +10,10 @@ import GlobalFooter from "./GlobalFooter";
 
 const DefaultPage = props => (
   <div>
-    <PageHeader page={props.page} />
+    <PageHeader
+      page={props.page}
+      url={`${props.site.meta.homepage}${props.path}`}
+    />
     <PageContent>
       {props.children}
     </PageContent>
@@ -19,7 +22,20 @@ const DefaultPage = props => (
 
 const Post = props => (
   <div itemScope itemType="http://schema.org/Article">
-    <PageHeader page={props.page} isPost />
+    <div
+      dangerouslySetInnerHTML={{
+        __html: `
+        <div itemscope itemtype="http://schema.org/Person" itemprop="author">
+          <meta itemprop="name" content="Julien Pradet" />
+        </div>
+        `
+      }}
+    />
+    <PageHeader
+      page={props.page}
+      url={`${props.site.meta.homepage}${props.path}`}
+      isPost
+    />
     <PageContent isPost>
       {props.children}
     </PageContent>
@@ -37,6 +53,7 @@ const makeMeta = props => [
     name: "viewport",
     content: "width=device-width, initial-scale=1"
   },
+  { name: "author", content: "Julien Pradet" },
   { name: "description", content: props.page.description },
   { name: "theme-color", content: "#00C9C9" },
   { property: "twitter:site", content: "@JulienPradet" },
@@ -75,7 +92,6 @@ const makeLink = props => [
     rel: "canonical",
     href: `${props.site.meta.homepage}${props.path}`
   },
-  { rel: "preload", href: "/css/main.css", as: "style" },
   { rel: "stylesheet", href: `/css/main.css` },
   {
     rel: "shortcut icon",
@@ -121,10 +137,18 @@ class Page extends React.Component {
           {helmet}
           <div>
             {this.props.page.isPost
-              ? <Post page={this.props.page}>
+              ? <Post
+                  page={this.props.page}
+                  path={this.props.path}
+                  site={this.props.site}
+                >
                   {this.props.children}
                 </Post>
-              : <DefaultPage page={this.props.page}>
+              : <DefaultPage
+                  page={this.props.page}
+                  path={this.props.path}
+                  site={this.props.site}
+                >
                   {this.props.children}
                 </DefaultPage>}
             <hr />
