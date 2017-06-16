@@ -51,7 +51,7 @@ function answerQuestions (questions) {
 }
 ```
 
-En soit, vous avez juste découpé votre fonction en deux et nommé les convenablement vos fonctions et variables. Mais, la personne qui lira ce bout de code comprendra les étapes pour construire les réponses plus facilement que si elle a besoin d'aller chercher sur MDN la définition du [`map`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/map) et du [`filter`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/filter).
+En soit, vous avez juste découpé votre fonction en deux et nommé convenablement vos fonctions et variables. Mais, la personne qui lira ce bout de code comprendra les étapes pour construire les réponses plus facilement que si elle a besoin d'aller chercher sur MDN la définition du [`map`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/map) et du [`filter`](https://developer.mozilla.org/fr/docs/Web/JavaScript/Reference/Objets_globaux/Array/filter).
 
 Et maintenant, on en vient à l'avantage majeur des HOC : la composition. Puisque `filterQuestions` et `getAnswers` sont eux aussi des HOC, vous allez pouvoir les mettre bout à bout pour construire le HOC plus global `answerQuestions`.
 
@@ -87,7 +87,7 @@ function User(props) {
 }
 ```
 
-Ce qui est gênant ici, c'est que la partie qui apporte réellement de la valeur (*comment est-ce que j'affiche un user*) et noyée avec la partie qui s'occupe de l'affichage du chargement. On va donc l'extraire&nbsp;:
+Ce qui est gênant ici, c'est que la partie qui apporte réellement de la valeur (*comment est-ce que j'affiche un user*) est noyée avec la partie qui s'occupe de l'affichage du chargement. On va donc l'extraire&nbsp;:
 
 ```jsx
 function DumbUser (props) {
@@ -105,7 +105,7 @@ function User (props) {
 }
 ```
 
-Maintenant, imaginez que ce `StylishSpinner` vous l'utilisiez pour représenter le chargement partout dans votre application. Cela veut dire que vous allez devoir réécrire cette même logique à chaque fois. Pire encore, cela veut dire que vous allez devoir refaire l'effort de comprendre votre code à chaque que vous tomberez dessus. Ici ce n'est qu'une ternaire, mais ça peut être plus lourd que ça. On va donc l'extraire lui aussi en rendant le `DumbUser` paramétrable&nbsp;:
+Maintenant, imaginez que ce `StylishSpinner` vous l'utilisiez pour représenter le chargement partout dans votre application. Cela veut dire que vous allez devoir réécrire cette même logique à chaque fois. Pire encore, cela veut dire que vous allez devoir refaire l'effort de comprendre votre code à chaque fois que vous tomberez dessus. Ici ce n'est qu'une ternaire, mais ça peut être plus lourd que ça. On va donc l'extraire lui aussi en rendant le `DumbUser` paramétrable&nbsp;:
 
 ```jsx
 function withLoading (DumbUser) {
