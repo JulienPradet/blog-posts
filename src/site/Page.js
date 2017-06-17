@@ -123,7 +123,6 @@ class Page extends React.Component {
           {helmet}
           <Helmet>
             <style type="text/css">{pageCriticalCSS}</style>
-            <link rel="preload" href="/css/page.css" as="style" />
             <noscript>
               {
                 `
