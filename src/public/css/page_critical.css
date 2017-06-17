@@ -167,9 +167,6 @@ h1:hover .header-anchor, h2:hover .header-anchor, h3:hover .header-anchor, h4:ho
     margin-top: 0;
     left: 3em;
   }
-  .footer.footer--is-post {
-    margin-top: 2.8em;
-  }
   .footer li {
     display: block;
     margin: 0;
