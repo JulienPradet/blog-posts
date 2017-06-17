@@ -54,6 +54,7 @@ const renderPageToHtml = paths =>
             {helmet.title.toComponent()}
             {helmet.meta.toComponent()}
             {helmet.link.toComponent()}
+            {helmet.style.toComponent()}
           </head>
           <body>
             <div id="root" dangerouslySetInnerHTML={{ __html: html }} />
@@ -69,6 +70,7 @@ const renderPageToHtml = paths =>
               stats.children[0],
               htmlPath
             ).map((jsPath, key) => <script async src={jsPath} key={key} />)}
+            {helmet.noscript.toComponent()}
           </body>
         </html>
       );

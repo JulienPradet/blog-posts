@@ -43,6 +43,10 @@ const baseConfig = paths =>
           {
             test: /\.svg$/,
             loader: "raw-loader"
+          },
+          {
+            test: /\.css$/,
+            loader: "raw-loader"
           }
         ]
       },

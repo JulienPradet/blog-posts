@@ -8,6 +8,7 @@ import PageContent from "./PageContent";
 import PageFooter from "./PageFooter";
 import PageList from "./PageList";
 import GlobalFooter from "./GlobalFooter";
+import pageCriticalCSS from "../public/css/page_critical.css";
 
 const DefaultPage = props => (
   <div>
@@ -88,7 +89,6 @@ const makeHelmet = props => (
     />
     <meta property="og:description" content={props.page.description} />
     <link rel="canonical" href={`${props.site.meta.homepage}${props.path}`} />
-    <link rel="stylesheet" href={`/css/main.css`} />
     <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <link rel="manifest" href="/manifest.json" />
@@ -121,6 +121,17 @@ class Page extends React.Component {
       return (
         <div className="page">
           {helmet}
+          <Helmet>
+            <style type="text/css">{pageCriticalCSS}</style>
+            <link rel="preload" href="/css/page.css" as="style" />
+            <noscript>
+              {
+                `
+                <link rel="stylesheet" href="/css/page.css" />
+                `
+              }
+            </noscript>
+          </Helmet>
           <div>
             {this.props.page.isPost
               ? <Post
@@ -146,6 +157,18 @@ class Page extends React.Component {
             </div>
           </div>
           <GlobalFooter isPost={this.props.page.isPost} />
+          <script
+            type="text/javascript"
+            dangerouslySetInnerHTML={{
+              __html: `
+                var link = document.createElement('link')
+                link.rel = 'stylesheet'
+                link.href = '/css/page.css'
+                console.log(link)
+                document.body.appendChild(link)
+              `
+            }}
+          />
         </div>
       );
     } else {
