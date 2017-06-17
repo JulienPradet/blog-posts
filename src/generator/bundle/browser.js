@@ -1,17 +1,22 @@
 import React from "react";
 import { render } from "react-dom";
-import { withAsyncComponents } from "react-async-component";
+import { AsyncComponentProvider } from "react-async-component";
 import App from "../tmp/App";
 import { BrowserRouter } from "react-router-dom";
+import asyncBootstrapper from "react-async-bootstrapper";
 
-withAsyncComponents(
-  <BrowserRouter>
-    <App />
-  </BrowserRouter>
-).then(result => {
-  const { appWithAsyncComponents } = result;
+const rehydrateState = window.ASYNC_COMPONENTS_STATE;
 
-  render(appWithAsyncComponents, document.getElementById("root"));
+const app = (
+  <AsyncComponentProvider rehydrateState={rehydrateState}>
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
+  </AsyncComponentProvider>
+);
+
+asyncBootstrapper(app).then(() => {
+  render(app, document.getElementById("root"));
 });
 
 if ("serviceWorker" in navigator) {

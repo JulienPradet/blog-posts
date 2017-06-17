@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const CLOSED_SCALE = 1;
 const EXPANDED_SCALE = 1.5;
@@ -130,9 +131,9 @@ class InterruptAnimation extends React.Component {
 }
 
 InterruptAnimation.propTypes = {
-  length: React.PropTypes.number,
-  checkStart: React.PropTypes.bool,
-  withoutLayoutThrashing: React.PropTypes.bool
+  length: PropTypes.number,
+  checkStart: PropTypes.bool,
+  withoutLayoutThrashing: PropTypes.bool
 };
 InterruptAnimation.defaultProps = {
   length: 1,

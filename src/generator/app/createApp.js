@@ -64,7 +64,7 @@ const makeEntry = paths =>
         `
         const React = require('react')
         const Route = require('react-router-dom').Route
-        const createAsyncComponent = require('react-async-component').createAsyncComponent
+        const asyncComponent = require('react-async-component').asyncComponent
         const SiteProvider = require('../../site/Site').default
         const Page = require('../../site/Page').default
         const Loading = require('../../site/Loading').default

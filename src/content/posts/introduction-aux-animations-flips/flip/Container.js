@@ -1,4 +1,5 @@
-import React from "react";
+import { Component } from "react";
+import PropTypes from "prop-types";
 import Flip from "./flip";
 
 const shouldAnimate = props =>
@@ -6,7 +7,7 @@ const shouldAnimate = props =>
 const shouldUpdateFirst = props =>
   typeof props.shouldUpdateFirst === "undefined" || props.shouldUpdateFirst;
 
-class FlipContainer extends React.Component {
+class FlipContainer extends Component {
   constructor() {
     super();
     this.registerElement = this.registerElement.bind(this);
@@ -71,14 +72,14 @@ class FlipContainer extends React.Component {
 }
 
 FlipContainer.propTypes = {
-  children: React.PropTypes.func.isRequired
+  children: PropTypes.func.isRequired
 };
 
 FlipContainer.childContextTypes = {
-  flip: React.PropTypes.shape({
-    elements: React.PropTypes.array.isRequired,
-    registerElement: React.PropTypes.func.isRequired,
-    triggerAnimation: React.PropTypes.func.isRequired
+  flip: PropTypes.shape({
+    elements: PropTypes.array.isRequired,
+    registerElement: PropTypes.func.isRequired,
+    triggerAnimation: PropTypes.func.isRequired
   }).isRequired
 };
 

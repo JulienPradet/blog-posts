@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 import getDisplayName from "./util/getDisplayName";
 
 class SiteProvider extends React.Component {
@@ -22,13 +23,13 @@ class SiteProvider extends React.Component {
 }
 
 SiteProvider.childContextTypes = {
-  site: React.PropTypes.object.isRequired
+  site: PropTypes.object.isRequired
 };
 
 SiteProvider.propTypes = {
-  meta: React.PropTypes.any.isRequired,
-  pages: React.PropTypes.any.isRequired,
-  children: React.PropTypes.node.isRequired
+  meta: PropTypes.any.isRequired,
+  pages: PropTypes.any.isRequired,
+  children: PropTypes.node.isRequired
 };
 
 export const withSite = Component => {
@@ -37,7 +38,7 @@ export const withSite = Component => {
   );
 
   withSiteComponent.contextTypes = {
-    site: React.PropTypes.object.isRequired
+    site: PropTypes.object.isRequired
   };
 
   withSiteComponent.displayName = `withSite(${getDisplayName(Component)})`;

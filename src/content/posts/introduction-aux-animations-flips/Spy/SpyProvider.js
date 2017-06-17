@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 class SpyProvider extends React.Component {
   constructor() {
@@ -37,14 +38,14 @@ class SpyProvider extends React.Component {
 }
 
 SpyProvider.propTypes = {
-  children: React.PropTypes.node.isRequired
+  children: PropTypes.node.isRequired
 };
 
 SpyProvider.childContextTypes = {
-  spy: React.PropTypes.shape({
-    registerTarget: React.PropTypes.func.isRequired,
-    registerSubscriber: React.PropTypes.func.isRequired,
-    getTargets: React.PropTypes.func.isRequired
+  spy: PropTypes.shape({
+    registerTarget: PropTypes.func.isRequired,
+    registerSubscriber: PropTypes.func.isRequired,
+    getTargets: PropTypes.func.isRequired
   }).isRequired
 };
 

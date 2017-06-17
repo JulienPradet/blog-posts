@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const spySubscriber = mapTargetsToProps =>
   BaseComponent => {
@@ -20,10 +21,10 @@ const spySubscriber = mapTargetsToProps =>
     }
 
     SpySubscriber.contextTypes = {
-      spy: React.PropTypes.shape({
-        registerTarget: React.PropTypes.func.isRequired,
-        registerSubscriber: React.PropTypes.func.isRequired,
-        getTargets: React.PropTypes.func.isRequired
+      spy: PropTypes.shape({
+        registerTarget: PropTypes.func.isRequired,
+        registerSubscriber: PropTypes.func.isRequired,
+        getTargets: PropTypes.func.isRequired
       }).isRequired
     };
 

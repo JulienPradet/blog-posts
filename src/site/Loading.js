@@ -27,7 +27,7 @@ class Loading extends React.Component {
         className={
           "spinner " + (this.state.displaySpinner ? "" : "spinner--hidden")
         }
-        ariaLabel="Chargement en cours..."
+        aria-label="Chargement en cours..."
       />
     );
   }

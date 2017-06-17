@@ -4,7 +4,12 @@ import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router";
 import Helmet from "react-helmet";
 import App from "../tmp/App";
-import { withAsyncComponents } from "react-async-component";
+import {
+  createAsyncContext,
+  AsyncComponentProvider
+} from "react-async-component";
+import asyncBootstrapper from "react-async-bootstrapper";
+import serialize from "serialize-javascript";
 
 const getPathsFromChunks = paths =>
   (stats, htmlPath) =>
@@ -26,37 +31,38 @@ const renderPageToHtml = paths =>
     let location = "/" + path.relative(paths.contentPath, path.dirname(jsPath));
     if (!location.endsWith("/")) location += "/";
 
+    const asyncContext = createAsyncContext();
     const context = {};
     const server = (
-      <StaticRouter location={location} context={context}>
-        <App />
-      </StaticRouter>
+      <AsyncComponentProvider asyncContext={asyncContext}>
+        <StaticRouter location={location} context={context}>
+          <App />
+        </StaticRouter>
+      </AsyncComponentProvider>
     );
 
-    return withAsyncComponents(server).then(result => {
-      const {
-        appWithAsyncComponents,
-        state,
-        STATE_IDENTIFIER
-      } = result;
+    return asyncBootstrapper(server).then(() => {
+      Helmet.rewind();
+      const html = renderToString(server);
+      const helmet = Helmet.renderStatic();
 
-      let head = Helmet.rewind();
-      const html = renderToString(appWithAsyncComponents);
-      head = Helmet.rewind();
-
-      const topHead = Object.keys(head)
-        .filter(key => key !== "script")
-        .map(key => head[key].toString())
-        .join("");
+      const asyncState = asyncContext.getState();
 
       return renderToString(
         <html lang="fr">
-          <head dangerouslySetInnerHTML={{ __html: topHead }} />
+          <head>
+            {helmet.title.toComponent()}
+            {helmet.meta.toComponent()}
+            {helmet.link.toComponent()}
+          </head>
           <body>
             <div id="root" dangerouslySetInnerHTML={{ __html: html }} />
             <script
+              type="text/javascript"
               dangerouslySetInnerHTML={{
-                __html: `${STATE_IDENTIFIER} = ${JSON.stringify(state)}`
+                __html: `
+                  window.ASYNC_COMPONENTS_STATE = ${serialize(asyncState)};
+                `
               }}
             />
             {getPathsFromChunks(paths)(
@@ -75,4 +81,4 @@ const renderToHtml = paths =>
       html => `<!doctype html>${html}`
     );
 
-module.exports = renderToHtml;
+export default renderToHtml;

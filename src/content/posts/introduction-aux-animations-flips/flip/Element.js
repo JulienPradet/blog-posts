@@ -1,4 +1,5 @@
 import React from "react";
+import PropTypes from "prop-types";
 
 const flipElement = (options = {}) =>
   BaseComponent => {
@@ -40,8 +41,8 @@ const flipElement = (options = {}) =>
     }
 
     FlipElement.contextTypes = {
-      flip: React.PropTypes.shape({
-        registerElement: React.PropTypes.func.isRequired
+      flip: PropTypes.shape({
+        registerElement: PropTypes.func.isRequired
       }).isRequired
     };
 

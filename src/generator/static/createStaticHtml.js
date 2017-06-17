@@ -39,7 +39,10 @@ const createHtml = paths =>
             require("../bundle/date-polyfill");
             let renderToHtml;
             try {
-              renderToHtml = require(path.join(__dirname, "../tmp/server.js"));
+              renderToHtml = require(path.join(
+                __dirname,
+                "../tmp/server.js"
+              )).default;
             } catch (e) {
               console.error(e);
               throw new Error("Server file is invalid (tmp/server.js)");
@@ -48,7 +51,13 @@ const createHtml = paths =>
             return Observable.fromPromise(
               renderToHtml(paths)(jsPath, buildPath, stats)
             )
-              .do(() => {}, error => log("error", pagePath + error))
+              .do(
+                () => {},
+                e => {
+                  log("error", e.stack);
+                  log("error", pagePath);
+                }
+              )
               .flatMap(html =>
                 fs
                   .mkdirp(path.dirname(buildPath))
@@ -59,7 +68,10 @@ const createHtml = paths =>
           (acc, filepath) => [...acc, filepath],
           [],
           pages$
-        ).do(pages => log("success", `Built ${pages.length} pages`));
+        ).do(
+          pages => log("success", `Built ${pages.length} pages`),
+          e => log("error", e.stack)
+        );
       });
   };
 

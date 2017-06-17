@@ -337,7 +337,9 @@ const SectionInfoComplementaires = () => (
 
 export default () => (
   <div>
-    <Helmet link={[{ rel: "stylesheet", href: "/css/cv.css" }]} />
+    <Helmet>
+      <link rel="stylesheet" href="/css/cv.css" />
+    </Helmet>
     <header className="head">
       <div>
         <h1 className="page__title">Julien Pradet</h1>

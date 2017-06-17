@@ -1,11 +1,12 @@
-import React from "react";
+import React, { Component } from "react";
+import PropTypes from "prop-types";
 
 const spyTarget = ({ key, nodeTransformer, shouldUpdate }) =>
   BaseComponent => {
     nodeTransformer = nodeTransformer || (x => x);
     const getKey = typeof key === "function" ? key : props => key;
 
-    class SpyTarget extends React.Component {
+    class SpyTarget extends Component {
       constructor() {
         super();
         this.setSpyTarget = this.setSpyTarget.bind(this);
@@ -46,8 +47,8 @@ const spyTarget = ({ key, nodeTransformer, shouldUpdate }) =>
     }
 
     SpyTarget.contextTypes = {
-      spy: React.PropTypes.shape({
-        registerTarget: React.PropTypes.func.isRequired
+      spy: PropTypes.shape({
+        registerTarget: PropTypes.func.isRequired
       }).isRequired
     };
 

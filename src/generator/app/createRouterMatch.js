@@ -21,27 +21,25 @@ const createRouterMatch = paths =>
   pagePath => {
     return {
       createComponent: `
-      asyncPages[${JSON.stringify(pagePath)}] = createAsyncComponent({
-        resolve: () => System.import(${JSON.stringify(pagePath)})
+      asyncPages[${JSON.stringify(pagePath)}] = asyncComponent({
+        resolve: () => import(${JSON.stringify(pagePath)})
           .then((Content) => ({
             default: (props) => {
               return <Page page={require(${JSON.stringify(pagePath.replace("index.js", "meta.js"))})} path={props.match.path}>
                 <Content.default />
               </Page>
             }
-          }))
-          .catch((error) => ({
-            default: (props) => {
-              return <Page page={require(${JSON.stringify(pagePath.replace("index.js", "meta.js"))})} path={props.match.path}>
-                Oops! Il y a eu un problème lors de la récupération de l'article.<br />
-                Peut-être des problèmes de connexion&nbsp;?
-              </Page>
-            }
           })),
-        Loading: (props) => {
+        LoadingComponent: (props) => {
           const meta = require(${JSON.stringify(pagePath.replace("index.js", "meta.js"))})
           return <Page page={meta} path={props.match.path}>
             <Loading />
+          </Page>
+        },
+        ErrorComponent: (props) => {
+          return <Page page={require(${JSON.stringify(pagePath.replace("index.js", "meta.js"))})} path={props.match.path}>
+            Oops! Il y a eu un problème lors de la récupération de l'article.<br />
+            Peut-être des problèmes de connexion&nbsp;?
           </Page>
         }
       })
