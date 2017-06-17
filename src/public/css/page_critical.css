@@ -161,38 +161,6 @@ h1:hover .header-anchor, h2:hover .header-anchor, h3:hover .header-anchor, h4:ho
 }
 
 @media screen and (min-width: 51em) {
-  .home-link {
-    position: fixed;
-    left: 2.5em;
-    top: 2.5em;
-  }
-  .home-link a {
-    position: relative;
-    display: block;
-    text-indent: -9999em;
-  }
-  .home-link a::before {
-    position: absolute;
-    content: '';
-    display: block;
-    background: #686969;
-    width: 1em;
-    height: 1em;
-    border-top-left-radius: 50%;
-    border-top-right-radius: 50%;
-  }
-  .home-link a::after {
-    position: absolute;
-    top: 0.5em;
-    left: 0.35em;
-    content: '';
-    display: block;
-    background: #faffff;
-    width: 0.3em;
-    height: 0.5em;
-    border-top-left-radius: 0.15em;
-    border-top-right-radius: 0.15em;
-  }
   .footer {
     position: fixed;
     top: 3em;
