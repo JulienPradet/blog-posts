@@ -29,7 +29,7 @@ const makePages = paths => pages => {
       try {
         meta = require(metaPath);
       } catch (e) {
-        return;
+        return null;
       }
 
       return Object.assign({}, meta, {

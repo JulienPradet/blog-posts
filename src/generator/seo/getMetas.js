@@ -12,7 +12,7 @@ const getMetas = paths => () => {
       try {
         meta = require(filepath);
       } catch (e) {
-        return;
+        return null;
       }
 
       return Object.assign(

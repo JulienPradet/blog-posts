@@ -14,13 +14,14 @@
   "license": "MIT",
   "scripts": {
     "precommit": "lint-staged",
-    "clean": "rm -rf build/* src/generator/tmp/*",
+    "clean": "echo 'Removing dist files...' && rm -rf build/* src/generator/tmp/*",
     "prebuild": "npm run clean",
     "build": "NODE_ENV=production node ./src/index.js",
     "start": "NODE_ENV=development node ./src/index.js",
     "lighthouse": "lighthouse http://localhost:8080/",
-    "prelint": "npm run clean",
-    "lint": "prettier --write \"src/**/*.js\""
+    "prettier": "echo 'Prettifying code...' && prettier --write \"src/**/*.js\" > /dev/null",
+    "prelint": "npm run -s clean && npm -s run prettier",
+    "lint": "eslint \"src/**/*.js\""
   },
   "dependencies": {
     "intl": "^1.2.5",
@@ -76,7 +77,8 @@
   "lint-staged": {
     "*.js": [
       "prettier --write",
-      "git add"
+      "git add",
+      "eslint"
     ]
   }
 }
