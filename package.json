@@ -13,6 +13,7 @@
   "twitter": "JulienPradet",
   "license": "MIT",
   "scripts": {
+    "precommit": "lint-staged",
     "clean": "rm -rf build/* src/generator/tmp/*",
     "prebuild": "npm run clean",
     "build": "NODE_ENV=production node ./src/index.js",
@@ -24,6 +25,7 @@
   "dependencies": {
     "intl": "^1.2.5",
     "intl-locales-supported": "^1.0.0",
+    "lint-staged": "^4.0.0",
     "prop-types": "^15.5.10",
     "react": "^15.6.1",
     "react-async-bootstrapper": "^1.1.1",
@@ -57,6 +59,7 @@
     "eslint-plugin-react": "^7.1.0",
     "extract-text-webpack-plugin": "^2.1.2",
     "fs": "^0.0.1-security",
+    "husky": "^0.13.4",
     "lighthouse": "^2.1.0",
     "markdown-it": "^8.3.1",
     "markdown-it-anchor": "^4.0.0",
@@ -69,5 +72,11 @@
     "rxjs": "^5.4.1",
     "style-loader": "^0.18.2",
     "webpack": "^2.6.1"
+  },
+  "lint-staged": {
+    "*.js": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
