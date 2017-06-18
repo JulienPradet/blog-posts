@@ -13,10 +13,13 @@
   "twitter": "JulienPradet",
   "license": "MIT",
   "scripts": {
-    "prebuild": "rm -rf build/*",
+    "clean": "rm -rf build/* src/generator/tmp/*",
+    "prebuild": "npm run clean",
     "build": "NODE_ENV=production node ./src/index.js",
     "start": "NODE_ENV=development node ./src/index.js",
-    "lighthouse": "lighthouse https://www.julienpradet.fr/"
+    "lighthouse": "lighthouse http://localhost:8080/",
+    "prelint": "npm run clean",
+    "lint": "prettier --write \"src/**/*.js\""
   },
   "dependencies": {
     "intl": "^1.2.5",

@@ -9,12 +9,9 @@ class Loading extends React.Component {
   }
 
   componentDidMount() {
-    this.deferLoading = setTimeout(
-      () => {
-        this.setState({ displaySpinner: true });
-      },
-      100
-    );
+    this.deferLoading = setTimeout(() => {
+      this.setState({ displaySpinner: true });
+    }, 100);
   }
 
   componentWillUnmount() {

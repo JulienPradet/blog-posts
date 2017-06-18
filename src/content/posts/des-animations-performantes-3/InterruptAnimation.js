@@ -70,11 +70,15 @@ class InterruptAnimation extends React.Component {
     }
 
     if (this.state.opened) {
-      return this.initialScale[index] +
-        (EXPANDED_SCALE - this.initialScale[index]) * progress;
+      return (
+        this.initialScale[index] +
+        (EXPANDED_SCALE - this.initialScale[index]) * progress
+      );
     } else {
-      return this.initialScale[index] -
-        (this.initialScale[index] - CLOSED_SCALE) * progress;
+      return (
+        this.initialScale[index] -
+        (this.initialScale[index] - CLOSED_SCALE) * progress
+      );
     }
   }
 
@@ -101,7 +105,7 @@ class InterruptAnimation extends React.Component {
   render() {
     return (
       <div style={{ maxHeight: 180, overflowY: "auto" }}>
-        {new Array(this.props.length).fill(0).map((_, index) => (
+        {new Array(this.props.length).fill(0).map((_, index) =>
           <button
             key={index}
             ref={node => {
@@ -124,7 +128,7 @@ class InterruptAnimation extends React.Component {
           >
             {this.state.opened ? "Click to close" : "Click to expand"}
           </button>
-        ))}
+        )}
       </div>
     );
   }

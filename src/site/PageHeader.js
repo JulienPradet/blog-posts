@@ -5,9 +5,9 @@ import { formatDate } from "./dateFormats";
 const PageHeader = props => {
   return (
     <div className="page-header">
-      <h1 {...props.isPost ? { itemProp: "headline" } : {}}>
+      <h1 {...(props.isPost ? { itemProp: "headline" } : {})}>
         <Link
-          {...props.isPost ? { itemProp: "mainEntityOfPage" } : {}}
+          {...(props.isPost ? { itemProp: "mainEntityOfPage" } : {})}
           to={props.url}
         >
           {props.page.title}
@@ -16,7 +16,7 @@ const PageHeader = props => {
       <header>
         {props.page.date &&
           <time
-            {...props.isPost ? { itemProp: "datePublished" } : {}}
+            {...(props.isPost ? { itemProp: "datePublished" } : {})}
             dateTime={new Date(props.page.date).toISOString()}
           >
             {formatDate(new Date(props.page.date))}

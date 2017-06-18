@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import Container from "./flip/Container";
 import flipElement from "./flip/Element";
 
-const Base = props => (
+const Base = props =>
   <div
     ref={props.flip.setFlipElement}
     style={{
@@ -29,8 +29,7 @@ const Base = props => (
       <div style={{ marginTop: "1.5em" }}>
         Salut, moi c'est le contenu&nbsp;!
       </div>}
-  </div>
-);
+  </div>;
 
 const Content = flipElement({ duration: 300 })(Base);
 

@@ -55,16 +55,16 @@ class Flip {
     };
 
     if (this.options.updateTranslate) {
-      this._invert.translateX = this._first.boundingBox.left -
-        this._last.boundingBox.left;
-      this._invert.translateY = this._first.boundingBox.top -
-        this._last.boundingBox.top;
+      this._invert.translateX =
+        this._first.boundingBox.left - this._last.boundingBox.left;
+      this._invert.translateY =
+        this._first.boundingBox.top - this._last.boundingBox.top;
     }
     if (this.options.updateTranslate) {
-      this._invert.scaleX = this._first.boundingBox.width /
-        this._last.boundingBox.width;
-      this._invert.scaleY = this._first.boundingBox.height /
-        this._last.boundingBox.height;
+      this._invert.scaleX =
+        this._first.boundingBox.width / this._last.boundingBox.width;
+      this._invert.scaleY =
+        this._first.boundingBox.height / this._last.boundingBox.height;
     }
     if (this.options.updateOpacity) {
       this._invert.opacity = this._last.opacity - this._first.opacity;
@@ -95,8 +95,8 @@ class Flip {
     this.updateOptions();
     if (!this._invert) return;
 
-    this._start = window.performance.now() +
-      this.options.delay * slowMotionFactor;
+    this._start =
+      window.performance.now() + this.options.delay * slowMotionFactor;
 
     const promise = new Promise((resolve, reject) => {
       this.resolve = resolve;
@@ -111,7 +111,8 @@ class Flip {
     if (!this._invert) {
       return;
     }
-    let time = (window.performance.now() - this._start) /
+    let time =
+      (window.performance.now() - this._start) /
       (this.options.duration * slowMotionFactor);
     if (time > 1) time = 1;
     if (time < 0) time = 0;

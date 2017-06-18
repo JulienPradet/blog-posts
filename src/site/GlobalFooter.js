@@ -3,7 +3,7 @@ import Svg from "react-svg-inline";
 import twitterSvg from "../icons/iconmonstr-twitter-1.svg";
 import githubSvg from "../icons/iconmonstr-github-1.svg";
 
-const GlobalFooter = ({ isPost }) => (
+const GlobalFooter = ({ isPost }) =>
   <footer className={`footer ${isPost ? "footer--is-post" : ""}`}>
     <ul>
       <li>
@@ -19,7 +19,6 @@ const GlobalFooter = ({ isPost }) => (
         </a>
       </li>
     </ul>
-  </footer>
-);
+  </footer>;
 
 export default GlobalFooter;

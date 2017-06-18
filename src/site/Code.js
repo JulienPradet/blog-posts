@@ -29,9 +29,11 @@ class Code extends React.Component {
   }
 
   shouldComponentUpdate(nextProps, nextState) {
-    return this.props.lang !== nextProps.lang ||
+    return (
+      this.props.lang !== nextProps.lang ||
       this.props.children !== nextProps.children ||
-      this.state.width !== nextState.width;
+      this.state.width !== nextState.width
+    );
   }
 
   getCode(codeFormats) {

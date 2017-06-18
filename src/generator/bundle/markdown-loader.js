@@ -14,7 +14,10 @@ const md = markdown({
       lang = "jsx";
     }
 
-    return `<pre class="language-${lang}"><code>${Prism.highlight(code, Prism.languages[lang])}</code></pre>`;
+    return `<pre class="language-${lang}"><code>${Prism.highlight(
+      code,
+      Prism.languages[lang]
+    )}</code></pre>`;
   }
 }).use(require("markdown-it-anchor"), {
   permalink: true,

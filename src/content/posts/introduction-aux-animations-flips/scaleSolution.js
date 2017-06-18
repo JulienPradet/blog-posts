@@ -6,7 +6,7 @@ import spySubscriber from "./Spy/spySubscriber";
 import spyTarget from "./Spy/spyTarget";
 import compose from "./compose";
 
-const Button = props => (
+const Button = props =>
   <div
     style={{
       background: "white",
@@ -27,8 +27,7 @@ const Button = props => (
     >
       {props.opened ? "Fermer" : "Ouvrir"}
     </button>
-  </div>
-);
+  </div>;
 
 const InnerContent = compose(
   spyTarget({
@@ -43,7 +42,7 @@ const InnerContent = compose(
         ? { duration: 150, delay: 150, updateScale: false }
         : { duration: 250, delay: 0, updateScale: false }
   )
-)(props => (
+)(props =>
   <div
     ref={node => {
       props.flip.setFlipElement(node);
@@ -60,15 +59,14 @@ const InnerContent = compose(
       Salut, moi c'est le contenu&nbsp;!
     </div>
   </div>
-));
+);
 
 const ContentBackground = compose(
-  spySubscriber(props =>
-    targets => ({
-      height: targets.content
-    })),
+  spySubscriber(props => targets => ({
+    height: targets.content
+  })),
   flipElement({ duration: 300 })
-)(props => (
+)(props =>
   <div
     ref={props.flip.setFlipElement}
     style={{
@@ -76,9 +74,9 @@ const ContentBackground = compose(
       height: props.opened ? props.spyTargets.height : 1
     }}
   />
-));
+);
 
-const Content = props => (
+const Content = props =>
   <div
     style={{
       maxWidth: "20em",
@@ -91,8 +89,7 @@ const Content = props => (
       <ContentBackground opened={props.opened} />
       <InnerContent opened={props.opened} />
     </div>
-  </div>
-);
+  </div>;
 
 class BaseTogglable extends Component {
   constructor() {
@@ -115,8 +112,7 @@ class BaseTogglable extends Component {
     );
   }
 }
-export default props => (
+export default props =>
   <SpyProvider>
     <BaseTogglable />
-  </SpyProvider>
-);
+  </SpyProvider>;

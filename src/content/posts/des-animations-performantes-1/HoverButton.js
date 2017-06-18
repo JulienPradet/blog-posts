@@ -1,7 +1,7 @@
-import React from 'react'
+import React from "react";
 
-const HoverButton = () => (
-  <div className='hover-button__wrapper'>
+const HoverButton = () =>
+  <div className="hover-button__wrapper">
     <style>{`
       .hover-button__wrapper {
         text-align: center;
@@ -22,8 +22,7 @@ const HoverButton = () => (
         background: #19e4e4;
       }
     `}</style>
-    <button className='hover-button'>Hover me!</button>
-  </div>
-)
+    <button className="hover-button">Hover me!</button>
+  </div>;
 
-export default HoverButton
+export default HoverButton;

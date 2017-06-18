@@ -8,7 +8,7 @@ const ensureSlashs = url => {
   return url;
 };
 
-const PagePreview = ({ page }) => (
+const PagePreview = ({ page }) =>
   <div className="page-preview">
     <Link to={ensureSlashs(page.location)} className="page-preview__title">
       {page.title}
@@ -28,7 +28,6 @@ const PagePreview = ({ page }) => (
         Lire la suite →
       </Link>
     </div>
-  </div>
-);
+  </div>;
 
 export default PagePreview;

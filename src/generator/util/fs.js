@@ -101,20 +101,22 @@ function getRecursiveFiles(inputDir$) {
 function saveFiles(filesToSave$) {
   return filesToSave$
     .flatMap(({ file, filepath }) =>
-      mkdirp(path.dirname(filepath)).map(() => ({ file, filepath })))
+      mkdirp(path.dirname(filepath)).map(() => ({ file, filepath }))
+    )
     .flatMap(({ file, filepath }) => writefile(filepath, file));
 }
 
 function copyfile(sourcePath, destPath, recursive = false) {
   let file$;
   if (recursive) {
-    file$ = getRecursiveFiles(Observable.of(sourcePath)).flatMap(({
-      filepath
-    }) =>
+    file$ = getRecursiveFiles(
+      Observable.of(sourcePath)
+    ).flatMap(({ filepath }) =>
       copyfile(
         filepath,
         path.join(destPath, path.relative(sourcePath, filepath))
-      ));
+      )
+    );
   } else {
     file$ = mkdirp(path.dirname(destPath)).flatMap(() =>
       Observable.create(observer => {
@@ -129,7 +131,8 @@ function copyfile(sourcePath, destPath, recursive = false) {
         readStream.on("error", err => observer.error(err));
 
         readStream.pipe(writeStream);
-      }));
+      })
+    );
   }
 
   return file$;

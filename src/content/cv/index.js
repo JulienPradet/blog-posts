@@ -5,26 +5,24 @@ import twitterSvg from "../../icons/iconmonstr-twitter-1.svg";
 import githubSvg from "../../icons/iconmonstr-github-1.svg";
 import { formatSimpleDate } from "../../site/dateFormats";
 
-const Section = ({ title, children }) => (
+const Section = ({ title, children }) =>
   <section>
     <h2>{title}</h2>
     {children}
-  </section>
-);
+  </section>;
 
-const Line = ({ left, children }) => (
+const Line = ({ left, children }) =>
   <div className="line">
     <div className="line__left">{left}</div>
     <div className="line__content">{children}</div>
-  </div>
-);
+  </div>;
 
 const Time = ({ children }) =>
   children
     ? <time>{formatSimpleDate(children)}</time>
     : <time>aujourd'hui</time>;
 
-const Experience = ({ startDate, endDate, title, children }) => (
+const Experience = ({ startDate, endDate, title, children }) =>
   <Line
     left={
       <div>
@@ -34,10 +32,9 @@ const Experience = ({ startDate, endDate, title, children }) => (
     }
   >
     {children}
-  </Line>
-);
+  </Line>;
 
-const SectionExperienceProfessionnelle = () => (
+const SectionExperienceProfessionnelle = () =>
   <Section title="Expérience Professionnelle">
     <Experience startDate={new Date("2016-03-01")} title="Occitech">
       <h4>
@@ -109,10 +106,9 @@ const SectionExperienceProfessionnelle = () => (
         </li>
       </ul>
     </Experience>
-  </Section>
-);
+  </Section>;
 
-const Formation = ({ startDate, endDate, title, children }) => (
+const Formation = ({ startDate, endDate, title, children }) =>
   <Line
     left={
       <div className="time">
@@ -121,10 +117,9 @@ const Formation = ({ startDate, endDate, title, children }) => (
     }
   >
     {children}
-  </Line>
-);
+  </Line>;
 
-const SectionFormation = () => (
+const SectionFormation = () =>
   <Section title="Formation">
     <Formation
       startDate={new Date("2012-09-01")}
@@ -144,16 +139,16 @@ const SectionFormation = () => (
       endDate={new Date("2012-07-01")}
     >
       <h4>
-        Classes Préparatoires aux Grandes Écoles, Mathématiques et Physique (M.P.)
+        Classes Préparatoires aux Grandes Écoles, Mathématiques et Physique
+        (M.P.)
       </h4>
       <p>
         Lycée Louis Barthou à Pau
       </p>
     </Formation>
-  </Section>
-);
+  </Section>;
 
-const Conference = ({ conf, date, children }) => (
+const Conference = ({ conf, date, children }) =>
   <Line
     left={
       <div>
@@ -163,10 +158,9 @@ const Conference = ({ conf, date, children }) => (
     }
   >
     {children}
-  </Line>
-);
+  </Line>;
 
-const SectionConferences = () => (
+const SectionConferences = () =>
   <Section title="Conférences">
     <Conference
       date={new Date("2017-06-12")}
@@ -175,9 +169,7 @@ const SectionConferences = () => (
     >
       <h4>Animations Performantes</h4>
       <p>
-        <a
-          href="https://julienpradet.github.io/slides/animations-performantes/"
-        >
+        <a href="https://julienpradet.github.io/slides/animations-performantes/">
           https://julienpradet.github.io/slides/animations-performantes/
         </a>
       </p>
@@ -217,30 +209,27 @@ const SectionConferences = () => (
     >
       <h4>Coach React</h4>
       <p>
-        <a
-          href="https://github.com/monkeytechdays/mktd-2-exercices/tree/react-wording"
-        >
+        <a href="https://github.com/monkeytechdays/mktd-2-exercices/tree/react-wording">
           https://github.com/monkeytechdays/mktd-2-exercices
         </a>
       </p>
     </Conference>
-  </Section>
-);
+  </Section>;
 
-const Projet = ({ children, name }) => (
+const Projet = ({ children, name }) =>
   <Line left={<h3>{name}</h3>}>
     {children}
-  </Line>
-);
+  </Line>;
 
-const SectionProjets = () => (
+const SectionProjets = () =>
   <Section title="Projets et Expériences Personnelles">
     <Projet name="Blog">
       <h4>
         <a href="https://www.julienpradet.fr/">https://www.julienpradet.fr/</a>
       </h4>
       <p>
-        Ce blog est l'occasion pour moi de partager mes connaissances et mes expériences dans le domaine du web.
+        Ce blog est l'occasion pour moi de partager mes connaissances et mes
+        expériences dans le domaine du web.
       </p>
     </Projet>
     <Projet name="React FLIP">
@@ -252,9 +241,7 @@ const SectionProjets = () => (
       <p>
         Une librairie simplifiant l'utilisation des
         {" "}
-        <a
-          href="https://www.julienpradet.fr/posts/introduction-aux-animations-flips"
-        >
+        <a href="https://www.julienpradet.fr/posts/introduction-aux-animations-flips">
           animations FLIP
         </a>
         {" "}
@@ -268,7 +255,8 @@ const SectionProjets = () => (
         </a>
       </h4>
       <p>
-        Un outil permettant de réaliser une documentation vivante d'une application React.
+        Un outil permettant de réaliser une documentation vivante d'une
+        application React.
       </p>
     </Projet>
     <Projet name="Ter Aelis">
@@ -278,19 +266,18 @@ const SectionProjets = () => (
         </a>
       </h4>
       <p>
-        Réalisation d'un forum communautaire en Symfony pour une association d'artistes.
+        Réalisation d'un forum communautaire en Symfony pour une association
+        d'artistes.
       </p>
     </Projet>
-  </Section>
-);
+  </Section>;
 
-const Competence = ({ type, children }) => (
+const Competence = ({ type, children }) =>
   <Line left={<h3>{type}</h3>}>
     {children}
-  </Line>
-);
+  </Line>;
 
-const SectionCompetences = () => (
+const SectionCompetences = () =>
   <Section title="Compétences">
     <Competence type="Paradigmes">
       <p>Procédural, Object, Fonctionnel, Réactif, Logique</p>
@@ -302,16 +289,14 @@ const SectionCompetences = () => (
       <p>React, RxJS, Babel, Webpack, Jest</p>
       <p>Symfony, CakePHP, Express (NodeJS)</p>
     </Competence>
-  </Section>
-);
+  </Section>;
 
-const Info = ({ type, children }) => (
+const Info = ({ type, children }) =>
   <Line left={<h3>{type}</h3>}>
     {children}
-  </Line>
-);
+  </Line>;
 
-const SectionInfoComplementaires = () => (
+const SectionInfoComplementaires = () =>
   <Section title="Informations Complémentaires">
     <Info type="Langues">
       Français (langue maternelle), Anglais (TOEIC : 945/990)
@@ -329,13 +314,13 @@ const SectionInfoComplementaires = () => (
     <Info type="Divers">
       <p>Permis B</p>
       <p>
-        Neuf ans à l'étranger&nbsp;: Écosse, Indonésie, Émirats Arabes Unis (Dubaï)
+        Neuf ans à l'étranger&nbsp;: Écosse, Indonésie, Émirats Arabes Unis
+        (Dubaï)
       </p>
     </Info>
-  </Section>
-);
+  </Section>;
 
-export default () => (
+export default () =>
   <div>
     <Helmet>
       <link rel="stylesheet" href="/css/cv.css" />
@@ -383,5 +368,4 @@ export default () => (
     <SectionConferences />
     <SectionProjets />
     <SectionInfoComplementaires />
-  </div>
-);
+  </div>;

@@ -10,16 +10,15 @@ import PageList from "./PageList";
 import GlobalFooter from "./GlobalFooter";
 import pageCriticalCSS from "../public/css/page_critical.css";
 
-const DefaultPage = props => (
+const DefaultPage = props =>
   <div>
     <PageHeader page={props.page} url={props.path} />
     <PageContent>
       {props.children}
     </PageContent>
-  </div>
-);
+  </div>;
 
-const Post = props => (
+const Post = props =>
   <div itemScope itemType="http://schema.org/Article">
     <div
       dangerouslySetInnerHTML={{
@@ -41,10 +40,9 @@ const Post = props => (
     <div className="page-content">
       <PageFooter isPost />
     </div>
-  </div>
-);
+  </div>;
 
-const makeHelmet = props => (
+const makeHelmet = props =>
   <Helmet>
     <title>
       {`${props.page.title || "Blog"} | ${props.site.meta.author.name}`}
@@ -63,14 +61,14 @@ const makeHelmet = props => (
       property="twitter:description"
       content={
         (props.page.twitter && props.page.twitter.description) ||
-          props.page.description
+        props.page.description
       }
     />
     <meta
       property="twitter:image"
       content={
         props.page.image ||
-          "https://pbs.twimg.com/profile_images/424964348461600768/aygHDGpF.png"
+        "https://pbs.twimg.com/profile_images/424964348461600768/aygHDGpF.png"
       }
     />
     <meta property="og:site_name" content={props.site.meta.site_name} />
@@ -84,7 +82,7 @@ const makeHelmet = props => (
       property="og:image"
       content={
         props.page.image ||
-          "https://pbs.twimg.com/profile_images/424964348461600768/aygHDGpF.png"
+        "https://pbs.twimg.com/profile_images/424964348461600768/aygHDGpF.png"
       }
     />
     <meta property="og:description" content={props.page.description} />
@@ -98,8 +96,7 @@ const makeHelmet = props => (
       title="Le flux RSS de Julien Pradet"
       href={`${props.site.meta.homepage}/feed.xml`}
     />
-  </Helmet>
-);
+  </Helmet>;
 
 class Page extends React.Component {
   constructor() {
@@ -116,7 +113,8 @@ class Page extends React.Component {
     const helmet = makeHelmet(this.props);
 
     if (
-      typeof this.props.page.isPage === "undefined" || this.props.page.isPage
+      typeof this.props.page.isPage === "undefined" ||
+      this.props.page.isPage
     ) {
       return (
         <div className="page">
@@ -124,11 +122,9 @@ class Page extends React.Component {
           <Helmet>
             <style type="text/css">{pageCriticalCSS}</style>
             <noscript>
-              {
-                `
+              {`
                 <link rel="stylesheet" href="/css/page.css" />
-                `
-              }
+                `}
             </noscript>
           </Helmet>
           <div>
@@ -156,18 +152,6 @@ class Page extends React.Component {
             </div>
           </div>
           <GlobalFooter isPost={this.props.page.isPost} />
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={{
-              __html: `
-                var link = document.createElement('link')
-                link.rel = 'stylesheet'
-                link.href = '/css/page.css'
-                console.log(link)
-                document.body.appendChild(link)
-              `
-            }}
-          />
         </div>
       );
     } else {

@@ -27,26 +27,25 @@ const appendSpaces = (n, subject = "") => {
   return subject;
 };
 
-const message = subject =>
-  (type, string, displayTitle = true) => {
-    if (!typeToColor.hasOwnProperty(type)) {
-      console.log(
-        typeToColor.warn(`Type ${type} is not defined as logging type`)
-      );
-      type = "info";
-    }
+const message = subject => (type, string, displayTitle = true) => {
+  if (!typeToColor.hasOwnProperty(type)) {
+    console.log(
+      typeToColor.warn(`Type ${type} is not defined as logging type`)
+    );
+    type = "info";
+  }
 
-    if (subject.length < longestTitle) {
-      subject = appendSpaces(longestTitle, subject);
-    } else {
-      longestTitle = subject.length;
-    }
+  if (subject.length < longestTitle) {
+    subject = appendSpaces(longestTitle, subject);
+  } else {
+    longestTitle = subject.length;
+  }
 
-    const title = displayTitle
-      ? typeToTitleColor[type](subject + " ")
-      : appendSpaces(longestTitle + 1);
-    const message = typeToColor[type](string);
-    console.log(title + " " + message);
-  };
+  const title = displayTitle
+    ? typeToTitleColor[type](subject + " ")
+    : appendSpaces(longestTitle + 1);
+  const message = typeToColor[type](string);
+  console.log(title + " " + message);
+};
 
 module.exports = message;

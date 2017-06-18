@@ -24,7 +24,8 @@ class MovingBoxShadow extends React.Component {
 
   toggleAnimation() {
     this.setState({ animating: !this.state.animating }, () =>
-      window.requestAnimationFrame(this.animate));
+      window.requestAnimationFrame(this.animate)
+    );
   }
 
   render() {
@@ -154,7 +155,7 @@ class MovingBoxShadow extends React.Component {
     `
           }}
         />
-        <div id={`${this.props.id}-box`} ref={node => this.node = node}>
+        <div id={`${this.props.id}-box`} ref={node => (this.node = node)}>
           Bonjour,
           Je suis une boîte avec des propriétés couteuses.
         </div>

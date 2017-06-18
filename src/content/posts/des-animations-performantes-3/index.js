@@ -21,7 +21,7 @@ import rafLoopCode from "./raf-loop.js.code";
 import InterruptAnimation from "./InterruptAnimation";
 import withPrismCss from "../../../site/withPrismCss";
 
-const Article = props => (
+const Article = props =>
   <div>
     <div dangerouslySetInnerHTML={{ __html: introduction }} />
     <div dangerouslySetInnerHTML={{ __html: tldr }} />
@@ -40,15 +40,13 @@ const Article = props => (
     <Code>{noLayoutThrashingRafCode}</Code>
     <div dangerouslySetInnerHTML={{ __html: eviter3 }} />
     <Demo>
-      {() => (
-        <InterruptAnimation length={400} checkStart withoutLayoutThrashing />
-      )}
+      {() =>
+        <InterruptAnimation length={400} checkStart withoutLayoutThrashing />}
     </Demo>
     <div dangerouslySetInnerHTML={{ __html: animation }} />
     <Code>{rafLoopCode}</Code>
     <div dangerouslySetInnerHTML={{ __html: animation2 }} />
     <div dangerouslySetInnerHTML={{ __html: conclusion }} />
-  </div>
-);
+  </div>;
 
 export default withPrismCss()(Article);

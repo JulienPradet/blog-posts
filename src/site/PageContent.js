@@ -1,11 +1,10 @@
 import React from "react";
 
-const PageContent = props => (
+const PageContent = props =>
   <main className="page-content" role="main">
     {props.isPost
       ? <article itemProp="articleBody">{props.children}</article>
       : props.children}
-  </main>
-);
+  </main>;
 
 export default PageContent;
