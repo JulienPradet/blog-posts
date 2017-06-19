@@ -1,7 +1,7 @@
 const path = require("path");
 const webpack = require("webpack");
-const Observable = require("rxjs").Observable;
 const log = require("../util/log")("BUNDLE");
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const baseConfig = paths => (pages, entryPath) => {
   return {
@@ -71,7 +71,13 @@ const baseConfig = paths => (pages, entryPath) => {
               compress: { warnings: false }
             })
           ]
-        : []
+        : [
+            new HtmlWebpackPlugin({
+              template: path.join(__dirname, "dev-template.html")
+            }),
+            new webpack.HotModuleReplacementPlugin(),
+            new webpack.NamedModulesPlugin()
+          ]
     )
   };
 };
@@ -79,7 +85,13 @@ const baseConfig = paths => (pages, entryPath) => {
 const webpackConfig = paths => (pages, entryPath) => {
   const browserEntry = Object.assign({}, baseConfig(paths)(pages, entryPath), {
     entry: {
-      app: "./src/generator/bundle/browser.js"
+      app: process.env.NODE_ENV === "production"
+        ? "./src/generator/bundle/browser.js"
+        : [
+            "webpack-dev-server/client?http://localhost:3000",
+            "webpack/hot/dev-server",
+            "./src/generator/bundle/browser.js"
+          ]
     }
   });
   browserEntry.output = {
