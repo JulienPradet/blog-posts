@@ -126,6 +126,16 @@ class Page extends React.Component {
                 <link rel="stylesheet" href="/css/page.css" />
                 `}
             </noscript>
+            <script type="text/javascript">
+              {`
+              requestIdleCallback(() => {
+                var link = document.createElement('link')
+                link.href = '/css/page.css'
+                link.rel = 'stylesheet'
+                document.querySelector('head').appendChild(link)
+              })
+              `}
+            </script>
           </Helmet>
           <div>
             {this.props.page.isPost

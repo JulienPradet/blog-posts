@@ -59,7 +59,7 @@ const createServiceWorker = paths => stats$ => {
       return [
         "/",
         "/app.js",
-        "/css/main.css",
+        "/css/page.css",
         "/css/prism-onedark.css",
         ...homeChunks
       ];

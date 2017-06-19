@@ -58,6 +58,7 @@
     "eslint-plugin-import": "^2.3.0",
     "eslint-plugin-jsx-a11y": "^5.0.3",
     "eslint-plugin-react": "^7.1.0",
+    "express": "^4.15.3",
     "extract-text-webpack-plugin": "^2.1.2",
     "fs": "^0.0.1-security",
     "husky": "^0.13.4",
@@ -72,7 +73,8 @@
     "rss": "^1.2.2",
     "rxjs": "^5.4.1",
     "style-loader": "^0.18.2",
-    "webpack": "^2.6.1"
+    "webpack": "^2.6.1",
+    "webpack-dev-middleware": "^1.10.2"
   },
   "lint-staged": {
     "*.js": [
