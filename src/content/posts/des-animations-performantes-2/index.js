@@ -4,9 +4,9 @@ import tldr from "./tl-dr.md";
 import layers from "./layers.md";
 import willChange from "./will-change.md";
 import willChange2 from "./will-change-2.md";
-import Demo from "../../../site/Demo";
+import Demo from "../../../site/components/Demo";
 import DemoLag from "./DemoLag";
-import withPrismCss from "../../../site/withPrismCss";
+import withPrismCss from "../../../site/util/withPrismCss";
 
 const Article = props =>
   <div>
