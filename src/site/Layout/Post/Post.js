@@ -40,7 +40,7 @@ const Post = props =>
         }}
       />
       <div className="home-link">
-        <a href="/" title="Accueil">Accueil</a>
+        <Link to="/" title="Accueil">Accueil</Link>
       </div>
       <PostHeader page={props.page} url={props.path} isPost />
       <PostContent isPost>
