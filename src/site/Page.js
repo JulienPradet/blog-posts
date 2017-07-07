@@ -18,7 +18,6 @@ class Page extends React.Component {
   render() {
     const helmet = makeHelmet(this.props);
     const Layout = getLayout(this.props.page.layout);
-    console.log(this.props);
 
     return (
       <Layout

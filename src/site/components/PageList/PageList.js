@@ -3,7 +3,6 @@ import { withSite } from "../../Site";
 import PagePreview from "./PagePreview";
 
 const PageList = props => {
-  console.log(props.site.pages);
   return (
     <div>
       <h2>Les derniers articles</h2>
