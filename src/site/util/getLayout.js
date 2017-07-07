@@ -1,5 +1,5 @@
-import Home from "../Layout/Home";
-import Post from "../Layout/Post";
+import Home from "../Layout/Blog/Home";
+import Post from "../Layout/Blog/Post";
 import Blank from "../Layout/Blank";
 
 const layoutMap = {

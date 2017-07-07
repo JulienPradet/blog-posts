@@ -1,11 +1,11 @@
 import React from "react";
 import Helmet from "react-helmet";
-import pageCriticalCSS from "../../../public/css/page_critical.css";
+import pageCriticalCSS from "../../../../public/css/page_critical.css";
 import PostContainer from "../Post/PostContainer";
 import PostHeader from "../Post/PostHeader";
 import PostContent from "../Post/PostContent";
-import GlobalFooter from "../../components/GlobalFooter";
-import PageList from "../../components/PageList/PageList";
+import GlobalFooter from "../../../components/GlobalFooter";
+import PageList from "../../../components/PageList/PageList";
 
 const Post = props =>
   <PostContainer>
