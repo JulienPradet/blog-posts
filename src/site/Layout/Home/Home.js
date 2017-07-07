@@ -9,6 +9,7 @@ import PageList from "../../components/PageList/PageList";
 
 const Post = props =>
   <PostContainer>
+    {props.helmet}
     <Helmet>
       <style type="text/css">{pageCriticalCSS}</style>
       <noscript>
