@@ -1,7 +1,7 @@
 import React from "react";
 import Svg from "react-svg-inline";
-import twitterSvg from "../icons/iconmonstr-twitter-1.svg";
-import githubSvg from "../icons/iconmonstr-github-1.svg";
+import twitterSvg from "../../icons/iconmonstr-twitter-1.svg";
+import githubSvg from "../../icons/iconmonstr-github-1.svg";
 
 const GlobalFooter = ({ isPost }) =>
   <footer className={`footer ${isPost ? "footer--is-post" : ""}`}>

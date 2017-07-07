@@ -1,6 +1,6 @@
 module.exports = {
   isListed: true,
-  isPost: true,
+  layout: "Post",
   title: "Introduction aux animations FLIP",
   date: "2017-03-17",
   description:

@@ -1,5 +1,5 @@
 import React from "react";
-import TabCode from "../../../site/TabCode";
+import TabCode from "../../../site/components/TabCode";
 import introduction from "./introduction.md";
 import tdlr from "./tl-dr.md";
 import cssTransition1 from "./css-transition1.md";

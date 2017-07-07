@@ -15,7 +15,7 @@
   "scripts": {
     "precommit": "lint-staged",
     "clean": "echo 'Removing dist files...' && rm -rf build/* src/generator/tmp/*",
-    "prebuild": "npm run clean",
+    "prebuild": "npm run -s clean",
     "build": "NODE_ENV=production node ./src/index.js",
     "start": "NODE_ENV=development node ./src/index.js",
     "lighthouse": "lighthouse http://localhost:8080/",

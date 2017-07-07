@@ -1,5 +1,5 @@
 import React from "react";
-import withPrismCss from "./withPrismCss";
+import withPrismCss from "../util/withPrismCss";
 
 class Code extends React.Component {
   constructor() {

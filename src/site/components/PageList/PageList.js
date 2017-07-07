@@ -1,5 +1,5 @@
 import React from "react";
-import { withSite } from "./Site";
+import { withSite } from "../../Site";
 import PagePreview from "./PagePreview";
 
 const PageList = props => {

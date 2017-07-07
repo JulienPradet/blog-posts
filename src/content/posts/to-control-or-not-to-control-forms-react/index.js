@@ -1,6 +1,6 @@
 import React from "react";
 import content from "./content.md";
-import withPrismCss from "../../../site/withPrismCss";
+import withPrismCss from "../../../site/util/withPrismCss";
 
 const Article = props =>
   <div>

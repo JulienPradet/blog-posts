@@ -1,6 +1,6 @@
 import React from "react";
-import Demo from "../../../site/Demo";
-import Code from "../../../site/Code";
+import Demo from "../../../site/components/Demo";
+import Code from "../../../site/components/Code";
 import introduction from "./introduction.md";
 import tldr from "./tl-dr.md";
 import layout from "./pourquoi-layout.md";
@@ -19,7 +19,7 @@ import noLayoutThrashingCode from "./no-layout-thrashing.js.code";
 import noLayoutThrashingRafCode from "./no-layout-thrashing-raf.js.code";
 import rafLoopCode from "./raf-loop.js.code";
 import InterruptAnimation from "./InterruptAnimation";
-import withPrismCss from "../../../site/withPrismCss";
+import withPrismCss from "../../../site/util/withPrismCss";
 
 const Article = props =>
   <div>

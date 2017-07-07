@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import Svg from "react-svg-inline";
 import twitterSvg from "../../icons/iconmonstr-twitter-1.svg";
 import githubSvg from "../../icons/iconmonstr-github-1.svg";
-import { formatSimpleDate } from "../../site/dateFormats";
+import { formatSimpleDate } from "../../site/util/dateFormats";
 
 const Section = ({ title, children }) =>
   <section>
@@ -321,7 +321,7 @@ const SectionInfoComplementaires = () =>
   </Section>;
 
 export default () =>
-  <div>
+  <div className="page">
     <Helmet>
       <link rel="stylesheet" href="/css/cv.css" />
     </Helmet>

@@ -61,7 +61,7 @@ const makeEntry = paths => matches$ => {
         const asyncComponent = require('react-async-component').asyncComponent
         const SiteProvider = require('../../site/Site').default
         const Page = require('../../site/Page').default
-        const Loading = require('../../site/Loading').default
+        const Loading = require('../../site/components/Loading').default
 
         const asyncPages = {}
 

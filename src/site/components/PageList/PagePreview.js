@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { formatDate } from "./dateFormats";
+import { formatDate } from "../../util/dateFormats";
 
 const ensureSlashs = url => {
   if (!url.startsWith("/")) url = `/${url}`;
