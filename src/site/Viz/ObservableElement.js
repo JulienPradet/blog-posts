@@ -1,8 +1,8 @@
 import React from "react";
 import Line from "./Line";
-import Element, { ELEMENT_SIZE, FONT_SIZE } from "./Element";
+import Element, { ELEMENT_SIZE } from "./Element";
 
-const PADDING = 10;
+const PADDING = 0;
 
 const ObservableElement = () => {
   return null;
@@ -44,13 +44,13 @@ ObservableElement.getData = (props, parentContext) => {
           transform={`translate(0, ${parentContext.viewBox.height + PADDING})`}
         >
           <LineComponent
-            onMouseEnter={({ offset, value }) =>
+            onMouseEnter={({ offset, ...element }) =>
               onMouseEnter({
+                ...element,
                 offset: {
                   left: offset.left,
                   top: offset.top + parentContext.viewBox.height + PADDING
-                },
-                value
+                }
               })}
             onMouseLeave={onMouseLeave}
           />
@@ -64,46 +64,6 @@ ObservableElement.getData = (props, parentContext) => {
         />
       </g>
   };
-};
-
-ObservableElement.Svg = props => {
-  const onMouseEnter =
-    typeof props.onMouseEnter === "function" &&
-    (() =>
-      props.onMouseEnter({
-        value: props.value,
-        offset: {
-          top: ELEMENT_SIZE,
-          left: 0
-        }
-      }));
-
-  return (
-    <g
-      onMouseEnter={onMouseEnter}
-      onMouseLeave={props.onMouseLeave}
-      onFocus={onMouseEnter}
-      onBlur={props.onMouseLeave}
-      transform={`translate(0, ${ELEMENT_SIZE / 2})`}
-      tabIndex="0"
-    >
-      <circle
-        cx={0}
-        cy={0}
-        r={ELEMENT_SIZE / 2 - 1}
-        stroke={props.color || "black"}
-        strokeWidth={1}
-        fill="white"
-      />
-      <text textAnchor="middle" fontSize={FONT_SIZE} y={FONT_SIZE / 3}>
-        {props.preview
-          ? props.preview
-          : typeof props.value === "string"
-            ? `${props.value.substr(0, 1)}${props.value.length > 1 ? "…" : ""}`
-            : Array.isArray(props.value) ? `[…]` : `{…}`}
-      </text>
-    </g>
-  );
 };
 
 export default ObservableElement;

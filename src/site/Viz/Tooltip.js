@@ -6,24 +6,30 @@ const Tooltip = props => {
   return (
     <div
       onMouseEnter={() =>
-        props.onMouseEnter({ offset: props.offset, value: props.value })}
+        props.onMouseEnter({
+          offset: props.offset,
+          value: props.value,
+          color: props.color
+        })}
       onMouseLeave={() => props.onMouseLeave()}
       style={{
         position: "absolute",
         width: MAX_WIDTH,
         top: props.offset.top + 5,
         left: props.offset.left - MAX_WIDTH / 2,
-        background: "#f0f0f0",
+        background: "#fff",
+        border: `1px solid ${props.color}`,
+        borderRadius: "4px",
         zIndex: 2,
         padding: "1em",
         overflow: "auto"
       }}
     >
-      {typeof props.value === "string"
-        ? props.value
-        : <pre style={{ margin: 0 }}>
-            {JSON.stringify(props.value, null, 2)}
-          </pre>}
+      <pre style={{ margin: 0 }}>
+        {typeof props.value === "string"
+          ? props.value
+          : JSON.stringify(props.value, null, 2)}
+      </pre>
     </div>
   );
 };

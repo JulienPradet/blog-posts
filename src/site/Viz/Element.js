@@ -40,7 +40,8 @@ Element.Svg = props => {
         offset: {
           top: ELEMENT_SIZE,
           left: 0
-        }
+        },
+        color: props.color
       }));
 
   const preview = typeof props.preview === "undefined"
@@ -63,9 +64,9 @@ Element.Svg = props => {
       <circle
         cx={0}
         cy={0}
-        r={ELEMENT_SIZE / 2 - 1}
+        r={ELEMENT_SIZE / 2 - 1.5}
         stroke={props.color}
-        strokeWidth={1}
+        strokeWidth={1.5}
         fill={preview ? "white" : props.color}
       />
       <text textAnchor="middle" fontSize={FONT_SIZE} y={FONT_SIZE / 3}>

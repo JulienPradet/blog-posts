@@ -5,7 +5,7 @@
 // De la même façon que pour la réception, cette
 // situation se présente dès qu'on a l'intention
 // d'envoyer un message
-const optimisticallySendMessage$ = sendMessageIntent$
+const optimisticSendMessage$ = sendMessageIntent$
   // Le message n'est pas assez complet pour la
   // vue et donc, de même, on y ajoute les
   // données nécessaires

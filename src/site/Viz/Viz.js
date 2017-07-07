@@ -4,7 +4,7 @@ import Tooltip from "./Tooltip";
 import { SpyProvider, SpySubscriber, SpyTarget } from "../Spy";
 
 const DEFAULT_WIDTH = 400;
-const VERTICAL_PADDING = 20;
+const VERTICAL_PADDING = 10;
 
 const getDataFromChildren = ({ children, width }) => {
   const length = children
@@ -39,13 +39,18 @@ const getDataFromChildren = ({ children, width }) => {
 };
 
 const getViewBox = data => {
-  return data.children.filter(data => data !== null).reduce((
+  const viewBox = data.children.filter(data => data !== null).reduce((
     viewBox,
     child
   ) => ({
     width: Math.max(viewBox.width, child.viewBox.width),
     height: viewBox.height + child.viewBox.height + VERTICAL_PADDING
   }), { width: 0, height: 0 });
+
+  return {
+    width: viewBox.width,
+    height: viewBox.height - VERTICAL_PADDING
+  };
 };
 
 class Viz extends React.Component {
@@ -68,7 +73,7 @@ class Viz extends React.Component {
     };
   }
 
-  onMouseEnter({ offset, value }) {
+  onMouseEnter({ offset, value, color }) {
     if (this.clearTimeout) {
       clearTimeout(this.clearTimeout);
       this.clearTimeout = null;
@@ -77,7 +82,8 @@ class Viz extends React.Component {
     this.setState({
       tooltip: {
         offset,
-        value
+        value,
+        color
       }
     });
   }
@@ -97,9 +103,9 @@ class Viz extends React.Component {
         const element = (
           <g key={index} transform={`translate(${offset.left}, ${offset.top})`}>
             <Component
-              onMouseEnter={({ offset: childOffset, value }) =>
+              onMouseEnter={({ offset: childOffset, ...element }) =>
                 this.onMouseEnter({
-                  value,
+                  ...element,
                   offset: {
                     left: offset.left + childOffset.left,
                     top: offset.top + childOffset.top
@@ -127,11 +133,13 @@ class Viz extends React.Component {
       <SpyProvider>
         <SpyTarget name="container">
           {({ setSpyTarget }) =>
-            <div style={{ position: "relative" }} ref={setSpyTarget}>
+            <div
+              style={{ position: "relative", margin: "1.5em 0" }}
+              ref={setSpyTarget}
+            >
               {this.state.tooltip &&
                 <Tooltip
-                  offset={this.state.tooltip.offset}
-                  value={this.state.tooltip.value}
+                  {...this.state.tooltip}
                   onMouseEnter={this.onMouseEnter}
                   onMouseLeave={this.onMouseLeave}
                 />}

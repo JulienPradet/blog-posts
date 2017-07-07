@@ -1,8 +1,8 @@
-* Modele&nbsp;: représente les données de l'application  
+* Modèle&nbsp;: représente les données de l'application  
     * Prévient la **Vue** lorsque les données changent
 
 * Vue&nbsp;: affiche l'application  
-    * Demande des données au **Model** pour pouvoir s'afficher
+    * Demande des données au **Modèle** pour pouvoir s'afficher
     * Prévient le **Controleur** lorsque l'utilisateur fait une action
 
 * Controleur&nbsp;: gère l'évolution de l'application  

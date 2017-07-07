@@ -5,29 +5,23 @@ const ReceiveMessageViz = () => {
   const viz = (
     <Viz>
       <Line legend="receiveMessageIntent$">
-        <Element color="#b7e" preview="1" value={{ content: "Bonjour!" }} />
+        <Element color="#b7e" preview="m1" value={{ content: "Bonjour!" }} />
         <Element
-          color="#7eb"
-          preview="2"
+          color="#7be"
+          preview="m2"
           value={{ content: "Comment ça va ?" }}
         />
-        <Element color="#7be" preview="3" value={{ content: "Allo ?" }} />
       </Line>
       <Line legend="receivedMessage$">
         <Element
           color="#b7e"
-          preview="1'"
+          preview="r1"
           value={{ content: "Bonjour!", type: "received_message" }}
         />
         <Element
-          color="#7eb"
-          preview="2'"
-          value={{ content: "Comment ça va ?", type: "received_message" }}
-        />
-        <Element
           color="#7be"
-          preview="3'"
-          value={{ content: "Allo ?", type: "received_message" }}
+          preview="r2"
+          value={{ content: "Comment ça va ?", type: "received_message" }}
         />
       </Line>
       <Line legend="model$">
@@ -38,20 +32,11 @@ const ReceiveMessageViz = () => {
           value={[{ content: "Bonjour!", type: "received_message" }]}
         />
         <Element
-          color="#7eb"
+          color="#7be"
           preview="[..]"
           value={[
             { content: "Bonjour!", type: "received_message" },
             { content: "Comment ça va ?", type: "received_message" }
-          ]}
-        />
-        <Element
-          color="#7be"
-          preview="[...]"
-          value={[
-            { content: "Bonjour!", type: "received_message" },
-            { content: "Comment ça va ?", type: "received_message" },
-            { content: "Allo ?", type: "received_message" }
           ]}
         />
       </Line>

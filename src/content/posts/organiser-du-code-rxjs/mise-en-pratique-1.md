@@ -4,17 +4,17 @@ C'est bien beau tout ça, mais comment ça se passe en pratique&nbsp;? Si vous n
 
 Nous allons donc faire une mini application de tchat. Deux points à noter cela dit&nbsp;:
 * nous ne coderons pas la partie qui communique avec le serveur. Nous considérerons que nous avons déjà des Observables/Observer qui nous permettent de discuter avec le serveur
-* nous ne nous attarderons pas sur la partie Vue car c'est la communication entre chaque bloc du MVI qui nous intéresse dans ce tutoriel. Si cela vous intéresse, l'exemple /!\ TODO /!\ mis à disposition montre une implémentation minimale.
+* nous ne nous attarderons pas sur la partie Vue car c'est la communication entre chaque bloc du MVI qui nous intéresse dans ce tutoriel. Si cela vous intéresse, l'exemple /!\ TODO lien github /!\ mis à disposition montre une implémentation minimale.
 
 ### -1. Prérequis
 
 Avant de commencer, je vous conseille d'être à l'aise avec les opérateurs suivants&nbsp;:
-* map
-* filter
-* scan (a.k.a. reduce)
-* do
-* flatMap/switchMap
-* merge
+* [map](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-map)
+* [filter](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-filter)
+* [scan](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-scan) (a.k.a. reduce)
+* [do](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-do)
+* [mergeAll](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-mergeAll) (a.k.a. flatMap)
+* [merge](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#static-method-merge)
 
 ### 0. Structure générale
 
@@ -37,16 +37,16 @@ const view$ = model$
 view$.subscribe()
 ```
 
-Nous avons donc une magnifique application qui affiche une liste de messages vide. Cependant, vous pouvez profiter de cette étape pour changer le modèle initial et y mettre n'importe quelle donnée : un message unique recu, un message unique envoyé, une liste de message complète, ... Vous pourrez ainsi tester le comportement de la fonction `displayView` pour qu'elle affiche le modèle convenablement dans tous les cas.
+Nous avons donc une magnifique application qui affiche une liste de messages vide. Cependant, on peut profiter de cette étape pour changer le modèle initial et y mettre n'importe quelle donnée : un message unique recu, un message unique envoyé, une liste de message complète, ... Vous pourrez ainsi tester le comportement de la fonction `displayView` pour qu'elle affiche le modèle convenablement dans tous les cas.
 
 La seule contrainte, est que la fonction `displayView` réponde au contrat suivant&nbsp;:
-* affiche la liste de messages passée en entrée TODO préciser le format des messages
+* affiche la liste de messages passée en entrée
 * affiche un formulaire d'envoi de message
-* retourne les observables représentants les évènements du DOM : pour nous il n'y aura que la soumission des formulaires.
+* retourne les observables représentants les évènements du DOM : pour nous il n'y aura que la soumission du formulaire.
 
 Comme indiqué en préambule, je ne détaillerai pas l'implémentation de cette fonction. Une solution serait d'utiliser la librairie [virtual-dom](https://github.com/Matt-Esch/virtual-dom) comme j'ai pu le faire dans l'exemple complet disponible sur github /!\ TODO /!\. Cependant, il est tout à fait possible de le remplacer par des composants React ou de l'adapter au framework de votre choix.
 
-Une fois que la méthode `displayView` est implémentée, il est temps de rendre votre application dynamique.
+Une fois que la méthode `displayView` est implémentée, il est temps de rendre l'application dynamique.
 
 ### 1. Récupération des messages distants
 

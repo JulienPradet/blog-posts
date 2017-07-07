@@ -1,20 +1,20 @@
 
 #### Création de la liste finale
 
-Nous avons donc maintenant trois observables qui décrivent les transformations à apporter à notre liste de messages : `$receiveMessage`, `optimisticallySendMessage$` et `confirmSentMessage$`. Il ne nous reste plus qu'à les assembler pour construire notre `model$`.
+Nous avons donc maintenant trois observables qui décrivent les transformations à apporter à notre liste de messages : `receiveMessage$`, `optimisticSendMessage$` et `confirmSentMessage$`. Il ne nous reste plus qu'à les assembler pour construire notre `model$`.
 
 ```js
-Observable.merge(
+const model$ = Observable.merge(
   receiveMessage$,
-  optimisticallySendMessage$,
+  optimisticSendMessage$,
   confirmSentMessage$
 )
   .scan((previousMessageList, action) => {
-    if(action.action === 'ajouter_message') {
+    if (action.action === 'ajouter_message') {
       previousMessageList.push(action.message)
 
       return previousMessageList
-    } else {
+    } else if (action.action === 'confirmer_message') {
       const messageIndex = previousMessageList
         .findIndex((message) => (
           isSameMessage(message, action.message)
@@ -22,6 +22,8 @@ Observable.merge(
 
       previousMessageList[messageIndex] = action.message
       
+      return previousMessageList
+    } else {
       return previousMessageList
     }
   }, [])

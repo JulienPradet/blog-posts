@@ -5,9 +5,9 @@ import SkipElement from "./SkipElement";
 import ObservableElement from "./ObservableElement";
 import IsComplete from "./IsComplete";
 
-const LEGEND_WIDTH = 180;
+const LEGEND_WIDTH = 188;
 const LEGEND_HEIGHT = 16;
-const LEGEND_PADDING = 20;
+const LEGEND_PADDING = 12;
 
 const Line = () => {
   return null;
@@ -21,13 +21,13 @@ const elementToComponent = (context, element) => {
       <Component
         onMouseEnter={
           typeof onMouseEnter === "function" &&
-          (({ value, offset }) =>
+          (({ offset, ...element }) =>
             onMouseEnter({
+              ...element,
               offset: {
                 left: context.offset.left + offset.left,
                 top: context.offset.top + offset.top
-              },
-              value: value
+              }
             }))
         }
         onMouseLeave={onMouseLeave}
@@ -53,8 +53,13 @@ const addElementToContext = (context, element) => {
 
 const getInitialContext = (width, legend, length, color) => {
   const legendWidth = legend ? LEGEND_WIDTH + LEGEND_PADDING : 0;
-  const lineWidth = width - legendWidth;
-  const separationWidth = lineWidth / (length + 1);
+  let lineWidth = width - legendWidth;
+  const separationWidth = Math.max(
+    lineWidth / (length + 1),
+    ELEMENT_SIZE * 1.25
+  );
+  lineWidth = separationWidth * (length + 1);
+  width = lineWidth + legendWidth;
 
   return {
     separationWidth: separationWidth,
