@@ -5,13 +5,7 @@ import makeHelmet from "./util/makeHelmet";
 import getLayout from "./util/getLayout";
 
 class Page extends React.Component {
-  constructor() {
-    super();
-    this.state = { appendCodeCss: false };
-  }
-
   componentDidMount() {
-    this.setState({ appendCodeCss: true });
     window.scrollTo(0, 0);
   }
 

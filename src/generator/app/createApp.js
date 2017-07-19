@@ -33,7 +33,8 @@ const makePages = paths => pages => {
       }
 
       return Object.assign({}, meta, {
-        location: location
+        location: location,
+        pagePath: pagePath
       });
     })
     .filter(page => page)
@@ -45,7 +46,17 @@ const makePages = paths => pages => {
         return -1;
       }
       return 0;
-    });
+    })
+    .map(
+      page => `
+        {
+          ...require(${JSON.stringify(
+            path.join(path.dirname(page.pagePath), "meta.js")
+          )}),
+          location: ${JSON.stringify(page.location)}
+        }
+      `
+    );
 };
 
 const makeEntry = paths => matches$ => {
@@ -60,22 +71,26 @@ const makeEntry = paths => matches$ => {
         const Route = require('react-router-dom').Route
         const asyncComponent = require('react-async-component').asyncComponent
         const SiteProvider = require('../../site/Site').default
+        const AnimationContainer = require('../../site/components/Animation/Container').default
         const Page = require('../../site/Page').default
         const Loading = require('../../site/components/Loading').default
+
+        const meta = ${JSON.stringify(makeMeta())}
+        const pagesDefinition = [
+          ${makePages(paths)(matches.map(({ path }) => path)).join(",")}
+        ]
 
         const asyncPages = {}
 
         ${matches.map(({ createComponent }) => createComponent).join("\n")}
 
         const App = () => (
-          <SiteProvider meta={${JSON.stringify(
-            makeMeta()
-          )}} pages={${JSON.stringify(
-        makePages(paths)(matches.map(({ path }) => path))
-      )}}>
-            <div>
-              ${matches.map(({ match }) => match).join("\n")}
-            </div>
+          <SiteProvider meta={meta} pages={pagesDefinition}>
+            <AnimationContainer>
+              <div>
+                ${matches.map(({ match }) => match).join("\n")}
+              </div>
+            </AnimationContainer>
           </SiteProvider>
         )
 
@@ -98,6 +113,7 @@ const createEntry = paths => () => {
   const pages$ = readPages(paths.contentPath)
     .do(page => log("debug", "/" + path.relative(paths.contentPath, page)))
     .share();
+
   const matches$ = transformToMatches(paths)(pages$);
   const entry$ = makeEntry(paths)(matches$);
   const entryPath$ = saveEntry(paths)(entry$);

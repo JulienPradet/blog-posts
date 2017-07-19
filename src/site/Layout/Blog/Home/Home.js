@@ -29,7 +29,7 @@ const Post = props =>
           `
         }}
       />
-      <PageNav />
+      <PageNav filter={props.page.filter} />
     </div>
   </div>;
 

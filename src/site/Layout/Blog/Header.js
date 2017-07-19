@@ -1,4 +1,5 @@
 import React from "react";
+import Link from "react-router-dom/Link";
 import HeaderLinks from "./HeaderLinks";
 import HeaderMotto from "./HeaderMotto";
 
@@ -7,7 +8,9 @@ const PageHeader = () => {
     <div className="header">
       <div className="header__title">
         <h1>
-          <span>Enchanté,</span> <span>Julien&nbsp;Pradet</span>
+          <Link to="/">
+            <span>Enchanté,</span> <span>Julien&nbsp;Pradet</span>
+          </Link>
         </h1>
       </div>
       <HeaderLinks />
