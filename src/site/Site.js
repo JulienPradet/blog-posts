@@ -7,7 +7,8 @@ class SiteProvider extends React.Component {
     return {
       site: {
         meta: this.props.meta,
-        pages: this.props.pages
+        pages: this.props.pages,
+        components: this.props.components
       }
     };
   }
@@ -18,12 +19,17 @@ class SiteProvider extends React.Component {
 }
 
 SiteProvider.childContextTypes = {
-  site: PropTypes.object.isRequired
+  site: PropTypes.shape({
+    meta: PropTypes.any.isRequired,
+    pages: PropTypes.any.isRequired,
+    components: PropTypes.any.isRequired
+  }).isRequired
 };
 
 SiteProvider.propTypes = {
   meta: PropTypes.any.isRequired,
   pages: PropTypes.any.isRequired,
+  components: PropTypes.any.isRequired,
   children: PropTypes.node.isRequired
 };
 

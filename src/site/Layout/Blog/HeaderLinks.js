@@ -1,7 +1,8 @@
 import React, { Component } from "react";
-import Link from "react-router-dom/Link";
+import PageLink from "../../components/PageLink";
 
-const CategoryLink = ({ category, path }) => <Link to={path}>{category}</Link>;
+const CategoryLink = ({ category, path }) =>
+  <PageLink to={path}>{category}</PageLink>;
 
 const Menu = ({ isOpened }) =>
   <div className={`menu menu--${isOpened ? "opened" : "closed"}`}>
@@ -19,7 +20,7 @@ const Menu = ({ isOpened }) =>
         <CategoryLink category="Autres" path="/autres/" />
       </li>
       <li>
-        <Link to="/a-propos/">A propos</Link>
+        <PageLink to="/a-propos/">A propos</PageLink>
       </li>
     </ul>
     <ul>
@@ -39,7 +40,7 @@ const Menu = ({ isOpened }) =>
         </a>
       </li>
       <li>
-        <Link to="/cv/">CV</Link>
+        <PageLink to="/cv/">CV</PageLink>
       </li>
     </ul>
   </div>;

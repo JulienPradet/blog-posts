@@ -1,14 +1,14 @@
 import React from "react";
-import Link from "react-router-dom/Link";
-import withRouter from "react-router-dom/withRouter";
+import withRouter from "react-router/withRouter";
+import PageLink from "../../components/PageLink";
 
 const CategoryLine = withRouter(
-  ({ path, category, location, history }) =>
+  ({ path, category, location }) =>
     location.pathname === path
-      ? <span className="category-nav__line" onClick={() => history.push("/")}>
-          {category}
-        </span>
-      : <Link className="category-nav__line" to={path}>{category}</Link>
+      ? <PageLink className="category-nav__line" to="/">
+          Revenir à l'accueil
+        </PageLink>
+      : <PageLink className="category-nav__line" to={path}>{category}</PageLink>
 );
 
 const CategoryLines = () =>

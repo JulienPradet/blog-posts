@@ -100,8 +100,19 @@ const makeEntry = paths => matches$ => {
         const asyncPages = {}
         ${matches.map(({ createComponent }) => createComponent).join("\n")}
 
+        const components = Object.keys(asyncPages)
+          .map((layoutType) => Object.keys(asyncPages[layoutType]).map((location) => ({
+            location,
+            Component: asyncPages[layoutType][location].Component
+          })))
+          .reduce((acc, arr) => [...acc, ...arr], [])
+          .reduce((urlToComponent, {location, Component}) => ({
+            ...urlToComponent,
+            [location]: Component
+          }), {})
+
         const App = () => (
-          <SiteProvider meta={meta} pages={pages}>
+          <SiteProvider meta={meta} pages={pages} components={components}>
             <AnimationContainer>
               <Routes routes={asyncPages} />
             </AnimationContainer>
