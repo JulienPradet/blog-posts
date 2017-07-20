@@ -1,5 +1,6 @@
 const path = require("path");
 const fs = require("../util/fs");
+const getPathsFromChunks = require("../bundle/getPathsFromChunks");
 
 const serviceWorker = urlsToCacheOnFirstLoad => {
   return `
@@ -45,24 +46,12 @@ const serviceWorker = urlsToCacheOnFirstLoad => {
 const createServiceWorker = paths => stats$ => {
   return stats$
     .map(stats => {
-      const homeChunks = stats.children[0].chunks
-        .filter(chunk => !chunk.entry)
-        .reverse()
-        .slice(0, 1)
-        .map(chunk => {
-          return chunk.files
-            .filter(name => !name.endsWith(".map"))
-            .map(name => "/" + name);
-        })
-        .reduce((acc, arr) => [...acc, ...arr], []);
+      const homeChunks = getPathsFromChunks(paths)(
+        stats.children[0],
+        path.join(paths.buildPath, "index.html")
+      );
 
-      return [
-        "/",
-        "/app.js",
-        "/css/page.css",
-        "/css/prism-onedark.css",
-        ...homeChunks
-      ];
+      return ["/", "/css/page.css", "/css/prism-onedark.css", ...homeChunks];
     })
     .flatMap(urlsToCacheOnFirstLoad => {
       return fs.writefile(

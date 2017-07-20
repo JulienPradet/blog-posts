@@ -23,11 +23,6 @@ const renderPageToHtml = paths => (jsPath, htmlPath, stats) => {
     const html = renderToString(server);
     const helmet = Helmet.renderStatic();
 
-    console.log(
-      htmlPath,
-      getPathsFromChunks(paths)(stats.children[0], htmlPath)
-    );
-
     return renderToString(
       <html lang="fr">
         <head>

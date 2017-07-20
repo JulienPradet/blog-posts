@@ -1,4 +1,11 @@
-import path from "path";
+const path = require("path");
+
+const ensureSlash = location => {
+  if (!location.startsWith("/")) {
+    location = "/" + location;
+  }
+  return location;
+};
 
 const getPathsFromChunks = paths => (stats, htmlPath) =>
   stats.chunks
@@ -14,6 +21,7 @@ const getPathsFromChunks = paths => (stats, htmlPath) =>
         )
     )
     .reduce((acc, arr) => [...acc, ...arr], [])
-    .reverse();
+    .reverse()
+    .map(ensureSlash);
 
-export default getPathsFromChunks;
+module.exports = getPathsFromChunks;
