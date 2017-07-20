@@ -3,50 +3,30 @@ import React from "react";
 import { renderToString } from "react-dom/server";
 import { StaticRouter } from "react-router";
 import Helmet from "react-helmet";
+import { getLoadableState } from "loadable-components/server";
 import App from "../tmp/App";
-import {
-  createAsyncContext,
-  AsyncComponentProvider
-} from "react-async-component";
-import asyncBootstrapper from "react-async-bootstrapper";
-import serialize from "serialize-javascript";
-
-const getPathsFromChunks = paths => (stats, htmlPath) =>
-  stats.chunks
-    .filter(({ initial }) => initial)
-    .map(({ files }) =>
-      files
-        .filter(file => !file.endsWith(".map"))
-        .map(file =>
-          path.relative(
-            path.dirname(htmlPath),
-            path.join(paths.buildPath, file)
-          )
-        )
-    )
-    .reduce((acc, arr) => [...acc, ...arr], [])
-    .reverse();
+import getPathsFromChunks from "./getPathsFromChunks";
 
 const renderPageToHtml = paths => (jsPath, htmlPath, stats) => {
   let location = "/" + path.relative(paths.contentPath, path.dirname(jsPath));
   if (!location.endsWith("/")) location += "/";
 
-  const asyncContext = createAsyncContext();
   const context = {};
   const server = (
-    <AsyncComponentProvider asyncContext={asyncContext}>
-      <StaticRouter location={location} context={context}>
-        <App />
-      </StaticRouter>
-    </AsyncComponentProvider>
+    <StaticRouter location={location} context={context}>
+      <App />
+    </StaticRouter>
   );
 
-  return asyncBootstrapper(server).then(() => {
+  return getLoadableState(server).then(loadableState => {
     Helmet.rewind();
     const html = renderToString(server);
     const helmet = Helmet.renderStatic();
 
-    const asyncState = asyncContext.getState();
+    console.log(
+      htmlPath,
+      getPathsFromChunks(paths)(stats.children[0], htmlPath)
+    );
 
     return renderToString(
       <html lang="fr">
@@ -58,14 +38,7 @@ const renderPageToHtml = paths => (jsPath, htmlPath, stats) => {
         </head>
         <body>
           <div id="root" dangerouslySetInnerHTML={{ __html: html }} />
-          <script
-            type="text/javascript"
-            dangerouslySetInnerHTML={{
-              __html: `
-                  window.ASYNC_COMPONENTS_STATE = ${serialize(asyncState)};
-                `
-            }}
-          />
+          {loadableState.getScriptElement()}
           {getPathsFromChunks(paths)(
             stats.children[0],
             htmlPath

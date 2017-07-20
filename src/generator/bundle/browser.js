@@ -1,21 +1,16 @@
 import React from "react";
 import { render } from "react-dom";
-import { AsyncComponentProvider } from "react-async-component";
 import App from "../tmp/App";
 import { BrowserRouter } from "react-router-dom";
-import asyncBootstrapper from "react-async-bootstrapper";
-
-const rehydrateState = window.ASYNC_COMPONENTS_STATE;
+import { loadComponents } from "loadable-components";
 
 const app = (
-  <AsyncComponentProvider rehydrateState={rehydrateState}>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
-  </AsyncComponentProvider>
+  <BrowserRouter>
+    <App />
+  </BrowserRouter>
 );
 
-asyncBootstrapper(app).then(() => {
+loadComponents().then(() => {
   render(app, document.getElementById("root"));
 });
 

@@ -100,6 +100,10 @@ const webpackConfig = paths => (pages, entryPath) => {
     chunkFilename: "[name].js",
     publicPath: "/"
   };
+  const browserBabelOptions = browserEntry.module.rules.find(
+    ({ loader }) => loader === "babel-loader"
+  );
+  browserBabelOptions.options.plugins = ["babel-plugin-syntax-dynamic-import"];
 
   const serverEntry = Object.assign({}, baseConfig(paths)(pages, entryPath), {
     entry: {
@@ -115,6 +119,10 @@ const webpackConfig = paths => (pages, entryPath) => {
     publicPath: "/",
     libraryTarget: "commonjs2"
   };
+  const serverBabelOptions = serverEntry.module.rules.find(
+    ({ loader }) => loader === "babel-loader"
+  );
+  serverBabelOptions.options.plugins = ["babel-plugin-dynamic-import-node"];
 
   return [browserEntry, serverEntry];
 };

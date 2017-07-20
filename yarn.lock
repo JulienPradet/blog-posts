@@ -3380,6 +3380,10 @@ load-json-file@^2.0.0:
     pify "^2.0.0"
     strip-bom "^3.0.0"
 
+loadable-components@^0.2.0:
+  version "0.2.0"
+  resolved "https://registry.yarnpkg.com/loadable-components/-/loadable-components-0.2.0.tgz#b63cafd2202994e9e761ef773b620ef7e3c94111"
+
 loader-fs-cache@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/loader-fs-cache/-/loader-fs-cache-1.0.1.tgz#56e0bf08bd9708b26a765b68509840c8dec9fdbc"

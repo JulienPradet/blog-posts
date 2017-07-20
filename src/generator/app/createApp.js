@@ -19,10 +19,23 @@ const makeMeta = () => {
   };
 };
 
+const ensureSlash = location => {
+  if (!location.startsWith("/")) {
+    location = "/" + location;
+  }
+  if (!location.endsWith("/")) {
+    location = location + "/";
+  }
+
+  return location;
+};
+
 const makePages = paths => pages => {
   return pages
     .map(pagePath => {
-      const location = path.relative(paths.contentPath, path.dirname(pagePath));
+      const location = ensureSlash(
+        path.relative(paths.contentPath, path.dirname(pagePath))
+      );
       const metaPath = path.join(path.dirname(pagePath), "meta.js");
 
       let meta;
@@ -68,28 +81,29 @@ const makeEntry = paths => matches$ => {
     matches =>
       `
         const React = require('react')
-        const Route = require('react-router-dom').Route
-        const asyncComponent = require('react-async-component').asyncComponent
+        const loadable = require('loadable-components').default;
         const SiteProvider = require('../../site/Site').default
         const AnimationContainer = require('../../site/components/Animation/Container').default
-        const Page = require('../../site/Page').default
         const Loading = require('../../site/components/Loading').default
+        const Routes = require('../../site/Routes').default
 
         const meta = ${JSON.stringify(makeMeta())}
-        const pagesDefinition = [
+        const pages = [
           ${makePages(paths)(matches.map(({ path }) => path)).join(",")}
-        ]
+        ].map(page => {
+          return Object.assign({}, page, {
+            date: page.date && new Date(page.date),
+            isPage: typeof page.isPage === "undefined" ? true : page.isPage
+          });
+        });
 
         const asyncPages = {}
-
         ${matches.map(({ createComponent }) => createComponent).join("\n")}
 
         const App = () => (
-          <SiteProvider meta={meta} pages={pagesDefinition}>
+          <SiteProvider meta={meta} pages={pages}>
             <AnimationContainer>
-              <div>
-                ${matches.map(({ match }) => match).join("\n")}
-              </div>
+              <Routes routes={asyncPages} />
             </AnimationContainer>
           </SiteProvider>
         )

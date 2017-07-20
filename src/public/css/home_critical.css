@@ -125,11 +125,11 @@ body {
     display: flex;
     justify-content: space-between;
 }
-.category-nav a {
+.category-nav .category-nav__line {
     display: block;
     width: 25%;
 }
-.category-nav a::before {
+.category-nav .category-nav__line::before {
     content: '';
     display: block;
     height: 100%;
@@ -137,7 +137,7 @@ body {
     margin: 0 auto;
     background: #000;
 }
-.category-nav a span {
+.category-nav .category-nav__line span {
     text-indent: -9999em;
 }
 

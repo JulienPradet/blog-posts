@@ -7,16 +7,16 @@ const Menu = ({ isOpened }) =>
   <div className={`menu menu--${isOpened ? "opened" : "closed"}`}>
     <ul>
       <li>
-        <CategoryLink category="Tutoriels" path="/tutoriels" />
+        <CategoryLink category="Tutoriels" path="/tutoriels/" />
       </li>
       <li>
-        <CategoryLink category="Fiches Techniques" path="/fiches-techniques" />
+        <CategoryLink category="Fiches Techniques" path="/fiches-techniques/" />
       </li>
       <li>
-        <CategoryLink category="Expérimentations" path="/experimentations" />
+        <CategoryLink category="Expérimentations" path="/experimentations/" />
       </li>
       <li>
-        <CategoryLink category="Autres" path="/autres" />
+        <CategoryLink category="Autres" path="/autres/" />
       </li>
       <li>
         <Link to="/a-propos/">A propos</Link>

@@ -1,9 +1,6 @@
 import React from "react";
 import home from "./home.md";
 
-const Article = props =>
-  <div>
-    <div dangerouslySetInnerHTML={{ __html: home }} />
-  </div>;
+const Home = props => <div dangerouslySetInnerHTML={{ __html: home }} />;
 
-export default Article;
+export default Home;

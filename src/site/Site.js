@@ -7,12 +7,7 @@ class SiteProvider extends React.Component {
     return {
       site: {
         meta: this.props.meta,
-        pages: this.props.pages.map(page => {
-          return Object.assign({}, page, {
-            date: page.date && new Date(page.date),
-            isPage: typeof page.isPage === "undefined" ? true : page.isPage
-          });
-        })
+        pages: this.props.pages
       }
     };
   }
