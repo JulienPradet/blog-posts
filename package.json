@@ -24,6 +24,7 @@
     "lint": "eslint \"src/**/*.js\""
   },
   "dependencies": {
+    "eases": "^1.0.8",
     "intl": "^1.2.5",
     "intl-locales-supported": "^1.0.0",
     "lint-staged": "^4.0.0",
