@@ -15,7 +15,7 @@ const CategoryLines = () =>
   <div className="category-nav">
     <CategoryLine category="Tutoriels" path="/tutoriels/" />
     <CategoryLine category="Fiches Techniques" path="/fiches-techniques/" />
-    <CategoryLine category="Expérimentations" path="/experimentations/" />
+    <CategoryLine category="Explorations" path="/explorations/" />
     <CategoryLine category="Autres" path="/autres/" />
   </div>;
 
