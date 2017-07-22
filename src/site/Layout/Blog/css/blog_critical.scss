@@ -72,6 +72,13 @@ h6:hover .header-anchor {
   opacity: 1;
 }
 
+.gotop {
+  position: relative;
+  z-index: 5;
+  text-align: center;
+  margin: 4em 2em 4em;
+}
+
 @import "timeline";
 @import "header";
 @import "page-nav";
@@ -118,6 +125,12 @@ h6:hover .header-anchor {
 }
 
 @media screen and (min-width: $breakpointLarge) {
+  .gotop a {
+    background: white;
+    display: inline-block;
+    padding: 1em;
+  }
+
   .blog__content {
     padding: 0;
     margin: 0 0 3em 0;
