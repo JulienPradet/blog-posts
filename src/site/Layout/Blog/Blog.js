@@ -6,8 +6,10 @@ import CategoryNav from "./CategoryNav";
 import PageNav from "../../components/PageNav";
 import makeHelmet from "../../util/makeHelmet";
 import toCssId from "../../util/toCssId";
+import { formatDate } from "../../util/dateFormats";
 import { withSite } from "../../Site";
 import { PageTitleProvider } from "../../components/PageTitle";
+import PageLink from "../../components/PageLink";
 
 const BlogContent = props => {
   return (
@@ -29,8 +31,34 @@ const BlogContent = props => {
       />
       <div>
         {(!props.page.isHome || props.page.filter) &&
-          <h1>{props.page.title}</h1>}
-        {props.children}
+          <div className="blog__content__title">
+            <h1 {...(!props.page.isHome ? { itemProp: "headline" } : {})}>
+              <PageLink
+                to={props.path}
+                {...(!props.page.isHome
+                  ? { itemProp: "mainEntityOfPage" }
+                  : {})}
+              >
+                {props.page.title}
+              </PageLink>
+            </h1>
+          </div>}
+
+        {props.page.date &&
+          <div className="blog__content__time">
+            <time
+              {...(!props.page.isHome ? { itemProp: "datePublished" } : {})}
+              dateTime={new Date(props.page.date).toISOString()}
+            >
+              {formatDate(new Date(props.page.date))}
+            </time>
+          </div>}
+
+        <main className="page-content" role="main">
+          {!props.page.isHome
+            ? <article itemProp="articleBody">{props.children}</article>
+            : props.children}
+        </main>
 
         {!props.page.isHome && <hr />}
         {!props.page.isHome &&
@@ -59,19 +87,38 @@ const Blog = props => {
 
   return (
     <PageTitleProvider>
-      <div className={`blog ${toCssId(props.page.category)}`}>
+      <div className={`blog ${toCssId(props.page.category)}`} id="top">
         {helmet}
         <Helmet>
           <style type="text/css">{homeCriticalCSS}</style>
+          <noscript>
+            {`
+              <link rel="stylesheet" href="/css/blog.css" />
+            `}
+          </noscript>
+          <script type="text/javascript">
+            {`
+                requestIdleCallback(() => {
+                    var link = document.createElement('link')
+                    link.href = '/css/blog.css'
+                    link.rel = 'stylesheet'
+                    document.querySelector('head').appendChild(link)
+                })
+            `}
+          </script>
         </Helmet>
         <div className="blog__header">
           <Header page={props.page} />
         </div>
         <CategoryNav />
-        <BlogContent page={props.page}>
+        <BlogContent page={props.page} path={props.path}>
           {props.children}
         </BlogContent>
         {props.page.isHome && <PageNav filter={props.page.filter} />}
+
+        <div className="gotop">
+          <a href="#top">Revenir en haut</a>
+        </div>
       </div>
     </PageTitleProvider>
   );
