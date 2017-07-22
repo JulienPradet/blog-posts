@@ -14,7 +14,7 @@ const Menu = ({ isOpened }) =>
         <CategoryLink category="Fiches Techniques" path="/fiches-techniques/" />
       </li>
       <li>
-        <CategoryLink category="Expérimentations" path="/experimentations/" />
+        <CategoryLink category="Explorations" path="/explorations/" />
       </li>
       <li>
         <CategoryLink category="Autres" path="/autres/" />
@@ -68,7 +68,7 @@ class HeaderLinks extends Component {
 
   render() {
     return (
-      <div className="header__menu">
+      <div className="header__menu timeline__center">
         <div className="header__menu__action">
           <button
             onClick={this.toggleMenu}

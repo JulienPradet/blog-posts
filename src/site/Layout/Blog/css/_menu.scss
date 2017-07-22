@@ -1,0 +1,62 @@
+.menu {
+  position: absolute;
+  top: 0;
+  left: 0;
+  margin-left: 4em;
+  margin-right: 1em;
+  width: calc(100vw - 6em);
+  background: white;
+  box-shadow: 0 0.5em 0.5em #ccc;
+  padding: 1em;
+  transition: transform 0.5s ease;
+
+  &--closed {
+    transform: translate(0, -100vh);
+  }
+
+  ul {
+    padding: 0;
+  }
+  ul:first-child {
+    margin-top: 0;
+  }
+  ul:last-child {
+    margin-bottom: 0;
+  }
+  li {
+    display: block;
+  }
+}
+
+@media screen and (min-width: $breakpointLarge) {
+  .menu {
+    width: calc(100% - 2em);
+    max-width: 100%;
+    margin-left: 1em;
+    margin-right: 1em;
+    display: flex;
+    justify-content: space-around;
+    align-items: stretch;
+    background: none;
+    box-shadow: none;
+    padding: 0;
+
+    ul {
+      flex: 1;
+      margin: 0;
+      padding: 2em;
+      background: white;
+      box-shadow: 0 0.5em 0.5em #ccc;
+
+      :first-child {
+        text-align: right;
+        margin-right: 3.5em;
+      }
+
+      :last-child {
+        text-align: left;
+        margin-left: 3.5em;
+      }
+    }
+  }
+}

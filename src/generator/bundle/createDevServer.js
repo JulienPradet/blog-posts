@@ -15,7 +15,6 @@ const serve = paths => compiler$ => {
           rewrites: [{ from: /.*/, to: "/index.html" }]
         },
         overlay: {
-          warnings: true,
           errors: true
         }
       });

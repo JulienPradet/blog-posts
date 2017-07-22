@@ -1,9 +1,7 @@
 import React from "react";
-import { setPageTitle } from "../../site/components/PageTitle";
 
 const FichesTechniques = props =>
   <div>
-    <p>Bienvenue dans les <strong>Fiches Techniques</strong>&nbsp;!</p>
     <p>
       Ce sont des articles <strong>mémos</strong>. Leur but principal
       est d'exposer comment fonctionne une certaine technique en mettant
@@ -13,4 +11,4 @@ const FichesTechniques = props =>
     </p>
   </div>;
 
-export default setPageTitle("Fiches Techniques")(FichesTechniques);
+export default FichesTechniques;

@@ -1,9 +1,7 @@
 import React from "react";
-import { setPageTitle } from "../../site/components/PageTitle";
 
 const Tutoriels = props =>
   <div>
-    <p>Bienvenue dans les <strong>Tutoriels</strong>&nbsp;!</p>
     <p>
       J'y présente <strong>comment</strong> et surtout{" "}
       <strong>pourquoi</strong> faire les choses. Le
@@ -13,4 +11,4 @@ const Tutoriels = props =>
     </p>
   </div>;
 
-export default setPageTitle("Tutoriels")(Tutoriels);
+export default Tutoriels;

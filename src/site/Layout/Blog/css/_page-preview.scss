@@ -1,0 +1,26 @@
+.page-preview {
+  margin: 0;
+  background: white;
+  :first-child {
+    margin-top: 0;
+  }
+  :last-child {
+    margin-bottom: 0;
+  }
+  h3 {
+    margin-bottom: 0.3em;
+    font-size: 1.3em;
+    a {
+      text-decoration: none;
+    }
+  }
+  time {
+    color: #999999;
+  }
+}
+
+@media screen and (min-width: $breakpointLarge) {
+  .page-preview {
+    padding: 3em 4em;
+  }
+}

@@ -1,9 +1,7 @@
 import React from "react";
-import { setPageTitle } from "../../site/components/PageTitle";
 
 const Explorations = props =>
   <div>
-    <p>Bienvenue dans les <strong>Explorations</strong>&nbsp;!</p>
     <p>
       Ce sont des articles <strong>rigolos</strong>. Leur but principal
       est de montrer comment je suis arrivé à tel ou tel résultat.
@@ -12,4 +10,4 @@ const Explorations = props =>
     </p>
   </div>;
 
-export default setPageTitle("Explorations")(Explorations);
+export default Explorations;

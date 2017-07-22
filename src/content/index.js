@@ -1,6 +1,29 @@
 import React from "react";
+import PageLink from "../site/components/PageLink";
+import { withSite } from "../site/Site";
+import toCssId from "../site/util/toCssId";
 import home from "./home.md";
 
-const Home = props => <div dangerouslySetInnerHTML={{ __html: home }} />;
+const Category = withSite(({ name, site }) => {
+  const pageNumber = site.pages.filter(({ category }) => category === name)
+    .length;
 
-export default Home;
+  return (
+    <li className={toCssId(name)}>
+      <PageLink to={`/${toCssId(name)}/`}>{name} ({pageNumber})</PageLink>
+    </li>
+  );
+});
+
+const Home = props =>
+  <div>
+    <div dangerouslySetInnerHTML={{ __html: home }} />
+    <ul className="category-list">
+      <Category name="Tutoriels" />
+      <Category name="Fiches Techniques" />
+      <Category name="Explorations" />
+      <Category name="Autres" />
+    </ul>
+  </div>;
+
+export default withSite(Home);

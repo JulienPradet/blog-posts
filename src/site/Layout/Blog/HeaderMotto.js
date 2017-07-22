@@ -1,20 +1,18 @@
 import React, { Component } from "react";
-import { withPageTitle } from "../../components/PageTitle";
+import Link from "react-router-dom/Link";
 
 class HeaderLinks extends Component {
   render() {
-    if (this.props.title) {
+    if (!this.props.isHome) {
       return (
-        <div className="header__motto">
-          <h2>
-            {this.props.title}
-          </h2>
+        <div className="header__motto timeline__side">
+          <Link to="/">Revenir à l'accueil</Link>
         </div>
       );
     }
 
     return (
-      <div className="header__motto">
+      <div className="header__motto timeline__side">
         <span>Mes valeurs sont </span>
         <span>
           la <strong>bienveillance</strong>{" "}
@@ -25,4 +23,4 @@ class HeaderLinks extends Component {
   }
 }
 
-export default withPageTitle("title")(HeaderLinks);
+export default HeaderLinks;

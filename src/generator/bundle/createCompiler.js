@@ -48,6 +48,10 @@ const baseConfig = paths => (pages, entryPath) => {
         {
           test: /\.css$/,
           loader: "raw-loader"
+        },
+        {
+          test: /\.scss$/,
+          loader: ["raw-loader", "sass-loader"]
         }
       ]
     },

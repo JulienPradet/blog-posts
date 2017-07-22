@@ -1,0 +1,13 @@
+.category-list {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding: 0;
+  margin: 2em 0 0;
+
+  li {
+    display: block;
+    margin: 0 1em;
+    text-align: center;
+  }
+}

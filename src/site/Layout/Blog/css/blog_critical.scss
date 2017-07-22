@@ -1,0 +1,160 @@
+@import "colors";
+@import "breakpoints";
+
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  background: $background;
+  color: $fontColor;
+  font-family: -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    "Fira Sans",
+    "Droid Sans",
+    "Helvetica Neue",
+    sans-serif;
+  line-height: 1.5;
+}
+
+hr {
+  margin: 2em 0;
+  border: none;
+  height: 1px;
+  width: 100%;
+  background: $borderColor;
+}
+
+a {
+  font-weight: bold;
+  color: $fontColor;
+}
+.tutoriels a {
+  color: $tutorielsDark;
+}
+.autres a {
+  color: $autresDark;
+}
+.fiches-techniques a {
+  color: $fichesTechniquesDark;
+}
+.explorations a {
+  color: $explorationsDark;
+}
+
+h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+  color: $fontColor;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  position: relative;
+}
+.header-anchor {
+  position: absolute;
+  left: -1.2em;
+  width: calc(100% + 1.2em);
+  color: $linkColor;
+  opacity: 0.2;
+  transition: opacity 0.4s ease;
+  width: 100%;
+}
+h1:hover .header-anchor,
+h2:hover .header-anchor,
+h3:hover .header-anchor,
+h4:hover .header-anchor,
+h5:hover .header-anchor,
+h6:hover .header-anchor {
+  opacity: 1;
+}
+
+@import "timeline";
+@import "header";
+@import "page-nav";
+@import "page-preview";
+@import "category-nav";
+@import "menu";
+@import "category-list";
+
+.blog {
+  margin-left: auto;
+  margin-right: auto;
+
+  &__header {
+    padding: 0.5em 0;
+    margin: 2em 0;
+    position: relative;
+    z-index: 6;
+  }
+  &__content {
+    padding: 2em 2em 2em 2em;
+    margin-bottom: 2.5em;
+    background-color: white;
+    position: relative;
+    z-index: 3;
+
+    &:not(&--home) {
+      z-index: 3;
+    }
+
+    h1 {
+      margin-top: 0;
+      margin-bottom: 1em;
+      text-align: center;
+    }
+  }
+}
+
+@media screen and (min-width: $breakpointMedium) {
+}
+
+@media screen and (min-width: $breakpointLarge) {
+  .blog__content {
+    padding: 0;
+    margin: 0 0 3em 0;
+    background: none;
+    z-index: 5;
+  }
+
+  .blog__content > div {
+    position: relative;
+    z-index: 1;
+    max-width: 48em;
+    padding: 2em 3em;
+    margin: 0 auto;
+    background: white;
+  }
+  .blog__content::after {
+    pointer-events: none;
+    z-index: 0;
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0em;
+    height: 3em;
+    width: 100%;
+    background-image: linear-gradient(
+      to bottom,
+      rgba(lighten($background, 2), 1),
+      rgba(lighten($background, 2), 0)
+    );
+  }
+  .blog__content::before {
+    pointer-events: none;
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0em;
+    height: 3em;
+    width: 100%;
+    background-image: linear-gradient(
+      to top,
+      rgba(lighten($background, 2), 1),
+      rgba(lighten($background, 2), 0)
+    );
+  }
+}
