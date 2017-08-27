@@ -5,5 +5,6 @@ module.exports = {
   description:
     "Cela fait maintenant 3 mois que je suis passé à temps partiel et que j'ai ouvert ce blog. Conclusion ?",
   layout: "Blog",
-  category: "Autres"
+  category: "Autres",
+  redirect: ["/posts/alors-ce-temps-partiel"]
 };

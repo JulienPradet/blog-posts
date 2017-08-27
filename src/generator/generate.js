@@ -7,6 +7,7 @@ const createStaticHtml = require("./static/createStaticHtml");
 const createPublic = require("./public/createPublic");
 const createRss = require("./seo/createRss");
 const createSitemap = require("./seo/createSitemap");
+const createRedirects = require("./seo/createRedirects");
 const createPwaFiles = require("./pwa/createPwaFiles");
 
 const serveApp = paths => {
@@ -29,6 +30,7 @@ const generate = paths => {
           createStaticHtml(paths)(Observable.of(app), Observable.of(stats)),
           createPublic(paths)(),
           createRss(paths)(),
+          createRedirects(paths)(),
           createSitemap(paths)(),
           createPwaFiles(paths)(Observable.of(stats))
         )
