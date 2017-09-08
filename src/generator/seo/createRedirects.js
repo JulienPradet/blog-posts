@@ -16,11 +16,32 @@ const createRss = paths => () => {
   return getMetas(paths)()
     .map(metas =>
       metas
+        .map(meta => {
+          let redirects = [`${ensureSlash(meta.location)}`];
+
+          if (meta.redirect) {
+            redirects = redirects.concat(
+              meta.redirect
+                .map(url => {
+                  if (url.endsWith("/")) {
+                    return [url, url.substring(0, -1)];
+                  } else {
+                    return [url, `${url}/`];
+                  }
+                })
+                .reduce((acc, curr) => [...acc, ...curr], [])
+            );
+          }
+
+          return Object.assign({}, meta, {
+            redirect: redirects
+          });
+        })
         .filter(meta => meta.redirect)
         .map(meta =>
           meta.redirect.map(
             redirect =>
-              `${ensureSlash(redirect)}    ${ensureSlash(meta.location)}   301`
+              `${ensureSlash(redirect)}    ${ensureSlash(meta.location)}/   301`
           )
         )
         .reduce((acc, redirects) => acc.concat(redirects), [])
