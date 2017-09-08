@@ -4,6 +4,8 @@
   padding-top: 2em;
   padding-bottom: 2em;
   background: white;
+  border-radius: .2em;
+  box-shadow: 0 0.5em 0.5em rgba(#888, 0.1);
   &:first-child {
     margin-top: 0;
   }
@@ -35,7 +37,7 @@
       color: $tutorielsDark;
     }
     .page-nav__item__category button {
-      background: $tutorielsDark;
+      background: $tutorielsLight;
       left: 0rem;
     }
   }
@@ -44,7 +46,7 @@
       color: $fichesTechniquesDark;
     }
     .page-nav__item__category button {
-      background: $fichesTechniquesDark;
+      background: $fichesTechniquesLight;
       left: 0.75rem;
     }
   }
@@ -53,7 +55,7 @@
       color: $explorationsDark;
     }
     .page-nav__item__category button {
-      background: $explorationsDark;
+      background: $explorationsLight;
       left: 1.5rem;
     }
   }
@@ -62,7 +64,7 @@
       color: $autresDark;
     }
     .page-nav__item__category button {
-      background: $autresDark;
+      background: $autresLight;
       left: 2.2rem;
     }
   }
@@ -79,6 +81,8 @@
       margin-bottom: -2em;
       padding: 0;
       background: none;
+
+      box-shadow: none;
 
       &:nth-child(2n) .timeline {
         flex-direction: row-reverse;

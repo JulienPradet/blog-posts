@@ -38,45 +38,45 @@
 }
 .category-nav__line--autres {
   &::before {
-    background: $autresDark;
+    background: $autresLight;
     box-shadow: 0px 0px 5px rgba($autresLight, 0.2);
   }
   .autres &::before, &:hover::before {
     box-shadow: 0px 0px 15px rgba($autresLight, 0.5);
-    background: $autresDark;
+    background: $autresLight;
     width: 2px;
   }
 }
 .category-nav__line--tutoriels {
   &::before {
-    background: $tutorielsDark;
+    background: $tutorielsLight;
     box-shadow: 0px 0px 5px rgba($tutorielsLight, 0.2);
   }
   .tutoriels &::before, &:hover::before {
     box-shadow: 0px 0px 15px rgba($tutorielsLight, 1);
-    background: $tutorielsDark;
+    background: $tutorielsLight;
     width: 2px;
   }
 }
 .category-nav__line--fiches-techniques {
   &::before {
-    background: $fichesTechniquesDark;
+    background: $fichesTechniquesLight;
     box-shadow: 0px 0px 5px rgba($fichesTechniquesLight, 0.2);
   }
   .fiches-techniques &::before, &:hover::before {
     box-shadow: 0px 0px 15px rgba($fichesTechniquesLight, 1);
-    background: $fichesTechniquesDark;
+    background: $fichesTechniquesLight;
     width: 2px;
   }
 }
 .category-nav__line--explorations {
   &::before {
-    background: $explorationsDark;
+    background: $explorationsLight;
     box-shadow: 0px 0px 5px rgba($explorationsLight, 0.2);
   }
   .explorations &::before, &:hover::before {
     box-shadow: 0px 0px 15px rgba($explorationsLight, 1);
-    background: $explorationsDark;
+    background: $explorationsLight;
     width: 2px;
   }
 }

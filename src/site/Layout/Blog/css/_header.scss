@@ -16,6 +16,7 @@
   }
   &__menu {
     &__action {
+      z-index: 2;
       button {
         background: white;
         display: block;
@@ -25,7 +26,7 @@
         padding: 0;
         border: none;
         border-radius: 50%;
-        box-shadow: 0 0.5em 0.5em #ccc;
+        box-shadow: 0 0.5em 0.5em rgba(#888, 0.5);
         transition: box-shadow ease 0.3s, background-color ease 0.3s;
         font-size: 1em;
       }

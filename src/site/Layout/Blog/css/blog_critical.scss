@@ -127,6 +127,8 @@ h6:hover .header-anchor {
 @media screen and (min-width: $breakpointLarge) {
   .gotop a {
     background: white;
+    border-radius: .2em;
+    box-shadow: 0 0.5em 0.5em rgba(#888, 0.1);
     display: inline-block;
     padding: 1em;
   }
@@ -145,6 +147,8 @@ h6:hover .header-anchor {
     padding: 2em 3em;
     margin: 0 auto;
     background: white;
+    border-radius: .2em;
+    box-shadow: 0 0.5em 0.5em rgba(#888, 0.1);
   }
   .blog__content::after {
     pointer-events: none;
@@ -157,8 +161,8 @@ h6:hover .header-anchor {
     width: 100%;
     background-image: linear-gradient(
       to bottom,
-      rgba(lighten($background, 2), 1),
-      rgba(lighten($background, 2), 0)
+      rgba(lighten($background, 3), 1),
+      rgba(lighten($background, 3), 0)
     );
   }
   .blog__content::before {
@@ -171,8 +175,8 @@ h6:hover .header-anchor {
     width: 100%;
     background-image: linear-gradient(
       to top,
-      rgba(lighten($background, 2), 1),
-      rgba(lighten($background, 2), 0)
+      rgba(lighten($background, 3), 1),
+      rgba(lighten($background, 3), 0)
     );
   }
 }
