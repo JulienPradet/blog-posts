@@ -107,8 +107,8 @@ const webpackConfig = paths => (pages, entryPath) => {
   });
   browserEntry.output = {
     path: paths.buildPath,
-    filename: "[name].js",
-    chunkFilename: "[name].js",
+    filename: "[hash].js",
+    chunkFilename: "[chunkhash].js",
     publicPath: "/"
   };
   const browserBabelOptions = browserEntry.module.rules.find(

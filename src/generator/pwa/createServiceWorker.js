@@ -10,42 +10,54 @@ const serviceWorker = urlsToCacheOnFirstLoad => {
 
     const urlsToPrefetch = ${JSON.stringify(urlsToCacheOnFirstLoad)}
 
-    self.addEventListener('install', (event) => {
+    self.addEventListener("install", event => {
       event.waitUntil(
-        caches.open(CACHE_NAME)
-          .then((cache) => {
-            cache.addAll(urlsToPrefetch.map((urlToPrefetch) => {
-              return new Request(urlToPrefetch);
-            }))
+        caches
+          .open(CACHE_NAME)
+          .then(cache => {
+            urlsToPrefetch
+              .map(url => {
+                return new Request(url);
+              })
+              .forEach(request => {
+                cache
+                  .match(event.request)
+                  .then(response => {
+                    return response || fetch(event.request);
+                  })
+                  .then(response => cache.put(event.request, response.clone()));
+              });
           })
           .catch(function(error) {
-            console.error('Pre-fetching failed:', error);
+            console.error("Pre-fetching failed:", error);
           })
       );
-    })
+    });
 
-    self.addEventListener('fetch', (event) => {
+    self.addEventListener("fetch", event => {
       event.respondWith(
-        fetch(event.request)
-          .then((response) => {
-            return caches.open(CACHE_NAME)
-              .then((cache) => {
-                cache.put(event.request, response.clone())
-              })
-              .then(() => {
-                return response
-              })
-          })
-          .catch(() => {
-            return caches.match(event.request)
-          })
-      )
-    })
-
+        caches.match(event.request).then(function(response) {
+          if (response) {
+            return response;
+          } else {
+            return fetch(event.request).then(response => {
+              return caches
+                .open(CACHE_NAME)
+                .then(cache => {
+                  cache.put(event.request, response.clone());
+                })
+                .then(() => {
+                  return response;
+                });
+            });
+          }
+        })
+      );
+    });
   `;
 };
 
-const getHomePreloadFiles = paths => () => {
+const getHomeHelmetFiles = paths => () => {
   require("../bundle/date-polyfill");
   let renderPage;
   try {
@@ -69,20 +81,25 @@ const getHomePreloadFiles = paths => () => {
   });
 };
 
+const getHomeWebpackFiles = paths => stats$ => {
+  return stats$.map(stats => {
+    const homeChunks = getPathsFromChunks(paths)(
+      stats.children[0],
+      path.join(paths.buildPath, "index.html")
+    );
+
+    return ["/", ...homeChunks];
+  });
+};
+
 const createServiceWorker = paths => stats$ => {
   return reduceObservable(
     (files, current) => [...files, ...current],
     [],
     Observable.merge(
-      stats$.map(stats => {
-        const homeChunks = getPathsFromChunks(paths)(
-          stats.children[0],
-          path.join(paths.buildPath, "index.html")
-        );
-
-        return ["/", "/css/page.css", "/css/prism-onedark.css", ...homeChunks];
-      }),
-      getHomePreloadFiles(paths)()
+      Observable.of(["/"]),
+      getHomeWebpackFiles(paths)(stats$),
+      getHomeHelmetFiles(paths)()
     )
   )
     .map(urlsToCacheOnFirstLoad => [...new Set(urlsToCacheOnFirstLoad)])

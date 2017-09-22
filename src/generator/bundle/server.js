@@ -32,7 +32,7 @@ const renderToHtml = paths => (jsPath, htmlPath, stats) => {
   let location = "/" + path.relative(paths.contentPath, path.dirname(jsPath));
   if (!location.endsWith("/")) location += "/";
 
-  return renderPage(paths)(jsPath)
+  return renderPage(paths)(location)
     .then(({ html, helmet, loadableState }) => {
       return renderToString(
         <html lang="fr">
