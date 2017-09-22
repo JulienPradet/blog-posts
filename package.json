@@ -22,7 +22,7 @@
     "lighthouse":
       "lighthouse https://59b2abbe0752d0789cc4057f--julien-pradet-blog.netlify.com/",
     "prettier":
-      "echo 'Prettifying code...' && prettier --write \"src/**/*.js\" > /dev/null",
+      "echo 'Prettifying code...' && prettier --write \"src/**/*.js\" \"src/**/*.css\" > /dev/null",
     "prelint": "npm run -s clean && npm -s run prettier",
     "lint": "eslint \"src/**/*.js\""
   },
@@ -87,6 +87,7 @@
     "webpack-dev-server": "^2.8.2"
   },
   "lint-staged": {
-    "*.js": ["prettier --write", "git add", "eslint"]
+    "*.js": ["prettier --write", "git add", "eslint"],
+    "*.css": ["prettier --write", "git add"]
   }
 }
