@@ -15,10 +15,21 @@ const createRss = paths => () => {
         hostname: url,
         urls: [
           { url: "/", changefreq: "weekly" },
-          ...metas.map(meta => ({
-            url: meta.location,
-            lastmodISO: new Date(meta.date).toISOString()
-          }))
+          ...metas
+            .filter(meta => !meta.removeFromSitemap)
+            .filter(meta => {
+              if (!meta.date) {
+                log(
+                  "warn",
+                  `Page removed from sitemap because there is no date in meta.js "/${meta.location}" `
+                );
+              }
+              return meta.date;
+            })
+            .map(meta => ({
+              url: meta.location,
+              lastmodISO: new Date(meta.date).toISOString()
+            }))
         ]
       });
     })

@@ -23,19 +23,9 @@ const getMetas = paths => () => {
         meta
       );
     })
-    .filter(meta => meta)
-    .filter(meta => meta.isListed);
+    .filter(meta => meta);
 
-  return reduceObservable((acc, meta) => [...acc, meta], [], meta$).map(metas =>
-    metas.sort((metaA, metaB) => {
-      if (metaA.date < metaB.date) {
-        return 1;
-      } else if (metaA.date > metaB.date) {
-        return -1;
-      }
-      return 0;
-    })
-  );
+  return reduceObservable((acc, meta) => [...acc, meta], [], meta$);
 };
 
 module.exports = getMetas;

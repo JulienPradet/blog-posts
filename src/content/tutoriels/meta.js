@@ -4,5 +4,6 @@ module.exports = {
   layout: "Blog",
   isHome: true,
   filter: page => page.category === "Tutoriels",
-  category: "Tutoriels"
+  category: "Tutoriels",
+  date: "2017-09-22"
 };

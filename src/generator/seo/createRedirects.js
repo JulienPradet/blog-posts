@@ -7,41 +7,54 @@ const ensureSlash = location => {
   if (!location.startsWith("/")) {
     location = `/${location}`;
   }
+  if (!location.endsWith("/")) {
+    location = `${location}/`;
+  }
   return location;
 };
 
-const createRss = paths => () => {
+const removeTrailingSlash = location => {
+  if (location === "/") {
+    return "/";
+  }
+  if (location.endsWith("/")) {
+    location = location.substr(0, location.length - 1);
+  }
+  return location;
+};
+
+const getRedirectsFromMeta = (url, meta) => {
+  let redirects = url === "/"
+    ? []
+    : [`${removeTrailingSlash(ensureSlash(url))}`];
+
+  if (meta.redirect) {
+    redirects = redirects.concat(
+      meta.redirect
+        .map(removeTrailingSlash)
+        .map(url => [url, `${url}/`])
+        .reduce((acc, curr) => [...acc, ...curr], [])
+    );
+  }
+
+  return redirects;
+};
+
+const createRedirects = paths => () => {
   log("info", "Creating redirects");
 
   return getMetas(paths)()
     .map(metas =>
       metas
         .map(meta => {
-          let redirects = [`${ensureSlash(meta.location)}`];
-
-          if (meta.redirect) {
-            redirects = redirects.concat(
-              meta.redirect
-                .map(url => {
-                  if (url.endsWith("/")) {
-                    return [url, url.substring(0, -1)];
-                  } else {
-                    return [url, `${url}/`];
-                  }
-                })
-                .reduce((acc, curr) => [...acc, ...curr], [])
-            );
-          }
-
           return Object.assign({}, meta, {
-            redirect: redirects
+            redirect: getRedirectsFromMeta(meta.location, meta)
           });
         })
         .filter(meta => meta.redirect)
         .map(meta =>
           meta.redirect.map(
-            redirect =>
-              `${ensureSlash(redirect)}    ${ensureSlash(meta.location)}/   301`
+            redirect => `${redirect}    ${ensureSlash(meta.location)}   301`
           )
         )
         .reduce((acc, redirects) => acc.concat(redirects), [])
@@ -53,4 +66,6 @@ const createRss = paths => () => {
     .do(metas => log("success", "redirects created"));
 };
 
-module.exports = createRss;
+createRedirects.getRedirectsFromMeta = getRedirectsFromMeta;
+
+module.exports = createRedirects;

@@ -15,6 +15,7 @@ generate({
   () => log("success", "Compiled."),
   error => {
     log("error", error);
+    log("error", error.stack);
     process.exit(1);
   }
 );

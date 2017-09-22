@@ -21,16 +21,26 @@ const createRss = paths => () => {
 
   return getMetas(paths)()
     .do(metas => {
-      metas.forEach(meta => {
-        rss.item({
-          title: meta.title,
-          url: url + meta.location + "/",
-          description: meta.description,
-          categories: meta.tags,
-          author: meta.author || author,
-          date: new Date(meta.date)
+      metas
+        .filter(meta => meta.isListed)
+        .sort((metaA, metaB) => {
+          if (metaA.date < metaB.date) {
+            return 1;
+          } else if (metaA.date > metaB.date) {
+            return -1;
+          }
+          return 0;
+        })
+        .forEach(meta => {
+          rss.item({
+            title: meta.title,
+            url: url + meta.location + "/",
+            description: meta.description,
+            categories: meta.tags,
+            author: meta.author || author,
+            date: new Date(meta.date)
+          });
         });
-      });
     })
     .map(() => rss.xml())
     .flatMap(feed => fs.writefile(path.join(paths.buildPath, "feed.xml"), feed))
