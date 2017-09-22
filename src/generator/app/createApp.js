@@ -86,6 +86,7 @@ const makeEntry = paths => matches$ => {
         const AnimationContainer = require('../../site/components/Animation/Container').default
         const Loading = require('../../site/components/Loading').default
         const Routes = require('../../site/Routes').default
+        const Redirect = require('react-router/Redirect')
 
         const meta = ${JSON.stringify(makeMeta())}
         const pages = [
@@ -98,6 +99,7 @@ const makeEntry = paths => matches$ => {
         });
 
         const asyncPages = {}
+        const redirects = []
         ${matches.map(({ createComponent }) => createComponent).join("\n")}
 
         const components = Object.keys(asyncPages)
@@ -114,7 +116,7 @@ const makeEntry = paths => matches$ => {
         const App = () => (
           <SiteProvider meta={meta} pages={pages} components={components}>
             <AnimationContainer>
-              <Routes routes={asyncPages} />
+              <Routes routes={asyncPages} redirects={redirects} />
             </AnimationContainer>
           </SiteProvider>
         )

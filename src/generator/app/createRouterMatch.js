@@ -1,4 +1,5 @@
 const path = require("path");
+const { getRedirectsFromMeta } = require("../seo/createRedirects");
 
 const transformUrl = url => {
   if (!url.startsWith("/")) {
@@ -21,12 +22,17 @@ const createRouterMatch = paths => pagePath => {
   const meta = require(pagePath.replace("index.js", "meta.js"));
   const layout = meta.layout;
   const url = transformUrl(path.relative(paths.contentPath, pagePath));
+  const redirects = getRedirectsFromMeta(url, meta).map(from => ({
+    from,
+    to: url
+  }));
 
   return {
     createComponent: `
       if (!asyncPages[${JSON.stringify(layout)}]) {
         asyncPages[${JSON.stringify(layout)}] = {}
       }
+
       asyncPages[${JSON.stringify(layout)}][${JSON.stringify(url)}] = ({
         meta: require(${JSON.stringify(
           pagePath.replace("index.js", "meta.js")
@@ -43,6 +49,22 @@ const createRouterMatch = paths => pagePath => {
           }
         })
       })
+
+      ${redirects
+        .map(
+          ({ from, to }) => `
+        asyncPages[${JSON.stringify(layout)}][${JSON.stringify(from)}] = ({
+          meta: require(${JSON.stringify(
+            pagePath.replace("index.js", "meta.js")
+          )}),
+          Component: () => <div>
+            <Loading />
+            <Redirect to={${JSON.stringify(to)}} />
+          </div>
+        })
+      `
+        )
+        .join("")}
     `,
     path: pagePath
   };
