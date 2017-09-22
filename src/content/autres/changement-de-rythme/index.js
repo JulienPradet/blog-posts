@@ -1,9 +1,10 @@
 import React from "react";
 import content from "./content.md";
 
-const Article = props =>
+const Article = props => (
   <div>
     <div dangerouslySetInnerHTML={{ __html: content }} />
-  </div>;
+  </div>
+);
 
 export default Article;

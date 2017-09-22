@@ -1,6 +1,6 @@
 import React from "react";
 
-const HoverButton = () =>
+const HoverButton = () => (
   <div className="hover-button__wrapper">
     <style>{`
       .hover-button__wrapper {
@@ -23,6 +23,7 @@ const HoverButton = () =>
       }
     `}</style>
     <button className="hover-button">Hover me!</button>
-  </div>;
+  </div>
+);
 
 export default HoverButton;

@@ -10,12 +10,14 @@ const Category = withSite(({ name, site }) => {
 
   return (
     <li className={toCssId(name)}>
-      <PageLink to={`/${toCssId(name)}/`}>{name} ({pageNumber})</PageLink>
+      <PageLink to={`/${toCssId(name)}/`}>
+        {name} ({pageNumber})
+      </PageLink>
     </li>
   );
 });
 
-const Home = props =>
+const Home = props => (
   <div>
     <div dangerouslySetInnerHTML={{ __html: home }} />
     <ul className="category-list">
@@ -24,6 +26,7 @@ const Home = props =>
       <Category name="Explorations" />
       <Category name="Autres" />
     </ul>
-  </div>;
+  </div>
+);
 
 export default withSite(Home);

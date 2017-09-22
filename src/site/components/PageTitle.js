@@ -15,9 +15,10 @@ class PageTitleProvider extends Component {
         get: () => this.state.title,
         set: titleReducer =>
           this.setState(({ title }) => ({
-            title: typeof titleReducer === "function"
-              ? titleReducer(title)
-              : titleReducer
+            title:
+              typeof titleReducer === "function"
+                ? titleReducer(title)
+                : titleReducer
           }))
       }
     };

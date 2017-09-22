@@ -14,9 +14,9 @@ class PageNavPreviewCategory extends Component {
   }
 }
 
-const PageNavPreview = ({ page }) =>
+const PageNavPreview = ({ page }) => (
   <AnimationElement id={`page-preview["${page.location}"]`}>
-    {({ setAnimatedElement }) =>
+    {({ setAnimatedElement }) => (
       <div
         className={`page-nav__item page-nav__item--${toCssId(page.category)}`}
         ref={setAnimatedElement}
@@ -36,7 +36,9 @@ const PageNavPreview = ({ page }) =>
             </div>
           </div>
         </div>
-      </div>}
-  </AnimationElement>;
+      </div>
+    )}
+  </AnimationElement>
+);
 
 export default PageNavPreview;

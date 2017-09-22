@@ -2,9 +2,10 @@ import React from "react";
 import content from "./content.md";
 import withPrismCss from "../../../site/util/withPrismCss";
 
-const Article = props =>
+const Article = props => (
   <div>
     <div dangerouslySetInnerHTML={{ __html: content }} />
-  </div>;
+  </div>
+);
 
 export default withPrismCss()(Article);

@@ -156,8 +156,7 @@ class MovingBoxShadow extends React.Component {
           }}
         />
         <div id={`${this.props.id}-box`} ref={node => (this.node = node)}>
-          Bonjour,
-          Je suis une boîte avec des propriétés couteuses.
+          Bonjour, Je suis une boîte avec des propriétés couteuses.
         </div>
         <button className="button" onClick={this.toggleAnimation}>
           {this.state.animating

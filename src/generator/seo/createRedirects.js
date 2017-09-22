@@ -24,9 +24,8 @@ const removeTrailingSlash = location => {
 };
 
 const getRedirectsFromMeta = (url, meta) => {
-  let redirects = url === "/"
-    ? []
-    : [`${removeTrailingSlash(ensureSlash(url))}`];
+  let redirects =
+    url === "/" ? [] : [`${removeTrailingSlash(ensureSlash(url))}`];
 
   if (meta.redirect) {
     redirects = redirects.concat(

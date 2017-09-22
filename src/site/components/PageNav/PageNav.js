@@ -24,9 +24,9 @@ class PageNav extends Component {
   render() {
     return (
       <div className="page-nav">
-        {this.state.pages.map((page, index) =>
+        {this.state.pages.map((page, index) => (
           <PageNavPreview key={page.location} page={page} />
-        )}
+        ))}
       </div>
     );
   }

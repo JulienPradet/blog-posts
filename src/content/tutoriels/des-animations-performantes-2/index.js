@@ -8,7 +8,7 @@ import Demo from "../../../site/components/Demo";
 import DemoLag from "./DemoLag";
 import withPrismCss from "../../../site/util/withPrismCss";
 
-const Article = props =>
+const Article = props => (
   <div>
     <div dangerouslySetInnerHTML={{ __html: introduction }} />
     <div dangerouslySetInnerHTML={{ __html: tldr }} />
@@ -17,6 +17,7 @@ const Article = props =>
     <div dangerouslySetInnerHTML={{ __html: willChange }} />
     <Demo>{() => <DemoLag id="moving-box-fast" fast />}</Demo>
     <div dangerouslySetInnerHTML={{ __html: willChange2 }} />
-  </div>;
+  </div>
+);
 
 export default withPrismCss()(Article);

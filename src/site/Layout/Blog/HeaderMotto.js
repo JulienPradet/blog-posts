@@ -17,7 +17,9 @@ class HeaderLinks extends Component {
         <span>
           la <strong>bienveillance</strong>{" "}
         </span>
-        <span>et le <strong>partage</strong></span>
+        <span>
+          et le <strong>partage</strong>
+        </span>
       </div>
     );
   }

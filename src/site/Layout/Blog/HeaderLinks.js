@@ -4,12 +4,11 @@ import twitterIcon from "../../../icons/iconmonstr-twitter-1.svg";
 import githubIcon from "../../../icons/iconmonstr-github-1.svg";
 import Svg from "react-svg-inline";
 
-const CategoryLink = ({ category, path }) =>
-  <PageLink to={path}>
-    {category}
-  </PageLink>;
+const CategoryLink = ({ category, path }) => (
+  <PageLink to={path}>{category}</PageLink>
+);
 
-const Menu = ({ isOpened, toggleMenu }) =>
+const Menu = ({ isOpened, toggleMenu }) => (
   <div
     className={`menu__wrapper menu__wrapper--${isOpened ? "opened" : "closed"}`}
   >
@@ -57,15 +56,14 @@ const Menu = ({ isOpened, toggleMenu }) =>
               </a>
             </li>
             <li>
-              <PageLink to="/cv/">
-                CV
-              </PageLink>
+              <PageLink to="/cv/">CV</PageLink>
             </li>
           </ul>
         </div>
       </div>
     </div>
-  </div>;
+  </div>
+);
 
 class HeaderLinks extends Component {
   constructor() {

@@ -8,21 +8,24 @@ const CategoryLine = withRouter(({ path, category, location }) => {
     category
   )}`;
 
-  return location.pathname === path
-    ? <PageLink className={className} to="/" title="Revenir à l'accueil">
-        Revenir à l'accueil
-      </PageLink>
-    : <PageLink className={className} to={path} title={category}>
-        {category}
-      </PageLink>;
+  return location.pathname === path ? (
+    <PageLink className={className} to="/" title="Revenir à l'accueil">
+      Revenir à l'accueil
+    </PageLink>
+  ) : (
+    <PageLink className={className} to={path} title={category}>
+      {category}
+    </PageLink>
+  );
 });
 
-const CategoryLines = () =>
+const CategoryLines = () => (
   <div className="category-nav">
     <CategoryLine category="Tutoriels" path="/tutoriels/" />
     <CategoryLine category="Fiches Techniques" path="/fiches-techniques/" />
     <CategoryLine category="Explorations" path="/explorations/" />
     <CategoryLine category="Autres" path="/autres/" />
-  </div>;
+  </div>
+);
 
 export default CategoryLines;

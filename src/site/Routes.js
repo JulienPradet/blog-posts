@@ -47,11 +47,11 @@ const LayoutRoutes = ({ routes, redirects }) => {
     );
   });
 
-  const redirectRoutes = redirects.map(({ from, to }, index) =>
+  const redirectRoutes = redirects.map(({ from, to }, index) => (
     <Route key={`redirect${index}`} exact strict path={from}>
       {({ match }) => match && match.isExact && <Redirect to={to} />}
     </Route>
-  );
+  ));
 
   return (
     <div>

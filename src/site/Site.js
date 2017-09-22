@@ -34,8 +34,9 @@ SiteProvider.propTypes = {
 };
 
 export const withSite = Component => {
-  const withSiteComponent = (props, context) =>
-    <Component site={context.site} {...props} />;
+  const withSiteComponent = (props, context) => (
+    <Component site={context.site} {...props} />
+  );
 
   withSiteComponent.contextTypes = {
     site: PropTypes.object.isRequired

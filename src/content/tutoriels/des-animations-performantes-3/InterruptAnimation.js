@@ -25,9 +25,11 @@ class InterruptAnimation extends React.Component {
   }
 
   componentDidMount() {
-    Object.keys(this.node).map(key => this.node[key]).forEach(node => {
-      node.style.transform = `scale(${CLOSED_SCALE}, 1)`;
-    });
+    Object.keys(this.node)
+      .map(key => this.node[key])
+      .forEach(node => {
+        node.style.transform = `scale(${CLOSED_SCALE}, 1)`;
+      });
   }
 
   componentDidUpdate() {
@@ -86,10 +88,12 @@ class InterruptAnimation extends React.Component {
     let progress = (window.performance.now() - this.start) / DURATION;
     if (progress > 1) progress = 1;
 
-    Object.keys(this.node).map(key => this.node[key]).forEach((node, index) => {
-      const scale = this.getScale(progress, index);
-      node.style.transform = `scale(${scale}, 1)`;
-    });
+    Object.keys(this.node)
+      .map(key => this.node[key])
+      .forEach((node, index) => {
+        const scale = this.getScale(progress, index);
+        node.style.transform = `scale(${scale}, 1)`;
+      });
 
     if (progress < 1) {
       window.requestAnimationFrame(this.animate);
@@ -105,7 +109,7 @@ class InterruptAnimation extends React.Component {
   render() {
     return (
       <div style={{ maxHeight: 180, overflowY: "auto" }}>
-        {new Array(this.props.length).fill(0).map((_, index) =>
+        {new Array(this.props.length).fill(0).map((_, index) => (
           <button
             key={index}
             ref={node => {
@@ -128,7 +132,7 @@ class InterruptAnimation extends React.Component {
           >
             {this.state.opened ? "Click to close" : "Click to expand"}
           </button>
-        )}
+        ))}
       </div>
     );
   }
