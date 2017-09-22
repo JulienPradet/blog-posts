@@ -2,6 +2,7 @@ const path = require("path");
 const Observable = require("rxjs").Observable;
 const createCompiler = require("./createCompiler");
 const WebpackDevServer = require("webpack-dev-server");
+const log = require("../util/log")("BUNDLE");
 
 const serve = paths => compiler$ => {
   return compiler$.flatMap(compiler =>
@@ -20,7 +21,7 @@ const serve = paths => compiler$ => {
       });
 
       var server = app.listen(3000, function() {
-        console.log("Listening on port 3000!");
+        log("success", "Dev server started at http://localhost:3000/");
       });
 
       return () => server.close();
