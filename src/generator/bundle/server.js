@@ -7,10 +7,7 @@ import { getLoadableState } from "loadable-components/server";
 import App from "../tmp/App";
 import getPathsFromChunks from "./getPathsFromChunks";
 
-const renderPageToHtml = paths => (jsPath, htmlPath, stats) => {
-  let location = "/" + path.relative(paths.contentPath, path.dirname(jsPath));
-  if (!location.endsWith("/")) location += "/";
-
+export const renderPage = paths => location => {
   const context = {};
   const server = (
     <StaticRouter location={location} context={context}>
@@ -23,31 +20,42 @@ const renderPageToHtml = paths => (jsPath, htmlPath, stats) => {
     const html = renderToString(server);
     const helmet = Helmet.renderStatic();
 
-    return renderToString(
-      <html lang="fr">
-        <head>
-          {helmet.title.toComponent()}
-          {helmet.meta.toComponent()}
-          {helmet.link.toComponent()}
-          {helmet.style.toComponent()}
-        </head>
-        <body>
-          <div id="root" dangerouslySetInnerHTML={{ __html: html }} />
-          {loadableState.getScriptElement()}
-          {getPathsFromChunks(paths)(
-            stats.children[0],
-            htmlPath
-          ).map((jsPath, key) => <script async src={jsPath} key={key} />)}
-          {helmet.noscript.toComponent()}
-        </body>
-      </html>
-    );
+    return {
+      html,
+      helmet,
+      loadableState
+    };
   });
 };
 
-const renderToHtml = paths => (jsPath, htmlPath, stats) =>
-  renderPageToHtml(paths)(jsPath, htmlPath, stats).then(
-    html => `<!doctype html>${html}`
-  );
+const renderToHtml = paths => (jsPath, htmlPath, stats) => {
+  let location = "/" + path.relative(paths.contentPath, path.dirname(jsPath));
+  if (!location.endsWith("/")) location += "/";
+
+  return renderPage(paths)(jsPath)
+    .then(({ html, helmet, loadableState }) => {
+      return renderToString(
+        <html lang="fr">
+          <head>
+            {helmet.title.toComponent()}
+            {helmet.meta.toComponent()}
+            {helmet.link.toComponent()}
+            {helmet.style.toComponent()}
+          </head>
+          <body>
+            <div id="root" dangerouslySetInnerHTML={{ __html: html }} />
+            {loadableState.getScriptElement()}
+            {getPathsFromChunks(paths)(
+              stats.children[0],
+              htmlPath
+            ).map((jsPath, key) => <script async src={jsPath} key={key} />)}
+            {helmet.script.toComponent()}
+            {helmet.noscript.toComponent()}
+          </body>
+        </html>
+      );
+    })
+    .then(html => `<!doctype html>${html}`);
+};
 
 export default renderToHtml;
