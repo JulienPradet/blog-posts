@@ -5,9 +5,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const baseConfig = paths => (pages, entryPath) => {
   return {
-    devtool: process.env.NODE_ENV === "production"
-      ? "source-map"
-      : "cheap-module-source-map",
+    devtool:
+      process.env.NODE_ENV === "production"
+        ? "source-map"
+        : "cheap-module-source-map",
     module: {
       rules: [
         {
@@ -27,19 +28,16 @@ const baseConfig = paths => (pages, entryPath) => {
           test: /\.md$/,
           loader:
             "./" +
-              path.relative(
-                process.cwd(),
-                "src/generator/bundle/markdown-loader.js"
-              )
+            path.relative(
+              process.cwd(),
+              "src/generator/bundle/markdown-loader.js"
+            )
         },
         {
           test: /\.code$/,
           loader:
             "./" +
-              path.relative(
-                process.cwd(),
-                "src/generator/bundle/code-loader.js"
-              )
+            path.relative(process.cwd(), "src/generator/bundle/code-loader.js")
         },
         {
           test: /\.svg$/,
@@ -49,6 +47,15 @@ const baseConfig = paths => (pages, entryPath) => {
           test: /\.s?css$/,
           use: [
             { loader: "file-loader", options: { name: "css/[hash].css" } },
+            {
+              loader: "postcss-loader",
+              options: {
+                plugins: () =>
+                  process.env.NODE_ENV === "production"
+                    ? [require("cssnano")()]
+                    : []
+              }
+            },
             { loader: "sass-loader" }
           ]
         }
@@ -88,13 +95,14 @@ const baseConfig = paths => (pages, entryPath) => {
 const webpackConfig = paths => (pages, entryPath) => {
   const browserEntry = Object.assign({}, baseConfig(paths)(pages, entryPath), {
     entry: {
-      app: process.env.NODE_ENV === "production"
-        ? "./src/generator/bundle/browser.js"
-        : [
-            "webpack-dev-server/client?http://localhost:3000",
-            "webpack/hot/dev-server",
-            "./src/generator/bundle/browser.js"
-          ]
+      app:
+        process.env.NODE_ENV === "production"
+          ? "./src/generator/bundle/browser.js"
+          : [
+              "webpack-dev-server/client?http://localhost:3000",
+              "webpack/hot/dev-server",
+              "./src/generator/bundle/browser.js"
+            ]
     }
   });
   browserEntry.output = {

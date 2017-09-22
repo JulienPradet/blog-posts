@@ -1,5 +1,5 @@
 import React from "react";
-import { render } from "react-dom";
+import { render, hydrate } from "react-dom";
 import App from "../tmp/App";
 import { BrowserRouter } from "react-router-dom";
 import { loadComponents } from "loadable-components";
@@ -11,7 +11,11 @@ const app = (
 );
 
 loadComponents().then(() => {
-  render(app, document.getElementById("root"));
+  if (process.env.NODE_ENV === "development") {
+    render(app, document.getElementById("root"));
+  } else {
+    hydrate(app, document.getElementById("root"));
+  }
 });
 
 if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
