@@ -1,5 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
+import prismCss from "./prism-onedark.css";
 
 export default () => BaseComponent => {
   return class extends React.Component {
@@ -19,10 +20,9 @@ export default () => BaseComponent => {
     render() {
       return (
         <div>
-          {this.state.loadCss &&
-            <Helmet
-              link={[{ rel: "stylesheet", href: "/css/prism-onedark.css" }]}
-            />}
+          {this.state.loadCss && (
+            <Helmet link={[{ rel: "stylesheet", href: prismCss }]} />
+          )}
           <BaseComponent {...this.props} />
         </div>
       );
