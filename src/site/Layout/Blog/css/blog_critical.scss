@@ -20,6 +20,7 @@ body {
     "Helvetica Neue",
     sans-serif;
   line-height: 1.5;
+  font-family: 1.05em;
 }
 
 hr {
@@ -37,8 +38,11 @@ a {
 .tutoriels a {
   color: $tutorielsDark;
 }
-.autres a {
+.autres h1 a {
   color: $autresDark;
+}
+.autres a {
+  color: $autresLink;
 }
 .fiches-techniques a {
   color: $fichesTechniquesDark;
@@ -144,6 +148,7 @@ h6:hover .header-anchor {
     position: relative;
     z-index: 1;
     max-width: 48em;
+    max-width: 90ch;
     padding: 2em 3em;
     margin: 0 auto;
     background: white;

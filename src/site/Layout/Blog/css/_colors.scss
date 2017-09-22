@@ -1,13 +1,14 @@
-$background: #f7f2e7;
+$background: #f6edda;
 $borderColor: desaturate(darken($background, 5), 30);
 $fontColor: #100a16;
 $linkColor: #d66b1e;
 
-$autresLight: #FFCA28;
-$autresDark: #FFC107;
+$autresLight: #FFC107;
+$autresDark: #FFA000;
+$autresLink: #FF8F00;
 $tutorielsLight: #9CCC65;
-$tutorielsDark: #8BC34A;
-$explorationsLight: #EC407A;
-$explorationsDark: #E91E63;
+$tutorielsDark: mix(#7CB342, #689F38);
+$explorationsLight: #EF5350;
+$explorationsDark: #E53935;
 $fichesTechniquesLight: #5C6BC0;
-$fichesTechniquesDark: #3F51B5;
+$fichesTechniquesDark: #3949AB;

@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import PageLink from "../../components/PageLink";
+import twitterIcon from "../../../icons/iconmonstr-twitter-1.svg";
+import githubIcon from "../../../icons/iconmonstr-github-1.svg";
+import Svg from "react-svg-inline";
 
 const CategoryLink = ({ category, path }) =>
   <PageLink to={path}>
@@ -37,22 +40,26 @@ const Menu = ({ isOpened, toggleMenu }) =>
           <h3>Me contacter</h3>
           <ul>
             <li>
-              <a href="mailto:julien@pradet.me?body=Hi! I found your mail on your blog and...">
-                julien@pradet.me
-              </a>
-            </li>
-            <li>
               <a href="https://twitter.com/JulienPradet">
+                <Svg svg={twitterIcon} cleanup width="1.2em" height="1.2em" />
                 @JulienPradet
               </a>
             </li>
             <li>
               <a href="https://github.com/JulienPradet">
+                <Svg svg={githubIcon} cleanup width="1.2em" height="1.2em" />
                 JulienPradet
               </a>
             </li>
             <li>
-              <PageLink to="/cv/">CV</PageLink>
+              <a href="mailto:julien@pradet.me?body=Hi! I found your mail on your blog and...">
+                julien@pradet.me
+              </a>
+            </li>
+            <li>
+              <PageLink to="/cv/">
+                CV
+              </PageLink>
             </li>
           </ul>
         </div>
