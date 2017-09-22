@@ -4,6 +4,7 @@ import Svg from "react-svg-inline";
 import twitterSvg from "../../icons/iconmonstr-twitter-1.svg";
 import githubSvg from "../../icons/iconmonstr-github-1.svg";
 import { formatSimpleDate } from "../../site/util/dateFormats";
+import cvCss from "./cv.css";
 
 const Section = ({ title, children }) =>
   <section>
@@ -323,7 +324,7 @@ const SectionInfoComplementaires = () =>
 export default () =>
   <div className="page">
     <Helmet>
-      <link rel="stylesheet" href="/css/cv.css" />
+      <link rel="stylesheet" href={cvCss} />
     </Helmet>
     <header className="head">
       <div>

@@ -1,6 +1,6 @@
 import React from "react";
 import Helmet from "react-helmet";
-import homeCriticalCSS from "./css/blog_critical.scss";
+import blogCss from "./css/blog_critical.scss";
 import Header from "./Header";
 import CategoryNav from "./CategoryNav";
 import PageNav from "../../components/PageNav";
@@ -88,25 +88,10 @@ const Blog = props => {
   return (
     <PageTitleProvider>
       <div className={`blog ${toCssId(props.page.category)}`} id="top">
-        {helmet}
         <Helmet>
-          <style type="text/css">{homeCriticalCSS}</style>
-          <noscript>
-            {`
-              <link rel="stylesheet" href="/css/blog.css" />
-            `}
-          </noscript>
-          <script type="text/javascript">
-            {`
-                requestIdleCallback(() => {
-                    var link = document.createElement('link')
-                    link.href = '/css/blog.css'
-                    link.rel = 'stylesheet'
-                    document.querySelector('head').appendChild(link)
-                })
-            `}
-          </script>
+          <link rel="stylesheet" href={blogCss} />
         </Helmet>
+        {helmet}
         <div className="blog__header">
           <Header page={props.page} />
         </div>
