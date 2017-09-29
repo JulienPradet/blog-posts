@@ -7,7 +7,7 @@ Si vous inspectez l'élément dans votre navigateur, vous verrez qu'en fait, le 
     </div>
     <div style="position: relative">
         <!-- Fond animé -->
-        <div style="background: white; height: 40px" />
+        <div style="background: white; height: 40px"></div>
         <!-- Contenu animé -->
         <div style="position: absolute">
             Contenu

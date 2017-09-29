@@ -57,7 +57,7 @@ const InnerContent = compose(
     }}
   >
     <div style={{ padding: "0.5em 1em 1em" }}>
-      Salut, moi c'est le contenu&nbsp;!
+      Salut, moi c'est le contenu&nbsp;! HOHO
     </div>
   </div>
 ));
@@ -107,6 +107,13 @@ class BaseTogglable extends Component {
   render() {
     return (
       <div style={{ minHeight: "10em" }}>
+        <style
+          dangerouslySetInnerHTML={{
+            __html: `
+          .hidden { opacity: 0 }
+        `
+          }}
+        />
         <Container>
           {() => <Content toggle={this.toggle} opened={this.state.opened} />}
         </Container>

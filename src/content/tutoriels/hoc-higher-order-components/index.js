@@ -4,7 +4,10 @@ import withPrismCss from "../../../site/util/withPrismCss";
 
 const Article = props => (
   <div>
-    <div dangerouslySetInnerHTML={{ __html: content }} />
+    <div
+      ref={props.markdownRef}
+      dangerouslySetInnerHTML={{ __html: content }}
+    />
   </div>
 );
 
