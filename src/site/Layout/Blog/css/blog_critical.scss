@@ -8,17 +8,8 @@ body {
   margin: 0;
   background: $background;
   color: $fontColor;
-  font-family: -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Fira Sans",
-    "Droid Sans",
-    "Helvetica Neue",
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+    Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   line-height: 1.5;
   font-family: 1.05em;
 }
@@ -51,11 +42,21 @@ a {
   color: $explorationsDark;
 }
 
-h1 a, h2 a, h3 a, h4 a, h5 a, h6 a {
+h1 a,
+h2 a,
+h3 a,
+h4 a,
+h5 a,
+h6 a {
   color: $fontColor;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   position: relative;
 }
 .header-anchor {
@@ -83,6 +84,40 @@ h6:hover .header-anchor {
   margin: 4em 2em 4em;
 }
 
+code[class*="language-"],
+pre[class*="language-"] {
+  color: #d5d9e0;
+  background: none;
+  font-family: Consolas, Monaco, "Andale Mono", "Ubuntu Mono", monospace;
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  line-height: 1.5;
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+  background: #282c34;
+}
+
+pre[class*="language-"] {
+  padding: 1em;
+  margin: 0.5em 0;
+  overflow: auto;
+}
+
+@import "demo";
+@import "code-tabs";
+@import "figure";
 @import "timeline";
 @import "header";
 @import "page-nav";
@@ -131,7 +166,7 @@ h6:hover .header-anchor {
 @media screen and (min-width: $breakpointLarge) {
   .gotop a {
     background: white;
-    border-radius: .2em;
+    border-radius: 0.2em;
     box-shadow: 0 0.5em 0.5em rgba(#888, 0.1);
     display: inline-block;
     padding: 1em;
@@ -152,13 +187,13 @@ h6:hover .header-anchor {
     padding: 2em 3em;
     margin: 0 auto;
     background: white;
-    border-radius: .2em;
+    border-radius: 0.2em;
     box-shadow: 0 0.5em 0.5em rgba(#888, 0.1);
   }
   .blog__content::after {
     pointer-events: none;
     z-index: 0;
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     bottom: 0em;
@@ -172,7 +207,7 @@ h6:hover .header-anchor {
   }
   .blog__content::before {
     pointer-events: none;
-    content: '';
+    content: "";
     display: block;
     position: absolute;
     top: 0em;
