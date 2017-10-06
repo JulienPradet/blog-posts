@@ -14,14 +14,11 @@ class PreloadPage extends Component {
       loadedPages.push(this.props.location);
       const Component = this.props.site.components[this.props.location];
       if (Component) {
-        Component.load()
-          .then(arg => console.log("ok") || arg)
-          .catch(() => {
-            if (typeof this.props.onMiss === "function") {
-              console.log("miss");
-              this.props.onMiss();
-            }
-          });
+        Component.load().catch(() => {
+          if (typeof this.props.onMiss === "function") {
+            this.props.onMiss();
+          }
+        });
       }
     }
   }

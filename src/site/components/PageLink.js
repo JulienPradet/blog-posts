@@ -14,7 +14,6 @@ class PageLink extends Component {
 
   componentDidMount() {
     document.body.addEventListener(UPDATE_EVENT, () => {
-      console.log("Stop pagelink !");
       this.switchToNormalLink();
     });
   }
