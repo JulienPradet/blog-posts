@@ -7,7 +7,11 @@ import PagePreview from "./PagePreview";
 class PageNavPreviewCategory extends Component {
   render() {
     return (
-      <button onClick={this.onClick} title={this.props.page.category}>
+      <button
+        onClick={this.onClick}
+        title={this.props.page.category}
+        aria-label={this.props.page.category}
+      >
         -
       </button>
     );

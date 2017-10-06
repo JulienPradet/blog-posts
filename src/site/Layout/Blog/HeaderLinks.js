@@ -40,13 +40,25 @@ const Menu = ({ isOpened, toggleMenu }) => (
           <ul>
             <li>
               <a href="https://twitter.com/JulienPradet">
-                <Svg svg={twitterIcon} cleanup width="1.2em" height="1.2em" />
+                <Svg
+                  svg={twitterIcon}
+                  cleanup
+                  width="1.2em"
+                  height="1.2em"
+                  alt=""
+                />
                 @JulienPradet
               </a>
             </li>
             <li>
               <a href="https://github.com/JulienPradet">
-                <Svg svg={githubIcon} cleanup width="1.2em" height="1.2em" />
+                <Svg
+                  svg={githubIcon}
+                  cleanup
+                  width="1.2em"
+                  height="1.2em"
+                  alt=""
+                />
                 JulienPradet
               </a>
             </li>
@@ -94,6 +106,7 @@ class HeaderLinks extends Component {
             onClick={this.toggleMenu}
             title={this.state.opened ? "Close menu" : "Open menu"}
             className={this.state.opened ? "close" : "open"}
+            aria-hidden="true"
           >
             <span>+</span>
           </button>

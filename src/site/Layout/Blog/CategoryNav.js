@@ -20,7 +20,7 @@ const CategoryLine = withRouter(({ path, category, location }) => {
 });
 
 const CategoryLines = () => (
-  <div className="category-nav">
+  <div className="category-nav" aria-hidden="true">
     <CategoryLine category="Tutoriels" path="/tutoriels/" />
     <CategoryLine category="Fiches Techniques" path="/fiches-techniques/" />
     <CategoryLine category="Explorations" path="/explorations/" />
