@@ -107,7 +107,7 @@ const webpackConfig = paths => (pages, entryPath) => {
   });
   browserEntry.output = {
     path: paths.buildPath,
-    filename: "[hash].js",
+    filename: "[name].[hash].js",
     chunkFilename: "[chunkhash].js",
     publicPath: "/"
   };

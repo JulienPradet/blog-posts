@@ -3,7 +3,7 @@ import { render, hydrate } from "react-dom";
 import App from "../tmp/App";
 import { BrowserRouter } from "react-router-dom";
 import { loadComponents } from "loadable-components";
-import displayUpdateNotification from "../../site/displayUpdateNotification";
+import { dispatchUpdateEvent } from "../../site/updateNotification";
 
 const app = (
   <BrowserRouter>
@@ -30,7 +30,7 @@ if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
           installingWorker.onstatechange = () => {
             if (installingWorker.state === "installed") {
               if (navigator.serviceWorker.controller) {
-                displayUpdateNotification();
+                dispatchUpdateEvent();
               }
             }
           };

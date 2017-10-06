@@ -1,6 +1,8 @@
 import { Component } from "react";
 import { withSite } from "../Site";
 
+const loadedPages = [];
+
 class PreloadPage extends Component {
   constructor() {
     super();
@@ -8,9 +10,19 @@ class PreloadPage extends Component {
   }
 
   load() {
-    const Component = this.props.site.components[this.props.location];
-    if (Component) {
-      Component.load();
+    if (loadedPages.indexOf(this.props.location) === -1) {
+      loadedPages.push(this.props.location);
+      const Component = this.props.site.components[this.props.location];
+      if (Component) {
+        Component.load()
+          .then(arg => console.log("ok") || arg)
+          .catch(() => {
+            if (typeof this.props.onMiss === "function") {
+              console.log("miss");
+              this.props.onMiss();
+            }
+          });
+      }
     }
   }
 

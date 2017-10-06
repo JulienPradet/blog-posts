@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import PageLink from "../PageLink";
 import { formatDate } from "../../util/dateFormats";
 
 const ensureSlashs = url => {
@@ -10,15 +10,15 @@ const ensureSlashs = url => {
 
 const PagePreview = ({ page }) => (
   <div className="page-preview">
-    <Link to={ensureSlashs(page.location)} className="page-preview__title">
+    <PageLink to={ensureSlashs(page.location)} className="page-preview__title">
       {page.title}
-    </Link>
+    </PageLink>
     <div className="page-preview__meta">
       {page.date && <time>{formatDate(page.date)}</time>}
     </div>
     <div className="page-preview__description">{page.description} </div>
     <div className="page-preview__read-more">
-      <Link to={ensureSlashs(page.location)}>Lire la suite →</Link>
+      <PageLink to={ensureSlashs(page.location)}>Lire la suite →</PageLink>
     </div>
   </div>
 );

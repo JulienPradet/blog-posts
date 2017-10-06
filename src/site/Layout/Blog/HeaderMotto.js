@@ -1,12 +1,12 @@
 import React, { Component } from "react";
-import Link from "react-router-dom/Link";
+import PageLink from "../../components/PageLink";
 
 class HeaderLinks extends Component {
   render() {
     if (!this.props.isHome) {
       return (
         <div className="header__motto timeline__side">
-          <Link to="/">Revenir à l'accueil</Link>
+          <PageLink to="/">Revenir à l'accueil</PageLink>
         </div>
       );
     }
