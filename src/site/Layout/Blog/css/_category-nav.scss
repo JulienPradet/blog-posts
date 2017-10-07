@@ -4,6 +4,7 @@
   left: 1em;
   width: 3em;
   height: 100vh;
+  overflow: hidden;
   z-index: 2;
   display: flex;
   justify-content: space-between;
@@ -13,7 +14,7 @@
     width: 25%;
 
     &::before {
-      content: '';
+      content: "";
       display: block;
       height: 100%;
       width: 2px;
@@ -27,7 +28,7 @@
       }
     }
     &:hover::before {
-      background: #BBB;
+      background: #bbb;
       width: 2px;
     }
 
@@ -41,7 +42,8 @@
     background: $autresLight;
     box-shadow: 0px 0px 5px rgba($autresLight, 0.2);
   }
-  .autres &::before, &:hover::before {
+  .autres &::before,
+  &:hover::before {
     box-shadow: 0px 0px 15px rgba($autresLight, 0.5);
     background: $autresLight;
     width: 2px;
@@ -52,7 +54,8 @@
     background: $tutorielsLight;
     box-shadow: 0px 0px 5px rgba($tutorielsLight, 0.2);
   }
-  .tutoriels &::before, &:hover::before {
+  .tutoriels &::before,
+  &:hover::before {
     box-shadow: 0px 0px 15px rgba($tutorielsLight, 1);
     background: $tutorielsLight;
     width: 2px;
@@ -63,7 +66,8 @@
     background: $fichesTechniquesLight;
     box-shadow: 0px 0px 5px rgba($fichesTechniquesLight, 0.2);
   }
-  .fiches-techniques &::before, &:hover::before {
+  .fiches-techniques &::before,
+  &:hover::before {
     box-shadow: 0px 0px 15px rgba($fichesTechniquesLight, 1);
     background: $fichesTechniquesLight;
     width: 2px;
@@ -74,7 +78,8 @@
     background: $explorationsLight;
     box-shadow: 0px 0px 5px rgba($explorationsLight, 0.2);
   }
-  .explorations &::before, &:hover::before {
+  .explorations &::before,
+  &:hover::before {
     box-shadow: 0px 0px 15px rgba($explorationsLight, 1);
     background: $explorationsLight;
     width: 2px;
