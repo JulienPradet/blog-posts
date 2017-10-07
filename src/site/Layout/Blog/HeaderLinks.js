@@ -104,11 +104,13 @@ class HeaderLinks extends Component {
         <div className="header__menu__action">
           <button
             onClick={this.toggleMenu}
-            title={this.state.opened ? "Close menu" : "Open menu"}
+            title={this.state.opened ? "Fermer le menu" : "Ouvrir le menu"}
             className={this.state.opened ? "close" : "open"}
             aria-hidden="true"
           >
-            <span>+</span>
+            <span />
+            <span />
+            <span />
           </button>
         </div>
         <Menu isOpened={this.state.opened} toggleMenu={this.toggleMenu} />
