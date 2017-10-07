@@ -2,6 +2,7 @@ import React from "react";
 import Route from "react-router/Route";
 import Redirect from "react-router/Redirect";
 import getLayout from "./util/getLayout";
+import Analytics from "./Analytics";
 
 const LayoutRoutes = ({ routes, redirects }) => {
   const layoutRoutes = Object.keys(routes).map(layoutType => {
@@ -57,6 +58,7 @@ const LayoutRoutes = ({ routes, redirects }) => {
     <div>
       {redirectRoutes}
       {layoutRoutes}
+      <Route component={Analytics} />
     </div>
   );
 };

@@ -70,7 +70,8 @@ const baseConfig = paths => (pages, entryPath) => {
       }),
       new webpack.DefinePlugin({
         "process.env": {
-          NODE_ENV: JSON.stringify(process.env.NODE_ENV || "production")
+          NODE_ENV: JSON.stringify(process.env.NODE_ENV || "production"),
+          GA_TRACKING_ID: JSON.stringify(process.env.GA_TRACKING_ID)
         }
       })
     ].concat(
