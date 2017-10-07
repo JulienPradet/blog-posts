@@ -45,8 +45,8 @@ const makeHelmet = props => {
         <meta property="og:description" content={props.page.description} />
       )}
       <link rel="canonical" href={`${props.site.meta.homepage}${props.path}`} />
-      <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-      <link rel="icon" href="/favicon.ico" type="image/x-icon" />
+      <link rel="shortcut icon" href="/fav.ico" type="image/x-icon" />
+      <link rel="icon" href="/fav.ico" type="image/x-icon" />
       <link rel="manifest" href="/manifest.json" />
       <link
         rel="alternate"
