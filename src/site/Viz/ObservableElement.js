@@ -30,7 +30,7 @@ ObservableElement.getData = (props, parentContext) => {
       width: line.viewBox.width,
       height: line.viewBox.height + parentContext.viewBox.height + PADDING
     },
-    Component: ({ onMouseEnter, onMouseLeave }) =>
+    Component: ({ onMouseEnter, onMouseLeave }) => (
       <g>
         <line
           strokeDasharray="4, 6"
@@ -63,6 +63,7 @@ ObservableElement.getData = (props, parentContext) => {
           color={props.color || parentContext.color || "#AAA"}
         />
       </g>
+    )
   };
 };
 

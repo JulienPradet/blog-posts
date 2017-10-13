@@ -13,7 +13,7 @@ Element.getData = (props, context) => {
   const viewBox = Element.getViewBox();
   return {
     viewBox: viewBox,
-    Component: ({ onMouseEnter, onMouseLeave }) =>
+    Component: ({ onMouseEnter, onMouseLeave }) => (
       <Element.Svg
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
@@ -21,6 +21,7 @@ Element.getData = (props, context) => {
         preview={props.preview}
         color={props.color || context.color || "black"}
       />
+    )
   };
 };
 
@@ -44,13 +45,14 @@ Element.Svg = props => {
         color: props.color
       }));
 
-  const preview = typeof props.preview === "undefined"
-    ? typeof props.value === "undefined"
-      ? null
-      : typeof props.value === "string"
-        ? `${props.value.substr(0, 1)}${props.value.length > 1 ? "…" : ""}`
-        : Array.isArray(props.value) ? `[…]` : `{…}`
-    : props.preview;
+  const preview =
+    typeof props.preview === "undefined"
+      ? typeof props.value === "undefined"
+        ? null
+        : typeof props.value === "string"
+          ? `${props.value.substr(0, 1)}${props.value.length > 1 ? "…" : ""}`
+          : Array.isArray(props.value) ? `[…]` : `{…}`
+      : props.preview;
 
   return (
     <g

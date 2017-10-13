@@ -132,17 +132,18 @@ class Viz extends React.Component {
     return (
       <SpyProvider>
         <SpyTarget name="container">
-          {({ setSpyTarget }) =>
+          {({ setSpyTarget }) => (
             <div
               style={{ position: "relative", margin: "1.5em 0" }}
               ref={setSpyTarget}
             >
-              {this.state.tooltip &&
+              {this.state.tooltip && (
                 <Tooltip
                   {...this.state.tooltip}
                   onMouseEnter={this.onMouseEnter}
                   onMouseLeave={this.onMouseLeave}
-                />}
+                />
+              )}
 
               <SpySubscriber>
                 {({ container }) => {
@@ -161,7 +162,8 @@ class Viz extends React.Component {
                   );
                 }}
               </SpySubscriber>
-            </div>}
+            </div>
+          )}
         </SpyTarget>
       </SpyProvider>
     );

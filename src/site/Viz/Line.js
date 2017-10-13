@@ -16,7 +16,7 @@ const Line = () => {
 const elementToComponent = (context, element) => {
   const Component = element.Component;
 
-  return ({ onMouseEnter, onMouseLeave }) =>
+  return ({ onMouseEnter, onMouseLeave }) => (
     <g transform={`translate(${context.offset.left}, ${context.offset.top})`}>
       <Component
         onMouseEnter={
@@ -32,7 +32,8 @@ const elementToComponent = (context, element) => {
         }
         onMouseLeave={onMouseLeave}
       />
-    </g>;
+    </g>
+  );
 };
 
 const addElementToContext = (context, element) => {
@@ -155,12 +156,13 @@ Line.getData = (props, parentContext) => {
   );
 
   const ElementsComponents = Components.map((Component, index) => {
-    return ({ onMouseEnter, onMouseLeave }) =>
+    return ({ onMouseEnter, onMouseLeave }) => (
       <Component
         key={index}
         onMouseEnter={onMouseEnter}
         onMouseLeave={onMouseLeave}
-      />;
+      />
+    );
   });
 
   return {
@@ -168,7 +170,7 @@ Line.getData = (props, parentContext) => {
       width: context.viewBox.width,
       height: context.viewBox.height
     },
-    Component: ({ onMouseEnter, onMouseLeave }) =>
+    Component: ({ onMouseEnter, onMouseLeave }) => (
       <Line.Svg
         color={props.color || "#AAA"}
         legend={props.legend}
@@ -180,6 +182,7 @@ Line.getData = (props, parentContext) => {
         isComplete={isComplete}
         ElementComponents={ElementsComponents}
       />
+    )
   };
 };
 
@@ -203,19 +206,21 @@ Line.Svg = props => {
 
   const isComplete = (
     <g transform={`translate(${width}, ${startLineOffset.top})`}>
-      {props.isComplete
-        ? <line x1={0} x2={0} y1={-2.5} y2={2.5} stroke={props.color} />
-        : <path
-            d="M -3 -2 L 0 0 L -3 2"
-            stroke={props.color}
-            fill={props.color}
-          />}
+      {props.isComplete ? (
+        <line x1={0} x2={0} y1={-2.5} y2={2.5} stroke={props.color} />
+      ) : (
+        <path
+          d="M -3 -2 L 0 0 L -3 2"
+          stroke={props.color}
+          fill={props.color}
+        />
+      )}
     </g>
   );
 
   return (
     <g>
-      {props.legend &&
+      {props.legend && (
         <text
           x={LEGEND_WIDTH}
           y={startLineOffset.top + LEGEND_HEIGHT / 3}
@@ -223,7 +228,8 @@ Line.Svg = props => {
           textAnchor="end"
         >
           {props.legend}
-        </text>}
+        </text>
+      )}
 
       <line
         x1={startLineOffset.left}
