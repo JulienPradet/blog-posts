@@ -1,0 +1,77 @@
+.header {
+  &__title h1,
+  &__title h2 {
+    font-size: 2em;
+    line-height: 1.3;
+    margin: 0;
+    a {
+      color: $fontColor;
+      text-decoration: none;
+    }
+  }
+  &__motto {
+    margin-top: 0.5em;
+    h2 {
+      margin: 0;
+    }
+  }
+  &__menu {
+    &__action {
+      z-index: 2;
+      button {
+        background: white;
+        display: block;
+        width: 3em;
+        height: 3em;
+        margin: 0 auto;
+        padding: 0;
+        border: none;
+        border-radius: 50%;
+        box-shadow: 0 0.5em 0.5em rgba(#888, 0.5);
+        transition: box-shadow ease 0.3s, background-color ease 0.3s;
+        font-size: 1em;
+      }
+      button:hover,
+      button:focus {
+        outline: 0;
+        cursor: pointer;
+        background: #f7f7f7;
+        box-shadow: 0 0.5em 1em #999;
+      }
+      span {
+        display: block;
+        font-size: 2em;
+        line-height: 1em;
+        transition: transform ease 0.5s;
+        height: 3px;
+        width: 1.5rem;
+        margin: 4px auto;
+        background: $fontColor;
+        border-radius: 2px;
+      }
+      button.close span {
+        transform: rotate(30deg);
+      }
+    }
+  }
+}
+
+@media screen and (min-width: $breakpointLarge) {
+  .header__title {
+    text-align: right;
+    margin-left: 0;
+  }
+  .header__motto {
+    text-align: left;
+    margin-right: 0;
+    margin-top: 0;
+  }
+  .header__title span,
+  .header__motto span {
+    display: block;
+  }
+
+  .header__menu__action {
+    z-index: 2;
+  }
+}

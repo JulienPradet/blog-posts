@@ -37,18 +37,22 @@ class Code extends React.Component {
   }
 
   getCode(codeFormats) {
-    return codeFormats.find(
+    const code = codeFormats.code.find(
       ({ printWidth }, index) =>
-        printWidth <= this.state.width || index === codeFormats.length - 1
+        printWidth <= this.state.width || index === codeFormats.code.length - 1
     ).code;
+
+    return code;
   }
 
   render() {
     return (
       <pre
         className={`language-${this.props.lang || "jsx"}`}
-        ref={node => {
-          this.code = node;
+        data-lang={this.props.lang || "jsx"}
+        ref={ref => {
+          this.code = ref;
+          this.props.highlightCodeRef(ref);
         }}
       >
         <code

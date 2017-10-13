@@ -5,9 +5,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const baseConfig = paths => (pages, entryPath) => {
   return {
-    devtool: process.env.NODE_ENV === "production"
-      ? "source-map"
-      : "cheap-module-source-map",
+    devtool:
+      process.env.NODE_ENV === "production"
+        ? "source-map"
+        : "cheap-module-source-map",
     module: {
       rules: [
         {
@@ -27,27 +28,36 @@ const baseConfig = paths => (pages, entryPath) => {
           test: /\.md$/,
           loader:
             "./" +
-              path.relative(
-                process.cwd(),
-                "src/generator/bundle/markdown-loader.js"
-              )
+            path.relative(
+              process.cwd(),
+              "src/generator/bundle/markdown-loader.js"
+            )
         },
         {
           test: /\.code$/,
           loader:
             "./" +
-              path.relative(
-                process.cwd(),
-                "src/generator/bundle/code-loader.js"
-              )
+            path.relative(process.cwd(), "src/generator/bundle/code-loader.js")
         },
         {
           test: /\.svg$/,
           loader: "raw-loader"
         },
         {
-          test: /\.css$/,
-          loader: "raw-loader"
+          test: /\.s?css$/,
+          use: [
+            { loader: "file-loader", options: { name: "css/[hash].css" } },
+            {
+              loader: "postcss-loader",
+              options: {
+                plugins: () =>
+                  process.env.NODE_ENV === "production"
+                    ? [require("cssnano")()]
+                    : []
+              }
+            },
+            { loader: "sass-loader" }
+          ]
         }
       ]
     },
@@ -60,7 +70,8 @@ const baseConfig = paths => (pages, entryPath) => {
       }),
       new webpack.DefinePlugin({
         "process.env": {
-          NODE_ENV: JSON.stringify(process.env.NODE_ENV || "production")
+          NODE_ENV: JSON.stringify(process.env.NODE_ENV || "production"),
+          GA_TRACKING_ID: JSON.stringify(process.env.GA_TRACKING_ID)
         }
       })
     ].concat(
@@ -85,21 +96,26 @@ const baseConfig = paths => (pages, entryPath) => {
 const webpackConfig = paths => (pages, entryPath) => {
   const browserEntry = Object.assign({}, baseConfig(paths)(pages, entryPath), {
     entry: {
-      app: process.env.NODE_ENV === "production"
-        ? "./src/generator/bundle/browser.js"
-        : [
-            "webpack-dev-server/client?http://localhost:3000",
-            "webpack/hot/dev-server",
-            "./src/generator/bundle/browser.js"
-          ]
+      app:
+        process.env.NODE_ENV === "production"
+          ? "./src/generator/bundle/browser.js"
+          : [
+              "webpack-dev-server/client?http://localhost:3000",
+              "webpack/hot/dev-server",
+              "./src/generator/bundle/browser.js"
+            ]
     }
   });
   browserEntry.output = {
     path: paths.buildPath,
-    filename: "[name].js",
-    chunkFilename: "[name].js",
+    filename: "[name].[hash].js",
+    chunkFilename: "[chunkhash].js",
     publicPath: "/"
   };
+  const browserBabelOptions = browserEntry.module.rules.find(
+    ({ loader }) => loader === "babel-loader"
+  );
+  browserBabelOptions.options.plugins = ["babel-plugin-syntax-dynamic-import"];
 
   const serverEntry = Object.assign({}, baseConfig(paths)(pages, entryPath), {
     entry: {
@@ -115,6 +131,10 @@ const webpackConfig = paths => (pages, entryPath) => {
     publicPath: "/",
     libraryTarget: "commonjs2"
   };
+  const serverBabelOptions = serverEntry.module.rules.find(
+    ({ loader }) => loader === "babel-loader"
+  );
+  serverBabelOptions.options.plugins = ["babel-plugin-dynamic-import-node"];
 
   return [browserEntry, serverEntry];
 };

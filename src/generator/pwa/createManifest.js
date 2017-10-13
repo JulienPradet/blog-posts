@@ -6,8 +6,8 @@ const createContent = paths => () => {
     short_name: "Julien P.",
     name: "Enchanté, Julien Pradet",
     start_url: "https://www.julienpradet.fr/",
-    background_color: "#faffff",
-    theme_color: "#00C9C9",
+    background_color: "#f6edda",
+    theme_color: "#f6edda",
     display: "standalone"
   };
 

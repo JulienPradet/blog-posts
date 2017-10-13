@@ -19,10 +19,23 @@ const makeMeta = () => {
   };
 };
 
+const ensureSlash = location => {
+  if (!location.startsWith("/")) {
+    location = "/" + location;
+  }
+  if (!location.endsWith("/")) {
+    location = location + "/";
+  }
+
+  return location;
+};
+
 const makePages = paths => pages => {
   return pages
     .map(pagePath => {
-      const location = path.relative(paths.contentPath, path.dirname(pagePath));
+      const location = ensureSlash(
+        path.relative(paths.contentPath, path.dirname(pagePath))
+      );
       const metaPath = path.join(path.dirname(pagePath), "meta.js");
 
       let meta;
@@ -33,7 +46,8 @@ const makePages = paths => pages => {
       }
 
       return Object.assign({}, meta, {
-        location: location
+        location: location,
+        pagePath: pagePath
       });
     })
     .filter(page => page)
@@ -45,7 +59,17 @@ const makePages = paths => pages => {
         return -1;
       }
       return 0;
-    });
+    })
+    .map(
+      page => `
+        {
+          ...require(${JSON.stringify(
+            path.join(path.dirname(page.pagePath), "meta.js")
+          )}),
+          location: ${JSON.stringify(page.location)}
+        }
+      `
+    );
 };
 
 const makeEntry = paths => matches$ => {
@@ -57,25 +81,43 @@ const makeEntry = paths => matches$ => {
     matches =>
       `
         const React = require('react')
-        const Route = require('react-router-dom').Route
-        const asyncComponent = require('react-async-component').asyncComponent
+        const loadable = require('loadable-components').default;
         const SiteProvider = require('../../site/Site').default
-        const Page = require('../../site/Page').default
+        const AnimationContainer = require('../../site/components/Animation/Container').default
         const Loading = require('../../site/components/Loading').default
+        const Routes = require('../../site/Routes').default
+        const Redirect = require('react-router/Redirect')
+
+        const meta = ${JSON.stringify(makeMeta())}
+        const pages = [
+          ${makePages(paths)(matches.map(({ path }) => path)).join(",")}
+        ].map(page => {
+          return Object.assign({}, page, {
+            date: page.date && new Date(page.date),
+            isPage: typeof page.isPage === "undefined" ? true : page.isPage
+          });
+        });
 
         const asyncPages = {}
-
+        const redirects = []
         ${matches.map(({ createComponent }) => createComponent).join("\n")}
 
+        const components = Object.keys(asyncPages)
+          .map((layoutType) => Object.keys(asyncPages[layoutType]).map((location) => ({
+            location,
+            Component: asyncPages[layoutType][location].Component
+          })))
+          .reduce((acc, arr) => [...acc, ...arr], [])
+          .reduce((urlToComponent, {location, Component}) => ({
+            ...urlToComponent,
+            [location]: Component
+          }), {})
+
         const App = () => (
-          <SiteProvider meta={${JSON.stringify(
-            makeMeta()
-          )}} pages={${JSON.stringify(
-        makePages(paths)(matches.map(({ path }) => path))
-      )}}>
-            <div>
-              ${matches.map(({ match }) => match).join("\n")}
-            </div>
+          <SiteProvider meta={meta} pages={pages} components={components}>
+            <AnimationContainer>
+              <Routes routes={asyncPages} redirects={redirects} />
+            </AnimationContainer>
           </SiteProvider>
         )
 
@@ -98,6 +140,7 @@ const createEntry = paths => () => {
   const pages$ = readPages(paths.contentPath)
     .do(page => log("debug", "/" + path.relative(paths.contentPath, page)))
     .share();
+
   const matches$ = transformToMatches(paths)(pages$);
   const entry$ = makeEntry(paths)(matches$);
   const entryPath$ = saveEntry(paths)(entry$);

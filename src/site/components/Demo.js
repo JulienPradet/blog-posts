@@ -16,11 +16,13 @@ class Demo extends React.Component {
   render() {
     return (
       <div className="demo">
-        {this.state.standby
-          ? <button onClick={this.runDemo} className="demo__launch">
-              Run demo
-            </button>
-          : React.Children.only(this.props.children())}
+        {this.state.standby ? (
+          <button onClick={this.runDemo} className="demo__launch">
+            Run demo
+          </button>
+        ) : (
+          React.Children.only(this.props.children())
+        )}
       </div>
     );
   }

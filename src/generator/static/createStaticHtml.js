@@ -42,7 +42,6 @@ const createHtml = paths => (entry$, stats$) => {
             renderToHtml = require(path.join(__dirname, "../tmp/server.js"))
               .default;
           } catch (e) {
-            console.error(e);
             throw new Error("Server file is invalid (tmp/server.js)");
           }
 

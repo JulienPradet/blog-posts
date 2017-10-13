@@ -1,0 +1,40 @@
+.timeline {
+  position: relative;
+  margin: 0;
+  padding-left: 6em;
+  padding-right: 2em;
+  max-width: 80em;
+
+  &__center {
+    position: absolute;
+    left: 1em;
+    top: 0;
+    width: 3em;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    z-index: 3;
+  }
+}
+
+@media screen and (min-width: $breakpointLarge) {
+  .timeline {
+    display: flex;
+    align-items: center;
+    max-width: 80em;
+    margin: 0 auto;
+    width: 100%;
+    padding-left: 0;
+    padding-right: 0;
+
+    &__side {
+      flex: 1;
+      margin: 0 2em;
+    }
+    &__center {
+      position: static;
+      top: auto;
+      left: auto;
+    }
+  }
+}

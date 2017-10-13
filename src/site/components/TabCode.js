@@ -17,7 +17,7 @@ class TabCode extends React.Component {
     return (
       <div className="code-tab">
         <ul className="code-tab__list">
-          {this.props.tabs.map(({ label }, index) =>
+          {this.props.tabs.map(({ label }, index) => (
             <li key={index}>
               <button
                 onClick={this.selectTab(index)}
@@ -29,7 +29,7 @@ class TabCode extends React.Component {
                 {label}
               </button>
             </li>
-          )}
+          ))}
         </ul>
         <Code>{this.props.tabs[this.state.currentTab].code}</Code>
       </div>

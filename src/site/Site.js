@@ -7,12 +7,8 @@ class SiteProvider extends React.Component {
     return {
       site: {
         meta: this.props.meta,
-        pages: this.props.pages.map(page => {
-          return Object.assign({}, page, {
-            date: page.date && new Date(page.date),
-            isPage: typeof page.isPage === "undefined" ? true : page.isPage
-          });
-        })
+        pages: this.props.pages,
+        components: this.props.components
       }
     };
   }
@@ -23,18 +19,24 @@ class SiteProvider extends React.Component {
 }
 
 SiteProvider.childContextTypes = {
-  site: PropTypes.object.isRequired
+  site: PropTypes.shape({
+    meta: PropTypes.any.isRequired,
+    pages: PropTypes.any.isRequired,
+    components: PropTypes.any.isRequired
+  }).isRequired
 };
 
 SiteProvider.propTypes = {
   meta: PropTypes.any.isRequired,
   pages: PropTypes.any.isRequired,
+  components: PropTypes.any.isRequired,
   children: PropTypes.node.isRequired
 };
 
 export const withSite = Component => {
-  const withSiteComponent = (props, context) =>
-    <Component site={context.site} {...props} />;
+  const withSiteComponent = (props, context) => (
+    <Component site={context.site} {...props} />
+  );
 
   withSiteComponent.contextTypes = {
     site: PropTypes.object.isRequired

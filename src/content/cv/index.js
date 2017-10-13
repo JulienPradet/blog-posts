@@ -4,25 +4,30 @@ import Svg from "react-svg-inline";
 import twitterSvg from "../../icons/iconmonstr-twitter-1.svg";
 import githubSvg from "../../icons/iconmonstr-github-1.svg";
 import { formatSimpleDate } from "../../site/util/dateFormats";
+import cvCss from "./cv.css";
 
-const Section = ({ title, children }) =>
+const Section = ({ title, children }) => (
   <section>
     <h2>{title}</h2>
     {children}
-  </section>;
+  </section>
+);
 
-const Line = ({ left, children }) =>
+const Line = ({ left, children }) => (
   <div className="line">
     <div className="line__left">{left}</div>
     <div className="line__content">{children}</div>
-  </div>;
+  </div>
+);
 
 const Time = ({ children }) =>
-  children
-    ? <time>{formatSimpleDate(children)}</time>
-    : <time>aujourd'hui</time>;
+  children ? (
+    <time>{formatSimpleDate(children)}</time>
+  ) : (
+    <time>aujourd'hui</time>
+  );
 
-const Experience = ({ startDate, endDate, title, children }) =>
+const Experience = ({ startDate, endDate, title, children }) => (
   <Line
     left={
       <div>
@@ -32,14 +37,14 @@ const Experience = ({ startDate, endDate, title, children }) =>
     }
   >
     {children}
-  </Line>;
+  </Line>
+);
 
-const SectionExperienceProfessionnelle = () =>
+const SectionExperienceProfessionnelle = () => (
   <Section title="Expérience Professionnelle">
     <Experience startDate={new Date("2016-03-01")} title="Occitech">
       <h4>
-        Front Commerce&nbsp;:
-        connecte une boutique e-commerce à une WebApp
+        Front Commerce&nbsp;: connecte une boutique e-commerce à une WebApp
       </h4>
       <ul>
         <li>Création d'une API GraphQL (NodeJS)</li>
@@ -48,17 +53,13 @@ const SectionExperienceProfessionnelle = () =>
         <li>Création d'un système de surcharge de thème (Babel, Webpack)</li>
       </ul>
 
-      <h4>
-        Réalisation d'applications web spécifiques
-      </h4>
+      <h4>Réalisation d'applications web spécifiques</h4>
       <ul>
         <li>Étude du besoin et conseils de solutions</li>
         <li>Mise en place de systèmes complexes (Event Sourcing, CQRS, …)</li>
       </ul>
 
-      <h4>
-        Maintenance d'applications E-commerce sous Magento (PHP)
-      </h4>
+      <h4>Maintenance d'applications E-commerce sous Magento (PHP)</h4>
       <ul>
         <li>Création d'extensions personnalisées</li>
         <li>Création de thèmes complets</li>
@@ -91,24 +92,19 @@ const SectionExperienceProfessionnelle = () =>
       endDate={new Date("2014-09-01")}
       title="Kerdos-Energy"
     >
-      <h4>
-        Plateforme de recensement des solutions d’optimisation en énergie
-      </h4>
+      <h4>Plateforme de recensement des solutions d’optimisation en énergie</h4>
       <ul>
-        <li>
-          Restructuration du modèle de la base de données (MySQL)
-        </li>
-        <li>
-          Refonte des outils d’enrichissement du contenu en ligne (PHP)
-        </li>
+        <li>Restructuration du modèle de la base de données (MySQL)</li>
+        <li>Refonte des outils d’enrichissement du contenu en ligne (PHP)</li>
         <li>
           Création d’un outil de calcul en ligne (PHP, Javascript, JQuery)
         </li>
       </ul>
     </Experience>
-  </Section>;
+  </Section>
+);
 
-const Formation = ({ startDate, endDate, title, children }) =>
+const Formation = ({ startDate, endDate, title, children }) => (
   <Line
     left={
       <div className="time">
@@ -117,9 +113,10 @@ const Formation = ({ startDate, endDate, title, children }) =>
     }
   >
     {children}
-  </Line>;
+  </Line>
+);
 
-const SectionFormation = () =>
+const SectionFormation = () => (
   <Section title="Formation">
     <Formation
       startDate={new Date("2012-09-01")}
@@ -129,9 +126,8 @@ const SectionFormation = () =>
         École Internationale des Sciences du Traitement de l’Information - EISTI
       </h4>
       <p>
-        <a href="http://www.eisti.fr">http://www.eisti.fr</a>
-        {" "}
-        - option Ingénierie du Cloud Computing
+        <a href="http://www.eisti.fr">http://www.eisti.fr</a> - option
+        Ingénierie du Cloud Computing
       </p>
     </Formation>
     <Formation
@@ -142,13 +138,12 @@ const SectionFormation = () =>
         Classes Préparatoires aux Grandes Écoles, Mathématiques et Physique
         (M.P.)
       </h4>
-      <p>
-        Lycée Louis Barthou à Pau
-      </p>
+      <p>Lycée Louis Barthou à Pau</p>
     </Formation>
-  </Section>;
+  </Section>
+);
 
-const Conference = ({ conf, date, children }) =>
+const Conference = ({ conf, date, children }) => (
   <Line
     left={
       <div>
@@ -158,9 +153,10 @@ const Conference = ({ conf, date, children }) =>
     }
   >
     {children}
-  </Line>;
+  </Line>
+);
 
-const SectionConferences = () =>
+const SectionConferences = () => (
   <Section title="Conférences">
     <Conference
       date={new Date("2017-06-12")}
@@ -202,9 +198,7 @@ const SectionConferences = () =>
       date={new Date("2016-10-14")}
       theme={["React"]}
       conf={
-        <a href="http://www.monkeytechdays.com/events/mktd-2">
-          MonkeyTechDays
-        </a>
+        <a href="http://www.monkeytechdays.com/events/mktd-2">MonkeyTechDays</a>
       }
     >
       <h4>Coach React</h4>
@@ -214,14 +208,14 @@ const SectionConferences = () =>
         </a>
       </p>
     </Conference>
-  </Section>;
+  </Section>
+);
 
-const Projet = ({ children, name }) =>
-  <Line left={<h3>{name}</h3>}>
-    {children}
-  </Line>;
+const Projet = ({ children, name }) => (
+  <Line left={<h3>{name}</h3>}>{children}</Line>
+);
 
-const SectionProjets = () =>
+const SectionProjets = () => (
   <Section title="Projets et Expériences Personnelles">
     <Projet name="Blog">
       <h4>
@@ -239,12 +233,10 @@ const SectionProjets = () =>
         </a>
       </h4>
       <p>
-        Une librairie simplifiant l'utilisation des
-        {" "}
+        Une librairie simplifiant l'utilisation des{" "}
         <a href="https://www.julienpradet.fr/posts/introduction-aux-animations-flips">
           animations FLIP
-        </a>
-        {" "}
+        </a>{" "}
         en React.
       </p>
     </Projet>
@@ -261,23 +253,21 @@ const SectionProjets = () =>
     </Projet>
     <Projet name="Ter Aelis">
       <h4>
-        <a href="http://teraelis.fr/">
-          http://teraelis.fr/
-        </a>
+        <a href="http://teraelis.fr/">http://teraelis.fr/</a>
       </h4>
       <p>
         Réalisation d'un forum communautaire en Symfony pour une association
         d'artistes.
       </p>
     </Projet>
-  </Section>;
+  </Section>
+);
 
-const Competence = ({ type, children }) =>
-  <Line left={<h3>{type}</h3>}>
-    {children}
-  </Line>;
+const Competence = ({ type, children }) => (
+  <Line left={<h3>{type}</h3>}>{children}</Line>
+);
 
-const SectionCompetences = () =>
+const SectionCompetences = () => (
   <Section title="Compétences">
     <Competence type="Paradigmes">
       <p>Procédural, Object, Fonctionnel, Réactif, Logique</p>
@@ -289,14 +279,14 @@ const SectionCompetences = () =>
       <p>React, RxJS, Babel, Webpack, Jest</p>
       <p>Symfony, CakePHP, Express (NodeJS)</p>
     </Competence>
-  </Section>;
+  </Section>
+);
 
-const Info = ({ type, children }) =>
-  <Line left={<h3>{type}</h3>}>
-    {children}
-  </Line>;
+const Info = ({ type, children }) => (
+  <Line left={<h3>{type}</h3>}>{children}</Line>
+);
 
-const SectionInfoComplementaires = () =>
+const SectionInfoComplementaires = () => (
   <Section title="Informations Complémentaires">
     <Info type="Langues">
       Français (langue maternelle), Anglais (TOEIC : 945/990)
@@ -318,12 +308,13 @@ const SectionInfoComplementaires = () =>
         (Dubaï)
       </p>
     </Info>
-  </Section>;
+  </Section>
+);
 
-export default () =>
+export default () => (
   <div className="page">
     <Helmet>
-      <link rel="stylesheet" href="/css/cv.css" />
+      <link rel="stylesheet" href={cvCss} />
     </Helmet>
     <header className="head">
       <div>
@@ -338,7 +329,9 @@ export default () =>
             <span className="name">https://www.julienpradet.fr</span>
           </a>
         </li>
-        <li><a href="mailto:julien@pradet.me">julien@pradet.me</a></li>
+        <li>
+          <a href="mailto:julien@pradet.me">julien@pradet.me</a>
+        </li>
         <li>
           <a href={`https://twitter.com/JulienPradet`}>
             <Svg svg={twitterSvg} cleanup />
@@ -354,12 +347,7 @@ export default () =>
       </ul>
     </header>
     <p className="page__moto">
-      Mes valeurs sont la
-      {" "}
-      <strong>bienveillance</strong>
-      {" "}
-      et le
-      {" "}
+      Mes valeurs sont la <strong>bienveillance</strong> et le{" "}
       <strong>partage</strong>.
     </p>
     <SectionExperienceProfessionnelle />
@@ -368,4 +356,5 @@ export default () =>
     <SectionConferences />
     <SectionProjets />
     <SectionInfoComplementaires />
-  </div>;
+  </div>
+);

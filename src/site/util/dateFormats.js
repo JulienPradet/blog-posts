@@ -11,7 +11,8 @@ const formatDate = date => {
 const formatSimpleDate = date => {
   const dateFormatter = new global.Intl.DateTimeFormat("fr-FR", {
     year: "numeric",
-    month: "short"
+    month: "long",
+    day: "numeric"
   });
   return dateFormatter.format(date);
 };
