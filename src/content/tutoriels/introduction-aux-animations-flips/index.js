@@ -11,7 +11,7 @@ import ScaleProblem from "./scaleProblem";
 import ScaleSolution from "./scaleSolution";
 import withPrismCss from "../../../site/util/withPrismCss";
 
-const Article = props => (
+const Article = () => (
   <div>
     <div dangerouslySetInnerHTML={{ __html: introduction }} />
     <Code>{flipCode}</Code>

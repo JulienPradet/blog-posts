@@ -17,6 +17,12 @@ const readPages = path => {
     .flatMap(
       ({ filepath, isDirectory }) =>
         isDirectory ? readPages(filepath) : Observable.of(filepath)
+    )
+    .flatMap(filepath =>
+      fs
+        .exists(filepath.replace("index.js", "meta.js"))
+        .filter(exists => exists)
+        .mapTo(filepath)
     );
 };
 

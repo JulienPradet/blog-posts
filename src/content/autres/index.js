@@ -1,6 +1,6 @@
 import React from "react";
 
-const Autres = props => (
+const Autres = () => (
   <div>
     <p>
       Ce sont des articles <strong>que je n'ai pas su ranger</strong>. Je ne

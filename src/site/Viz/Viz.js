@@ -54,7 +54,7 @@ const getViewBox = data => {
 };
 
 class Viz extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
     this.state = {};
     this.onMouseEnter = this.onMouseEnter.bind(this);

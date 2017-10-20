@@ -7,7 +7,7 @@ import { getLoadableState } from "loadable-components/server";
 import App from "../tmp/App";
 import getPathsFromChunks from "./getPathsFromChunks";
 
-export const renderPage = paths => location => {
+export const renderPage = () => location => {
   const context = {};
   const server = (
     <StaticRouter location={location} context={context}>

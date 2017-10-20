@@ -21,7 +21,7 @@ import rafLoopCode from "./raf-loop.js.code";
 import InterruptAnimation from "./InterruptAnimation";
 import withPrismCss from "../../../site/util/withPrismCss";
 
-const Article = props => (
+const Article = () => (
   <div>
     <div dangerouslySetInnerHTML={{ __html: introduction }} />
     <div dangerouslySetInnerHTML={{ __html: tldr }} />

@@ -14,7 +14,7 @@ import whatAboutLayoutHtmlCode from "./what-about-layout-html.code?html";
 import whatAboutLayoutCssCode from "./what-about-layout-css.code?css";
 import HoverButton from "./HoverButton";
 
-const Article = props => (
+const Article = () => (
   <div>
     <div dangerouslySetInnerHTML={{ __html: introduction }} />
     <div dangerouslySetInnerHTML={{ __html: tdlr }} />

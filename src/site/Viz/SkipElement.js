@@ -13,7 +13,7 @@ SkipElement.getData = element => {
   const viewBox = SkipElement.getViewBox(element);
   return {
     viewBox: viewBox,
-    Component: ({ onMouseEnter, onMouseLeave }) => <SkipElement.Svg />
+    Component: () => <SkipElement.Svg />
   };
 };
 

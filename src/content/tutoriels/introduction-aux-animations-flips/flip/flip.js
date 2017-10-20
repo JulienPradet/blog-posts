@@ -91,7 +91,7 @@ class Flip {
     return Promise.resolve(true);
   }
 
-  play(startTime) {
+  play() {
     this.updateOptions();
     if (!this._invert) return;
 

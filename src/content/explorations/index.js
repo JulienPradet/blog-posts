@@ -1,6 +1,6 @@
 import React from "react";
 
-const Explorations = props => (
+const Explorations = () => (
   <div>
     <p>
       Ce sont des articles <strong>rigolos</strong>. Leur but principal est de

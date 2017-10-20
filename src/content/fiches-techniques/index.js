@@ -1,6 +1,6 @@
 import React from "react";
 
-const FichesTechniques = props => (
+const FichesTechniques = () => (
   <div>
     <p>
       Ce sont des articles <strong>mémos</strong>. Leur but principal est

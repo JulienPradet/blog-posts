@@ -63,7 +63,7 @@ const InnerContent = compose(
 ));
 
 const ContentBackground = compose(
-  spySubscriber(props => targets => ({
+  spySubscriber(() => targets => ({
     height: targets.content
   })),
   flipElement({ duration: 300 })
@@ -121,7 +121,7 @@ class BaseTogglable extends Component {
     );
   }
 }
-export default props => (
+export default () => (
   <SpyProvider>
     <BaseTogglable />
   </SpyProvider>

@@ -104,7 +104,7 @@ const SectionExperienceProfessionnelle = () => (
   </Section>
 );
 
-const Formation = ({ startDate, endDate, title, children }) => (
+const Formation = ({ startDate, endDate, children }) => (
   <Line
     left={
       <div className="time">
