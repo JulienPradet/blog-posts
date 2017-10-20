@@ -20,7 +20,7 @@ const serve = paths => compiler$ => {
         }
       });
 
-      var server = app.listen(3000, function() {
+      var server = app.listen(3000, "0.0.0.0", function() {
         log("success", "Dev server started at http://localhost:3000/");
       });
 
