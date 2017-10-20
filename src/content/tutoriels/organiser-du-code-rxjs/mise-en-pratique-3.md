@@ -6,7 +6,7 @@ Personnellement, quand j'ai aussi peu de choses à faire pour synchroniser mon s
 
 Maintenant que nous sommes capables de recevoir de doux messages, on va s'ouvrir au monde et commencer à envoyer nous aussi des messages.
 
-Au niveau applicatif, comment ça se passe pour envoyer un message&nbsp;? Un utilisateur entre un message dans un formulaire et le soumet. Une fois soumis, nous récupérons le message et l'envoyons au serveur. Une fois enregistré côté serveur, nous allons pouvoir le recevoir et l'ajouter à la liste des messages à afficher. Il nous faut donc la transformer en intention.
+Au niveau applicatif, comment ça se passe pour envoyer un message&nbsp;? Un utilisateur entre un message dans un formulaire et le soumet. Une fois soumis, nous récupérons le message et l'envoyons au serveur. Une fois enregistré côté serveur, nous allons pouvoir le recevoir et l'ajouter à la liste des messages à afficher. Il nous faut donc transformer l'évènement de soumission du formulaire en intention.
 
 ```js
 // On part de l'observable contenant les évènements

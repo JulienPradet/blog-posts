@@ -2,19 +2,23 @@
 
 C'est bien beau tout ça, mais comment ça se passe en pratique&nbsp;? Si vous n'avez pas beaucoup eu l'occasion de plonger les mains dans RxJS, vous aimeriez sûrement voir à quoi ça pourrait ressembler en vrai.
 
-Nous allons donc faire une mini application de tchat. Deux points à noter cela dit&nbsp;:
-* nous ne coderons pas la partie qui communique avec le serveur. Nous considérerons que nous avons déjà des Observables/Observer qui nous permettent de discuter avec le serveur
-* nous ne nous attarderons pas sur la partie Vue car c'est la communication entre chaque bloc du MVI qui nous intéresse dans ce tutoriel. Si cela vous intéresse, l'exemple /!\ TODO lien github /!\ mis à disposition montre une implémentation minimale.
+Nous allons donc coder un tchat. Pour un seul article, c'est quand même assez ambitieux&nbsp;! Nous allons donc nous contenter de travailler sur la mise en place des **intentions** et la mise à jour du **modèle**. Ainsi&nbsp;:
+* nous ne coderons pas la partie qui communique avec le serveur. Nous considérerons que nous avons déjà des Observables/Observer qui nous permettent de discuter avec le serveur.
+* nous ne nous attarderons pas sur la **vue** car c'est la communication entre chaque bloc du MVI qui nous intéresse dans ce tutoriel. Si cela vous intéresse, l'[exemple mis à disposition](https://github.com/JulienPradet/blog-posts/tree/master/src/content/tutoriels/organiser-du-code-rxjs/tchat/examples/) montre une implémentation minimale avec [`virtual-dom`](https://github.com/Matt-Esch/virtual-dom) et reprenant la structure de [Cycle.js](https://cycle.js.org/).
 
 ### -1. Prérequis
 
-Avant de commencer, je vous conseille d'être à l'aise avec les opérateurs suivants&nbsp;:
+Avant de commencer, il est indispensable d'avoir fait ses premiers pas en RxJS (ou tout autre librairie du même style - [Kefir.js](https://rpominov.github.io/kefir/), [Bacon.js](https://baconjs.github.io/), [xstream](https://github.com/staltz/xstream), [most](https://github.com/cujojs/most), &hellip;). Pour cela, vous pouvez [lire mon article d'introduction](/tutoriels/introduction-a-rxjs/), accéder aux [vidéos d'introduction d'André Staltz](https://egghead.io/courses/introduction-to-reactive-programming) (qui demandent un abonnement payant à egghead), ou y aller de manière plus empirique avec [Rx Visualizer](https://rxviz.com/).
+
+Après cette première phase d'apprentissage, l'idéal sera d'être à l'aise avec les opérateurs suivants&nbsp;:
 * [map](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-map)
 * [filter](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-filter)
 * [scan](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-scan) (a.k.a. reduce)
 * [do](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-do)
-* [mergeAll](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-mergeAll) (a.k.a. flatMap)
+* [mergeMap](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#instance-method-mergeMap) (a.k.a. flatMap)
 * [merge](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#static-method-merge)
+
+Si vous n'êtes pas encore tout à fait à l'aise, ce n'est pas grave. Des diagrammes et commentaires accompagnerons les bouts de code pour expliciter pourquoi j'utilise tel opérateur à tel moment.
 
 ### 0. Structure générale
 
@@ -36,18 +40,3 @@ const view$ = model$
 // absoluement rien. Aucun code ne sera executé
 view$.subscribe()
 ```
-
-Nous avons donc une magnifique application qui affiche une liste de messages vide. Cependant, on peut profiter de cette étape pour changer le modèle initial et y mettre n'importe quelle donnée : un message unique recu, un message unique envoyé, une liste de message complète, ... Vous pourrez ainsi tester le comportement de la fonction `displayView` pour qu'elle affiche le modèle convenablement dans tous les cas.
-
-La seule contrainte, est que la fonction `displayView` réponde au contrat suivant&nbsp;:
-* affiche la liste de messages passée en entrée
-* affiche un formulaire d'envoi de message
-* retourne les observables représentants les évènements du DOM : pour nous il n'y aura que la soumission du formulaire.
-
-Comme indiqué en préambule, je ne détaillerai pas l'implémentation de cette fonction. Une solution serait d'utiliser la librairie [virtual-dom](https://github.com/Matt-Esch/virtual-dom) comme j'ai pu le faire dans l'exemple complet disponible sur github /!\ TODO /!\. Cependant, il est tout à fait possible de le remplacer par des composants React ou de l'adapter au framework de votre choix.
-
-Une fois que la méthode `displayView` est implémentée, il est temps de rendre l'application dynamique.
-
-### 1. Récupération des messages distants
-
-Pour rendre cette liste de messages dynamique, la première étape consiste à récupérer des messages depuis le serveur. Pour cela, admettons que nous avons à disposition l'observable `receiveServerMessage$` qui va fournir, un par un, les messages envoyés par le serveur.
