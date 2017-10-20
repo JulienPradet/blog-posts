@@ -1,6 +1,6 @@
 import React from "react";
 
-const Tutoriels = props => (
+const Tutoriels = () => (
   <div>
     <p>
       Les tutoriels sont pour moi l'occasion de présenter{" "}

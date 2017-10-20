@@ -17,7 +17,7 @@ const Category = withSite(({ name, site }) => {
   );
 });
 
-const Home = props => (
+const Home = () => (
   <div>
     <div dangerouslySetInnerHTML={{ __html: home }} />
     <ul className="category-list">

@@ -1,6 +1,7 @@
 class Flip {
   constructor(id, debug) {
     this.id = id;
+    this.debug = debug;
   }
 
   first(element, options) {

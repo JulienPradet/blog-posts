@@ -55,3 +55,12 @@
   transform: scale(0.45, 0.3) translate(0.5em);
   cursor: pointer;
 }
+
+.demo-github-link {
+  font-size: 0.8em;
+  text-align: center;
+  margin-top: 1rem;
+  a {
+    color: $fontColor;
+  }
+}

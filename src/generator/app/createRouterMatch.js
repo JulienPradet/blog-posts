@@ -38,10 +38,10 @@ const createRouterMatch = paths => pagePath => {
           pagePath.replace("index.js", "meta.js")
         )}),
         Component: loadable(() => import(${JSON.stringify(pagePath)}), {
-          LoadingComponent: (props) => {
+          LoadingComponent: () => {
             return <Loading />
           },
-          ErrorComponent: ({error, props}) => {
+          ErrorComponent: () => {
             return <div>
               Oops! Il y a eu un problème lors de la récupération de l'article.<br />
               Peut-être des problèmes de connexion&nbsp;?

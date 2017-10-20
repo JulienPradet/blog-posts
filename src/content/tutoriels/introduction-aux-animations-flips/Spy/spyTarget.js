@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 
 const spyTarget = ({ key, nodeTransformer, shouldUpdate }) => BaseComponent => {
   nodeTransformer = nodeTransformer || (x => x);
-  const getKey = typeof key === "function" ? key : props => key;
+  const getKey = typeof key === "function" ? key : () => key;
 
   class SpyTarget extends Component {
     constructor() {

@@ -18,7 +18,7 @@ class FlipContainer extends Component {
     };
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
+  shouldComponentUpdate(nextProps) {
     return this.props !== nextProps;
   }
 

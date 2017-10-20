@@ -2,7 +2,7 @@ import React from "react";
 import Code from "./Code";
 
 class TabCode extends React.Component {
-  constructor(props) {
+  constructor() {
     super();
     this.state = {
       currentTab: 0

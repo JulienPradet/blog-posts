@@ -8,7 +8,7 @@ import Demo from "../../../site/components/Demo";
 import DemoLag from "./DemoLag";
 import withPrismCss from "../../../site/util/withPrismCss";
 
-const Article = props => (
+const Article = () => (
   <div>
     <div dangerouslySetInnerHTML={{ __html: introduction }} />
     <div dangerouslySetInnerHTML={{ __html: tldr }} />

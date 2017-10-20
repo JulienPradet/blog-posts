@@ -36,7 +36,7 @@ class InterruptAnimation extends React.Component {
     if (this.props.withoutLayoutThrashing) {
       this.initialScale = Object.keys(this.node)
         .map(key => this.node[key])
-        .map((node, index) => {
+        .map(node => {
           let scale;
           if (this.props.checkStart) {
             scale = getScaleFromNode(node);
