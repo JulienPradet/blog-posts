@@ -11,7 +11,19 @@ body {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
     Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   line-height: 1.5;
-  font-family: 1.05em;
+  font-size: 0.95em;
+  min-width: 340px;
+}
+
+@media screen and (min-width: 400px) {
+  body {
+    font-size: 1em;
+  }
+}
+@media screen and (min-width: 450px) {
+  body {
+    font-size: 1.05em;
+  }
 }
 
 hr {
@@ -20,6 +32,11 @@ hr {
   height: 1px;
   width: 100%;
   background: $borderColor;
+}
+@media screen and (max-width: 400px) {
+  ul {
+    padding-left: 1em;
+  }
 }
 
 a {
@@ -113,10 +130,24 @@ pre[class*="language-"] {
   background: #282c34;
 }
 
-pre[class*="language-"] {
-  padding: 1em;
-  margin: 0.5em 0;
+.page-content pre[class*="language-"] {
+  padding: 1em 2em;
+  margin: 0.5em -2em;
   overflow: auto;
+  code {
+    font-size: 1em;
+  }
+}
+@media screen and (min-width: $breakpointLarge) {
+  .page-content pre[class*="language-"] {
+    margin-left: -3em;
+    margin-right: -3em;
+    padding-left: 3em;
+    padding-right: 3em;
+    code {
+      font-size: 1.05em;
+    }
+  }
 }
 
 @import "demo";
@@ -186,8 +217,8 @@ pre[class*="language-"] {
   .blog__content > div {
     position: relative;
     z-index: 1;
-    max-width: 48em;
-    max-width: 90ch;
+    max-width: 46em;
+    max-width: 80ch;
     padding: 2em 3em;
     margin: 0 auto;
     background: white;
