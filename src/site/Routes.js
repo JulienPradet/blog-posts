@@ -1,10 +1,9 @@
 import React from "react";
 import Route from "react-router/Route";
-import Redirect from "react-router/Redirect";
 import getLayout from "./util/getLayout";
 import Analytics from "./Analytics";
 
-const LayoutRoutes = ({ routes, redirects }) => {
+const LayoutRoutes = ({ routes }) => {
   const layoutRoutes = Object.keys(routes).map(layoutType => {
     const Layout = getLayout(layoutType);
 
@@ -48,15 +47,8 @@ const LayoutRoutes = ({ routes, redirects }) => {
     );
   });
 
-  const redirectRoutes = redirects.map(({ from, to }, index) => (
-    <Route key={`redirect${index}`} exact strict path={from}>
-      {({ match }) => match && match.isExact && <Redirect to={to} />}
-    </Route>
-  ));
-
   return (
     <div>
-      {redirectRoutes}
       {layoutRoutes}
       <Route component={Analytics} />
     </div>
