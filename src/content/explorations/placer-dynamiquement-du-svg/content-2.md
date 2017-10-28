@@ -30,11 +30,9 @@ const Schema = () => (
 
 Je trouve ça assez agréable à utiliser et je génère rapidement des schémas à l'aide de cet outil.
 
-Mais la raison de cet article, est que j'ai appliqué une technique qui sort de mes habitudes pour construire mes composants React&nbsp;: **ils renvoient `null` dans leur fonction `render`**. Que ce soit `Line`, `Element` ou `ObservableElement`, ils renvoient tous `null`.
+> *&ndash; C'est du XML quoi...*, dit-iel, levant les yeux au ciel.
 
-**Wait, what&nbsp;? Render `null`&nbsp;? Pourquoi&nbsp;?**
-
-Oui, ça ne paraît pas spécialement évident au premier abord. Ca paraît même plutôt contre-intuitif. Pour mieux comprendre mon raisonnement, on va tout réécrire pour voir comment j'ai pu en arriver à cette solution.
+Oui, mais le but de cet article est plutôt de se concentrer sur le placement des éléments SVG plutôt que sur la partie React. Ainsi, pour mieux comprendre comment j'en suis arrivé à ça, on va tout réécrire pour voir comment j'ai pu en arriver à cette solution.
 
 ## Construisons un arbre
 

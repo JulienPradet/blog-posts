@@ -2,7 +2,7 @@ C'est la version simplifiée d'un outil que je développe qui représente l'arbr
 
 ### Préambule
 
-Avant d'attaquer, posons nous un petit instant sur le fonctionnement du SVG. En effet, celui-ci a une différence majeure par rapport au HTML&nbsp;: on est obligé de gérer nous-même le placement des éléments les uns par rapport aux autres. Si on ne le fait pas, les éléments se superposent.
+Avant d'attaquer, posons nous un petit instant sur le fonctionnement du SVG. En effet, celui-ci a une différence majeure par rapport au combo HTML&CSS&nbsp;: on est obligé de gérer nous-même le placement des éléments les uns par rapport aux autres. Si on ne le fait pas, les éléments se superposent.
 
 <figure>
 <svg viewBox="0 0 15 15" width="50%" height="5em" style="margin: 1em auto; display: block;">

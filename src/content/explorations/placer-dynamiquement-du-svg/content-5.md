@@ -7,9 +7,12 @@ Nous allons donc devoir déléguer le calcul de cette taille à l'enfant. On pou
 Cependant cela pose un dernier problème. Si `Node` fait des calculs complexes pour savoir quoi afficher, il risque faire le boulot deux fois. Une première fois au moment du `getViewBox` et une autre fois au moment du `render`. L'idée est donc de tout faire d'un coup&nbsp;: le render **et** le calcul de la `viewBox`.
 
 ```jsx
-// On retrouve notre render `null`
+// Le composant n'affiche plus rien
 // étant donné qu'on fait tout le
-// boulot dans `getContext` 
+// boulot dans `getContext`
+// C'est aussi pour cette raison
+// que ça pourrait être du XML,
+// et ce serait pareil.
 const Node = () => null;
 
 // On recapitule ce que Node est

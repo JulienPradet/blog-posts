@@ -24,7 +24,7 @@ Node.getContext = props => {
         />
         <text
           x={width / 2}
-          y={height / 2}
+          y={height / 2 + 1}
           textAnchor="middle"
           alignmentBaseline="middle"
           fill="#484848"

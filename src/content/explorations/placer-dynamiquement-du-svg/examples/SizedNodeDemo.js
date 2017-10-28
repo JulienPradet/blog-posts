@@ -18,7 +18,7 @@ const Node = props => (
     />
     <text
       x={width / 2}
-      y={height / 2}
+      y={height / 2 + 1}
       textAnchor="middle"
       alignmentBaseline="middle"
       fill="#484848"
@@ -29,12 +29,27 @@ const Node = props => (
   </g>
 );
 
-const Tree = props => <svg>{props.children}</svg>;
+const Tree = props => {
+  const nodeElement = props.children;
 
-const Demo = () => (
-  <Tree>
-    <Node name="Camille" />
-  </Tree>
-);
+  let viewBox;
+  if (nodeElement.type === Node) {
+    viewBox = `0 0 80 30`;
+  } else {
+    // Je ne connais le composant fils
+    // alors je n'affiche rien
+    return null;
+  }
+
+  return <svg viewBox={viewBox}>{props.children}</svg>;
+};
+
+const Demo = props => {
+  return (
+    <Tree>
+      <Node name="Camille" />
+    </Tree>
+  );
+};
 
 export default Demo;

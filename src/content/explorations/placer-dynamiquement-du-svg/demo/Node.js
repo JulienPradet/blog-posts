@@ -44,7 +44,7 @@ const NodeTile = props => {
       <text
         clipPath={`url(#node-clip-${1})`}
         x={tileDefinition.width / 2}
-        y={tileDefinition.height / 2}
+        y={tileDefinition.height / 2 + 1}
         textAnchor="middle"
         alignmentBaseline="middle"
         fontSize={14}

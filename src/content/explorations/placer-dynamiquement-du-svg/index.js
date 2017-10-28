@@ -20,14 +20,17 @@ const Article = props => (
       ref={props.markdownRef}
       dangerouslySetInnerHTML={{ __html: content }}
     />
+
     <figure>
       <VizExample />
       <figcaption>Un tas de lignes avec des bulles dessus, quoi.</figcaption>
     </figure>
+
     <div
       ref={props.markdownRef}
       dangerouslySetInnerHTML={{ __html: content2 }}
     />
+
     <figure>
       <Tree>
         <Node name="Camille">
@@ -45,26 +48,43 @@ const Article = props => (
       </Tree>
       <figcaption>Un tas de lignes avec des bulles dessus, quoi.</figcaption>
     </figure>
+
     <div
       ref={props.markdownRef}
       dangerouslySetInnerHTML={{ __html: content3 }}
     />
-    <NodeDemo />
+
+    <figure>
+      <NodeDemo />
+    </figure>
+
     <div
       ref={props.markdownRef}
       dangerouslySetInnerHTML={{ __html: content4 }}
     />
-    <SizedNodeDemo />
+
+    <figure>
+      <SizedNodeDemo />
+    </figure>
+
     <div
       ref={props.markdownRef}
       dangerouslySetInnerHTML={{ __html: content5 }}
     />
-    <ContextNodeDemo />
+
+    <figure>
+      <ContextNodeDemo />
+    </figure>
+
     <div
       ref={props.markdownRef}
       dangerouslySetInnerHTML={{ __html: content6 }}
     />
-    <TreeDemo />
+
+    <figure>
+      <TreeDemo />
+    </figure>
+
     <div
       ref={props.markdownRef}
       dangerouslySetInnerHTML={{ __html: content7 }}
