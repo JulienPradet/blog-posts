@@ -18,7 +18,7 @@ const makeHelmet = props => {
       {props.page && (
         <meta name="description" content={props.page.description} />
       )}
-      <meta name="theme-color" content="#00C9C9" />
+      <meta name="theme-color" content="#f6edda" />
       <meta property="twitter:site" content="@JulienPradet" />
       <meta property="twitter:card" content="summary" />
       <meta property="twitter:creator" content="@JulienPradet" />
