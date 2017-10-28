@@ -9,7 +9,7 @@ figure:focus img {
 }
 figure {
   width: 100%;
-  margin: 0;
+  margin: 1em 0;
 }
 figure > .SVGInline {
   display: block;
@@ -28,11 +28,13 @@ figure:hover figcaption {
 }
 @media screen and (min-width: 51em) {
   figure {
-    margin: 0 40px;
+    margin-left: 40px;
+    margin-right: 40px;
     width: calc(100% - 80px);
   }
   figure:focus {
-    margin: 0;
+    margin-left: 0;
+    margin-right: 0;
     width: 100%;
   }
 }
