@@ -38,4 +38,4 @@ Oui, ça ne paraît pas spécialement évident au premier abord. Ca paraît mêm
 
 ## Construisons un arbre
 
-Nous n'allons pas refaire la librairie sur les Observables car ce serait trop complexe à faire tenir dans un seul article. Nous allons plutôt représenter l'arbre suivant&nbsp;:
+Nous n'allons pas refaire la bibliothèque sur les Observables car ce serait trop complexe à faire tenir dans un seul article. Nous allons plutôt représenter l'arbre suivant&nbsp;:
