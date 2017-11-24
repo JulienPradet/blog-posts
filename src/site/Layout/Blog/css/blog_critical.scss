@@ -107,6 +107,21 @@ h5 {
   font-size: 1em;
 }
 
+ul,
+ol {
+  padding-left: 1.3em;
+}
+
+li {
+  margin: 0.5em 0;
+}
+@media screen and (min-width: $breakpointMedium) {
+  ul,
+  ol {
+    padding-left: 2em;
+  }
+}
+
 .gotop {
   position: relative;
   z-index: 5;
