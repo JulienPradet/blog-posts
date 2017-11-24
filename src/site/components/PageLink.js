@@ -13,9 +13,11 @@ class PageLink extends Component {
   }
 
   componentDidMount() {
-    document.body.addEventListener(UPDATE_EVENT, () => {
-      this.switchToNormalLink();
-    });
+    document.body.addEventListener(UPDATE_EVENT, this.switchToNormalLink);
+  }
+
+  componentWillUnmount() {
+    document.body.removeEventListener(UPDATE_EVENT, this.switchToNormalLink);
   }
 
   switchToNormalLink() {
