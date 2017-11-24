@@ -22,8 +22,13 @@
 @media screen and (min-width: $breakpointLarge) {
   .page-preview {
     background: white;
-    padding: 3em 4em;
-    border-radius: .2em;
+    padding: 2em;
+    border-radius: 0.2em;
     box-shadow: 0 0.5em 0.5em rgba(#888, 0.1);
+  }
+}
+@media screen and (min-width: $breakpointVeryLarge) {
+  .page-preview {
+    padding: 3em;
   }
 }

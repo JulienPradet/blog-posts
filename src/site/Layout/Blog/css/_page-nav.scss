@@ -4,7 +4,7 @@
   padding-top: 2em;
   padding-bottom: 2em;
   background: white;
-  border-radius: .2em;
+  border-radius: 0.2em;
   box-shadow: 0 0.5em 0.5em rgba(#888, 0.1);
   &:first-child {
     margin-top: 0;
@@ -13,8 +13,8 @@
   &__category {
     button {
       background: #999;
-      width: .8rem;
-      height: .8rem;
+      width: 0.8rem;
+      height: 0.8rem;
       font-size: 0;
       padding: 0;
       border: 0;
@@ -33,7 +33,8 @@
   }
 
   &--tutoriels {
-    .page-nav__item__preview a, .page-nav__item__meta {
+    .page-nav__item__preview a,
+    .page-nav__item__meta {
       color: $tutorielsDark;
     }
     .page-nav__item__category button {
@@ -42,7 +43,8 @@
     }
   }
   &--fiches-techniques {
-    .page-nav__item__preview a, .page-nav__item__meta {
+    .page-nav__item__preview a,
+    .page-nav__item__meta {
       color: $fichesTechniquesDark;
     }
     .page-nav__item__category button {
@@ -51,21 +53,23 @@
     }
   }
   &--explorations {
-    .page-nav__item__preview a, .page-nav__item__meta {
+    .page-nav__item__preview a,
+    .page-nav__item__meta {
       color: $explorationsDark;
     }
     .page-nav__item__category button {
       background: $explorationsLight;
-      left: 1.5rem;
+      left: 1.55rem;
     }
   }
   &--autres {
-    .page-nav__item__preview a, .page-nav__item__meta {
+    .page-nav__item__preview a,
+    .page-nav__item__meta {
       color: $autresDark;
     }
     .page-nav__item__category button {
       background: $autresLight;
-      left: 2.2rem;
+      left: 2.35rem;
     }
   }
 }
