@@ -1,3 +1,5 @@
+@import "../Layout/Blog/css/breakpoints";
+
 /**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
@@ -138,7 +140,7 @@ pre[class*="language-"] {
 
 pre.line-numbers {
   position: relative;
-  padding-left: 3.8em;
+  padding-left: 6.8em;
   counter-reset: linenumber;
 }
 
@@ -149,17 +151,18 @@ pre.line-numbers > code {
 .line-numbers .line-numbers-rows {
   position: absolute;
   pointer-events: none;
-  top: 0;
-  font-size: 100%;
-  left: -3.8em;
-  width: 3em; /* works for line-numbers below 1000 lines */
+  top: -0.2em;
+  font-size: 1em;
+  left: -3rem;
+  width: 2rem; /* works for line-numbers below 1000 lines */
   letter-spacing: -1px;
-  border-right: 0;
 
   -webkit-user-select: none;
   -moz-user-select: none;
   -ms-user-select: none;
   user-select: none;
+
+  border-right: 1px solid #383e47;
 }
 
 .line-numbers-rows > span {
@@ -172,6 +175,12 @@ pre.line-numbers > code {
   content: counter(linenumber);
   color: #5c6370;
   display: block;
-  padding-right: 0.8em;
-  text-align: right;
+  text-align: center;
+}
+
+@media screen and (min-width: $breakpointLarge) {
+  .line-numbers .line-numbers-rows {
+    left: -6rem;
+    width: 3rem; /* works for line-numbers below 1000 lines */
+  }
 }

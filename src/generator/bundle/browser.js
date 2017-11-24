@@ -26,16 +26,16 @@ if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
       .register("/service-worker.js")
       .then(registration => {
         // Registration was successful
-        registration.onupdatefound = () => {
+        registration.addEventListener("updatefound", () => {
           const installingWorker = registration.installing;
-          installingWorker.onstatechange = () => {
+          installingWorker.addEventListener("statechange", () => {
             if (installingWorker.state === "installed") {
               if (navigator.serviceWorker.controller) {
                 dispatchUpdateEvent();
               }
             }
-          };
-        };
+          });
+        });
       })
       .catch(err => {
         // registration failed :(

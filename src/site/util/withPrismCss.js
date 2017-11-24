@@ -3,7 +3,7 @@ import Helmet from "react-helmet";
 import Prism from "prismjs";
 import "prismjs/components/prism-jsx";
 import "prismjs/components/prism-css";
-import prismCss from "./prism-onedark.css";
+import prismCss from "./prism-onedark.scss";
 
 export default () => BaseComponent => {
   return class extends React.Component {
@@ -24,12 +24,7 @@ export default () => BaseComponent => {
 
     highlightCode(codeContainer) {
       if (codeContainer) {
-        const code = codeContainer.querySelector("code").innerText;
-        const highlightedCode = Prism.highlight(
-          code,
-          Prism.languages[codeContainer.dataset.lang]
-        );
-        codeContainer.querySelector("code").innerHTML = highlightedCode;
+        Prism.highlightElement(codeContainer.querySelector("code"));
       }
     }
 
