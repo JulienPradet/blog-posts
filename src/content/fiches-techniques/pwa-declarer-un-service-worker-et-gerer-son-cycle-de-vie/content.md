@@ -44,7 +44,7 @@ if ("serviceWorker" in navigator) {
     .then(registration => {
       // On a réussi ! Youpi !
       console.log(
-        "App: Achievment unlocked."
+        "App: Achievement unlocked."
       );
     })
     .catch(error => {
@@ -70,7 +70,7 @@ console.log(
 );
 ```
 
-Si tout va bien, vous verrez dans votre console les messages `App: Achievment unlocked.` et `SW: Il se passe quelque chose ici!`. Voici venu votre premier premier Service Worker&nbsp;! Si ce n'est pas le cas, [renseignez vous sur votre navigateur](https://jakearchibald.github.io/isserviceworkerready/#debugging) pour savoir où devrait s'afficher les messages.
+Si tout va bien, vous verrez dans votre console les messages `App: Achievement unlocked.` et `SW: Il se passe quelque chose ici!`. Voici venu votre premier premier Service Worker&nbsp;! Si ce n'est pas le cas, [renseignez vous sur votre navigateur](https://jakearchibald.github.io/isserviceworkerready/#debugging) pour savoir où devrait s'afficher les messages.
 
 Maintenant, rafraîchissez votre page. Vous pouvez constater que `SW: Il se passe quelque chose ici!` a mis plus de temps à s'afficher. Selon la configuration de votre navigateur, il est même possible que cela ne s'affiche pas du tout. Pourquoi&nbsp;?
 
