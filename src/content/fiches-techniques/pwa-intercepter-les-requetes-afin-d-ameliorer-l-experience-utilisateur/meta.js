@@ -1,5 +1,6 @@
 module.exports = {
   isListed: false,
+  removeFromSitemap: true,
   layout: "Blog",
   title:
     "PWA : Intercepter les requêtes HTTP afin d'améliorer l'expérience utilisateur",
