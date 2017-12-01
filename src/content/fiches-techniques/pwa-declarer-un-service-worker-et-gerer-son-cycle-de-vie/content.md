@@ -2,7 +2,7 @@ Le terme Progressive Web Apps (PWA) vient de [Frances Berriman](https://fberrima
 
 Voici donc une série d'article où j'essaierai de vous présenter ce que c'est et surtout comment le mettre en place pour vos utilisateurs. Accrochez-vous, ça fait pas mal de choses à découvrir&nbsp;:
 1. <a href="/fiches-techniques/pwa-rendre-un-site-web-disponible-grace-aux-services-workers/">Rendre un site web disponible grâce aux Services Workers</a>
-2. <a href="/fiches-techniques/pwa-rendre-un-site-web-disponible-grace-aux-services-workers/">Comment déclarer un Service Worker et gérer son cycle de vie&nbsp;?</a> (Vous êtes ici.)
+2. <a href="/fiches-techniques/pwa-rendre-un-site-web-disponible-grace-aux-services-workers/">Déclarer un Service Worker et gérer son cycle de vie</a> (Vous êtes ici.)
 3. Intercepter les requêtes HTTP afin d'améliorer l'expérience de l'utilisateur
 4. Proposer une expérience hors ligne
 
