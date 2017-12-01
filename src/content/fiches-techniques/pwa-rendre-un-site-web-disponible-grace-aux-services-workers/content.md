@@ -60,6 +60,8 @@ Vous l'aurez compris, les Services Workers vont nous être très utiles pour ré
 
 Ainsi, l'article de la semaine prochaine présentera comment déclarer et mettre à jour un Service Worker. Mon but sera de vous y montrer les bases mais aussi de discuter des pièges à éviter. En attendant, si vous avez des questions ou des commentaires, n'hésitez pas à m'en faire part sur [Twitter](https://twitter.com/JulienPradet), [Github](https://github.com/JulienPradet/blog-posts) ou autre. :)
 
+Merci à [Quentin](https://quentin.pradet.me/blog/) et [Sylvain](https://twitter.com/hihuz) pour leur relecture attentive&nbsp;!
+
 ---
 
 Sources Complémentaires :
