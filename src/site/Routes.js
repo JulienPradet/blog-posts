@@ -35,7 +35,12 @@ const LayoutRoutes = ({ routes }) => {
                     key={pageUrl}
                     path={pageUrl}
                     render={({ match }) => {
-                      return <Page match={match} />;
+                      return (
+                        <Page
+                          match={match}
+                          page={routes[layoutType][currentPage].meta}
+                        />
+                      );
                     }}
                   />
                 );

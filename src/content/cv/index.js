@@ -5,6 +5,8 @@ import twitterSvg from "../../icons/iconmonstr-twitter-1.svg";
 import githubSvg from "../../icons/iconmonstr-github-1.svg";
 import { formatSimpleDate } from "../../site/util/dateFormats";
 import cvCss from "./cv.css";
+import makeHelmet from "../../site/util/makeHelmet";
+import { withSite } from "../../site/Site";
 
 const Section = ({ title, children }) => (
   <section>
@@ -311,50 +313,57 @@ const SectionInfoComplementaires = () => (
   </Section>
 );
 
-export default () => (
-  <div className="page">
-    <Helmet>
-      <link rel="stylesheet" href={cvCss} />
-    </Helmet>
-    <header className="head">
-      <div>
-        <h1 className="page__title">Julien Pradet</h1>
-        <h2 className="page__subtitle">
-          Ingénieur&nbsp;Web Full&nbsp;Stack (Spécialisé&nbsp;Front&nbsp;End)
-        </h2>
-      </div>
-      <ul className="contact">
-        <li>
-          <a href={`https://www.julienpradet.fr`}>
-            <span className="name">https://www.julienpradet.fr</span>
-          </a>
-        </li>
-        <li>
-          <a href="mailto:julien@pradet.me">julien@pradet.me</a>
-        </li>
-        <li>
-          <a href={`https://twitter.com/JulienPradet`}>
-            <Svg svg={twitterSvg} cleanup />
-            <span className="name">@JulienPradet</span>
-          </a>
-        </li>
-        <li>
-          <a href={`https://github.com/JulienPradet/blog-posts`}>
-            <Svg svg={githubSvg} cleanup />
-            <span className="name">JulienPradet</span>
-          </a>
-        </li>
-      </ul>
-    </header>
-    <p className="page__moto">
-      Mes valeurs sont la <strong>bienveillance</strong> et le{" "}
-      <strong>partage</strong>.
-    </p>
-    <SectionExperienceProfessionnelle />
-    <SectionFormation />
-    <SectionCompetences />
-    <SectionConferences />
-    <SectionProjets />
-    <SectionInfoComplementaires />
-  </div>
-);
+const Cv = props => {
+  const helmet = makeHelmet(props);
+
+  return (
+    <div className="page">
+      <Helmet>
+        <link rel="stylesheet" href={cvCss} />
+      </Helmet>
+      {helmet}
+      <header className="head">
+        <div>
+          <h1 className="page__title">Julien Pradet</h1>
+          <h2 className="page__subtitle">
+            Ingénieur&nbsp;Web Full&nbsp;Stack (Spécialisé&nbsp;Front&nbsp;End)
+          </h2>
+        </div>
+        <ul className="contact">
+          <li>
+            <a href={`https://www.julienpradet.fr`}>
+              <span className="name">https://www.julienpradet.fr</span>
+            </a>
+          </li>
+          <li>
+            <a href="mailto:julien@pradet.me">julien@pradet.me</a>
+          </li>
+          <li>
+            <a href={`https://twitter.com/JulienPradet`}>
+              <Svg svg={twitterSvg} cleanup />
+              <span className="name">@JulienPradet</span>
+            </a>
+          </li>
+          <li>
+            <a href={`https://github.com/JulienPradet/blog-posts`}>
+              <Svg svg={githubSvg} cleanup />
+              <span className="name">JulienPradet</span>
+            </a>
+          </li>
+        </ul>
+      </header>
+      <p className="page__moto">
+        Mes valeurs sont la <strong>bienveillance</strong> et le{" "}
+        <strong>partage</strong>.
+      </p>
+      <SectionExperienceProfessionnelle />
+      <SectionFormation />
+      <SectionCompetences />
+      <SectionConferences />
+      <SectionProjets />
+      <SectionInfoComplementaires />
+    </div>
+  );
+};
+
+export default withSite(Cv);
