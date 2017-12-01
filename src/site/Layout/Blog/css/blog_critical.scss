@@ -12,7 +12,7 @@ body {
     Ubuntu, Cantarell, "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
   line-height: 1.5;
   font-size: 0.95em;
-  min-width: 340px;
+  min-width: 280px;
 }
 
 @media screen and (min-width: 400px) {
@@ -94,6 +94,34 @@ h6:hover .header-anchor {
   opacity: 1;
 }
 
+h2 {
+  font-size: 1.5em;
+}
+h3 {
+  font-size: 1.3em;
+}
+h4 {
+  font-size: 1.1em;
+}
+h5 {
+  font-size: 1em;
+}
+
+ul,
+ol {
+  padding-left: 1.3em;
+}
+
+li {
+  margin: 0.5em 0;
+}
+@media screen and (min-width: $breakpointMedium) {
+  ul,
+  ol {
+    padding-left: 2em;
+  }
+}
+
 .gotop {
   position: relative;
   z-index: 5;
@@ -131,13 +159,22 @@ pre[class*="language-"] {
 }
 
 .page-content pre[class*="language-"] {
-  padding: 1em 2em;
-  margin: 0.5em -2em;
+  padding: 1rem;
+  margin: 0.5em -1em;
   overflow: auto;
   code {
-    font-size: 1em;
+    font-size: 0.9em;
   }
 }
+@media screen and (min-width: 340px) {
+  .page-content pre[class*="language-"] {
+    margin: 0.5em -2em;
+    code {
+      font-size: 1em;
+    }
+  }
+}
+
 @media screen and (min-width: $breakpointLarge) {
   .page-content pre[class*="language-"] {
     margin-left: -3em;
@@ -146,6 +183,16 @@ pre[class*="language-"] {
     padding-right: 3em;
     code {
       font-size: 1.05em;
+    }
+  }
+}
+
+.page-content {
+  ul,
+  ol {
+    pre[class*="language-"] {
+      margin-left: 0;
+      padding-left: 1em;
     }
   }
 }
@@ -171,7 +218,7 @@ pre[class*="language-"] {
     z-index: 6;
   }
   &__content {
-    padding: 2em 2em 2em 2em;
+    padding: 2em 1em;
     margin-bottom: 2.5em;
     background-color: white;
     position: relative;
@@ -192,6 +239,12 @@ pre[class*="language-"] {
       margin-bottom: 2em;
       text-align: center;
     }
+  }
+}
+@media screen and (min-width: 340px) {
+  .blog__content {
+    padding-left: 2em;
+    padding-right: 2em;
   }
 }
 
