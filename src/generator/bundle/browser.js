@@ -5,12 +5,14 @@ import App from "../tmp/App";
 import { BrowserRouter } from "react-router-dom";
 import { loadComponents } from "loadable-components";
 import { dispatchUpdateEvent } from "../../site/updateNotification";
+import UpdateNotification from "../../site/components/UpdateNotification";
 
-const app = (
-  <BrowserRouter>
+const app = [
+  <BrowserRouter key="app">
     <App />
-  </BrowserRouter>
-);
+  </BrowserRouter>,
+  <UpdateNotification key="service-worker" />
+];
 
 loadComponents().then(() => {
   if (process.env.NODE_ENV === "development") {
@@ -30,6 +32,7 @@ if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
           const installingWorker = registration.installing;
           installingWorker.addEventListener("statechange", () => {
             if (installingWorker.state === "installed") {
+              console.log("TOTO");
               if (navigator.serviceWorker.controller) {
                 dispatchUpdateEvent();
               }
@@ -41,6 +44,10 @@ if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
         // registration failed :(
         console.log("ServiceWorker registration failed: ", err);
       });
+
+    navigator.serviceWorker.addEventListener("controllerchange", () => {
+      window.location.reload();
+    });
   });
 }
 

@@ -1,0 +1,59 @@
+.update-notification {
+    position: fixed;
+    z-index: 1000;
+    bottom: 0;
+    left: 0;
+    transform: translateY(100%);
+    transition: transform 0.3s ease;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    padding: 0.5em;
+    border-radius: 0.2em;
+    box-shadow: 0 -0.3em 0.4em rgba(#888, 0.2);
+    text-align: center;
+
+    button {
+        cursor: pointer;
+        text-decoration: underline;
+        font-size: 1em;
+        border: none;
+        background: none;
+        font-weight: bold;
+        color: black;
+    }
+    
+    .close {
+        position: absolute;
+        top: -2rem;
+        right: 1em;
+        line-height: 2rem;
+        width: 2rem;
+        font-size: 1.2em;
+        font-weight: normal;
+        background: white;
+        border-top-left-radius: 0.2em;
+        border-top-right-radius: 0.2em;
+        box-shadow: 0 -0.2em 0.4em rgba(#888, 0.2);
+        text-decoration: none;
+
+        &:hover, &:focus {
+            background: #f0f0f0;
+        }
+        > span {
+            display: block;
+            width: 100%;
+            transform: rotate(0deg);
+            transition: transform 0.3s ease;
+        }
+    }
+
+    &--closed {
+        transform: translateY(0);
+        .close > span {
+            transform: rotate(180deg);
+        }
+    }
+}
