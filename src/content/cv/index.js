@@ -4,7 +4,7 @@ import Svg from "react-svg-inline";
 import twitterSvg from "../../icons/iconmonstr-twitter-1.svg";
 import githubSvg from "../../icons/iconmonstr-github-1.svg";
 import { formatSimpleDate } from "../../site/util/dateFormats";
-import cvCss from "./cv.css";
+import cvCss from "./cv.scss";
 import makeHelmet from "../../site/util/makeHelmet";
 import { withSite } from "../../site/Site";
 
