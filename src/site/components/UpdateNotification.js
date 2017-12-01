@@ -42,7 +42,7 @@ class UpdateNotification extends Component {
   }
 
   render() {
-    if (!this.state.shouldUpdate) {
+    if (this.state.shouldUpdate) {
       return (
         <div
           className={`update-notification ${!this.state.display &&
