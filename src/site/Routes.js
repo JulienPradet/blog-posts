@@ -39,6 +39,7 @@ const LayoutRoutes = ({ routes }) => {
                         <Page
                           match={match}
                           page={routes[layoutType][currentPage].meta}
+                          path={currentPage}
                         />
                       );
                     }}
