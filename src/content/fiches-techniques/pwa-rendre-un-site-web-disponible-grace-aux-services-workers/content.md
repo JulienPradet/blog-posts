@@ -45,7 +45,7 @@ Cette technologie est un poil plus vieille que l'apparition du terme PWA. Cepend
 
 ### Qu'est-ce&nbsp;?
 
-Un Service Worker est un bout de code qui va tourner sur le navigateur de vos utilisateurs<span aria-hidden="true">&sodt;rices</span>, à côté de votre site. Il va pouvoir intercepter les requêtes émises par ce dernier et échanger des messages avec lui.
+Un Service Worker est un bout de code qui va tourner sur le navigateur de vos utilisateurs<span aria-hidden="true">&sdot;rices</span>, à côté de votre site. Il va pouvoir intercepter les requêtes émises par ce dernier et échanger des messages avec lui.
 
 Si vous savez déjà ce qu'est un Service Worker, peut être que cette définition vous parlera. Dans le cas contraire, je parierai plutôt sur le fait que ca vous paraisse carrément flou&nbsp;! Essayons donc d'expliciter chaque partie pour voir ce que ça peut nous apporter&nbsp;:
 
