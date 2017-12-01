@@ -3,36 +3,46 @@ const fs = require("../util/fs");
 const { Observable } = require("rxjs");
 const getPathsFromChunks = require("../bundle/getPathsFromChunks");
 const reduceObservable = require("../util/reduceObservable");
+const crypto = require("crypto");
 
 const serviceWorker = urlsToCacheOnFirstLoad => {
-  return `
-    const CACHE_NAME = 'julien-pradet-blog'
+  const hash = crypto
+    .createHash("md5")
+    .update(JSON.stringify(urlsToCacheOnFirstLoad))
+    .digest("hex");
 
+  return `
+    const CACHE_NAME = 'julien-pradet-blog-${hash}'
     const urlsToPrefetch = ${JSON.stringify(urlsToCacheOnFirstLoad)}
 
     self.addEventListener("install", event => {
       event.waitUntil(
         caches
-          .open(CACHE_NAME)
-          .then(cache => {
-            urlsToPrefetch
-              .map(url => {
-                return new Request(url);
-              })
-              .forEach(request => {
-                cache
-                  .match(event.request)
-                  .then(response => {
-                    return response || fetch(event.request);
-                  })
-                  .then(response => cache.put(event.request, response.clone()));
-              });
-          })
-          .catch(function(error) {
-            console.error("Pre-fetching failed:", error);
-          })
+        .open(CACHE_NAME)
+        .then(cache =>
+          urlsToPrefetch
+            .map(url => new Request(url))
+            .map(request =>
+              fetch(request).then(response => cache.put(request, response.clone()))
+            )
+        )
+        .catch(function(error) {
+          console.error("Pre-fetching failed:", error);
+        })
       );
     });
+
+    self.addEventListener("activate", event => {
+      event.waitUntil(
+        caches
+          .keys()
+          .then(keys =>
+            Promise.all(
+              keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
+            )
+          )
+      )
+    })
 
     self.addEventListener("fetch", event => {
       event.respondWith(
