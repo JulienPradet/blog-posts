@@ -19,6 +19,7 @@ if ("serviceWorker" in navigator) {
   });
 
   navigator.serviceWorker.addEventListener("controllerchange", () => {
-    console.log("controller change");
+    console.log("toto");
+    window.location.reload();
   });
 }

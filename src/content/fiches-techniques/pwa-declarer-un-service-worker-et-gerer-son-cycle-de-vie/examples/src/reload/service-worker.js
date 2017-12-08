@@ -1,7 +1,7 @@
 /* global self */
 // fichier : /service-worker.js
 
-console.log("SW: Téléchargement fini.");
+console.log("SW: Téléchargement fini.   ");
 
 self.addEventListener("install", event => {
   console.log("SW: Installation en cours.");
@@ -27,11 +27,6 @@ self.addEventListener("install", event => {
 self.addEventListener("activate", event => {
   console.log("SW: Activation en cours.");
 
-  // Décommentez la ligne suivante
-  // pour utiliser le Service Worker
-  // au premier chargement de la page
-  // self.clients.claim();
-
   // Un Service Worker a fini d'être
   // activé quand la promesse dans
   // `event.waitUntil` est résolue
@@ -49,6 +44,6 @@ self.addEventListener("activate", event => {
 });
 
 self.addEventListener("message", event => {
-  console.log("SW: Message reçu 2");
+  console.log("SW: Message reçu");
   console.log("SW:", event.data);
 });

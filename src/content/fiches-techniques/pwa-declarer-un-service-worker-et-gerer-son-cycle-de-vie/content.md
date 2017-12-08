@@ -317,6 +317,10 @@ navigator.serviceWorker
           () => {
             if (newWorker.state ===
                 "installed") {
+              // Un nouveau Service
+              // Worker est prêt.
+              // Donc on affiche la
+              // notification
               displayNotification();
             }
           }
@@ -405,12 +409,13 @@ navigator.serviceWorker
     }
   );
 ```
+[Retrouvez cet exemple ici.](https://github.com/JulienPradet/blog-posts/tree/master/src/content/fiches-techniques/pwa-declarer-un-service-worker-et-gerer-son-cycle-de-vie/examples/src/reload/)
 
 Mais encore une fois, c'est certainement quelque chose qui demandera réflexion à la conception de votre Service Worker.
 
 #### self.clients.claim
 
-Il reste un coin d'ombre qui vous aura peut-être titillé si vous avez déjà eu l'occasion de lire d'autres articles sur le sujet des Service Workers et leur activation&nbsp;: `self.clients.claim()`. En effet, on parle souvent de cette fonctionnalité en disant qu'il faut la coupler avec un `self.skipWaiting`. Dans les faits, ce n'est pas vrai.
+Il reste un coin d'ombre qui vous aura peut-être titillé si vous avez déjà eu l'occasion de lire d'autres articles sur le sujet des Service Workers et leur activation&nbsp;: `self.clients.claim()`. En effet, on parle souvent de cette fonctionnalité en disant qu'il faut la coupler avec un `self.skipWaiting`.
 
 Le but de la fonction `self.clients.claim()` que l'on appelle généralement depuis un Service Worker fraîchement activé est de forcer l'utilisation de celui-ci dans toutes les pages ouvertes. Mais en vérité, il se passe déjà à peu près la même chose quand un Service Worker s'active.
 
@@ -470,9 +475,21 @@ navigator.serviceWorker
 
 C'est aussi visible dans [la spec' de l'activation d'un Service Worker (étape 7)](https://www.w3.org/TR/service-workers-1/#activation-algorithm).
 
-Mais alors quelle différence avec [`self.clients.claim()`](https://www.w3.org/TR/service-workers-1/#dom-clients-claim) ? Quand est-ce utile&nbsp;? En fait, cette méthode permet de récupérer *aussi* les pages qui n'ont pas de Service Workers enregistrés.
+Mais alors quelle différence avec [`self.clients.claim()`](https://www.w3.org/TR/service-workers-1/#dom-clients-claim) ? En fait, cette méthode, s'assure que **toutes** les pages ouvertes s'associent au Service Worker activé. Contrairement au `skipWaiting`, cela comprend **aussi** les pages qui n'ont pas encore de Service Worker activé. Typiquement, si c'est la première fois que vous chargez un site, il n'y a pas d'ancien Service Worker. Grâce à cette méthode, la page sera tout de même liée au Service Worker.
 
-Conclusion&nbsp;: sauf pour des cas très particuliers, vous n'aurez pas besoin d'utiliser `self.clients.claim`.
+```js
+//fichier : /service-worker.js
+
+// On fait en sorte que le Service
+// Worker se branche à **toutes**
+// les pages
+self.addEventListener('activate', () => {
+  self.clients.claim()
+})
+```
+[Retrouvez cet exemple ici.](https://github.com/JulienPradet/blog-posts/tree/master/src/content/fiches-techniques/pwa-declarer-un-service-worker-et-gerer-son-cycle-de-vie/examples/src/claim-clients/)
+
+Ainsi, même si elle n'est pas obligatoire, puisqu'une page sans Service Worker doit continuer de fonctionner, elle peut vous être utile si vous voulez vous **assurer** qu'un Service Worker est chargé dès que possible.
 
 ## Désactiver un Service Worker
 
@@ -480,7 +497,7 @@ Nous avons couvert la déclaration du Service Worker et la mise à jour d'un Ser
 
 Cela dit, dans les faits, ce n'est pas utile. En effet, je ne vois aucune raison pour laquelle vous voudriez enlever les fonctionnalités apportées par votre Service Worker à vos utilisateurs<span aria-hidden="true">&sdot;rices</span>.
 
-Cependant, la raison pour laquelle j'en parle est que cela peut être pratique pour vous, développeurs<span aria-hidden="true">&sdot;euses</span>. En effet, cela peut être utile pour tester que votre site fonctionne toujours sans Service Worker, mais aussi pour développer sans risquer d'avoir des effets de bords désagréables.
+Cependant, je vous en parle parce que cela peut être pratique pour vous, développeurs<span aria-hidden="true">&sdot;euses</span>. En effet, cela peut être utile pour tester que votre site fonctionne toujours sans Service Worker, mais aussi pour développer les autres fonctionnalités sans risquer d'avoir des effets de bords désagréables.
 
 Cela peut se faire [dans les DevTools](https://jakearchibald.github.io/isserviceworkerready/#debugging) ou via ce bout de code :
 

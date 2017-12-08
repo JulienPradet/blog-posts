@@ -27,7 +27,8 @@ if ("serviceWorker" in navigator) {
 
       newWorker.addEventListener("statechange", () => {
         if (newWorker.state === "installed") {
-          console.log("Un nouveau Service Worker est prêt.");
+          // Le Service Worker est prêt.
+          // On peut donc afficher la notification
           document.querySelector("#notification").style.display = "block";
         }
       });
