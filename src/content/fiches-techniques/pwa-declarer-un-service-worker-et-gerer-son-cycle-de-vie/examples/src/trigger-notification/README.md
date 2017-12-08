@@ -1,0 +1,1 @@
+Voir [la racine des exemples](https://github.com/JulienPradet/blog-posts/tree/master/src/content/fiches-techniques/pwa-declarer-un-service-worker-et-gerer-son-cycle-de-vie/examples) pour comprendre comment afficher cet exemple dans votre navigateur.
