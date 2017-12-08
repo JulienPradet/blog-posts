@@ -22,8 +22,8 @@ loadComponents().then(() => {
   }
 });
 
-if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
-  window.addEventListener("load", () => {
+if ("serviceWorker" in navigator) {
+  if (process.env.NODE_ENV === "production") {
     navigator.serviceWorker
       .register("/service-worker.js")
       .then(registration => {
@@ -32,7 +32,6 @@ if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
           const installingWorker = registration.installing;
           installingWorker.addEventListener("statechange", () => {
             if (installingWorker.state === "installed") {
-              console.log("TOTO");
               if (navigator.serviceWorker.controller) {
                 dispatchUpdateEvent();
               }
@@ -48,7 +47,13 @@ if (process.env.NODE_ENV === "production" && "serviceWorker" in navigator) {
     navigator.serviceWorker.addEventListener("controllerchange", () => {
       window.location.reload();
     });
-  });
+  } else {
+    navigator.serviceWorker.getRegistration().then(registration => {
+      if (registration) {
+        registration.unregister();
+      }
+    });
+  }
 }
 
 if (process.env.GA_TRACKING_ID) {
