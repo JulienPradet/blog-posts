@@ -2,8 +2,8 @@ Le terme **Progressive Web Apps** (ou PWA) vient de [Frances Berriman](https://f
 
 Voici donc une série d'articles où j'essaierai de vous présenter ce que c'est et surtout comment le mettre en place pour vos utilisateurs. Accrochez-vous, ça fait pas mal de choses à découvrir&nbsp;:
 1. <a href="/fiches-techniques/pwa-rendre-un-site-web-disponible-grace-aux-services-workers/">Rendre un site web disponible grâce aux Services Workers</a> (Vous êtes ici.)
-2. Déclarer un Service Worker et gérer son cycle de vie (à paraître)
-3. Intercepter les requêtes HTTP afin d'améliorer l'expérience de l'utilisateur (à paraître)
+2. <a href="/fiches-techniques/pwa-rendre-un-site-web-disponible-grace-aux-services-workers/">Déclarer un Service Worker et gérer son cycle de vie</a>
+3. Intercepter les requêtes HTTP afin d'améliorer l'UX (à paraître)
 4. Proposer une expérience hors ligne (à paraître)
 
 Commençons donc par un bref récap' de ce qui se cache derrière ce terme. Est-ce vraiment quelque chose de révolutionnaire&nbsp;? Qu'est ce que ça implique pour nos utilisateurs et nos utilisatrices&nbsp;?
@@ -58,7 +58,7 @@ Si vous savez déjà ce qu'est un Service Worker, peut être que cette définiti
 
 Vous l'aurez compris, les Services Workers vont nous être très utiles pour répondre au critère de disponibilité des PWAs. Les prochains articles rentreront donc dans les détails techniques pour savoir précisément comment les mettre en place.
 
-Ainsi, l'article de la semaine prochaine présentera comment déclarer et mettre à jour un Service Worker. Mon but sera de vous y montrer les bases mais aussi de discuter des pièges à éviter. En attendant, si vous avez des questions ou des commentaires, n'hésitez pas à m'en faire part sur [Twitter](https://twitter.com/JulienPradet), [Github](https://github.com/JulienPradet/blog-posts) ou autre. :)
+Ainsi, <a href="/fiches-techniques/pwa-declarer-un-service-worker-et-gerer-son-cycle-de-vie/">l'article de la semaine prochaine</a> présentera comment déclarer et mettre à jour un Service Worker. Mon but sera de vous y montrer les bases mais aussi de discuter des pièges à éviter. En attendant, si vous avez des questions ou des commentaires, n'hésitez pas à m'en faire part sur [Twitter](https://twitter.com/JulienPradet), [Github](https://github.com/JulienPradet/blog-posts) ou autre. :)
 
 Merci à [Quentin](https://quentin.pradet.me/blog/) et [Sylvain](https://twitter.com/hihuz) pour leur relecture attentive&nbsp;!
 

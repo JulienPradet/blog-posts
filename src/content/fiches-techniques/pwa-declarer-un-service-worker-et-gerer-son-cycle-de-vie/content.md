@@ -1,22 +1,22 @@
 Le terme Progressive Web Apps (PWA) vient de [Frances Berriman](https://fberriman.com/2017/06/26/naming-progressive-web-apps/) et [Alex Russel](https://infrequently.org/2015/06/progressive-apps-escaping-tabs-without-losing-our-soul/). Le but derrière ce nouveau mot est de promouvoir une façon de penser et de concevoir des sites webs. Ce n'est donc pas une technologie. Le but de ce terme est purement marketing afin de convaincre les gens de faire mieux&nbsp;: s'il apparaît dans tous les fils de discussion, on est bien obligé de s'y intéresser à un moment ou à un autre. Et ils y arrivent plutôt bien. On le voit **partout**.
 
-Voici donc une série d'article où j'essaierai de vous présenter ce que c'est et surtout comment le mettre en place pour vos utilisateurs. Accrochez-vous, ça fait pas mal de choses à découvrir&nbsp;:
+Voici donc une série d'articles où j'essaierai de vous présenter ce que c'est et surtout comment le mettre en place pour vos utilisateurs. Accrochez-vous, ça fait pas mal de choses à découvrir&nbsp;:
 1. <a href="/fiches-techniques/pwa-rendre-un-site-web-disponible-grace-aux-services-workers/">Rendre un site web disponible grâce aux Services Workers</a>
 2. <a href="/fiches-techniques/pwa-rendre-un-site-web-disponible-grace-aux-services-workers/">Déclarer un Service Worker et gérer son cycle de vie</a> (Vous êtes ici.)
-3. Intercepter les requêtes HTTP afin d'améliorer l'expérience de l'utilisateur (à paraître)
+3. Intercepter les requêtes HTTP afin d'améliorer l'UX (à paraître)
 4. Proposer une expérience hors ligne (à paraître)
 
-Dans le précédent article je présentais ce que signifie PWA et en quoi un Service Worker peut nous aider à rendre une application *disponible*. C'était une présentation très théorique. Nous allons maintenant pouvoir attaquer à l'implémentation technique.
+Dans l'article précédent, je présentais ce que signifie PWA et en quoi un Service Worker peut nous aider à rendre une application *disponible*. C'était une présentation très théorique. Nous allons maintenant pouvoir attaquer à l'implémentation technique.
 
-Dans cet article, je vous présenterai comment déclarer votre premier Service Worker et comment gérer sa mise à jour en comprenant le cycle de vie. A la fin de cet article, vous devriez donc être bien armé<span aria-hidden="true">&sdot;e</span> pour utiliser un Service Worker en production. [Tous les exemples liés à cette problématique sont disponibles sur le dépôt git de ce blog.](https://github.com/JulienPradet/blog-posts/tree/master/src/content/fiches-techniques/pwa-declarer-un-service-worker-et-gerer-son-cycle-de-vie/examples)
+Dans cet article, je vous présenterai comment déclarer votre premier Service Worker et comment gérer sa mise à jour en parlant du cycle de vie. A la fin de cet article, vous devriez donc être bien armé<span aria-hidden="true">&sdot;e</span> pour utiliser un Service Worker en production. [Tous les exemples liés à cette problématique sont disponibles sur le dépôt git de ce blog.](https://github.com/JulienPradet/blog-posts/tree/master/src/content/fiches-techniques/pwa-declarer-un-service-worker-et-gerer-son-cycle-de-vie/examples) Si vous en avez l'occasion, je vous suggère de faire tourner les exemples en local. Cela vous permettra notamment de trifouiller dans le code et mieux visualiser les impacts de telle ou telle fonction.
 
-Cependant, il faudra attendre les articles suivants pour mettre en place des choses utiles à vos utilisateurs<span aria-hidden="true">&sdot;rices</span> (mise en cache, mode hors ligne, etc.).
+Il faudra tout de même attendre les articles suivants pour mettre en place des choses utiles à vos utilisateurs<span aria-hidden="true">&sdot;rices</span> (mise en cache, mode hors ligne, etc.).
 
 ## Des outils pour se simplifier le travail
 
 Avant de commencer, j'aimerais préciser que des outils sont entrain d'émerger pour simplifier la gestion de vos Service Workers. En tête, vous trouverez [Workbox](https://developers.google.com/web/tools/workbox/examples). Si vous cherchez une solution clé en main, ça peut être un bon point de départ.
 
-Cependant, dans cet article nous n'allons pas utiliser de bibliothèque afin de comprendre comment ça fonctionne là dessous. Alors on se remonte les manches, et on y va&nbsp;! <span aria-hidden="true">:)</span>
+Cependant, dans cet article nous n'allons pas utiliser de bibliothèque afin de comprendre comment ça fonctionne là dessous. Alors on se remonte les manches et on y va&nbsp;! <span aria-hidden="true">:)</span>
 
 ## HTTPS Only
 
@@ -68,21 +68,21 @@ if ("serviceWorker" in navigator) {
 // fichier : service-worker.js
 
 console.log(
-  "SW: Il se passe quelque chose ici!"
+  "SW: Il se passe quelque chose ici !"
 );
 ```
 
 [Retrouvez cet exemple ici.](https://github.com/JulienPradet/blog-posts/tree/master/src/content/fiches-techniques/pwa-declarer-un-service-worker-et-gerer-son-cycle-de-vie/examples/src/declaration)
 
-Si tout va bien, et que vous affichez ce exemple pour la première fois dans votre navigateur, vous verrez dans votre console les messages "`App: Achievement unlocked.`" et "`SW: Il se passe quelque chose ici !`". Voici venu votre premier premier Service Worker&nbsp;! Si ce n'est pas le cas, [renseignez vous sur votre navigateur](https://jakearchibald.github.io/isserviceworkerready/) pour vérifier que votre navigateur supporte les Service Workers. Si c'est bien le cas, pensez à désactiver (`unregister`) tout Service Worker qui serait enregistré sur cette page avant de rafraîchir.
+Si exécutez cet exemple pour la première fois dans votre navigateur, vous verrez dans votre console les messages "`App: Achievement unlocked.`" et "`SW: Il se passe quelque chose ici !`". Voici venu votre premier premier Service Worker&nbsp;! Si ce n'est pas le cas, [renseignez vous sur votre navigateur](https://jakearchibald.github.io/isserviceworkerready/) pour vérifier que votre navigateur supporte bien les Service Workers. Si c'est bien le cas, pensez à désactiver (`unregister`) tout Service Worker qui serait enregistré sur cette page avant de rafraîchir.
 
 Maintenant, rafraîchissez votre page. Dans la console, il n'y a plus que "`App: Achievement unlocked.`". C'est là que commence la magie (et les ennuis).
 
 ## Gérer son cycle de vie
 
-En fait, pour comprendre pourquoi la page ne se comporte pas de la même façon au rafraîchissement, il faut se rappeler qu'un Service Worker est une entité séparée de la page web&nbsp;: même si on ferme la page à l'origine du Service Worker, celui-ci va continuer à s'executer en tâche de fond. Cela veut dire notamment que si l'on recharge la page, il y a aura déjà un Service Worker en cours d'execution. Le navigateur va alors en profiter pour brancher cette nouvelle page au Service Worker existant plutôt que d'en lancer un nouveau. Et donc, il n'y a que le script de la page qui s'exécute&nbsp;: une seule ligne de log.
+En fait, pour comprendre pourquoi la page ne se comporte pas de la même façon au rafraîchissement, il faut se rappeler qu'un Service Worker est une entité séparée de la page web&nbsp;: même si on ferme la page à l'origine du Service Worker, celui-ci va continuer de s'executer en tâche de fond. Cela veut dire notamment que si l'on recharge la page, il y a aura déjà un Service Worker en cours d'execution. Le navigateur va alors en profiter pour brancher cette nouvelle page au Service Worker existant plutôt que d'en lancer un nouveau. Et donc, il n'y a que le script de la page qui s'exécute&nbsp;: une seule ligne de log.
 
-Comment faire alors pour rafraîchir un Service Worker&nbsp;? Il y a [plusieurs façons de déclencher une mise à jour](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#updates) (techniquement, en anglais, on parle d'update), mais le plus simpe est de se dire que ce sera à chaque fois qu'on recharge la page.
+Comment faire alors pour rafraîchir un Service Worker&nbsp;? Il y a [plusieurs façons de déclencher une mise à jour](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#updates) (techniquement, en anglais, on parle d'`update`), mais le plus simple est de se dire que ce sera à chaque fois qu'on recharge/change de page.
 
 Cependant, cette mise à jour se déclenchera *uniquement* si le fichier demandé par `register` a été modifié. Le navigateur va donc télécharger le nouveau fichier et faire une comparaison octet par octet (*byte by byte*). Si le moindre octect change, le Service Worker est mis à jour.
 
@@ -94,25 +94,17 @@ Le but de cette partie sera donc d'expliquer comment il est possible de gérer c
 
 Tout d'abord, parlons des différentes étapes, dites **cycle de vie**, d'un Service Worker.
 
-La première est l'**installation**. Avant de lier un Service Worker a une page, on va le bichonner pour qu'il soit opérationnel dès qu'il sera lié à une page web. C'est le moment notamment de mettre en cache ce qui doit l'être, etc.
+La première est l'**installation**. Avant de lier un Service Worker a une page, on va le bichonner pour qu'il soit opérationnel dès qu'il sera lié à une page web. C'est par exemple le moment de mettre en cache ce qui doit l'être.
 
-Une fois que l'installation est terminée, le Service Worker passe à la deuxième étape : **la phase d'attente**. En effet, s'il y a déjà un Service Worker dans la phase suivante, il va gentiment patienter jusqu'à la place se libère. S'il n'y a personne devant lui, le Service Worker passe directement à la suite.
+Une fois l'installation terminée, le Service Worker passe à la deuxième étape&nbsp;: **la phase d'attente**. En effet, s'il y a déjà un Service Worker dans la phase suivante, il va gentiment patienter jusqu'à ce que la place se libère. S'il n'y a personne devant lui, le Service Worker passe directement à la suite.
 
 Enfin, le Service Worker arrive à la dernière étape&nbsp;: il est **activé**. Cela veut dire que toute nouvelle page web viendra se brancher automatiquement à ce Service Worker. Il sera alors possible de profiter des fonctionnalités telles que l'interception de requêtes HTTP ou des échanges de messages. C'est l'état à partir du quel un Service Worker devient utile.
 
-TODO IMAGE avec les différentes étapes
-1. Arrivée dans un état vierge
-|    Installation    |    Attente    |    Actif    |
-|         1 ------------------------------> 2      |
-
-2. Arrivée alors qu'il y a déjà un Service Worker
-|    Installation    |    Attente    |    Actif    |
-|         1 ---------------> 2 -----------> 3      |
-
+[Retrouvez le très bon schéma explicatif de Jake Archibald sur Google Developers.](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle#updates) Malheureusement il ne fonctionne pas sur Firefox. Pensez donc à essayer sur un autre navigateur.
 
 ### Se brancher au cycle de vie
 
-Avec du code, comment repérer ces étapes&nbsp;? Il y a deux façon d'y parvenir&nbsp;:
+Comment faire pour visualiser tout ça avec du code&nbsp;? Il y a deux façon d'y parvenir&nbsp;:
 * depuis la page web
 * depuis le Service Worker
 
@@ -191,7 +183,7 @@ Il est ainsi possible de récupérer n'importe quel Service Worker et d'écouter
 
 #### Depuis le Service Worker
 
-Du côté du Service Worker, c'est un poil moins alambiqué étant donné que c'est le Service Worker lui même qui gère les phases d'installation et d'activation. Il n'y a donc pas besoin de `registration`, ni de toutes les complications qui vont avec.
+Du côté du Service Worker, c'est un poil moins alambiqué étant donné que c'est le Service Worker lui-même qui gère les phases d'installation et d'activation. Il n'y a donc pas besoin de `registration`, ni de toutes les complications qui vont avec.
 
 Pour accéder aux différentes étapes du cycle de vie, nous avons directement accès aux évènements `install` (cf. `(1)`) et `activate` (cf. `(2)`).
 
@@ -249,18 +241,18 @@ self.addEventListener("activate", event => {
 [Retrouvez cet exemple ici.](https://github.com/JulienPradet/blog-posts/tree/master/src/content/fiches-techniques/pwa-declarer-un-service-worker-et-gerer-son-cycle-de-vie/examples/src/lifecycle/service-worker.js)
 
 Vous remarquerez toute fois qu'il n'y a pas d'évènement pour savoir quand un Service Worker est en attente. Cela dit, ce n'est par pour autant un problème parce que :
-1. un Service Worker en attente est par définition **en attente** et donc n'est pas censé faire d'opérations
-2. un Service Worker en attente est un Service Worker qui a fini de s'installer. Il serait donc possible de le déduire à partir de la promesse passée à `event.waitUntil`.
+* un Service Worker en attente est par définition **en attente** et donc n'est pas censé faire d'opérations.
+* un Service Worker en attente est un Service Worker qui a fini de s'installer. Il serait donc possible de le déduire à partir de la promesse passée à `event.waitUntil`.
 
-Nous sommes donc capables de repérer n'importe quel évènement depuis le Service Worker.
+Avec ces deux exemples de code, nous sommes donc capables de repérer n'importe quel évènement depuis le Service Worker.
 
 Si le fonctionnement du cycle de vie de vos Service Workers n'est pas encore tout à fait clair, n'hésitez pas à executer les [bouts de code ci-dessus](https://github.com/JulienPradet/blog-posts/tree/master/src/content/fiches-techniques/pwa-declarer-un-service-worker-et-gerer-son-cycle-de-vie/examples/src/lifecycle/) dans votre navigateur. En modifiant le Service Worker, puis en rechargeant la page, vous pourrez lire dans votre console chacune des étapes.
 
 ### Activer un nouveau Service Worker
 
-Nous sommes maintenant capables de nous brancher à n'importe quelle étape du cycle de vie de nos Service Workers. Grâce à cela, il nous est possible de gérer l'activation du Service Worker.
+Maintenant que nous connaissons le cycle de vie d'un Service Worker, intéressons nous aux moyens de *gérer* ce cycle de vie. Plus exactement, voyons comment il est possible de mettre fin à une phase d'attente.
 
-Cependant, il faut toujours garder en tête qu'il n'y a pas de méthode universelle qui fonctionne partout. Choisissez donc en fonction de nos besoins. Vous pouvez par exemple commencer par vous poser les questions suivantes (liste non-exhaustive)&nbsp;:
+Tout d'abord, il faut toujours garder en tête qu'il n'y a pas de méthode universelle. Choisissez donc en fonction de vos besoins. Vous pouvez par exemple commencer par vous poser les questions suivantes (liste non-exhaustive)&nbsp;:
 
 * **Est-ce que la mise à jour est mineure&nbsp;?**  
   Si oui, autant ne rien faire. La prochaine fois que l'utilisateur<span aria-hidden="true">&sdot;rice</span> visitera le site, le nouveau Service Worker se sera activé automatiquement.
@@ -269,15 +261,15 @@ Cependant, il faut toujours garder en tête qu'il n'y a pas de méthode universe
 * **Le Service Worker actuel peut-il être interrompu&nbsp;?**  
   Si non, attendez qu'il ait fini ce qu'il est entrain de faire avant d'activer le nouveau.
 * **Peut-on interrompre l'utilisateur<span aria-hidden="true">&sdot;rice</span>&nbsp;?**  
-  Si non, proposez de mettre à jour mais ne faites pas d'activation automatique. C'est la méthode que j'ai choisi sur ce blog quand je publie de nouveaux articles.
+  Si non, proposez de mettre à jour mais ne faites pas d'activation automatique. C'est en particulier cette méthode que j'ai choisi sur ce blog afin de ne pas vous couper dans la lecture des articles.
 
-Le cas le plus simple est donc de ne rien faire. Donc, dans la mesure du possible, essayez de faire en sorte que vos mises à jour soient compatibles avec les anciennes. Si ce n'est pas possible, voyons ensemble comment implémenter les différentes options présentées ci-dessus&nbsp;:
+Le cas le plus simple est donc de ne rien faire. Dans la mesure du possible, on essaiera donc de faire en sorte que nos mises à jour soient compatibles avec les anciennes versions des Service Workers. Si ce n'est pas possible, voyons ensemble comment implémenter les différentes options qui se présentent à nous&nbsp;:
 * Forcer l'activation dès qu'un nouveau Service Worker est disponible
 * Attendre le bon moment pour activer un nouveau Service Worker
 
 #### Forcer l'activation d'un Service Worker
 
-Si telle est votre décision, c'est finalement le cas le moins complexe des mises à jour manuelles. Dans votre Service Worker, il vous faut appeler la méthode `self.skipWaiting`.
+Forcer l'activation sans se poser de question est finalement le cas le moins complexe à mettre en place. Dans le Service Worker, il faut appeler la méthode `self.skipWaiting`&nbsp;:
 
 ```js
 // fichier : /service-worker.js
@@ -290,13 +282,11 @@ self.addEventListener("install", event => {
 
 Ainsi, dès que le Service Worker a fini de s'installer, celui-ci s'active et saute la phase d'attente.
 
-Pour mettre en valeur la différence, vous pouvez changer le contenu du fichier `service-worker.js` et en rafraîchir la page, vous constaterez que le nouveau Service Worker s'active dès qu'il a fini de s'installer.
-
 #### Attendre le bon moment pour activer un nouveau Service Worker
 
-Si nous ne souhaitons pas être autoritaires et attendre le bon moment, l'idée générale va être de faire exactement la même que ci-dessus. La seule différence est que l'on va décaler l'appel de `self.skipWaiting`. En particulier, nous allons voir ensemble comment afficher une notification à l'utilisateur et déclencher la mise à jour au clic.
+Si nous ne souhaitons pas être autoritaires et attendre le bon moment, l'idée générale va être de faire la même chose que ci-dessus&nbsp;: appeler `self.skipWaiting`. La seule différence est que l'on va décaler l'appel de cette méthode en attendant le moment propice. En particulier, nous allons voir ensemble comment afficher une notification à l'utilisateur et déclencher la mise à jour au clic.
 
-Commençons donc par afficher la notification. Pour cela, il va falloir se brancher au cycle de vie pour n'afficher la notification que lorsqu'un Service Worker a fini de s'installer. En reprenant donc ce qu'on a écrit plus haut à propos du cycle de vie, cela donne quelque chose de cet ordre&nbsp;:
+Commençons donc par afficher la notification. Pour cela, il va falloir se brancher au cycle de vie pour n'afficher la notification lorsqu'un Service Worker a fini de s'installer. En reprenant donc ce qu'on a écrit plus haut à propos du cycle de vie, cela donne quelque chose de cet ordre&nbsp;:
 
 ```js
 //fichier : /script.js
@@ -338,7 +328,7 @@ navigator.serviceWorker
 
 [Retrouvez cet exemple ici.](https://github.com/JulienPradet/blog-posts/tree/master/src/content/fiches-techniques/pwa-declarer-un-service-worker-et-gerer-son-cycle-de-vie/examples/src/notification/)
 
-Une fois ceci fait, il devient possible de prévenir le Service Worker que l'utilisateur souhaite mettre à jour son Service Worker. Pour cela, dans la notification, on peut faire un bouton qui envoit un message au Service Worker en cours d'installation pour lui demander de s'activer. Cela ressemblerait à ça&nbsp;:
+Une fois ceci fait, il devient possible de prévenir le Service Worker que l'utilisateur souhaite mettre à jour son Service Worker. Pour cela, dans la notification, nous allons afficher un bouton qui envoie un message au Service Worker en cours d'installation afin de lui demander de s'activer.
 
 ```js
 // fichier : /script.js
@@ -378,12 +368,13 @@ self.addEventListener("message", event => {
 
 [Retrouvez cet exemple ici.](https://github.com/JulienPradet/blog-posts/tree/master/src/content/fiches-techniques/pwa-declarer-un-service-worker-et-gerer-son-cycle-de-vie/examples/src/trigger-activation/)
 
+Ainsi, si tout va bien, une fois que l'utilisateur clique sur le bouton, on voit apparaître dans la console les changements d'états du Service Worker qui finit par être activé.
 
 ### S'assurer du bon état de la page après activation
 
 Nous sommes maintenant capables de nous brancher à n'importe quelle étape du cycle de vie d'un Service Worker et nous avons profité pour gérer nous-même ce cycle de vie et ainsi activer un Service Worker à la volée.
 
-Cependant, l'activation à chaud pour une page peut-être plus délicat que ça. Elle peut par exemple ne pas être capable de gérer la nouvelle version. L'idée est alors de repérer le changement du Service Worker qui contrôle la page et d'agir en conséquence&nbsp;:
+Cependant, l'activation à chaud pour une page peut-être plus délicate que ça. Il se peut par exemple que la page ne soit pas capable de gérer la nouvelle version du Service Worker. L'idée est alors de repérer le changement du Service Worker qui contrôle la page (`controllerchange`) et d'agir en conséquence&nbsp;:
 
 ```js
 // fichier : /script.js
@@ -399,7 +390,7 @@ navigator.serviceWorker
   );
 ```
 
-Le plus souvent, la solution sera de recharger la page malgré les inconvénients pour l'utilisateur<span aria-hidden="true">&sdot;rice</span>.
+Le plus souvent, la solution sera finalement de recharger la page malgré les inconvénients pour l'utilisateur<span aria-hidden="true">&sdot;rice</span>.
 
 ```js
 // fichier : /script.js
@@ -421,7 +412,7 @@ Mais encore une fois, c'est certainement quelque chose qui demandera réflexion 
 
 Il reste un coin d'ombre qui vous aura peut-être titillé si vous avez déjà eu l'occasion de lire d'autres articles sur le sujet des Service Workers et leur activation&nbsp;: `self.clients.claim()`. En effet, on parle souvent de cette fonctionnalité en disant qu'il faut la coupler avec un `self.skipWaiting`. Dans les faits, ce n'est pas vrai.
 
-Le but de la fonction `self.clients.claim()` que l'on appelle généralement depuis un Service Worker activé est de forcer l'utilisation de celui-ci dans toutes les pages ouvertes. Mais en vérité, il se passe déjà à peu près la même chose quand un Service Worker s'active.
+Le but de la fonction `self.clients.claim()` que l'on appelle généralement depuis un Service Worker fraîchement activé est de forcer l'utilisation de celui-ci dans toutes les pages ouvertes. Mais en vérité, il se passe déjà à peu près la même chose quand un Service Worker s'active.
 
 Pour le mettre en évidence, voici un bout de code qui, au clic d'un bouton, envoie un message au Service Worker qui contrôle la page. Une fois reçu, le Service Worker l'affiche.
 
@@ -468,26 +459,30 @@ Si vous cliquez sur le bouton avant que le Service Worker ait eu le temps de s'a
 ```js
 // fichier : /script.js
 
-navigator.serviceWorker.addEventListener("controllerchange", () => {
-  console.log("controller change");
-});
+navigator.serviceWorker
+  .addEventListener(
+    "controllerchange",
+    () => {
+      console.log("controller change");
+    }
+  );
 ```
 
 C'est aussi visible dans [la spec' de l'activation d'un Service Worker (étape 7)](https://www.w3.org/TR/service-workers-1/#activation-algorithm).
 
-Mais alors quelle différence avec [`self.clients.claim()`](https://www.w3.org/TR/service-workers-1/#dom-clients-claim) ? Quand est-ce utile&nbsp;? En fait, cela permet de récupérer *aussi* les pages qui n'ont pas de Service Workers enregistrés mais qui correspondent tout de même au *scope* du Service Worker.
+Mais alors quelle différence avec [`self.clients.claim()`](https://www.w3.org/TR/service-workers-1/#dom-clients-claim) ? Quand est-ce utile&nbsp;? En fait, cette méthode permet de récupérer *aussi* les pages qui n'ont pas de Service Workers enregistrés.
 
 Conclusion&nbsp;: sauf pour des cas très particuliers, vous n'aurez pas besoin d'utiliser `self.clients.claim`.
 
 ## Désactiver un Service Worker
 
-Nous avons couvert la déclaration du Service Worker et la mise à jour d'un Service Worker. Il resterait donc uniquement la désactivation d'un Service Worker.
+Nous avons couvert la déclaration du Service Worker et la mise à jour d'un Service Worker. Pour bien faire les choses, il resterait donc uniquement la désactivation d'un Service Worker.
 
-Dans les faits, ce n'est pas utile. En effet, je ne vois aucune raison pour laquelle vous voudriez enlever la fonctionnalité à vos utilisateurs<span aria-hidden="true">&sdot;rices</span>.
+Cela dit, dans les faits, ce n'est pas utile. En effet, je ne vois aucune raison pour laquelle vous voudriez enlever les fonctionnalités apportées par votre Service Worker à vos utilisateurs<span aria-hidden="true">&sdot;rices</span>.
 
-Cependant, cela peut être pratique pour vous, développeurs<span aria-hidden="true">&sdot;euses</span>, afin de tester que votre site fonctionne toujours sans Service Worker ou pour développer sans risquer d'avoir des effets de bords désagréables.
+Cependant, la raison pour laquelle j'en parle est que cela peut être pratique pour vous, développeurs<span aria-hidden="true">&sdot;euses</span>. En effet, cela peut être utile pour tester que votre site fonctionne toujours sans Service Worker, mais aussi pour développer sans risquer d'avoir des effets de bords désagréables.
 
-Cela peut se faire [en désactivant la fonctionnalité dans votre navigateur](https://jakearchibald.github.io/isserviceworkerready/#debugging) ou via ce bout de code :
+Cela peut se faire [dans les DevTools](https://jakearchibald.github.io/isserviceworkerready/#debugging) ou via ce bout de code :
 
 ```js
 navigator.serviceWorker
@@ -501,18 +496,17 @@ navigator.serviceWorker
 
 ## Conclusion
 
-Nous voilà arrivé au bout de la gestion de notre Service Worker. Nous sommes capables maintenant de l'utiliser dans n'importe quelle situation&nbsp;: déclaration, mise à jour et désactivation.
+Félicitations à tous ceux qui sont arrivés au bout de cet article&nbsp;! Vous avez maintenant tout ce qu'il vous faut pour utiliser et mettre à jour un Service Worker dans n'importe quelle situation&nbsp;: déclaration, mise à jour et désactivation.
 
-Cependant, il faudra toujours retenir que du fait qu'un Service Worker tourne **à côté** de vos pages, cela a des impacts sur le développement. Il faut anticiper les cas d'utilisation pour que cela n'impacte pas négativement vos utilisateurs<span aria-hidden="true">&sdot;rices</span>. A titre d'exemple, sur ce blog, en rédigeant cet article, je me suis rendu compte que la précédente version de mon Service Worker fonctionnait mal et continuait d'afficher une très vieille page d'accueil pour tous ceux qui étaient venus régulièrement sur mon site.
+Cependant, il faudra retenir que ce n'est jamais *easy-peasy*. Il faut anticiper les cas d'utilisation pour que cela n'impacte pas négativement vos utilisateurs<span aria-hidden="true">&sdot;rices</span>. A titre d'exemple, sur ce blog, j'avais mis en place les Service Workers depuis quelques temps. Pourtant, en rédigeant cet article, je me suis rendu compte que la précédente version de mon Service Worker fonctionnait mal et continuait d'afficher une très vieille page d'accueil pour tous ceux qui étaient venus régulièrement sur mon site. Oups.
 
-Ne soyons tout de même pas défaitistes parce que cela apporte beaucoup d'autres points positifs que nous attaquerons dans les articles suivants.
+Ne soyons tout de même pas défaitistes parce que cela apporte beaucoup d'autres points (très) positifs que nous attaquerons dans les articles suivants.
 
-A la semaine prochaine donc pour parler de la mise en cache des requêtes grâce aux Service Workers&nbsp;!
-
-En attendant, n'hésitez pas me poser des questions ou me faire des commentaires sur [Twitter](https://twitter.com/JulienPradet) ou [Github](https://github.com/julienpradet/blog-posts);
+Je vous donne donc rendez-vous la semaine prochaine pour parler de la mise en cache des requêtes grâce aux Service Workers&nbsp;! <span aria-hidden="true">\o</span> En attendant, n'hésitez pas me poser des questions ou me faire des commentaires sur [Twitter](https://twitter.com/JulienPradet) ou [Github](https://github.com/julienpradet/blog-posts).
 
 ---- 
 
 Sources complémentaires&nbsp;:
-* [The Service Worker Lifecycle](https://bitsofco.de/the-service-worker-lifecycle/) par [Ire Aderinokun](https://ireaderinokun.com/)
-* []
+* [La sépcification des Service Workers](https://www.w3.org/TR/service-workers-1)
+* [The Service Worker Lifecycle](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle) par [Jake Archibald](https://twitter.com/jaffathecake)
+* [The Service Worker Lifecycle](https://bitsofco.de/the-service-worker-lifecycle/) par [Ire Aderinokun](https://twitter.com/ireaderinokun)
