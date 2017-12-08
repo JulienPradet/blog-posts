@@ -6,10 +6,7 @@ const reduceObservable = require("../util/reduceObservable");
 const crypto = require("crypto");
 
 const serviceWorker = urlsToCacheOnFirstLoad => {
-  const hash = crypto
-    .createHash("md5")
-    .update(JSON.stringify(urlsToCacheOnFirstLoad))
-    .digest("hex");
+  const hash = Math.ceil(Math.random() * 1000000);
 
   return `
     const CACHE_NAME = 'julien-pradet-blog-${hash}'

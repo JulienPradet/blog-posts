@@ -24,14 +24,17 @@ loadComponents().then(() => {
 
 if ("serviceWorker" in navigator) {
   if (process.env.NODE_ENV === "production") {
+    console.log("SW fetch");
     navigator.serviceWorker
       .register("/service-worker.js")
       .then(registration => {
         // Registration was successful
         registration.addEventListener("updatefound", () => {
+          console.log("SW detected");
           const installingWorker = registration.installing;
           installingWorker.addEventListener("statechange", () => {
             if (installingWorker.state === "installed") {
+              console.log("SW installed");
               if (navigator.serviceWorker.controller) {
                 dispatchUpdateEvent();
               }

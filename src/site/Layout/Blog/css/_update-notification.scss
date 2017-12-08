@@ -3,7 +3,7 @@
     z-index: 1000;
     bottom: 0;
     left: 0;
-    transform: translateY(100%);
+    transform: translateY(0);
     transition: transform 0.3s ease;
     width: 100%;
     display: flex;
@@ -45,15 +45,15 @@
         > span {
             display: block;
             width: 100%;
-            transform: rotate(0deg);
+            transform: rotate(180deg);
             transition: transform 0.3s ease;
         }
     }
 
     &--closed {
-        transform: translateY(0);
+        transform: translateY(100%);
         .close > span {
-            transform: rotate(180deg);
+            transform: rotate(0);
         }
     }
 }

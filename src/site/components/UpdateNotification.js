@@ -22,7 +22,7 @@ class UpdateNotification extends Component {
   displayNotification() {
     this.setState({
       shouldUpdate: true,
-      display: true
+      display: false
     });
   }
 
@@ -45,8 +45,9 @@ class UpdateNotification extends Component {
     if (this.state.shouldUpdate) {
       return (
         <div
-          className={`update-notification ${!this.state.display &&
-            `update-notification--closed`}`}
+          className={`update-notification ${this.state.display
+            ? `update-notification--closed`
+            : ""}`}
         >
           <div>
             Oh&nbsp;? Une mise à jour est disponible&nbsp;!
