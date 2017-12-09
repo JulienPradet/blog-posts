@@ -32,6 +32,8 @@ if ("serviceWorker" in navigator) {
         registration.addEventListener("updatefound", () => {
           console.log("SW detected");
           const installingWorker = registration.installing;
+          const activeWorker = registration.active;
+
           installingWorker.addEventListener("statechange", () => {
             if (installingWorker.state === "installed") {
               console.log("SW installed");
@@ -40,16 +42,22 @@ if ("serviceWorker" in navigator) {
               }
             }
           });
+
+          if (installingWorker && !activeWorker) {
+            navigator.serviceWorker.addEventListener("controllerchange", () => {
+              console.log("SW attached for the first time");
+            });
+          } else {
+            navigator.serviceWorker.addEventListener("controllerchange", () => {
+              window.location.reload();
+            });
+          }
         });
       })
       .catch(err => {
         // registration failed :(
         console.log("ServiceWorker registration failed: ", err);
       });
-
-    navigator.serviceWorker.addEventListener("controllerchange", () => {
-      window.location.reload();
-    });
   } else {
     navigator.serviceWorker.getRegistration().then(registration => {
       if (registration) {
