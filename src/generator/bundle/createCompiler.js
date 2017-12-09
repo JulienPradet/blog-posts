@@ -80,6 +80,12 @@ const baseConfig = paths => (pages, entryPath) => {
             new webpack.optimize.UglifyJsPlugin({
               sourceMap: true,
               compress: { warnings: false }
+            }),
+            new webpack.optimize.CommonsChunkPlugin({
+              async: true,
+              minChunks: 5,
+              children: true
+            }),
             })
           ]
         : [
