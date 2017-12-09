@@ -18,6 +18,7 @@
       "echo 'Removing dist files...' && rm -rf build/* src/generator/tmp/*",
     "prebuild": "npm run -s clean",
     "build": "NODE_ENV=production node ./src/index.js",
+    "build:analyze": "NODE_ENV=production ANALYZE=true node ./src/index.js",
     "start": "NODE_ENV=development node ./src/index.js",
     "lighthouse":
       "lighthouse https://59b2abbe0752d0789cc4057f--julien-pradet-blog.netlify.com/",

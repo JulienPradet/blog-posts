@@ -2,6 +2,8 @@ const path = require("path");
 const webpack = require("webpack");
 const log = require("../util/log")("BUNDLE");
 const HtmlWebpackPlugin = require("html-webpack-plugin");
+var WebpackBundleAnalyzerPlugin = require("webpack-bundle-analyzer")
+  .BundleAnalyzerPlugin;
 
 const baseConfig = paths => (pages, entryPath) => {
   return {
@@ -74,28 +76,37 @@ const baseConfig = paths => (pages, entryPath) => {
           GA_TRACKING_ID: JSON.stringify(process.env.GA_TRACKING_ID)
         }
       })
-    ].concat(
-      process.env.NODE_ENV === "production"
-        ? [
-            new webpack.optimize.UglifyJsPlugin({
-              sourceMap: true,
-              compress: { warnings: false }
-            }),
-            new webpack.optimize.CommonsChunkPlugin({
-              async: true,
-              minChunks: 5,
-              children: true
-            }),
-            })
-          ]
-        : [
-            new HtmlWebpackPlugin({
-              template: path.join(__dirname, "dev-template.html")
-            }),
-            new webpack.HotModuleReplacementPlugin(),
-            new webpack.NamedModulesPlugin()
-          ]
-    )
+    ]
+      .concat(
+        process.env.NODE_ENV === "production"
+          ? [
+              new webpack.optimize.UglifyJsPlugin({
+                sourceMap: true,
+                compress: { warnings: false }
+              }),
+              new webpack.optimize.CommonsChunkPlugin({
+                async: true,
+                minChunks: 5,
+                children: true
+              })
+            ]
+          : [
+              new HtmlWebpackPlugin({
+                template: path.join(__dirname, "dev-template.html")
+              }),
+              new webpack.HotModuleReplacementPlugin(),
+              new webpack.NamedModulesPlugin()
+            ]
+      )
+      .concat(
+        process.env.ANALYZE
+          ? [
+              new WebpackBundleAnalyzerPlugin({
+                analyzerMode: "static"
+              })
+            ]
+          : []
+      )
   };
 };
 
