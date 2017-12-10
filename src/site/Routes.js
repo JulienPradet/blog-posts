@@ -2,6 +2,7 @@ import React from "react";
 import Route from "react-router/Route";
 import getLayout from "./util/getLayout";
 import Analytics from "./Analytics";
+import ScrollToTopOnUpdate from "./ScrollToTopOnUpdate";
 
 const LayoutRoutes = ({ routes }) => {
   const layoutRoutes = Object.keys(routes).map(layoutType => {
@@ -56,6 +57,7 @@ const LayoutRoutes = ({ routes }) => {
   return (
     <div>
       {layoutRoutes}
+      <Route component={ScrollToTopOnUpdate} />
       <Route component={Analytics} />
     </div>
   );
