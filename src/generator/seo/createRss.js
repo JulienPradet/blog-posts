@@ -11,7 +11,7 @@ const createRss = paths => () => {
   const author = "Julien Pradet";
 
   let rss = new RSS({
-    title: "Enchanté, Julien Pradet",
+    title: "Enchanté, commit42",
     description:
       "Un blog qui parle surtout de développement web. Peut-être un peu de culture et de vie aussi. Sait-on jamais.",
     feed_url: url + "feed.xml",

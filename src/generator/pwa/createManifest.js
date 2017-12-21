@@ -4,7 +4,7 @@ const fs = require("../util/fs");
 const createContent = paths => () => {
   const manifest = {
     short_name: "Julien P.",
-    name: "Enchanté, Julien Pradet",
+    name: "Enchanté, commit42",
     start_url: "https://www.julienpradet.fr/",
     background_color: "#f6edda",
     theme_color: "#f6edda",
