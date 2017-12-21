@@ -12,7 +12,7 @@ const PageHeader = props => {
       <div className="header__title timeline__side">
         <TitleComponent>
           <PageLink to="/">
-            <span>Enchanté,</span> <span>Julien&nbsp;Pradet</span>
+            <span>Enchanté,</span> <span>commit42</span>
           </PageLink>
         </TitleComponent>
       </div>
