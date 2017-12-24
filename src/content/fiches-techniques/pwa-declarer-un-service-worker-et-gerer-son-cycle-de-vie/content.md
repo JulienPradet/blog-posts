@@ -519,7 +519,7 @@ Cependant, il faudra retenir que ce n'est jamais *easy-peasy*. Il faut anticiper
 
 Ne soyons tout de même pas défaitistes parce que cela apporte beaucoup d'autres points (très) positifs que nous attaquerons dans les articles suivants.
 
-Je vous donne donc rendez-vous la semaine prochaine pour parler de la mise en cache des requêtes grâce aux Service Workers&nbsp;! <span aria-hidden="true">\o</span> En attendant, n'hésitez pas me poser des questions ou me faire des commentaires sur [Twitter](https://twitter.com/JulienPradet) ou [Github](https://github.com/julienpradet/blog-posts).
+Dans la suite, nous parlerons de [la mise en cache des requêtes grâce aux Service Workers&nbsp;!](/fiches-techniques/pwa-intercepter-les-requetes-HTTP-et-les-mettre-en-cache/) <span aria-hidden="true">\o</span> En attendant, n'hésitez pas me poser des questions ou me faire des commentaires sur [Twitter](https://twitter.com/JulienPradet) ou [Github](https://github.com/julienpradet/blog-posts).
 
 Merci à Nicolas et Giovanni pour leurs retours :)
 
