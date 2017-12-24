@@ -3,7 +3,7 @@ Le terme **Progressive Web Apps** (ou PWA) vient de [Frances Berriman](https://f
 Voici donc une série d'articles où j'essaierai de vous présenter ce que c'est et surtout comment le mettre en place pour vos utilisateurs. Accrochez-vous, ça fait pas mal de choses à découvrir&nbsp;:
 1. <a href="/fiches-techniques/pwa-rendre-un-site-web-disponible-grace-aux-services-workers/">Rendre un site web disponible grâce aux Services Workers</a> (Vous êtes ici.)
 2. <a href="/fiches-techniques/pwa-declarer-un-service-worker-et-gerer-son-cycle-de-vie/">Déclarer un Service Worker et gérer son cycle de vie</a>
-3. Intercepter les requêtes HTTP afin d'améliorer l'UX (à paraître)
+3. <a href="/fiches-techniques/pwa-intercepter-les-requetes-HTTP-et-les-mettre-en-cache/">Intercepter les requêtes HTTP et les mettre en cache</a>
 4. Proposer une expérience hors ligne (à paraître)
 
 Commençons donc par un bref récap' de ce qui se cache derrière ce terme. Est-ce vraiment quelque chose de révolutionnaire&nbsp;? Qu'est ce que ça implique pour nos utilisateurs et nos utilisatrices&nbsp;?

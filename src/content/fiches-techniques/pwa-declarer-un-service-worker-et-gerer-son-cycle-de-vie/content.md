@@ -3,7 +3,7 @@ Le terme Progressive Web Apps (PWA) vient de [Frances Berriman](https://fberrima
 Voici donc une série d'articles où j'essaierai de vous présenter ce que c'est et surtout comment le mettre en place pour vos utilisateurs. Accrochez-vous, ça fait pas mal de choses à découvrir&nbsp;:
 1. <a href="/fiches-techniques/pwa-rendre-un-site-web-disponible-grace-aux-services-workers/">Rendre un site web disponible grâce aux Services Workers</a>
 2. <a href="/fiches-techniques/pwa-declarer-un-service-worker-et-gerer-son-cycle-de-vie/">Déclarer un Service Worker et gérer son cycle de vie</a> (Vous êtes ici.)
-3. Intercepter les requêtes HTTP afin d'améliorer l'UX (à paraître)
+3. <a href="/fiches-techniques/pwa-intercepter-les-requetes-HTTP-et-les-mettre-en-cache/">Intercepter les requêtes HTTP et les mettre en cache</a>
 4. Proposer une expérience hors ligne (à paraître)
 
 Dans l'article précédent, je présentais ce que signifie PWA et en quoi un Service Worker peut nous aider à rendre une application *disponible*. C'était une présentation très théorique. Nous allons maintenant pouvoir attaquer à l'implémentation technique.
@@ -35,7 +35,7 @@ Ainsi, dans les exemples de code que je mettrai par la suite, je préciserai que
 ```js
 // fichier : script.js
 
-// Avant d'utiliser un Serivce Worker,
+// Avant d'utiliser un Service Worker,
 // on vérifie que c'est possible.
 if ("serviceWorker" in navigator) {
   // Puis on déclare celui-ci
@@ -519,11 +519,13 @@ Cependant, il faudra retenir que ce n'est jamais *easy-peasy*. Il faut anticiper
 
 Ne soyons tout de même pas défaitistes parce que cela apporte beaucoup d'autres points (très) positifs que nous attaquerons dans les articles suivants.
 
-Je vous donne donc rendez-vous la semaine prochaine pour parler de la mise en cache des requêtes grâce aux Service Workers&nbsp;! <span aria-hidden="true">\o</span> En attendant, n'hésitez pas me poser des questions ou me faire des commentaires sur [Twitter](https://twitter.com/JulienPradet) ou [Github](https://github.com/julienpradet/blog-posts).
+Dans la suite, nous parlerons de [la mise en cache des requêtes grâce aux Service Workers&nbsp;!](/fiches-techniques/pwa-intercepter-les-requetes-HTTP-et-les-mettre-en-cache/) <span aria-hidden="true">\o</span> En attendant, n'hésitez pas me poser des questions ou me faire des commentaires sur [Twitter](https://twitter.com/JulienPradet) ou [Github](https://github.com/julienpradet/blog-posts).
+
+Merci à Nicolas et Giovanni pour leurs retours :)
 
 ---- 
 
 Sources complémentaires&nbsp;:
-* [La sépcification des Service Workers](https://www.w3.org/TR/service-workers-1)
+* [La spécification des Service Workers](https://www.w3.org/TR/service-workers-1)
 * [The Service Worker Lifecycle](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle) par [Jake Archibald](https://twitter.com/jaffathecake)
 * [The Service Worker Lifecycle](https://bitsofco.de/the-service-worker-lifecycle/) par [Ire Aderinokun](https://twitter.com/ireaderinokun)

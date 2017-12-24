@@ -99,7 +99,7 @@ const baseConfig = paths => (pages, entryPath) => {
             ]
       )
       .concat(
-        process.env.ANALYZE
+        process.env.ANALYZE === "true"
           ? [
               new WebpackBundleAnalyzerPlugin({
                 analyzerMode: "static"
