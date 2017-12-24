@@ -35,7 +35,7 @@ Ainsi, dans les exemples de code que je mettrai par la suite, je préciserai que
 ```js
 // fichier : script.js
 
-// Avant d'utiliser un Serivce Worker,
+// Avant d'utiliser un Service Worker,
 // on vérifie que c'est possible.
 if ("serviceWorker" in navigator) {
   // Puis on déclare celui-ci
@@ -521,9 +521,11 @@ Ne soyons tout de même pas défaitistes parce que cela apporte beaucoup d'autre
 
 Je vous donne donc rendez-vous la semaine prochaine pour parler de la mise en cache des requêtes grâce aux Service Workers&nbsp;! <span aria-hidden="true">\o</span> En attendant, n'hésitez pas me poser des questions ou me faire des commentaires sur [Twitter](https://twitter.com/JulienPradet) ou [Github](https://github.com/julienpradet/blog-posts).
 
+Merci à Nicolas et Giovanni pour leurs retours :)
+
 ---- 
 
 Sources complémentaires&nbsp;:
-* [La sépcification des Service Workers](https://www.w3.org/TR/service-workers-1)
+* [La spécification des Service Workers](https://www.w3.org/TR/service-workers-1)
 * [The Service Worker Lifecycle](https://developers.google.com/web/fundamentals/primers/service-workers/lifecycle) par [Jake Archibald](https://twitter.com/jaffathecake)
 * [The Service Worker Lifecycle](https://bitsofco.de/the-service-worker-lifecycle/) par [Ire Aderinokun](https://twitter.com/ireaderinokun)
