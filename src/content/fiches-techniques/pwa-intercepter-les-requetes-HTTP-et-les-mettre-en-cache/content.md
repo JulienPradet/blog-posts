@@ -12,7 +12,7 @@ Maintenant, il est temps d'utiliser tout ça pour commencer à améliorer l'exp�
 
 Je vais ainsi commencer par présenter la fonctionnalité phare des Service Workers qui permet d'atteindre ce but : l'interception de requêtes. Ensuite, nous verrons comment nous pouvons coupler cela à la Cache API pour réutiliser des requêtes déjà émises et ainsi éviter d'être dépendant de la connexion internet.
 
-A la fin de cet article vous aurez donc toutes les billes à votre disposition pour rendre votre site **disponible**. Cependant, nous n'en serons encore qu'à la présentation technique des fonctionnalités. Il faudra attendre le dernier article pour voir comment assembler tout ça pour proposer une version hors ligne de votre site à vos utilisateurs<span aria-hidden="true">&sdot;rices</span>.
+A la fin de cet article vous aurez donc toutes les billes à votre disposition pour rendre votre site **disponible**. Cependant, nous n'en serons encore qu'à la présentation des détails techniques de ces fonctionnalités. Il faudra attendre le dernier article pour voir comment assembler tout ça pour proposer une version hors ligne de votre site à vos utilisateurs<span aria-hidden="true">&sdot;rices</span>.
 
 ## Intercepter les requêtes HTTP
 
@@ -69,17 +69,17 @@ Il nous est donc possible d'intercepter une requête et afficher du contenu sans
 
 Là tout de suite, vous ne vous en rendez peut-être pas compte étant donné qu'on ne renvoie qu'un "Hello Toto", mais c'est très puissant comme fonctionnalité.
 
-Il devient assez tentant de vouloir ajouter des traitements sur les requêtes au niveau du Service Worker. On peut rapidement en devenir dépendant. Cependant il est **très important de se débrouiller pour que le site fonctionne sans Service Worker**.
+Il devient par exemple assez tentant de vouloir ajouter des traitements sur les requêtes au niveau du Service Worker. On peut rapidement en devenir dépendant. Cependant il est **très important de se débrouiller pour que le site fonctionne sans Service Worker**.
 
 Il est par exemple tout à fait possible que le navigateur de l'utilisateur [ne supporte pas encore les Service Workers](https://jakearchibald.github.io/isserviceworkerready/#service-worker-enthusiasm) ou que ceux-ci soient désactivés. Mais il est aussi possible que votre page se retrouve détachée du Service Worker pour on ne sait quelle raison (<abbr title="Also Known As">a.k.a.</abbr> un bug).
 
-Ainsi, il est interdit de faire en sorte que certaines requêtes ne fonctionnent que si un Service Worker est présent. Il faudra plutôt mettre en place un serveur qui fournisse `/toto` pour que la requête fonctionne aussi lorsque le Service Worker est absent. Ainsi, s'il y a un Service Worker, on améliore les performances ressenties par l'utilisateur. S'il n'y en a pas, il a toujours accès au contenu.
+Ainsi, il est interdit de faire en sorte que certaines requêtes ne fonctionnent que si un Service Worker est présent. Il faudra plutôt mettre en place un serveur qui fournisse `/toto` pour que la requête fonctionne aussi lorsque le Service Worker est absent. Ainsi, s'il y a un Service Worker, on améliore les performances ressenties. S'il n'y en a pas, on a toujours accès au contenu.
 
 ## Intercepter pour mettre en cache
 
 Ok, mais l'interception de requête pour faire des réponses sorties de nulle part, ce n'est pas très intéressant dans la vie de tous les jours. Attaquons nous donc au coeur du sujet.
 
-Notre but initial est de rendre notre site web [disponible](http://localhost:3000/fiches-techniques/pwa-rendre-un-site-web-disponible-grace-aux-services-workers/#definition-theorique-dune-pwa), afin que l'utilisateur<span aria-hidden="true">&sdot;rice</span> continue d'accèder au site en étant hors ligne (ou parce que le WiFi a sauté <span aria-hidden="true">`¯\_(ツ)_/¯`</span>). Pour y arriver, nous allons réutiliser les données déjà récupérées depuis le serveur et les servir à nouveau si l'utilisateur fait la même requête. C'est le principe de mise en cache.
+Notre but initial est de rendre notre site web [disponible](http://localhost:3000/fiches-techniques/pwa-rendre-un-site-web-disponible-grace-aux-services-workers/#definition-theorique-dune-pwa), afin que l'utilisateur<span aria-hidden="true">&sdot;rice</span> continue d'accèder au site en étant hors ligne (ou lorsque le WiFi a sauté <span aria-hidden="true">`¯\_(ツ)_/¯`</span>). Pour y arriver, nous allons réutiliser les données déjà récupérées depuis le serveur et les servir à nouveau si l'utilisateur fait la même requête. C'est le principe de mise en cache.
 
 ### Cache API
 
@@ -127,7 +127,7 @@ cache.delete(request).then(() => {
 
 A noter qu'on a bien fait attention à cloner la requête avant de la stocker (`.clone()`). Cela permet d'éviter tout effet de bord lors de la récupération du corps de la requête (cf. [Response.clone() sur MDN](https://developer.mozilla.org/en-US/docs/Web/API/Response/clone)).
 
-Un deuxième point à noter est qu'il est possible de séparer les différents de types de caches. Cela facilite notamment la suppression d'une partie du cache de manière ciblée. Il est par exemple souvent pertinent dans deux caches différents les *assets* et les *requêtes API*.
+Un deuxième point à noter est qu'il est possible de séparer les différents de types de caches. Cela facilite notamment la suppression d'une partie du cache de manière ciblée. Il est par exemple souvent pertinent d'avoir deux caches différents pour les *assets* et les *requêtes API*.
 
 > **Lexique**&nbsp;: Je vais régulièrement parler d'*assets* et de *requêtes API*. Dans le cadre de cet article, il faudra comprendre ces termes comme suit&nbsp;:
 > * **Asset**&nbsp;: tout fichier statique permettant d'afficher votre page web (javascript, css, images, etc.)  
@@ -148,7 +148,7 @@ caches.open("Nom du cache")
 
 Maintenant que nous sommes capables de mettre des choses dans le cache, il faut se demander quoi mettre en cache, dans quel contexte, etc. On va parler de **stratégies**.
 
-C'est intimement lié à la nature de application. Potentiellement, on pourrait imaginer une infinité de stratégies différentes. Cela dit, [les principales stratégies](https://jakearchibald.com/2014/offline-cookbook/#serving-suggestions-responding-to-requests) sont&nbsp;:
+C'est intimement lié à la nature du site web. Potentiellement, on pourrait imaginer une infinité de stratégies différentes. Cela dit, [les principales stratégies](https://jakearchibald.com/2014/offline-cookbook/#serving-suggestions-responding-to-requests) sont&nbsp;:
 * **Network Only** : on ne veut pas de cache car l'opération est critique/ne peut pas fonctionner hors ligne. Si ce n'est qu'une partie de l'application, il est important d'expliquer clairement au niveau de l'interface pourquoi la fonctionnalité n'est pas disponible.
 * **Cache First** : on récupère en priorité depuis le cache. S'il n'y a pas encore de cache, on va chercher sur le réseau et on stocke la réponse dans le cache. L'intérêt est qu'une fois qu'on a mis quelque chose en cache, on est capable de le servir très rapidement à l'utilisateur. La performance ressentie s'en retrouve grandement améliorée.
 * **Network First** : on récupère en priorité depuis le réseau. Si le réseau ne répond pas, on sert le cache afin d'afficher du contenu. Cela permet d'afficher du contenu qui n'est peut-être plus à jour, mais qui a le mérite d'être là.
@@ -236,7 +236,10 @@ const getResponseFromCacheFirst = (
           .then(response => {
             // Une fois qu'on a reçu la
             // réponse, on met en cache
-            // pour la prochaine fois
+            // pour la prochaine fois.
+            // On n'oublie pas de cloner
+            // la réponse pour pouvoir la
+            // mettre en cache.
             setResponseCache(
                 cacheName,
                 request,
@@ -282,11 +285,11 @@ Pour vérifier que vous avez bien compris le fonctionnement de ce code, un bon e
 
 Dans l'exemple ci-dessus, vous pouvez constater que je n'ai mis en cache que les assets. Il est **très important de ne toucher qu'aux URLs que l'on maîtrise**. Sinon, on peut se retrouver dans des situations délicates. 
 
-Imaginons un instant que nous n'ayons pas mis de filtre et que nous interceptions *toutes* les requêtes pour les mettre en cache. Dans ce cas, au rafraîchissement de la page, on ne va plus chercher les infos sur le serveur. Tout est déjà en cache. Cool&nbsp;!
+Imaginons un instant que nous n'ayons pas mis de filtre et que nous interceptions *toutes* les requêtes pour les mettre en cache. Dans ce cas, au rafraîchissement de la page, on n'irait plus chercher les infos sur le serveur. Tout est déjà en cache et va très vite. Cool&nbsp;!
 
 Cependant, un détail auquel on n'a pas pensé, c'est qu'au chargement de la page, on fait une requête qui va chercher le nombre de notifications non lues. Etant donné qu'il n'y a pas de filtre au niveau de la mise en cache, cette requête se retrouve elle aussi en cache. Ainsi, si une nouvelle notification arrive, on récupère tout de même l'ancienne valeur. Oups.
 
-Il faut donc faire très attention. D'autant plus que vous ne maîtrisez pas tout ce qui est sur votre site web. C'est par exemple le cas pour les outils d'analytics, les librairies externes, etc.
+Il faut donc faire très attention. D'autant plus qu'on n'est pas toujours maître de tout ce qui est sur son site web. C'est par exemple le cas pour les outils d'analytics, les librairies externes, etc. Mais c'est aussi le cas quand une autre équipe travaille sur une autre partie de l'application.
 
 En tant que développeur<span aria-hidden="true">&sdot;euse</span>, lorsque l'on met en place son propre Service Worker, croyez-moi, on finit toujours par perdre du temps sur ce genre d'erreurs. Heureusement, les [DevTools de nos navigateurs](https://jakearchibald.github.io/isserviceworkerready/#debugging) sont là vous aider à repartir d'un état stable&nbsp;:
 * Sur Firefox, ouvrez un nouvel onglet à l'URL `about:debugging#workers` et cliquez sur `unregister` sur le service worker qui vous intéresse.
@@ -300,7 +303,7 @@ Mais comment faire cette remise à plat&nbsp;?
 
 Même si nous avons tout bien fait, il y a toujours un moment où nous souhaitons invalider/vider le cache. Cela peut se produire quand on publie une nouvelle version du site par exemple. C'est aussi le cas quand le contenu à afficher change dans le temps (nouveau commentaire, notification, etc.).
 
-L'idée est d'appeler `cache.delete()`. Mais où et quand faut-il le faire&nbsp;?
+L'idée est alors d'appeler `cache.delete()`. Mais où et quand faut-il le faire&nbsp;?
 
 Comme d'habitude, la réponse est&nbsp;: ça dépend. En effet, si c'est une requête API ou un asset, vraisemblablement, ce sera très différent.
 
