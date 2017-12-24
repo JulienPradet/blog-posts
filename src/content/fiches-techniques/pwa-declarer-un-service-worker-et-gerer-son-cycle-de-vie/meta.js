@@ -1,6 +1,5 @@
 module.exports = {
   isListed: true,
-  removeFromSitemap: true,
   layout: "Blog",
   title: "PWA : Déclarer un Service Worker et gérer son cycle de vie",
   date: "2017-12-08",
