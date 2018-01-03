@@ -79,7 +79,7 @@ Ainsi, il est interdit de faire en sorte que certaines requêtes ne fonctionnent
 
 Ok, mais l'interception de requête pour faire des réponses sorties de nulle part, ce n'est pas très intéressant dans la vie de tous les jours. Attaquons nous donc au coeur du sujet.
 
-Notre but initial est de rendre notre site web [disponible](http://localhost:3000/fiches-techniques/pwa-rendre-un-site-web-disponible-grace-aux-services-workers/#definition-theorique-dune-pwa), afin que l'utilisateur<span aria-hidden="true">&sdot;rice</span> continue d'accèder au site en étant hors ligne (ou lorsque le WiFi a sauté <span aria-hidden="true">`¯\_(ツ)_/¯`</span>). Pour y arriver, nous allons réutiliser les données déjà récupérées depuis le serveur et les servir à nouveau si l'utilisateur fait la même requête. C'est le principe de mise en cache.
+Notre but initial est de rendre notre site web [disponible](/fiches-techniques/pwa-rendre-un-site-web-disponible-grace-aux-services-workers/#definition-theorique-dune-pwa), afin que l'utilisateur<span aria-hidden="true">&sdot;rice</span> continue d'accèder au site en étant hors ligne (ou lorsque le WiFi a sauté <span aria-hidden="true">`¯\_(ツ)_/¯`</span>). Pour y arriver, nous allons réutiliser les données déjà récupérées depuis le serveur et les servir à nouveau si l'utilisateur fait la même requête. C'est le principe de mise en cache.
 
 ### Cache API
 
