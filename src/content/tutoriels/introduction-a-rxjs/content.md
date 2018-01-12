@@ -142,6 +142,7 @@ Voici donc à quoi ressembleraient les exemples donnés en introduction en RxJS&
   // Ou la méthode qui existe déjà en Rx
   const source = Observable.fromPromise(fetch('/message/1'))
   ```
+  A noter qu'il existe la méthode [`Observable.ajax`](http://reactivex.io/rxjs/test-file/spec-js/observables/dom/ajax-spec.js.html#lineNumber12) même si celle-ci n'est [pas documentée](https://github.com/ReactiveX/rxjs-docs/issues/4#issuecomment-333528501).
 
 * WebSocket
   ```js
@@ -171,6 +172,7 @@ Voici donc à quoi ressembleraient les exemples donnés en introduction en RxJS&
     }, false)
   })
   ```
+  A noter qu'il existe la méthode [`Observable.webSocket`](http://reactivex.io/rxjs/class/es6/Observable.js~Observable.html#static-method-webSocket) qui a l'avantage d'autoriser aussi l'envoi de messages.
 
 * Tableau
   ```js
