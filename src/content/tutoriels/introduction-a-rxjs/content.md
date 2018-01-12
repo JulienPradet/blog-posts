@@ -201,7 +201,7 @@ source.subscribe(
 Globalement, ce qu'il va se passer, c'est qu'on va recevoir dans les trois fonctions passées à `subscribe` exactement la même chose que ce qu'on a passé dans le `Observable.create`. Par exemple, si dans la source on a cet ordre d'appel&nbsp;:
 
 ```js
-const source = Observer.create((observer) => {
+const source = Observable.create((observer) => {
   observer.next(1)
   observer.next(2)
   observer.next(3)
