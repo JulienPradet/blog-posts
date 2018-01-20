@@ -4,7 +4,7 @@ Voici donc une série d'articles où j'essaierai de vous présenter ce que c'est
 1. <a href="/fiches-techniques/pwa-rendre-un-site-web-disponible-grace-aux-services-workers/">Rendre un site web disponible grâce aux Services Workers</a>
 2. <a href="/fiches-techniques/pwa-declarer-un-service-worker-et-gerer-son-cycle-de-vie/">Déclarer un Service Worker et gérer son cycle de vie</a>
 3. <a href="/fiches-techniques/pwa-intercepter-les-requetes-HTTP-et-les-mettre-en-cache/">Intercepter les requêtes HTTP et les mettre en cache</a> (Vous êtes ici.)
-4. Proposer une expérience hors ligne (à paraître)
+4. <a href="/fiches-techniques/pwa-proposer-une-experience-hors-ligne/">Proposer une expérience hors ligne</a>
 
 Dans les articles précédents, je présentais ce qu'est une PWA et un Service Worker. Puis, nous avons vu comment déclarer un Service Worker et gérer la liaison avec une page web.
 

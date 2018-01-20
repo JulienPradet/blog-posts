@@ -4,11 +4,38 @@ Voici donc une série d'articles où j'essaierai de vous présenter ce que c'est
 1. <a href="/fiches-techniques/pwa-rendre-un-site-web-disponible-grace-aux-services-workers/">Rendre un site web disponible grâce aux Services Workers</a> (Vous êtes ici.)
 2. <a href="/fiches-techniques/pwa-declarer-un-service-worker-et-gerer-son-cycle-de-vie/">Déclarer un Service Worker et gérer son cycle de vie</a>
 3. <a href="/fiches-techniques/pwa-intercepter-les-requetes-HTTP-et-les-mettre-en-cache/">Intercepter les requêtes HTTP et les mettre en cache</a>
-4. Proposer une expérience hors ligne (à paraître)
+4. <a href="/fiches-techniques/pwa-proposer-une-experience-hors-ligne/">Proposer une expérience hors ligne</a>
 
-Commençons donc par un bref récap' de ce qui se cache derrière ce terme. Est-ce vraiment quelque chose de révolutionnaire&nbsp;? Qu'est ce que ça implique pour nos utilisateurs et nos utilisatrices&nbsp;?
+Dans les articles précédents, je me suis concentré sur tous les détails techniques qui sont importants à savoir pour mettre en place son propre Service Worker et mettre en cache des requêtes.
 
-## Définition théorique d'une PWA
+Cependant, malgré certains points très pointilleux, je suis resté très théorique en expliquant les choses de manière très générale. Peut-être donc que certains points vous paraissent encore flous et vous ne voyez pas comment réellement appliquer ça sur votre site. Peut-être que vous ne voyez pas réellement comment cela peut être une bonne chose pour vos utilisateurs.
+
+Dans ce dernier article de cette série sur les PWAs, nous allons donc construire une expérience hors ligne de A à Z en nous concentrant sur deux points&nbsp;:
+* Comment afficher du contenu alors que l'utilisateur est hors ligne&nbsp;?
+* Comment permettre à l'utilisateur de soumettre des informations (un formulaire) tandis qu'il est hors ligne&nbsp;?
+
+## Quel genre de site&nbsp;?
+
+Pour mettre en pratique tout ça, je vous propose d'améliorer le site de Fred & Lucy. Ce sont deux personnes passionnées par la cuisine qui répartissent leur temps sur deux activités&nbsp;:
+* rédaction de recettes et d'astuces de cuisine
+* cours de cuisine dans un village pas très connu
+
+Leur site est ainsi constitué d'un espace de blog où ils recensent leurs explorations culinaires et d'un espace de contact qui permet aux éventuels intéressés de réserver des cours et récupérer les informations nécessaires pour aller sur place. La stack technique est un site en PHP (équivalent d'un Wordpress). Rien de très fou, mais ça remplit bien son boulot&nbsp;!
+
+Le budget que Fred & Lucy sont prêts à investir dans l'amélioration de leur site n'est pas exorbitant. Investir leur temps et leur argent dans du contenu de qualité pour leur site et leurs cours leur paraît plus important.
+
+Cependant, il y a tout de même un petit problème&nbsp;: leur bout de campagne n'est très connecté en terme de réseau. De ce fait, régulièrement, leurs élèves arrivent en retard parce que c'est mal indiqué sur le GPS et que la connexion internet fait que **le plan disponible sur le site est inaccessible une fois sur place**. Ce n'est pas bien grave, mais ça serait pas mal si ça pouvait être amélioré. Cela détendrait tout le monde.
+
+De plus, ils ont régulièrement des retours de personnes qui n'arrivent pas à prendre rendez vous sur le site. Ceux-ci finissent par appeler parce que ça ne marche pas. Cependant, impossible de savoir combien abandonnent au lieu d'appeler. Après avoir regardé de plus près, ça ne vient pas du serveur, mais bien d'**un souci de connexion qui les empêche d'envoyer le formulaire**.
+
+Notre mission, si on l'accepte, est de proposer des solutions à.
+
+C'est un site entièrement fictif pour des personnes fictives. Cependant, cela va nous donner une base pour savoir quelles stratégies implémenter quand on aura des décisions à prendre plus tard.
+
+## Quel intérêt d'avoir des Services Workers&nbsp;?
+
+
+
 
 Tout d'abord, je tiens à préciser que *ce n'est **pas** estampillé Google*. Les Google Developers font [beaucoup de contenu](https://developers.google.com/web/progressive-web-apps/) et d'[évangelisation sur le sujet](https://events.withgoogle.com/progressive-web-app-dev-summit/), mais ce n'est pas piégeux comme peut l'être AMP par exemple.
 
