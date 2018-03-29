@@ -18,7 +18,8 @@ const getMetas = paths => () => {
       return Object.assign(
         {},
         {
-          location: path.relative(paths.contentPath, path.dirname(filepath))
+          location:
+            "/" + path.relative(paths.contentPath, path.dirname(filepath))
         },
         meta
       );

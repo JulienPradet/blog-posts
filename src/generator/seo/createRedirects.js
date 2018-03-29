@@ -24,15 +24,11 @@ const removeTrailingSlash = location => {
 };
 
 const getRedirectsFromMeta = (url, meta) => {
-  let redirects =
-    url === "/" ? [] : [`${removeTrailingSlash(ensureSlash(url))}`];
+  let redirects = [];
 
   if (meta.redirect) {
     redirects = redirects.concat(
-      meta.redirect
-        .map(removeTrailingSlash)
-        .map(url => [url, `${url}/`])
-        .reduce((acc, curr) => [...acc, ...curr], [])
+      meta.redirect.map(removeTrailingSlash).map(url => url)
     );
   }
 
@@ -52,15 +48,13 @@ const createRedirects = paths => () => {
         })
         .filter(meta => meta.redirect)
         .map(meta =>
-          meta.redirect.map(
-            redirect => `${redirect}    ${ensureSlash(meta.location)}   301`
-          )
+          meta.redirect.map(redirect => `${redirect}    ${meta.location}   301`)
         )
         .reduce((acc, redirects) => acc.concat(redirects), [])
         .join("\n")
     )
     .flatMap(sitemap =>
-      fs.writefile(path.join(paths.buildPath, "_redirects"), sitemap)
+      fs.writefile(path.join(paths.buildPath, "_redirects"), sitemap + "\n")
     )
     .do(metas => log("success", "redirects created"));
 };
