@@ -31,10 +31,13 @@ const createHtml = paths => (entry$, stats$) => {
 
           log("debug", pagePath);
 
-          const buildPath = path.join(
+          let buildPath = path.join(
             paths.buildPath,
             path.relative(paths.contentPath, htmlPath)
           );
+          if (buildPath.endsWith("404/index.html")) {
+            buildPath = buildPath.replace(/404\/index\.html$/, "404.html");
+          }
 
           require("../bundle/date-polyfill");
           let renderToHtml;
