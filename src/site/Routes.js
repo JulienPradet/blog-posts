@@ -69,28 +69,32 @@ const LayoutRoutes = ({ routes }) => {
 
         return (
           <div>
-            <Route>
-              {({ location }) => {
-                const route = location.pathname;
-                const routeIsRegistered = Object.keys(
-                  routes
-                ).some(layoutType => {
-                  return Object.keys(routes[layoutType]).some(
-                    url => url === route
-                  );
-                });
+            {process.env.SERVER ? (
+              layoutRoutes
+            ) : (
+              <Route>
+                {({ location }) => {
+                  const route = location.pathname;
+                  const routeIsRegistered = Object.keys(
+                    routes
+                  ).some(layoutType => {
+                    return Object.keys(routes[layoutType]).some(
+                      url => url === route
+                    );
+                  });
 
-                if (routeIsRegistered) {
-                  return layoutRoutes;
-                } else {
-                  return (
-                    <Route location={{ pathname: "/404/" }}>
-                      {() => layoutRoutes}
-                    </Route>
-                  );
-                }
-              }}
-            </Route>
+                  if (routeIsRegistered) {
+                    return layoutRoutes;
+                  } else {
+                    return (
+                      <Route location={{ pathname: "/404/" }}>
+                        {() => layoutRoutes}
+                      </Route>
+                    );
+                  }
+                }}
+              </Route>
+            )}
             <Route component={ScrollToTopOnUpdate} />
             <Route component={Analytics} />
           </div>

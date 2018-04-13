@@ -5,7 +5,7 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 var WebpackBundleAnalyzerPlugin = require("webpack-bundle-analyzer")
   .BundleAnalyzerPlugin;
 
-const baseConfig = paths => (pages, entryPath) => {
+const baseConfig = paths => (pages, entryPath, isServer) => {
   return {
     devtool:
       process.env.NODE_ENV === "production"
@@ -72,6 +72,7 @@ const baseConfig = paths => (pages, entryPath) => {
       }),
       new webpack.DefinePlugin({
         "process.env": {
+          SERVER: isServer ? "true" : false,
           NODE_ENV: JSON.stringify(process.env.NODE_ENV || "production"),
           GA_TRACKING_ID: JSON.stringify(process.env.GA_TRACKING_ID)
         }
@@ -134,12 +135,16 @@ const webpackConfig = paths => (pages, entryPath) => {
   );
   browserBabelOptions.options.plugins = ["babel-plugin-syntax-dynamic-import"];
 
-  const serverEntry = Object.assign({}, baseConfig(paths)(pages, entryPath), {
-    entry: {
-      server: "./src/generator/bundle/server.js"
-    },
-    target: "node"
-  });
+  const serverEntry = Object.assign(
+    {},
+    baseConfig(paths)(pages, entryPath, true),
+    {
+      entry: {
+        server: "./src/generator/bundle/server.js"
+      },
+      target: "node"
+    }
+  );
   serverEntry.externals = /^[\w-\d]$/;
   serverEntry.output = {
     path: path.join(__dirname, "../tmp"),
