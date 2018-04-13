@@ -1,5 +1,6 @@
 import React from "react";
 import Route from "react-router/Route";
+import Redirect from "react-router/Redirect";
 import getLayout from "./util/getLayout";
 import Analytics from "./Analytics";
 import ScrollToTopOnUpdate from "./ScrollToTopOnUpdate";
@@ -11,8 +12,6 @@ const LayoutRoutes = ({ routes }) => {
     return (
       <Route
         key={layoutType}
-        exact
-        strict
         children={({ location }) => {
           const currentPage = Object.keys(routes[layoutType]).find(
             pageUrl => pageUrl === location.pathname
@@ -55,11 +54,28 @@ const LayoutRoutes = ({ routes }) => {
   });
 
   return (
-    <div>
-      {layoutRoutes}
-      <Route component={ScrollToTopOnUpdate} />
-      <Route component={Analytics} />
-    </div>
+    <Route
+      children={({ location }) => {
+        if (/\/\//.test(location.pathname)) {
+          return (
+            <Redirect
+              to={{
+                ...location,
+                pathname: location.pathname.replace(/\/\//g, "/")
+              }}
+            />
+          );
+        }
+
+        return (
+          <div>
+            {layoutRoutes}
+            <Route component={ScrollToTopOnUpdate} />
+            <Route component={Analytics} />
+          </div>
+        );
+      }}
+    />
   );
 };
 
