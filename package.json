@@ -14,16 +14,13 @@
   "license": "MIT",
   "scripts": {
     "precommit": "lint-staged",
-    "clean":
-      "echo 'Removing dist files...' && rm -rf build/* src/generator/tmp/*",
+    "clean": "echo 'Removing dist files...' && rm -rf build/* src/generator/tmp/*",
     "prebuild": "npm run -s clean",
     "build": "NODE_ENV=production node ./src/index.js",
     "build:analyze": "NODE_ENV=production ANALYZE=true node ./src/index.js",
     "start": "NODE_ENV=development node ./src/index.js",
-    "lighthouse":
-      "lighthouse https://59b2abbe0752d0789cc4057f--julien-pradet-blog.netlify.com/",
-    "prettier":
-      "echo 'Prettifying code...' && prettier --write \"src/**/*.js\" \"src/**/*.css\" > /dev/null",
+    "lighthouse": "lighthouse https://59b2abbe0752d0789cc4057f--julien-pradet-blog.netlify.com/",
+    "prettier": "echo 'Prettifying code...' && prettier --write \"src/**/*.js\" \"src/**/*.css\" > /dev/null",
     "prelint": "npm run -s clean && npm -s run prettier",
     "lint": "eslint \"src/**/*.js\""
   },
@@ -32,7 +29,7 @@
     "intl": "^1.2.5",
     "intl-locales-supported": "^1.0.0",
     "loadable-components": "^0.2.1",
-    "prop-types": "^15.5.10",
+    "prop-types": "^15.6.1",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-helmet": "^5.2.0",
@@ -89,7 +86,14 @@
     "webpack-dev-server": "^2.8.2"
   },
   "lint-staged": {
-    "*.js": ["prettier --write", "git add", "eslint"],
-    "*.css": ["prettier --write", "git add"]
+    "*.js": [
+      "prettier --write",
+      "git add",
+      "eslint"
+    ],
+    "*.css": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
