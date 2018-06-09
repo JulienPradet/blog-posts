@@ -1,6 +1,6 @@
 J'avais initialement publié ce commentaire sur le [Github de Julia](https://github.com/Julia-barbelane/reflexions/issues/7). Cependant, pour que ce soit plus facile à partager, le voici hébergé sur mon blog.
 
-Pour mieux comprendre de quoi il en retourne, je vous invite vivement à lire l'[article de Julia](https://julia-barbelane.github.io/reflexions/chantiers/l-empathie-comme-moyen-de-reparation-l'exemple-avec-un-atelier-sur-la-parole-et-le-genre.html)
+Pour mieux comprendre de quoi il en retourne, je vous invite vivement à lire l'[article de Julia](https://julia-barbelane.github.io/reflexions/chantiers/l-empathie-comme-moyen-de-reparation-l'exemple-avec-un-atelier-sur-la-parole-et-le-genre.html).
 
 ---
 
