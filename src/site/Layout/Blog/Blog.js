@@ -39,7 +39,7 @@ class BlogContent extends Component {
         />
         <div>
           {(!(props.page.isHome || props.page.isStandalone) ||
-            props.page.filter) && (
+            !props.page.removeTitle) && (
             <div className="blog__content__title">
               <h1 {...(!props.page.isHome ? { itemProp: "headline" } : {})}>
                 <PageLink

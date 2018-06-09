@@ -22,7 +22,7 @@ const createRss = paths => () => {
   return getMetas(paths)()
     .do(metas => {
       metas
-        .filter(meta => meta.isListed && meta.rss)
+        .filter(meta => meta.isListed && meta.isPublic)
         .sort((metaA, metaB) => {
           if (metaA.date < metaB.date) {
             return 1;

@@ -1,6 +1,6 @@
 module.exports = {
   isListed: true,
-  rss: false,
+  isPublic: false,
   title:
     "Retour d'expérience sur l'atelier sur la parole et le genre de SubWeb",
   date: "2018-06-04",
