@@ -4,6 +4,12 @@ import twitterIcon from "../../../icons/iconmonstr-twitter-1.svg";
 import githubIcon from "../../../icons/iconmonstr-github-1.svg";
 import Svg from "react-svg-inline";
 
+if (!process.env.SERVER) {
+  window.addEventListener("beforeinstallprompt", event => {
+    event.preventDefault();
+  });
+}
+
 const CategoryLink = ({ category, path }) => (
   <PageLink to={path}>{category}</PageLink>
 );
