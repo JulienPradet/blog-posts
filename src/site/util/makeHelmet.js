@@ -45,8 +45,31 @@ const makeHelmet = props => {
         <meta property="og:description" content={props.page.description} />
       )}
       <link rel="canonical" href={`${props.site.meta.homepage}${props.path}`} />
-      <link rel="shortcut icon" href="/fav.ico" type="image/x-icon" />
-      <link rel="icon" href="/fav.ico" type="image/x-icon" />
+      <link
+        rel="apple-touch-icon"
+        sizes="180x180"
+        href="/apple-touch-icon.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="32x32"
+        href="/favicon-32x32.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="192x192"
+        href="/android-chrome-192x192.png"
+      />
+      <link
+        rel="icon"
+        type="image/png"
+        sizes="16x16"
+        href="/favicon-16x16.png"
+      />
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#3949ab" />
+      <meta name="msapplication-TileColor" content="#3949ab" />
       <link rel="manifest" href="/manifest.json" />
       <link
         rel="alternate"
