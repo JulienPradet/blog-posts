@@ -33,6 +33,9 @@ const Menu = ({ isOpened, toggleMenu }) => (
             <li>
               <CategoryLink category="Autres" path="/autres/" />
             </li>
+            <li>
+              <CategoryLink category="Réactions" path="/reactions/" />
+            </li>
           </ul>
         </div>
         <div className="menu__content__item">
