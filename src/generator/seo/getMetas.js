@@ -18,6 +18,7 @@ const getMetas = paths => () => {
       return Object.assign(
         {},
         {
+          rss: true,
           location:
             "/" + path.relative(paths.contentPath, path.dirname(filepath))
         },
