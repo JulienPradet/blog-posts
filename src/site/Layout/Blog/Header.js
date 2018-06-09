@@ -17,7 +17,7 @@ const PageHeader = props => {
         </TitleComponent>
       </div>
       <HeaderLinks />
-      <HeaderMotto isHome={props.page.isHome && !props.page.filter} />
+      <HeaderMotto isHome={props.page.isHome && props.page.removeTitle} />
     </div>
   );
 };
