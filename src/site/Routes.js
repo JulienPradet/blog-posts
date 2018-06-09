@@ -2,7 +2,6 @@ import React from "react";
 import Route from "react-router/Route";
 import Redirect from "react-router/Redirect";
 import getLayout from "./util/getLayout";
-import Analytics from "./Analytics";
 import ScrollToTopOnUpdate from "./ScrollToTopOnUpdate";
 
 const LayoutRoutes = ({ routes }) => {
@@ -96,7 +95,6 @@ const LayoutRoutes = ({ routes }) => {
               </Route>
             )}
             <Route component={ScrollToTopOnUpdate} />
-            <Route component={Analytics} />
           </div>
         );
       }}
