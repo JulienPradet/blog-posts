@@ -12,6 +12,11 @@ class UpdateNotification extends Component {
   }
 
   componentDidMount() {
+    navigator.serviceWorker.getRegistration().then(registration => {
+      if (registration.waiting) {
+        this.displayNotification();
+      }
+    });
     document.body.addEventListener(UPDATE_EVENT, this.displayNotification);
   }
 
