@@ -12,11 +12,13 @@ class UpdateNotification extends Component {
   }
 
   componentDidMount() {
-    navigator.serviceWorker.getRegistration().then(registration => {
-      if (registration.waiting) {
-        this.displayNotification();
-      }
-    });
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.getRegistration().then(registration => {
+        if (registration.waiting) {
+          this.displayNotification();
+        }
+      });
+    }
     document.body.addEventListener(UPDATE_EVENT, this.displayNotification);
   }
 
@@ -39,11 +41,13 @@ class UpdateNotification extends Component {
   }
 
   update() {
-    navigator.serviceWorker.getRegistration().then(registration => {
-      if (registration.waiting) {
-        registration.waiting.postMessage("skipWaiting");
-      }
-    });
+    if ("serviceWorker" in navigator) {
+      navigator.serviceWorker.getRegistration().then(registration => {
+        if (registration.waiting) {
+          registration.waiting.postMessage("skipWaiting");
+        }
+      });
+    }
   }
 
   render() {
