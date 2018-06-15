@@ -1,0 +1,123 @@
+.comment {
+  h2 {
+    font-size: 1.2em;
+    margin-top: 0;
+  }
+}
+
+.comment-field {
+  margin-bottom: 1em;
+  label {
+    display: block;
+    margin-bottom: 0.3em;
+  }
+}
+
+label {
+  font-weight: 500;
+  .small {
+    font-size: 0.8em;
+    font-weight: normal;
+    color: #666;
+  }
+  span.small::before {
+    content: ", ";
+  }
+  p.small {
+    margin: 0;
+  }
+
+  input[type="radio"],
+  input[type="checkbox"] {
+    margin: 0 0.5em 0 0;
+  }
+
+  &.checkbox {
+    margin-bottom: 1.2em;
+  }
+}
+
+textarea {
+  min-height: 5em;
+}
+
+input[type="text"],
+input[type="password"],
+input[type="tel"],
+input[type="email"],
+textarea {
+  border: 1px solid $borderColor;
+  padding: 0.5em;
+  font-size: 1em;
+  font-family: inherit;
+  transition: border-color 0.15s ease-in-out;
+  margin: 0 -1em;
+  width: calc(100% + 2em);
+
+  @media screen and (min-width: 340px) {
+    border-radius: 0.2em;
+    width: 100%;
+    margin: 0;
+  }
+
+  &:focus {
+    outline: 0;
+
+    .tutoriels & {
+      border-color: $tutorielsLight;
+    }
+    .autres & {
+      border-color: $autresLight;
+    }
+    .fiches-techniques & {
+      border-color: $fichesTechniquesLight;
+    }
+    .explorations & {
+      border-color: $explorationsLight;
+    }
+  }
+
+  .tutoriels & {
+    border-bottom: 3px solid $tutorielsLight;
+  }
+  .autres & {
+    border-bottom: 3px solid $autresLight;
+  }
+  .fiches-techniques & {
+    border-bottom: 3px solid $fichesTechniquesLight;
+  }
+  .explorations & {
+    border-bottom: 3px solid $explorationsLight;
+  }
+}
+
+@media screen and (min-width: 340px) {
+  input {
+    max-width: 15em;
+  }
+}
+
+button[type="submit"] {
+  border: none;
+  border-radius: 0.2em;
+  padding: 0.5em 2em;
+  font-size: 1em;
+  font-weight: bold;
+
+  .tutoriels & {
+    background: $tutorielsDark;
+    color: white;
+  }
+  .autres & {
+    background: $autresDark;
+    color: white;
+  }
+  .fiches-techniques & {
+    background: $fichesTechniquesDark;
+    color: white;
+  }
+  .explorations & {
+    background: $explorationsDark;
+    color: white;
+  }
+}

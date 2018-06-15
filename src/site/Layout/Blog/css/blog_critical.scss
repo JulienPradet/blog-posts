@@ -208,6 +208,7 @@ pre[class*="language-"] {
 @import "menu";
 @import "category-list";
 @import "update-notification";
+@import "comment";
 
 .blog {
   margin-left: auto;
@@ -219,11 +220,18 @@ pre[class*="language-"] {
     z-index: 6;
   }
   &__content {
-    padding: 2em 1em;
     margin-bottom: 2.5em;
-    background-color: white;
     position: relative;
     z-index: 3;
+
+    > div {
+      padding: 2em 1em;
+      background-color: white;
+
+      + div {
+        margin-top: 2em;
+      }
+    }
 
     &:not(&--home) {
       z-index: 3;
@@ -243,7 +251,7 @@ pre[class*="language-"] {
   }
 }
 @media screen and (min-width: 340px) {
-  .blog__content {
+  .blog__content > div {
     padding-left: 2em;
     padding-right: 2em;
   }

@@ -10,6 +10,7 @@ import { formatDate } from "../../util/dateFormats";
 import { withSite } from "../../Site";
 import { PageTitleProvider } from "../../components/PageTitle";
 import PageLink from "../../components/PageLink";
+import Comment from "./Comment";
 
 class BlogContent extends Component {
   componentDidUpdate(prevProps) {
@@ -72,11 +73,11 @@ class BlogContent extends Component {
               props.children
             )}
           </main>
-
-          {!props.page.isHome &&
-            !props.page.isStandalone && (
-              <Fragment>
-                <hr />
+        </div>
+        {!props.page.isHome &&
+          !props.page.isStandalone && (
+            <Fragment>
+              <div>
                 <footer className="page-footer">
                   Si vous voulez suivre mes publications, il paraît que j'ai un
                   feed <a href="/feed.xml">RSS</a> et un{" "}
@@ -87,9 +88,12 @@ class BlogContent extends Component {
                   mette en place (pigeon voyageur, avion en papier, etc.),
                   n'hésitez pas à me les proposer :)
                 </footer>
-              </Fragment>
-            )}
-        </div>
+              </div>
+              <div>
+                <Comment page={props.page} />
+              </div>
+            </Fragment>
+          )}
       </div>
     );
   }
