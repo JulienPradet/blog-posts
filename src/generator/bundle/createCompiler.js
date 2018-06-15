@@ -73,8 +73,7 @@ const baseConfig = paths => (pages, entryPath, isServer) => {
       new webpack.DefinePlugin({
         "process.env": {
           SERVER: isServer ? "true" : false,
-          NODE_ENV: JSON.stringify(process.env.NODE_ENV || "production"),
-          GA_TRACKING_ID: JSON.stringify(process.env.GA_TRACKING_ID)
+          NODE_ENV: JSON.stringify(process.env.NODE_ENV || "production")
         }
       })
     ]

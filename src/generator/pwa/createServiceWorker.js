@@ -3,79 +3,24 @@ const fs = require("../util/fs");
 const { Observable } = require("rxjs");
 const getPathsFromChunks = require("../bundle/getPathsFromChunks");
 const reduceObservable = require("../util/reduceObservable");
-const crypto = require("crypto");
+const webpack = require("webpack");
 
 const serviceWorker = urlsToCacheOnFirstLoad => {
   const hash = Math.ceil(Math.random() * 1000000);
 
-  return `
-    const CACHE_NAME = 'julien-pradet-blog-${hash}'
-    const urlsToPrefetch = ${JSON.stringify(urlsToCacheOnFirstLoad)}
+  return fs
+    .exists(path.join(__dirname, "../../site/service-worker.js"))
+    .map(exists => {
+      return `
+        import makeServiceWorkerAssetsCaching from "../pwa/makeServiceWorkerAssetsCaching.js";
 
-    self.addEventListener("install", event => {
-      event.waitUntil(
-        caches
-        .open(CACHE_NAME)
-        .then(cache =>
-          urlsToPrefetch
-            .map(url => new Request(url))
-            .map(request =>
-              fetch(request).then(response => cache.put(request, response.clone()))
-            )
-        )
-        .catch(function(error) {
-          console.error("Pre-fetching failed:", error);
-        })
-      );
+        const CACHE_NAME = 'julien-pradet-blog-${hash}'
+        const urlsToPrefetch = ${JSON.stringify(urlsToCacheOnFirstLoad)}
+        makeServiceWorkerAssetsCaching(CACHE_NAME, urlsToPrefetch)
+
+        ${exists ? `require("../../site/service-worker.js");` : ""}
+      `;
     });
-
-    self.addEventListener("activate", event => {
-      event.waitUntil(
-        Promise.all([
-          caches
-            .keys()
-            .then(keys =>
-              Promise.all(
-                keys.filter(key => key !== CACHE_NAME).map(key => caches.delete(key))
-              )
-            )
-        ]).then(() => self.clients.claim())
-      );
-    })
-
-    self.addEventListener("fetch", event => {
-      if (event.request.method === "GET") {
-        event.respondWith(
-          caches.match(event.request).then(function(response) {
-            if (response) {
-              return response;
-            } else {
-              return fetch(event.request).then(response => {
-                return caches
-                  .open(CACHE_NAME)
-                  .then(cache => {
-                    cache.put(event.request, response.clone());
-                  })
-                  .then(() => {
-                    return response;
-                  });
-              });
-            }
-          })
-        );
-      }
-    });
-
-    addEventListener("message", messageEvent => {
-      if (!messageEvent.data.type) {
-        console.warn("Invalid message event: should have a key 'type'")
-      } else if (messageEvent.data.type === "skipWaiting") {
-        return self.skipWaiting();
-      } else if (messageEvent.data.type === "background-request") {
-        messageEvent.ports.forEach(port => port.postMessage("success"))
-      }
-    });
-  `;
 };
 
 const getHomeHelmetFiles = paths => () => {
@@ -124,11 +69,70 @@ const createServiceWorker = paths => stats$ => {
     )
   )
     .map(urlsToCacheOnFirstLoad => [...new Set(urlsToCacheOnFirstLoad)])
-    .flatMap(urlsToCacheOnFirstLoad => {
-      return fs.writefile(
-        path.join(paths.buildPath, "service-worker.js"),
-        serviceWorker(urlsToCacheOnFirstLoad)
-      );
+    .flatMap(urlsToCacheOnFirstLoad => serviceWorker(urlsToCacheOnFirstLoad))
+    .flatMap(serviceWorker =>
+      fs.writefile(
+        path.join(__dirname, "../tmp/service-worker.js"),
+        serviceWorker
+      )
+    )
+    .flatMap(data => {
+      return new Promise((resolve, reject) => {
+        const options = {
+          entry: {
+            "service-worker": "./src/generator/tmp/service-worker.js"
+          },
+          output: {
+            path: paths.buildPath,
+            filename: "service-worker.js",
+            publicPath: "/"
+          },
+          devtool:
+            process.env.NODE_ENV === "production"
+              ? "source-map"
+              : "cheap-module-source-map",
+          module: {
+            rules: [
+              {
+                enforce: "pre",
+                test: /\.js$/,
+                loader: "eslint-loader"
+              },
+              {
+                test: /\.js$/,
+                loader: "babel-loader",
+                exclude: [/node_modules/],
+                options: {
+                  presets: ["react-app"]
+                }
+              }
+            ]
+          },
+          plugins: [
+            new webpack.DefinePlugin({
+              "process.env": {
+                NODE_ENV: JSON.stringify(process.env.NODE_ENV || "production")
+              }
+            }),
+            new webpack.optimize.UglifyJsPlugin({
+              sourceMap: true,
+              compress: { warnings: false }
+            })
+          ]
+        };
+
+        const compiler = webpack(options);
+
+        compiler.run((err, stats) => {
+          if (err) {
+            console.log("error");
+            reject(err);
+          } else {
+            console.log("success");
+            resolve();
+          }
+        });
+      });
     });
 };
 

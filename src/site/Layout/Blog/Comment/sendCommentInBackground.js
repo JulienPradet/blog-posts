@@ -13,17 +13,16 @@ const sendCommentInBackground = data => {
       [channel.port2]
     );
 
-    channel.port1
-      .addEventListener("message", e => {
-        if (e.data.error) {
-          reject("error");
-        } else {
-          resolve("success");
-        }
-      })
-      .addEventListener("messageerror", e => {
+    channel.port1.onmessage = e => {
+      if (e.data.error) {
         reject("error");
-      });
+      } else {
+        resolve("success");
+      }
+    };
+    channel.port1.onmessageerror = e => {
+      reject("error");
+    };
   });
 };
 
