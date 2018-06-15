@@ -6,7 +6,7 @@ const makeHelmet = props => {
   const image =
     props.page && props.page.image
       ? props.page.image
-      : "https://pbs.twimg.com/profile_images/424964348461600768/aygHDGpF.png";
+      : `${props.site.meta.homepage}/android-chrome-512x512.png`;
 
   return (
     <Helmet>
