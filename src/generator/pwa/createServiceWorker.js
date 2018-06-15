@@ -44,24 +44,26 @@ const serviceWorker = urlsToCacheOnFirstLoad => {
     })
 
     self.addEventListener("fetch", event => {
-      event.respondWith(
-        caches.match(event.request).then(function(response) {
-          if (response) {
-            return response;
-          } else {
-            return fetch(event.request).then(response => {
-              return caches
-                .open(CACHE_NAME)
-                .then(cache => {
-                  cache.put(event.request, response.clone());
-                })
-                .then(() => {
-                  return response;
-                });
-            });
-          }
-        })
-      );
+      if (event.request.method === "GET") {
+        event.respondWith(
+          caches.match(event.request).then(function(response) {
+            if (response) {
+              return response;
+            } else {
+              return fetch(event.request).then(response => {
+                return caches
+                  .open(CACHE_NAME)
+                  .then(cache => {
+                    cache.put(event.request, response.clone());
+                  })
+                  .then(() => {
+                    return response;
+                  });
+              });
+            }
+          })
+        );
+      }
     });
 
     addEventListener("message", messageEvent => {
