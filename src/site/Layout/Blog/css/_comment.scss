@@ -121,3 +121,14 @@ button[type="submit"] {
     color: white;
   }
 }
+
+.error,
+.warn {
+  color: $errorColor;
+  a {
+    color: currentColor;
+  }
+}
+
+.warn {
+}

@@ -44,7 +44,7 @@ class UpdateNotification extends Component {
     if ("serviceWorker" in navigator) {
       navigator.serviceWorker.getRegistration().then(registration => {
         if (registration.waiting) {
-          registration.waiting.postMessage("skipWaiting");
+          registration.waiting.postMessage({ type: "skipWaiting" });
         }
       });
     }

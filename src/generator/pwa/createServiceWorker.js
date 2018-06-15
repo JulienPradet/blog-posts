@@ -67,8 +67,12 @@ const serviceWorker = urlsToCacheOnFirstLoad => {
     });
 
     addEventListener("message", messageEvent => {
-      if (messageEvent.data === "skipWaiting") {
+      if (!messageEvent.data.type) {
+        console.warn("Invalid message event: should have a key 'type'")
+      } else if (messageEvent.data.type === "skipWaiting") {
         return self.skipWaiting();
+      } else if (messageEvent.data.type === "background-request") {
+        messageEvent.ports.forEach(port => port.postMessage("success"))
       }
     });
   `;
