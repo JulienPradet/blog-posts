@@ -9,6 +9,13 @@ const createRss = paths => () => {
 
   const url = "https://www.julienpradet.fr/";
 
+  const ensureSlash = url => {
+    if (!/\/$/.test(url)) {
+      return url + "/";
+    }
+    return url;
+  };
+
   return getMetas(paths)()
     .map(metas => {
       return sitemap.createSitemap({
@@ -27,7 +34,7 @@ const createRss = paths => () => {
               return meta.date;
             })
             .map(meta => ({
-              url: meta.location,
+              url: ensureSlash(meta.location),
               lastmodISO: new Date(meta.date).toISOString()
             }))
         ]
