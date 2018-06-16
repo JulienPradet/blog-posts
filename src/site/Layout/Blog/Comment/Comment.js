@@ -1,10 +1,11 @@
 import React, { Component, Fragment } from "react";
 import sendComment from "./sendComment";
+import CommentsStatus from "./CommentsStatus";
 
 const getMessage = type => {
   if (type === "success") {
-    return <Fragment>J'ai bien reçu votre message !</Fragment>;
-  } else if (type === "error") {
+    return <Fragment>✓ Bien reçu !</Fragment>;
+  } else {
     return (
       <Fragment>
         <span class="error">
@@ -14,16 +15,6 @@ const getMessage = type => {
             contacter
           </a>{" "}
           pour que je corrige ça au plus vite&nbsp;!
-        </span>
-      </Fragment>
-    );
-  } else {
-    return (
-      <Fragment>
-        <span class="warn">
-          Oops, il y a eu une erreur. Mais pas de panique, votre message est
-          sauvegardé dans votre navigateur. On va réessayer de l'envoyer un peu
-          plus tard.
         </span>
       </Fragment>
     );
@@ -47,9 +38,11 @@ const getDataFromForm = form => {
 const sendForm = form => {
   const data = getDataFromForm(form);
 
-  return sendComment(data).then(type => {
-    return getMessage(type);
-  });
+  return sendComment(data)
+    .then(type => {
+      return getMessage(type);
+    })
+    .catch(error => getMessage("error"));
 };
 
 class Comment extends Component {
@@ -64,8 +57,12 @@ class Comment extends Component {
   onSubmit(e) {
     e.preventDefault();
 
-    this.setState({ loading: true });
+    this.timeout = setTimeout(() => {
+      this.setState({ loading: true });
+    }, 100);
+
     sendForm(e.target).then(message => {
+      clearTimeout(this.timeout);
       this.setState({
         loading: false,
         message: message
@@ -115,13 +112,14 @@ class Comment extends Component {
             </label>
           </div>
           <div class="comment-actions">
-            {this.state.loading && <p>Envoi en cours...</p>}
             <button type="submit" disabled={this.state.loading}>
               Envoyer
             </button>
+            {this.state.loading && <p>Envoi en cours...</p>}
             <p>{this.state.message}</p>
           </div>
         </form>
+        <CommentsStatus page={page} />
       </div>
     );
   }

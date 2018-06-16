@@ -21,7 +21,7 @@ const baseConfig = paths => (pages, entryPath, isServer) => {
         {
           test: /\.js$/,
           loader: "babel-loader",
-          exclude: [/node_modules/],
+          include: [/src|idb-keyval/],
           options: {
             presets: ["react-app"]
           }

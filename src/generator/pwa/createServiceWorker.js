@@ -101,7 +101,7 @@ const createServiceWorker = paths => stats$ => {
               {
                 test: /\.js$/,
                 loader: "babel-loader",
-                exclude: [/node_modules/],
+                include: [/src|idb-keyval/],
                 options: {
                   presets: ["react-app"]
                 }

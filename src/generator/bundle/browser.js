@@ -39,11 +39,7 @@ if ("serviceWorker" in navigator) {
             }
           });
 
-          if (installingWorker && !activeWorker) {
-            navigator.serviceWorker.addEventListener("controllerchange", () => {
-              console.log("SW attached for the first time");
-            });
-          } else {
+          if (!installingWorker || activeWorker) {
             navigator.serviceWorker.addEventListener("controllerchange", () => {
               window.location.reload();
             });

@@ -1,4 +1,4 @@
-const sendCommentRequest = data => {
+const sendRequest = data => {
   const body = Object.keys(data)
     .map(key => encodeURIComponent(key) + "=" + encodeURIComponent(data[key]))
     .join("&");
@@ -22,4 +22,4 @@ const sendCommentRequest = data => {
     });
 };
 
-export default sendCommentRequest;
+export default sendRequest;
