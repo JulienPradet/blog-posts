@@ -120,6 +120,10 @@ button[type="submit"] {
     background: $explorationsDark;
     color: white;
   }
+
+  [disabled] {
+    background: grey;
+  }
 }
 
 .error,
@@ -130,5 +134,7 @@ button[type="submit"] {
   }
 }
 
-.warn {
+.comment-actions {
+  display: flex;
+  justify-content: space-between;
 }

@@ -1,5 +1,5 @@
 import { getComments, setComments } from "./commentsDb";
-import sendRequest from "../../../sendRequest";
+import sendRequest from "./sendRequest";
 
 const sendCommentFallback = data => {
   return sendRequest(data).then(
@@ -22,18 +22,22 @@ const saveComment = data => {
 };
 
 const sendComment = data => {
-  if ("serviceWorker" in navigator && "SyncManager" in window) {
+  if (
+    "serviceWorker" in navigator &&
+    "SyncManager" in window &&
+    navigator.serviceWorker.controller
+  ) {
     return Promise.all([navigator.serviceWorker.ready, saveComment(data)])
       .then(([registration]) => {
         return registration.sync.register("comment");
       })
-      .then(() => "success")
+      .then(() => "sync")
       .catch(e => {
         console.error("ERROR", e);
-        return sendCommentFallback();
+        return sendCommentFallback(data);
       });
   } else {
-    return sendCommentFallback();
+    return sendCommentFallback(data);
   }
 };
 

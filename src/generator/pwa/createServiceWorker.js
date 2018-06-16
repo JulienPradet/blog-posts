@@ -125,10 +125,8 @@ const createServiceWorker = paths => stats$ => {
 
         compiler.run((err, stats) => {
           if (err) {
-            console.log("error");
             reject(err);
           } else {
-            console.log("success");
             resolve();
           }
         });

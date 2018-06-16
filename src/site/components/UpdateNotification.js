@@ -13,7 +13,7 @@ class UpdateNotification extends Component {
 
   componentDidMount() {
     if ("serviceWorker" in navigator) {
-      navigator.serviceWorker.getRegistration().then(registration => {
+      navigator.serviceWorker.ready.then(registration => {
         if (registration.waiting) {
           this.displayNotification();
         }
