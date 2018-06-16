@@ -1,7 +1,24 @@
 import React, { Component, Fragment } from "react";
 import sendComment from "./sendComment";
-import CommentsRecap from "./CommentsRecap";
 import CommentsStatus from "./CommentsStatus";
+import loadable from "loadable-components";
+
+const CommentsRecap = loadable(() => import("./CommentsRecap"), {
+  LoadingComponent: () => {
+    return <div>...</div>;
+  },
+  ErrorComponent: () => {
+    return (
+      <Fragment>
+        <hr />
+        <p>
+          Oops ! Impossible de récupérer le recap.<br />
+          Peut-être des problèmes de connexion&nbsp;?
+        </p>
+      </Fragment>
+    );
+  }
+});
 
 const getMessage = type => {
   if (type === "success") {
@@ -60,6 +77,7 @@ class Comment extends Component {
       loading: false
     };
     this.onSubmit = this.onSubmit.bind(this);
+    this.toggleRecap = this.toggleRecap.bind(this);
   }
 
   onSubmit(e) {
@@ -76,6 +94,12 @@ class Comment extends Component {
         message: message
       });
     });
+  }
+
+  toggleRecap() {
+    this.setState(state => ({
+      isRecapOpened: !state.isRecapOpened
+    }));
   }
 
   render() {
@@ -126,12 +150,18 @@ class Comment extends Component {
               </button>
             </div>
             <div className="comment-actions__status">
-              <CommentsStatus page={page} />
+              {this.state.isRecapOpened ? (
+                <button type="button" onClick={this.toggleRecap}>
+                  Fermer les messages
+                </button>
+              ) : (
+                <CommentsStatus page={page} onClick={this.toggleRecap} />
+              )}
             </div>
           </div>
           {this.state.message && <p>{this.state.message}</p>}
         </form>
-        <CommentsRecap page={page} />
+        {this.state.isRecapOpened && <CommentsRecap page={page} />}
       </div>
     );
   }

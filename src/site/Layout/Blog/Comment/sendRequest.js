@@ -14,11 +14,11 @@ const sendRequest = data => {
       } else if (response && ("" + response.status).startsWith("4")) {
         return "error";
       } else {
-        return "retry";
+        return "sync";
       }
     })
     .catch(() => {
-      return "retry";
+      return "sync";
     });
 };
 

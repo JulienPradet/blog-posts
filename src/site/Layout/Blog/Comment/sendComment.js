@@ -13,7 +13,7 @@ const saveComment = data => {
       ...comments,
       {
         originalTime: new Date().getTime(),
-        status: "pending",
+        status: "sync",
         attempts: 0,
         data
       }

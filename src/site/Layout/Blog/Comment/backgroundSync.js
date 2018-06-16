@@ -36,18 +36,14 @@ self.addEventListener("sync", event => {
     event.waitUntil(
       getComments().then(comments => {
         Promise.all(
-          comments
-            .filter(
-              comment =>
-                comment.status === "pending" || comment.status === "retry"
-            )
-            .map(comment => {
-              return sendRequest(comment.data).then(status => ({
-                ...comment,
-                attempts: comment.attempts + 1,
-                status
-              }));
-            })
+          comments.filter(comment => comment.status === "sync").map(comment => {
+            return sendRequest(comment.data).then(status => ({
+              ...comment,
+              attempts: comment.attempts + 1,
+              updatedAt: new Date().getTime(),
+              status
+            }));
+          })
         )
           .then(comments => {
             return updateComments(comments);

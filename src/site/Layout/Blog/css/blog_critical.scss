@@ -197,6 +197,27 @@ pre[class*="language-"] {
   }
 }
 
+@keyframes spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.icon {
+  width: 1.2em;
+  height: 1.2em;
+  path {
+    fill: currentColor;
+  }
+
+  &.circle-notch {
+    animation: spin 1.2s infinite cubic-bezier(0.61, 0.31, 0.47, 0.75);
+  }
+}
+
 @import "demo";
 @import "code-tabs";
 @import "figure";

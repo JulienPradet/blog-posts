@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { getComments } from "./commentsDb";
+import Icon from "../../../../icons/Icon";
 
 class CommentsStatus extends Component {
   constructor() {
@@ -11,21 +12,25 @@ class CommentsStatus extends Component {
   }
 
   updateStatus() {
-    getComments().then(comments => {
-      if (this.mounted) {
-        const hasError = comments.some(({ status }) => status === "error");
-        const hasPending = comments.some(
-          ({ status }) => ["retry", "pending"].indexOf(status) > -1
+    getComments()
+      .then(comments => {
+        return comments.filter(
+          ({ data }) => data.title === this.props.page.title
         );
+      })
+      .then(comments => {
+        if (this.mounted) {
+          const hasError = comments.some(({ status }) => status === "error");
+          const hasSync = comments.some(({ status }) => status === "sync");
 
-        this.setState({
-          status:
-            comments.length === 0
-              ? null
-              : hasError ? "error" : hasPending ? "pending" : "success"
-        });
-      }
-    });
+          this.setState({
+            status:
+              comments.length === 0
+                ? null
+                : hasError ? "error" : hasSync ? "sync" : "success"
+          });
+        }
+      });
   }
 
   componentDidMount() {
@@ -50,7 +55,28 @@ class CommentsStatus extends Component {
   }
 
   render() {
-    return <span>{this.state.status}</span>;
+    switch (this.state.status) {
+      case "error":
+        return (
+          <button type="button" onClick={this.props.onClick}>
+            <Icon icon="times" /> Echec de l'envoi du message
+          </button>
+        );
+      case "sync":
+        return (
+          <button type="button" onClick={this.props.onClick}>
+            <Icon icon="circle-notch" /> Synchronisation en cours
+          </button>
+        );
+      case "success":
+        return (
+          <button type="button" onClick={this.props.onClick}>
+            <Icon icon="check" /> Message envoyé
+          </button>
+        );
+      default:
+        return null;
+    }
   }
 }
 
