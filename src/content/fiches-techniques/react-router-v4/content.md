@@ -86,7 +86,7 @@ La première chose, c'est que les `Routes` peuvent être utilisées dans n'impor
 
 Ainsi, si `/:article` devait avoir les sous-routes `/:article/read` et `/:article/comment`, vous pourriez les définir directement dans le composant `Article` plutôt que de devoir le faire à la racine de votre application. Résultat&nbsp;: Vous pouvez enfin réellement découper votre application en mini-applications.
 
-> *&ndash; Oulah, ça va fait des spaghettis ça&nbsp;!*
+> *&ndash; Oulah, ça va faire des spaghettis ça&nbsp;!*
 
 Non. La peur du spaghetti vient du fait qu'on ne connait pas d'avance la structure globale de l'ensemble de l'application. Mais quand on fait du React, **le but n'est pas de faire une *grosse* application, mais plein de *petites* applications**. D'une part, c'est plus facile de raisonner ainsi parce qu'il n'y a plus besoin de connaître tous les rouages pour savoir ce qu'on peut casser avec nos modifications. D'autre part on accède au graal du mode `plug-n-play`&nbsp;: pour rajouter toute la gestion des articles il n'y a qu'une `Route` à ajouter.
 
