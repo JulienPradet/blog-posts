@@ -22,6 +22,7 @@ const saveComment = data => {
 };
 
 const sendComment = data => {
+  saveComment(data);
   if (
     "serviceWorker" in navigator &&
     "SyncManager" in window &&
