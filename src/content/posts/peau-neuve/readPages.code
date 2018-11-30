@@ -1,0 +1,13 @@
+// https://github.com/JulienPradet/blog-posts/blob/5fa44165595e9fdcf00a4dad1cf52ccfc7e046a2/src/generator/app/readPages.js
+const readPages = (path) => {
+  return fs.readdir(path)
+    .flatMap((files) => files)
+    .flatMap((filepath) => fs.stat(filepath))
+    .map(({filepath, stats}) => ({filepath, isDirectory: stats.isDirectory()}))
+    .filter(({filepath, isDirectory}) => isDirectory || filepath.endsWith('index.js'))
+    .flatMap(({filepath, isDirectory}) => (
+      isDirectory
+        ? readPages(filepath)
+        : Observable.of(filepath)
+    ))
+}

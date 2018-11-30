@@ -45,7 +45,8 @@ const getViewBox = data => {
   ) => ({
     width: Math.max(viewBox.width, child.viewBox.width),
     height: viewBox.height + child.viewBox.height + VERTICAL_PADDING
-  }), { width: 0, height: 0 });
+  }),
+  { width: 0, height: 0 });
 
   return {
     width: viewBox.width,

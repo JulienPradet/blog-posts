@@ -1,0 +1,32 @@
+const renderPageToHtml = (paths) => (pagePath) => {
+  let location = makeUrl(pagePath)
+
+  const context = {}
+
+  const server = (
+    <StaticRouter
+      location={location}
+      context={context}
+    >
+      <App />
+    </StaticRouter>
+  )
+
+  const htmlContent = renderToString(appWithAsyncComponents)
+
+  const head = Helmet.rewind()
+  const topHead = Object.keys(head)
+    .filter((key) => key !== 'script')
+    .map((key) => head[key].toString())
+    .join('')
+
+  return renderToString(
+    <html>
+      <head dangerouslySetInnerHTML={{__html: topHead}} />
+      <body>
+        <div id='root' dangerouslySetInnerHTML={{__html: html}} />
+        <script src={makeJsUrl(pagePath)} key={key} />
+      </body>
+    </html>
+  )
+}

@@ -1,0 +1,9 @@
+module.exports = {
+  entry: {
+    server: 'build/server.js'
+  },
+  target: 'node',
+  output: {
+    libraryTarget: 'commonjs2'
+  }
+}

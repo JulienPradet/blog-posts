@@ -1,0 +1,9 @@
+const createRouteFromPath = (paths) => (pagePath) => {
+  return `
+    <Route
+      exact
+      path=${JSON.stringify(makeUrl(pagePath))}
+      component={require(${JSON.stringify(pagePath)})}
+    />
+  `
+}
