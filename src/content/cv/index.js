@@ -44,17 +44,36 @@ const Experience = ({ startDate, endDate, title, children }) => (
 
 const SectionExperienceProfessionnelle = () => (
   <Section title="Expérience Professionnelle">
-    <Experience startDate={new Date("2016-03-01")} title="Occitech">
+    <Experience startDate={new Date("2018-12-01")} title="Front-Commerce">
       <h4>
-        Front Commerce&nbsp;: connecte une boutique e-commerce à une WebApp
+        Création et maintenance d'un outil pour les dévelopeurs dédié à la mise
+        en place de boutiques e-commerce headless
       </h4>
       <ul>
+        <li>Création d'un thème e-commerce (React, Apollo, SSR...)</li>
+        <li>Mise à disposition d'un Design System (Storybook)</li>
         <li>Création d'une API GraphQL (NodeJS)</li>
-        <li>Création d'un thème e-commerce (React)</li>
-        <li>Mise à disposition d'un Design System (React Storybook)</li>
-        <li>Création d'un système de surcharge de thème (Babel, Webpack)</li>
+        <li>Gestion des mises à jour et des processus de migration</li>
       </ul>
-
+      <h4>Formation et support auprès des équipes utilisant le produit</h4>
+      <ul>
+        <li>Sessions de formation en présentiel ou à distance (5 jours)</li>
+        <li>
+          Support technique et aide à l'avant vente auprès des partenaires
+        </li>
+        <li>Rédaction technique pour la documentation du produit</li>
+      </ul>
+      <h4>Veille et R&D</h4>
+      <ul>
+        <li>Veille importante autour de l'écosystème front-end</li>
+        <li>Moteur au sujet des décisions techniques</li>
+      </ul>
+    </Experience>
+    <Experience
+      startDate={new Date("2016-03-07")}
+      endDate={new Date("2020-02-01")}
+      title="Occitech"
+    >
       <h4>Réalisation d'applications web spécifiques</h4>
       <ul>
         <li>Étude du besoin et conseils de solutions</li>
@@ -160,6 +179,18 @@ const Conference = ({ conf, date, children }) => (
 
 const SectionConferences = () => (
   <Section title="Conférences">
+    <Conference
+      date={new Date("2017-06-12")}
+      conf={<a href="https://france.sveltesociety.dev/">Svelte Society FR</a>}
+      theme={["Svelte", "Intl", "Rollup", "Babel"]}
+    >
+      <h4>Internationaliser son application pour seulement 1kb de JS</h4>
+      <p>
+        <a href="https://www.youtube.com/watch?v=aY-e0Ph4ub0">
+          https://www.youtube.com/watch?v=aY-e0Ph4ub0
+        </a>
+      </p>
+    </Conference>
     <Conference
       date={new Date("2017-06-12")}
       conf={<a href="http://toulouse.aperoweb.fr/">Aperoweb Toulouse</a>}
@@ -278,7 +309,7 @@ const SectionCompetences = () => (
       <p>JavaScript (ES2015+), PHP, Java, OCaml</p>
     </Competence>
     <Competence type="Web">
-      <p>React, RxJS, Babel, Webpack, Jest</p>
+      <p>React, RxJS, Babel, Webpack, Jest, Svelte, Gatsby, Next</p>
       <p>Symfony, CakePHP, Express (NodeJS)</p>
     </Competence>
   </Section>
@@ -295,8 +326,7 @@ const SectionInfoComplementaires = () => (
     </Info>
     <Info type="Loisirs">
       Illustration, Graphisme et Sculpture (
-      <a href="http://dev.vlynn.fr/folio/">http://dev.vlynn.fr/folio/</a>
-      )
+      <a href="http://dev.vlynn.fr/folio/">http://dev.vlynn.fr/folio/</a>)
       <ul>
         <li>2D : Photoshop, Illustrator</li>
         <li>3D : Blender, Argile</li>
@@ -336,7 +366,7 @@ const Cv = props => {
             </a>
           </li>
           <li>
-            <a href="mailto:julien@pradet.me">julien@pradet.me</a>
+            <a href="mailto:julien.pradet@gmail.com">julien.pradet@gmail.com</a>
           </li>
           <li>
             <a href={`https://twitter.com/JulienPradet`}>
