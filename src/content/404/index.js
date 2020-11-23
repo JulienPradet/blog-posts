@@ -6,9 +6,7 @@ const Home = () => (
     <h1>Malheureusement, ce lien est cassé. :(</h1>
 
     <p>
-      N'hésitez pas à <a href="https://twitter.com/JulienPradet">
-        me prévenir
-      </a>{" "}
+      N'hésitez pas à <a href="https://twitter.com/JulienPradet">me prévenir</a>{" "}
       pour que je le corrige !
     </p>
 

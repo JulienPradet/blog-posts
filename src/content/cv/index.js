@@ -3,6 +3,8 @@ import Helmet from "react-helmet";
 import Svg from "react-svg-inline";
 import twitterSvg from "../../icons/iconmonstr-twitter-1.svg";
 import githubSvg from "../../icons/iconmonstr-github-1.svg";
+import emailSvg from "../../icons/iconmonstr-email-3.svg";
+import globeSvg from "../../icons/iconmonstr-globe-3.svg";
 import { formatSimpleDate } from "../../site/util/dateFormats";
 import cvCss from "./cv.scss";
 import makeHelmet from "../../site/util/makeHelmet";
@@ -95,7 +97,8 @@ const SectionExperienceProfessionnelle = () => (
         <li>Formation et encadrement des développeurs juniors</li>
         <li>Amélioration de la qualité de nos prestations front-end</li>
       </ul>
-      <h4>Maintenance d'applications E-commerce sous Magento (PHP)</h4>
+
+      <h4>Maintenance d'applications E-commerce (Magento, PHP)</h4>
     </Experience>
 
     <Experience
@@ -104,16 +107,9 @@ const SectionExperienceProfessionnelle = () => (
       title="Capgemini"
     >
       <h4>
-        Front-Office d’une application web pour le Ministère de la Défense
+        Front-Office d’une application web pour le Ministère de la Défense (PHP,
+        Symfony)
       </h4>
-      <ul>
-        <li>
-          Conception et Intégration d’un calendrier web (JavaScript, Sass, Twig)
-        </li>
-        <li>
-          Développement des processus métiers du Front-Office (PHP, Symfony)
-        </li>
-      </ul>
     </Experience>
 
     <Experience
@@ -147,9 +143,9 @@ const SectionFormation = () => (
       startDate={new Date("2012-09-01")}
       endDate={new Date("2015-10-01")}
     >
-      <h4>
+      <h3 class="h4">
         École Internationale des Sciences du Traitement de l’Information - EISTI
-      </h4>
+      </h3>
       <p>
         <a href="http://www.eisti.fr">http://www.eisti.fr</a> - option
         Ingénierie du Cloud Computing
@@ -159,10 +155,10 @@ const SectionFormation = () => (
       startDate={new Date("2010-09-01")}
       endDate={new Date("2012-07-01")}
     >
-      <h4>
+      <h3 class="h4">
         Classes Préparatoires aux Grandes Écoles, Mathématiques et Physique
         (M.P.)
-      </h4>
+      </h3>
       <p>Lycée Louis Barthou à Pau</p>
     </Formation>
   </Section>
@@ -254,8 +250,10 @@ const SectionProjets = () => (
         </a>
       </h4>
       <p>
-        Je fais régulièrement des projets qui servent de terrain de jeu pour
-        découvrir de nouvelles technologies. Je publie ceux-ci sur mon Github.
+        Je publie régulièrement des projets sur github qui me servent de terrain
+        de jeu pour découvrir de nouvelles technologies. (Bibliothèque
+        d'animation, Outil pour Design System,{" "}
+        <abbr title="Générateur de Site Statique">GSS</abbr>…)
       </p>
     </Projet>
   </Section>
@@ -266,7 +264,7 @@ const Competence = ({ type, children }) => (
 );
 
 const SectionCompetences = () => (
-  <Section title="Compétences">
+  <Section title="Compétences techniques">
     <Competence type="Concepts">
       <p>
         Programmation Fonctionnelle, Programmation Réactive,{" "}
@@ -274,11 +272,13 @@ const SectionCompetences = () => (
       </p>
     </Competence>
     <Competence type="Langages">
-      <p>JavaScript (ESNext), PHP, Java, OCaml</p>
+      <p>
+        <strong>JavaScript (ESNext)</strong>, HTML, CSS, PHP, Java, OCaml
+      </p>
     </Competence>
     <Competence type="Web">
       <p>React, RxJS, Babel, Webpack, Jest, Svelte, Next, Gatsby</p>
-      <p>Symfony, Magento, Express, Fastify</p>
+      <p>Symfony, Express, Fastify</p>
     </Competence>
   </Section>
 );
@@ -321,6 +321,7 @@ const Cv = props => {
       <Helmet>
         <html lang="fr-fr" />
         <link rel="alternate" href="/en/cv" hreflang="en-us" />
+        <link rel="preload" as="style" href={cvCss} />
         <link rel="stylesheet" href={cvCss} />
       </Helmet>
       {helmet}
@@ -341,11 +342,15 @@ const Cv = props => {
           </li>
           <li>
             <a href={`https://www.julienpradet.fr`}>
+              <Svg svg={globeSvg} cleanup className="mobile-only" />
               <span className="name">https://www.julienpradet.fr</span>
             </a>
           </li>
           <li>
-            <a href="mailto:julien.pradet@gmail.com">julien.pradet@gmail.com</a>
+            <a href="mailto:julien.pradet@gmail.com">
+              <Svg svg={emailSvg} cleanup className="mobile-only" />
+              <span className="name">julien.pradet@gmail.com</span>
+            </a>
           </li>
           <li>
             <a href={`https://twitter.com/JulienPradet`}>

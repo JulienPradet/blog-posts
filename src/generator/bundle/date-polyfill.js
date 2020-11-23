@@ -1,4 +1,4 @@
-var areIntlLocalesSupported = require("intl-locales-supported");
+var { default: areIntlLocalesSupported } = require("intl-locales-supported");
 
 var localesMyAppSupports = ["fr-FR"];
 if (global.Intl) {

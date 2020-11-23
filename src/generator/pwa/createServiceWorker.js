@@ -3,7 +3,6 @@ const fs = require("../util/fs");
 const { Observable } = require("rxjs");
 const getPathsFromChunks = require("../bundle/getPathsFromChunks");
 const reduceObservable = require("../util/reduceObservable");
-const crypto = require("crypto");
 
 const serviceWorker = urlsToCacheOnFirstLoad => {
   const hash = Math.ceil(Math.random() * 1000000);
@@ -44,6 +43,9 @@ const serviceWorker = urlsToCacheOnFirstLoad => {
     })
 
     self.addEventListener("fetch", event => {
+      if (event.request.cache === 'only-if-cached' && event.request.mode !== 'same-origin') {
+        return;
+      }
       event.respondWith(
         caches.match(event.request).then(function(response) {
           if (response) {

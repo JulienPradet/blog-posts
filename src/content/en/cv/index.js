@@ -3,6 +3,8 @@ import Helmet from "react-helmet";
 import Svg from "react-svg-inline";
 import twitterSvg from "../../../icons/iconmonstr-twitter-1.svg";
 import githubSvg from "../../../icons/iconmonstr-github-1.svg";
+import emailSvg from "../../icons/iconmonstr-email-3.svg";
+import globeSvg from "../../icons/iconmonstr-globe-3.svg";
 import { formatSimpleDate } from "../../../site/util/dateFormats";
 import cvCss from "../../cv/cv.scss";
 import makeHelmet from "../../../site/util/makeHelmet";
@@ -46,8 +48,7 @@ const SectionExperienceProfessionnelle = () => (
   <Section title="Work Experience">
     <Experience startDate={new Date("2018-12-01")} title="Front-Commerce">
       <h4>
-        Created and maintained a developer tool enabling the usage of headless
-        eCommerce services
+        A developer tool enabling the usage of headless eCommerce services
       </h4>
       <ul>
         <li>eCommerce themes (React, Apollo…)</li>
@@ -58,15 +59,14 @@ const SectionExperienceProfessionnelle = () => (
       <h4>Lead the development of the tooling</h4>
       <ul>
         <li>
-          Evaluted and recommanded many of the technologies we are now relying
-          on
+          Evaluted and recommended many of the technologies currently in use
         </li>
         <li>
           Kept the stack up to date, following the evolution of the ecosystem
         </li>
         <li>
           Always watching technologies around the front-end ecosystem
-          (frameworks, bundlers, JAMStack, SaaS services…)
+          (frameworks, bundlers, JAMStack, Web perf…)
         </li>
       </ul>
       <h4>
@@ -96,7 +96,7 @@ const SectionExperienceProfessionnelle = () => (
         </li>
       </ul>
 
-      <h4>Maintained eCommerce shops using Magento (PHP)</h4>
+      <h4>Maintained eCommerce shops (Magento, PHP)</h4>
     </Experience>
 
     <Experience
@@ -106,14 +106,8 @@ const SectionExperienceProfessionnelle = () => (
     >
       <h4>
         Web Front-Office for one of the Ministry of the Armed Forces's services
+        (PHP, Symfony)
       </h4>
-      <ul>
-        <li>Conception and implementation of web calendar (JavaScript)</li>
-        <li>Implemented design mock ups (Sass)</li>
-        <li>
-          Implementation of the orchestration with other services (PHP, Symfony)
-        </li>
-      </ul>
     </Experience>
 
     <Experience
@@ -254,7 +248,7 @@ const Projet = ({ children, name }) => (
 );
 
 const SectionProjets = () => (
-  <Section title="Side projects">
+  <Section title="Side Projects">
     <Projet name="Blog">
       <h4>
         <a href="https://www.julienpradet.fr/">https://www.julienpradet.fr/</a>
@@ -263,33 +257,23 @@ const SectionProjets = () => (
         A blog where I share my knownledge and experiences related to the web.
       </p>
     </Projet>
-    <Projet name="React FLIP">
-      <h4>
-        <a href="https://github.com/JulienPradet/react-flip">
-          https://github.com/JulienPradet/react-flip
-        </a>
-      </h4>
-      <p>
-        A library simplifying the usage of{" "}
-        <a href="https://www.julienpradet.fr/posts/introduction-aux-animations-flips">
-          FLIP animations
-        </a>{" "}
-        with React.
-      </p>
-    </Projet>
-    <Projet name="Pigment Store">
-      <h4>
-        <a href="https://github.com/JulienPradet/pigment-store">
-          https://github.com/JulienPradet/pigment-store
-        </a>
-      </h4>
-      <p>A tool creating living documentation for a React application.</p>
-    </Projet>
     <Projet name="Ter Aelis">
       <h4>
         <a href="http://teraelis.fr/">http://teraelis.fr/</a>
       </h4>
       <p>Created a community forum using Symfony for an artists assocation.</p>
+    </Projet>
+    <Projet name="Technical Side Projects">
+      <h4>
+        <a href="https://github.com/JulienPradet">
+          https://github.com/JulienPradet
+        </a>
+      </h4>
+      <p>
+        I often publish new projects on github to have a playground allowing me
+        to discover new technologies. (Animation library, Design System tool,{" "}
+        <abbr title="Static Site Generator">SSG</abbr>…)
+      </p>
     </Projet>
   </Section>
 );
@@ -299,19 +283,21 @@ const Competence = ({ type, children }) => (
 );
 
 const SectionCompetences = () => (
-  <Section title="Skills">
-    <Competence type="Soft skills">
-      <p>Autonomous, Solution oriented, Team player</p>
-    </Competence>
-    <Competence type="Paradigmes">
-      <p>Procedural, Object, Functional, Reactive, Logic</p>
+  <Section title="Technical Skills">
+    <Competence type="Paradigms">
+      <p>
+        Functional Programming, Reactive Programming,{" "}
+        <abbr title="Object Oriented Programming">OOP</abbr>
+      </p>
     </Competence>
     <Competence type="Langages">
-      <p>JavaScript (ESNext), PHP, Java, OCaml</p>
+      <p>
+        <strong>JavaScript (ESNext)</strong>, HTML, CSS, PHP, Java, OCaml
+      </p>
     </Competence>
     <Competence type="Web">
       <p>React, RxJS, Babel, Webpack, Jest, Svelte, Next, Gatsby</p>
-      <p>Symfony, CakePHP, Express, Fastify</p>
+      <p>Symfony, Express, Fastify</p>
     </Competence>
   </Section>
 );
@@ -335,8 +321,7 @@ const SectionInfoComplementaires = () => (
     <Info type="Divers">
       <p>Driving license</p>
       <p>
-        Lived 9 years aboard&nbsp;: Scotland, Indonesia, United Arab Emirates
-        (Dubaï)
+        Lived 9 years aboard: Scotland, Indonesia, United Arab Emirates (Dubaï)
       </p>
     </Info>
   </Section>
@@ -350,6 +335,7 @@ const Cv = props => {
       <Helmet>
         <html lang="en-us" />
         <link rel="alternate" href="/cv" hreflang="fr-fr" />
+        <link rel="preload" as="style" href={cvCss} />
         <link rel="stylesheet" href={cvCss} />
       </Helmet>
       {helmet}
@@ -357,7 +343,7 @@ const Cv = props => {
         <div>
           <h1 className="page__title">Julien Pradet</h1>
           <h2 className="page__subtitle">
-            Web&nbsp;Engineer Full&nbsp;Stack (Focused on Front&nbsp;End)
+            Full&nbsp;Stack Engineer (Focused on Front&nbsp;End)
           </h2>
         </div>
         <ul className="contact">
@@ -370,11 +356,15 @@ const Cv = props => {
           </li>
           <li>
             <a href={`https://www.julienpradet.fr`}>
+              <Svg svg={globeSvg} cleanup className="mobile-only" />
               <span className="name">https://www.julienpradet.fr</span>
             </a>
           </li>
           <li>
-            <a href="mailto:julien.pradet@gmail.com">julien.pradet@gmail.com</a>
+            <a href="mailto:julien.pradet@gmail.com">
+              <Svg svg={emailSvg} cleanup className="mobile-only" />
+              <span className="name">julien.pradet@gmail.com</span>
+            </a>
           </li>
           <li>
             <a href={`https://twitter.com/JulienPradet`}>

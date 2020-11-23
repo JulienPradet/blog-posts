@@ -14,11 +14,6 @@ const baseConfig = paths => (pages, entryPath, isServer) => {
     module: {
       rules: [
         {
-          enforce: "pre",
-          test: /\.js$/,
-          loader: "eslint-loader"
-        },
-        {
           test: /\.js$/,
           loader: "babel-loader",
           exclude: [/node_modules/],
@@ -168,28 +163,30 @@ const makeWebpackConfig = paths => entry$ => {
 };
 
 const makeCompiler = paths => config$ => {
-  return config$.map(config => webpack(config)).do(compiler => {
-    log("info", "Compiling");
-
-    compiler.plugin("invalid", function() {
+  return config$
+    .map(config => webpack(config))
+    .do(compiler => {
       log("info", "Compiling");
-    });
 
-    compiler.plugin("done", function(stats) {
-      const messages = stats.toJson({}, true);
-      if (messages.errors.length > 0 || messages.warnings.length > 0) {
-        if (messages.errors.length > 0) {
-          messages.errors.forEach(message => log("error", message));
-        }
+      compiler.plugin("invalid", function() {
+        log("info", "Compiling");
+      });
 
-        if (messages.warnings.length > 0) {
-          messages.warnings.forEach(message => log("warn", message));
+      compiler.plugin("done", function(stats) {
+        const messages = stats.toJson({}, true);
+        if (messages.errors.length > 0 || messages.warnings.length > 0) {
+          if (messages.errors.length > 0) {
+            messages.errors.forEach(message => log("error", message));
+          }
+
+          if (messages.warnings.length > 0) {
+            messages.warnings.forEach(message => log("warn", message));
+          }
+        } else {
+          log("success", "Bundles created");
         }
-      } else {
-        log("success", "Bundles created");
-      }
+      });
     });
-  });
 };
 
 const createCompiler = paths => entry$ => {
