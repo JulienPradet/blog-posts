@@ -272,9 +272,7 @@ const SectionCompetences = () => (
       </p>
     </Competence>
     <Competence type="Langages">
-      <p>
-        <strong>JavaScript (ESNext)</strong>, HTML, CSS, PHP, Java, OCaml
-      </p>
+      <p>JavaScript (ESNext), HTML, CSS, PHP, Java, OCaml</p>
     </Competence>
     <Competence type="Web">
       <p>React, RxJS, Babel, Webpack, Jest, Svelte, Next, Gatsby</p>
