@@ -1,5 +1,5 @@
 module.exports = {
-  title: "CV Julien Pradet",
+  title: "Resume Julien Pradet",
   date: "2017-06-05",
   layout: "Blank"
 };

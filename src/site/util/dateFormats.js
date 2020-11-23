@@ -1,5 +1,5 @@
-const formatDate = date => {
-  const dateFormatter = new global.Intl.DateTimeFormat("fr-FR", {
+const formatDate = (date, lang = "fr-FR") => {
+  const dateFormatter = new global.Intl.DateTimeFormat(lang, {
     weekday: "long",
     year: "numeric",
     month: "long",
@@ -8,8 +8,8 @@ const formatDate = date => {
   return dateFormatter.format(date);
 };
 
-const formatSimpleDate = date => {
-  const dateFormatter = new global.Intl.DateTimeFormat("fr-FR", {
+const formatSimpleDate = (date, lang = "fr-FR") => {
+  const dateFormatter = new global.Intl.DateTimeFormat(lang, {
     year: "numeric",
     month: "short"
   });

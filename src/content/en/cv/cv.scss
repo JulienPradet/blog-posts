@@ -102,7 +102,7 @@ abbr {
     margin-top: 2rem;
     border-top: 1px solid #d4d9d9;
     padding-bottom: 1.5rem;
-    margin-bottom: 1rem;
+    margin-bottom: 1.5rem;
     border-bottom: 1px solid #d4d9d9;
   }
 }
@@ -117,8 +117,7 @@ abbr {
   justify-content: flex-start;
   align-items: center;
 }
-.contact a svg,
-.contact a [role="img"] {
+.contact a svg {
   width: 1.2em;
   margin-right: 0.5em;
   margin-top: 0.25em;
@@ -128,7 +127,6 @@ abbr {
   .head {
     display: flex;
     justify-content: space-between;
-    align-items: center;
   }
   .contact {
     margin-top: 0;
@@ -138,8 +136,7 @@ abbr {
   .contact a {
     flex-direction: row-reverse;
   }
-  .contact a svg,
-  .contact a [role="img"] {
+  .contact a svg {
     margin-left: 0.5em;
     margin-right: 0;
   }
@@ -178,7 +175,7 @@ section h2 {
   margin-top: 0;
   margin-bottom: 0;
 }
-.line__left .small {
+.line__left time {
   font-size: 0.9em;
 }
 .line__content {
@@ -208,9 +205,6 @@ section h2 {
   .line__left .time {
     margin-top: 0.08em;
   }
-  .line__left .time--alone {
-    margin-top: 0.12rem;
-  }
   .line__content {
     margin-top: 0;
     margin-left: 1.5rem;
@@ -220,11 +214,11 @@ section h2 {
     margin-top: 0;
   }
   .line__content > p:first-child {
-    margin-top: 0.17rem;
+    margin-top: 0.13em;
   }
   .line__content > h4,
   .line__content > h4:first-child {
-    margin-top: 0.17rem;
+    margin-top: 0.13em;
     margin-bottom: 0.13em;
   }
   .line + .line {
@@ -240,7 +234,6 @@ section h2 {
     font-size: 11px;
     background: transparent;
     border: none;
-    padding: 0;
   }
   .page {
     max-width: none;
@@ -248,10 +241,6 @@ section h2 {
   section {
     page-break-inside: avoid;
   }
-
-  .screen-only {
-    display: none;
-  }
 }
 
-@import "../../site/Layout/Blog/css/update-notification";
+@import "../../site/Layout/Blog/css/update-notification"

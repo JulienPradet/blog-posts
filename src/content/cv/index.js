@@ -29,12 +29,15 @@ const Time = ({ children }) =>
     <time>aujourd'hui</time>
   );
 
-const Experience = ({ startDate, endDate, title, children }) => (
+const Experience = ({ startDate, endDate, title, type, children }) => (
   <Line
     left={
       <div>
         <h3>{title}</h3>
-        <Time>{startDate}</Time> – <Time>{endDate}</Time>
+        <div className="small">
+          <Time>{startDate}</Time> – <Time>{endDate}</Time>
+        </div>
+        {type ? <div className="small">{type}</div> : null}
       </div>
     }
   >
@@ -44,20 +47,24 @@ const Experience = ({ startDate, endDate, title, children }) => (
 
 const SectionExperienceProfessionnelle = () => (
   <Section title="Expérience Professionnelle">
-    <Experience startDate={new Date("2018-12-01")} title="Front-Commerce">
+    <Experience
+      startDate={new Date("2018-12-01")}
+      title="Front-Commerce"
+      type="Remote"
+    >
       <h4>
-        Création et maintenance d'un outil pour les dévelopeurs dédié à la mise
+        Création et maintenance d'un outil pour les développeurs dédié à la mise
         en place de boutiques e-commerce headless
       </h4>
       <ul>
-        <li>Création d'un thème e-commerce (React, Apollo, SSR...)</li>
+        <li>Création d'un thème e-commerce (React, Sass, Apollo, SSR...)</li>
         <li>Mise à disposition d'un Design System (Storybook)</li>
         <li>Création d'une API GraphQL (NodeJS)</li>
         <li>Gestion des mises à jour et des processus de migration</li>
       </ul>
       <h4>Formation et support auprès des équipes utilisant le produit</h4>
       <ul>
-        <li>Sessions de formation en présentiel ou à distance (5 jours)</li>
+        <li>Sessions de formation en présentiel ou à distance</li>
         <li>
           Support technique et aide à l'avant vente auprès des partenaires
         </li>
@@ -66,6 +73,9 @@ const SectionExperienceProfessionnelle = () => (
       <h4>Veille et R&D</h4>
       <ul>
         <li>Veille importante autour de l'écosystème front-end</li>
+        <li>
+          Suivi des bonnes pratiques (WebPerfs, Accessibilité, PWAs, etc.)
+        </li>
         <li>Moteur au sujet des décisions techniques</li>
       </ul>
     </Experience>
@@ -74,19 +84,18 @@ const SectionExperienceProfessionnelle = () => (
       endDate={new Date("2020-02-01")}
       title="Occitech"
     >
-      <h4>Réalisation d'applications web spécifiques</h4>
+      <h4>Réalisation d'applications web spécifiques (React, PHP, Symfony…)</h4>
       <ul>
         <li>Étude du besoin et conseils de solutions</li>
-        <li>Mise en place de systèmes complexes (Event Sourcing, CQRS, …)</li>
+        <li>Mise en place de systèmes complexes (Event Sourcing, CQRS…)</li>
       </ul>
 
-      <h4>Maintenance d'applications E-commerce sous Magento (PHP)</h4>
+      <h4>Mise en avant de la culture front-end au sein de l'agence</h4>
       <ul>
-        <li>Création d'extensions personnalisées</li>
-        <li>Création de thèmes complets</li>
-        <li>Mise à niveau de boutiques sur les dernières versions Magento</li>
-        <li>Correction d'anomalies</li>
+        <li>Formation et encadrement des développeurs juniors</li>
+        <li>Amélioration de la qualité de nos prestations front-end</li>
       </ul>
+      <h4>Maintenance d'applications E-commerce sous Magento (PHP)</h4>
     </Experience>
 
     <Experience
@@ -99,9 +108,8 @@ const SectionExperienceProfessionnelle = () => (
       </h4>
       <ul>
         <li>
-          Étude de faisabilité et Intégration d’un calendrier web (JavaScript)
+          Conception et Intégration d’un calendrier web (JavaScript, Sass, Twig)
         </li>
-        <li>Intégration de la maquette (Sass)</li>
         <li>
           Développement des processus métiers du Front-Office (PHP, Symfony)
         </li>
@@ -113,14 +121,10 @@ const SectionExperienceProfessionnelle = () => (
       endDate={new Date("2014-09-01")}
       title="Kerdos-Energy"
     >
-      <h4>Plateforme de recensement des solutions d’optimisation en énergie</h4>
-      <ul>
-        <li>Restructuration du modèle de la base de données (MySQL)</li>
-        <li>Refonte des outils d’enrichissement du contenu en ligne (PHP)</li>
-        <li>
-          Création d’un outil de calcul en ligne (PHP, Javascript, JQuery)
-        </li>
-      </ul>
+      <h4>
+        Stage &ndash; Création d'une plateforme de recensement des solutions
+        d’optimisation en énergie (PHP, MySQL)
+      </h4>
     </Experience>
   </Section>
 );
@@ -128,7 +132,7 @@ const SectionExperienceProfessionnelle = () => (
 const Formation = ({ startDate, endDate, children }) => (
   <Line
     left={
-      <div className="time">
+      <div className="time time--alone">
         <Time>{startDate}</Time> – <Time>{endDate}</Time>
       </div>
     }
@@ -178,7 +182,7 @@ const Conference = ({ conf, date, children }) => (
 );
 
 const SectionConferences = () => (
-  <Section title="Conférences">
+  <Section title="Conférences (non exhaustif)">
     <Conference
       date={new Date("2017-06-12")}
       conf={<a href="https://france.sveltesociety.dev/">Svelte Society FR</a>}
@@ -193,6 +197,20 @@ const SectionConferences = () => (
     </Conference>
     <Conference
       date={new Date("2017-06-12")}
+      conf={
+        <a href="https://react-toulouse.js.org/meetup/4/">React Toulouse</a>
+      }
+      theme={["Storybook", "React", "Design System"]}
+    >
+      <h4>Passer de Storybook à un Design System</h4>
+      <p>
+        <a href="https://www.youtube.com/watch?v=lVwTOb9Nn18">
+          https://www.youtube.com/watch?v=lVwTOb9Nn18
+        </a>
+      </p>
+    </Conference>
+    <Conference
+      date={new Date("2017-06-12")}
       conf={<a href="http://toulouse.aperoweb.fr/">Aperoweb Toulouse</a>}
       theme={["Animation", "FLIP", "Performance"]}
     >
@@ -200,44 +218,6 @@ const SectionConferences = () => (
       <p>
         <a href="https://julienpradet.github.io/slides/animations-performantes/">
           https://julienpradet.github.io/slides/animations-performantes/
-        </a>
-      </p>
-    </Conference>
-    <Conference
-      date={new Date("2017-04-19")}
-      conf={<a href="http://toulouse.aperoweb.fr/">GDG Toulouse</a>}
-      theme={["React", "Bonnes pratiques"]}
-    >
-      <h4>Comment séparer ses composants&nbsp;?</h4>
-      <p>
-        <a href="https://julienpradet.github.io/slides/separtion-composants/">
-          https://julienpradet.github.io/slides/separtion-composants/
-        </a>
-      </p>
-    </Conference>
-    <Conference
-      date={new Date("2017-01-24")}
-      conf={<a href="http://toulouse.aperoweb.fr/">ToulouseJS</a>}
-      theme={["React", "Programmation Fonctionnelle"]}
-    >
-      <h4>HOC pour Higher Order Components</h4>
-      <p>
-        <a href="https://julienpradet.github.io/slides/hoc/">
-          https://julienpradet.github.io/slides/hoc/
-        </a>
-      </p>
-    </Conference>
-    <Conference
-      date={new Date("2016-10-14")}
-      theme={["React"]}
-      conf={
-        <a href="http://www.monkeytechdays.com/events/mktd-2">MonkeyTechDays</a>
-      }
-    >
-      <h4>Coach React</h4>
-      <p>
-        <a href="https://github.com/monkeytechdays/mktd-2-exercices/tree/react-wording">
-          https://github.com/monkeytechdays/mktd-2-exercices
         </a>
       </p>
     </Conference>
@@ -255,42 +235,27 @@ const SectionProjets = () => (
         <a href="https://www.julienpradet.fr/">https://www.julienpradet.fr/</a>
       </h4>
       <p>
-        Ce blog est l'occasion pour moi de partager mes connaissances et mes
-        expériences dans le domaine du web.
-      </p>
-    </Projet>
-    <Projet name="React FLIP">
-      <h4>
-        <a href="https://github.com/JulienPradet/react-flip">
-          https://github.com/JulienPradet/react-flip
-        </a>
-      </h4>
-      <p>
-        Une librairie simplifiant l'utilisation des{" "}
-        <a href="https://www.julienpradet.fr/posts/introduction-aux-animations-flips">
-          animations FLIP
-        </a>{" "}
-        en React.
-      </p>
-    </Projet>
-    <Projet name="Pigment Store">
-      <h4>
-        <a href="https://github.com/JulienPradet/pigment-store">
-          https://github.com/JulienPradet/pigment-store
-        </a>
-      </h4>
-      <p>
-        Un outil permettant de réaliser une documentation vivante d'une
-        application React.
+        J'y partage mes connaissances et mes expériences dans le domaine du web.
       </p>
     </Projet>
     <Projet name="Ter Aelis">
       <h4>
-        <a href="http://teraelis.fr/">http://teraelis.fr/</a>
+        <a href="http://ter-aelis.fr/">http://ter-aelis.fr/</a>
       </h4>
       <p>
         Réalisation d'un forum communautaire en Symfony pour une association
         d'artistes.
+      </p>
+    </Projet>
+    <Projet name="Side projects">
+      <h4>
+        <a href="https://github.com/JulienPradet">
+          https://github.com/JulienPradet
+        </a>
+      </h4>
+      <p>
+        Je fais régulièrement des projets qui servent de terrain de jeu pour
+        découvrir de nouvelles technologies. Je publie ceux-ci sur mon Github.
       </p>
     </Projet>
   </Section>
@@ -302,15 +267,18 @@ const Competence = ({ type, children }) => (
 
 const SectionCompetences = () => (
   <Section title="Compétences">
-    <Competence type="Paradigmes">
-      <p>Procédural, Object, Fonctionnel, Réactif, Logique</p>
+    <Competence type="Concepts">
+      <p>
+        Programmation Fonctionnelle, Programmation Réactive,{" "}
+        <abbr title="Programmation Orienté Objet">POO</abbr>
+      </p>
     </Competence>
     <Competence type="Langages">
-      <p>JavaScript (ES2015+), PHP, Java, OCaml</p>
+      <p>JavaScript (ESNext), PHP, Java, OCaml</p>
     </Competence>
     <Competence type="Web">
-      <p>React, RxJS, Babel, Webpack, Jest, Svelte, Gatsby, Next</p>
-      <p>Symfony, CakePHP, Express (NodeJS)</p>
+      <p>React, RxJS, Babel, Webpack, Jest, Svelte, Next, Gatsby</p>
+      <p>Symfony, Magento, Express, Fastify</p>
     </Competence>
   </Section>
 );
@@ -322,11 +290,13 @@ const Info = ({ type, children }) => (
 const SectionInfoComplementaires = () => (
   <Section title="Informations Complémentaires">
     <Info type="Langues">
-      Français (langue maternelle), Anglais (TOEIC : 945/990)
+      <p>Français (langue maternelle), Anglais (TOEIC : 945/990)</p>
     </Info>
     <Info type="Loisirs">
-      Illustration, Graphisme et Sculpture (
-      <a href="http://dev.vlynn.fr/folio/">http://dev.vlynn.fr/folio/</a>)
+      <p>
+        Illustration, Graphisme et Sculpture (
+        <a href="http://dev.vlynn.fr/folio/">http://dev.vlynn.fr/folio/</a>)
+      </p>
       <ul>
         <li>2D : Photoshop, Illustrator</li>
         <li>3D : Blender, Argile</li>
@@ -349,6 +319,8 @@ const Cv = props => {
   return (
     <div className="page">
       <Helmet>
+        <html lang="fr-fr" />
+        <link rel="alternate" href="/en/cv" hreflang="en-us" />
         <link rel="stylesheet" href={cvCss} />
       </Helmet>
       {helmet}
@@ -360,6 +332,13 @@ const Cv = props => {
           </h2>
         </div>
         <ul className="contact">
+          <li class="screen-only">
+            <a href="/en/cv/" hreflang="en-us" lang="en">
+              <span className="name">
+                Switch to <strong>english</strong> version
+              </span>
+            </a>
+          </li>
           <li>
             <a href={`https://www.julienpradet.fr`}>
               <span className="name">https://www.julienpradet.fr</span>
@@ -384,7 +363,9 @@ const Cv = props => {
       </header>
       <p className="page__moto">
         Mes valeurs sont la <strong>bienveillance</strong> et le{" "}
-        <strong>partage</strong>.
+        <strong>partage</strong>.<br />
+        Mes atouts sont mon <strong>empathie</strong>, mon{" "}
+        <strong>esprit d'équipe</strong> et mon <strong>autonomie</strong>.
       </p>
       <SectionExperienceProfessionnelle />
       <SectionFormation />
