@@ -37,7 +37,7 @@
     "react-router-dom": "^4.2.2",
     "react-router-server": "^4.2.2",
     "react-svg-inline": "^2.0.0",
-    "serialize-javascript": "^1.4.0",
+    "serialize-javascript": "^3.1.0",
     "virtual-dom": "^2.1.1"
   },
   "devDependencies": {
