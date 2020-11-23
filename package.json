@@ -25,6 +25,7 @@
     "lint": "eslint \"src/**/*.js\""
   },
   "dependencies": {
+    "common-tags": "^1.8.0",
     "eases": "^1.0.8",
     "intl": "^1.2.5",
     "intl-locales-supported": "^1.0.0",
