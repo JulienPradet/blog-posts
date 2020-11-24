@@ -180,7 +180,7 @@ const Conference = ({ conf, date, children }) => (
 const SectionConferences = () => (
   <Section title="Conférences (non exhaustif)">
     <Conference
-      date={new Date("2017-06-12")}
+      date={new Date("2020-09-27")}
       conf={<a href="https://france.sveltesociety.dev/">Svelte Society FR</a>}
       theme={["Svelte", "Intl", "Rollup", "Babel"]}
     >
@@ -192,7 +192,7 @@ const SectionConferences = () => (
       </p>
     </Conference>
     <Conference
-      date={new Date("2017-06-12")}
+      date={new Date("2018-11-20")}
       conf={
         <a href="https://react-toulouse.js.org/meetup/4/">React Toulouse</a>
       }
