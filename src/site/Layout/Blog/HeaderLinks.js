@@ -77,7 +77,7 @@ const Menu = ({ isOpened, toggleMenu }) => (
               </a>
             </li>
             <li>
-              <a href="/cv/">CV</a>
+              <PageLink to="/cv/">CV</PageLink>
             </li>
           </ul>
         </div>

@@ -46,56 +46,13 @@ const renderToHtml = paths => (jsPath, htmlPath, stats) => {
           <body>
             <div id="root" dangerouslySetInnerHTML={{ __html: html }} />
             {loadableState.getScriptElement()}
-            {!/\/cv\//.test(htmlPath) ? (
-              <Fragment>
-                {getPathsFromChunks(paths)(stats.children[0], htmlPath).map(
-                  (jsPath, key) => (
-                    <script async src={jsPath} key={key} />
-                  )
-                )}
-                {helmet.script.toComponent()}
-                {helmet.noscript.toComponent()}
-              </Fragment>
-            ) : (
-              <script
-                dangerouslySetInnerHTML={{
-                  __html: stripIndent`
-                    if ("serviceWorker" in navigator) {
-                      navigator.serviceWorker
-                        .register("/service-worker.js")
-                        .then(registration => {
-                          // Registration was successful
-                          registration.addEventListener("updatefound", () => {
-                            const installingWorker = registration.installing;
-                            const activeWorker = registration.active;
-                  
-                            installingWorker.addEventListener("statechange", () => {
-                              if (installingWorker.state === "installed") {
-                                if (navigator.serviceWorker.controller) {
-                                  dispatchUpdateEvent();
-                                }
-                              }
-                            });
-                  
-                            if (installingWorker && !activeWorker) {
-                              navigator.serviceWorker.addEventListener("controllerchange", () => {
-                                console.log("SW attached for the first time");
-                              });
-                            } else {
-                              navigator.serviceWorker.addEventListener("controllerchange", () => {
-                                window.location.reload();
-                              });
-                            }
-                          });
-                        })
-                        .catch(err => {
-                          // registration failed :(
-                          console.log("ServiceWorker registration failed: ", err);
-                        });
-                    }`
-                }}
-              />
+            {getPathsFromChunks(paths)(stats.children[0], htmlPath).map(
+              (jsPath, key) => (
+                <script async src={jsPath} key={key} />
+              )
             )}
+            {helmet.script.toComponent()}
+            {helmet.noscript.toComponent()}
           </body>
         </html>
       );
