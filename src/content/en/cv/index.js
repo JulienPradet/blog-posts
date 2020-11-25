@@ -9,6 +9,7 @@ import { formatSimpleDate } from "../../../site/util/dateFormats";
 import cvCss from "../../cv/cv.scss";
 import makeHelmet from "../../../site/util/makeHelmet";
 import { withSite } from "../../../site/Site";
+import PageLink from "../../../site/components/PageLink";
 
 const Section = ({ title, children }) => (
   <section>
@@ -346,17 +347,17 @@ const Cv = props => {
         </div>
         <ul className="contact">
           <li class="screen-only">
-            <a href="/cv/" hreflang="fr-fr" lang="fr">
+            <PageLink to="/cv/" hreflang="fr-fr" lang="fr">
               <span className="name">
                 Afficher la version <strong>française</strong>
               </span>
-            </a>
+            </PageLink>
           </li>
           <li>
-            <a href={`https://www.julienpradet.fr`}>
+            <PageLink to={`/`}>
               <Svg svg={globeSvg} cleanup className="mobile-only" />
               <span className="name">https://www.julienpradet.fr</span>
-            </a>
+            </PageLink>
           </li>
           <li>
             <a href="mailto:julien.pradet@gmail.com">
