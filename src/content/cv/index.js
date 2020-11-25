@@ -235,15 +235,6 @@ const SectionProjets = () => (
         J'y partage mes connaissances et mes expériences dans le domaine du web.
       </p>
     </Projet>
-    <Projet name="Ter Aelis">
-      <h4>
-        <a href="http://ter-aelis.fr/">http://ter-aelis.fr/</a>
-      </h4>
-      <p>
-        Réalisation d'un forum communautaire en Symfony pour une association
-        d'artistes.
-      </p>
-    </Projet>
     <Projet name="Side projects">
       <h4>
         <a href="https://github.com/JulienPradet">
@@ -255,6 +246,15 @@ const SectionProjets = () => (
         de jeu pour découvrir de nouvelles technologies. (Bibliothèque
         d'animation, Outil pour Design System,{" "}
         <abbr title="Générateur de Site Statique">GSS</abbr>…)
+      </p>
+    </Projet>
+    <Projet name="Ter Aelis">
+      <h4>
+        <a href="http://ter-aelis.fr/">http://ter-aelis.fr/</a>
+      </h4>
+      <p>
+        Réalisation d'un forum communautaire en Symfony pour une association
+        d'artistes.
       </p>
     </Projet>
   </Section>

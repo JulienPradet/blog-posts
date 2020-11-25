@@ -178,7 +178,7 @@ const Conference = ({ conf, date, children }) => (
 );
 
 const SectionConferences = () => (
-  <Section title="Conferences">
+  <Section title="Conferences (non exhaustive)">
     <Conference
       date={new Date("2020-09-27")}
       conf={<a href="https://france.sveltesociety.dev/">Svelte Society FR</a>}
@@ -193,6 +193,20 @@ const SectionConferences = () => (
     </Conference>
     <Conference
       date={new Date("2018-11-20")}
+      conf={
+        <a href="https://react-toulouse.js.org/meetup/4/">React Toulouse</a>
+      }
+      theme={["Storybook", "React", "Design System"]}
+    >
+      <h4>Transforming Storybook into a Design System</h4>
+      <p>
+        <a href="https://www.youtube.com/watch?v=lVwTOb9Nn18">
+          https://www.youtube.com/watch?v=lVwTOb9Nn18
+        </a>
+      </p>
+    </Conference>
+    <Conference
+      date={new Date("2017-06-12")}
       conf={<a href="http://toulouse.aperoweb.fr/">Aperoweb Toulouse</a>}
       theme={["Animation", "FLIP", "Performance"]}
     >
@@ -200,44 +214,6 @@ const SectionConferences = () => (
       <p>
         <a href="https://julienpradet.github.io/slides/animations-performantes/">
           https://julienpradet.github.io/slides/animations-performantes/
-        </a>
-      </p>
-    </Conference>
-    <Conference
-      date={new Date("2017-04-19")}
-      conf={<a href="http://toulouse.aperoweb.fr/">GDG Toulouse</a>}
-      theme={["React", "Bonnes pratiques"]}
-    >
-      <h4>How to split your components?</h4>
-      <p>
-        <a href="https://julienpradet.github.io/slides/separtion-composants/">
-          https://julienpradet.github.io/slides/separtion-composants/
-        </a>
-      </p>
-    </Conference>
-    <Conference
-      date={new Date("2017-01-24")}
-      conf={<a href="http://toulouse.aperoweb.fr/">ToulouseJS</a>}
-      theme={["React", "Programmation Fonctionnelle"]}
-    >
-      <h4>HOC for Higher Order Components</h4>
-      <p>
-        <a href="https://julienpradet.github.io/slides/hoc/">
-          https://julienpradet.github.io/slides/hoc/
-        </a>
-      </p>
-    </Conference>
-    <Conference
-      date={new Date("2016-10-14")}
-      theme={["React"]}
-      conf={
-        <a href="http://www.monkeytechdays.com/events/mktd-2">MonkeyTechDays</a>
-      }
-    >
-      <h4>React Coach</h4>
-      <p>
-        <a href="https://github.com/monkeytechdays/mktd-2-exercices/tree/react-wording">
-          https://github.com/monkeytechdays/mktd-2-exercices
         </a>
       </p>
     </Conference>
@@ -258,12 +234,6 @@ const SectionProjets = () => (
         A blog where I share my knownledge and experiences related to the web.
       </p>
     </Projet>
-    <Projet name="Ter Aelis">
-      <h4>
-        <a href="http://teraelis.fr/">http://teraelis.fr/</a>
-      </h4>
-      <p>Created a community forum using Symfony for an artists assocation.</p>
-    </Projet>
     <Projet name="Technical Side Projects">
       <h4>
         <a href="https://github.com/JulienPradet">
@@ -275,6 +245,12 @@ const SectionProjets = () => (
         to discover new technologies. (Animation library, Design System tool,{" "}
         <abbr title="Static Site Generator">SSG</abbr>…)
       </p>
+    </Projet>
+    <Projet name="Ter Aelis">
+      <h4>
+        <a href="http://teraelis.fr/">http://teraelis.fr/</a>
+      </h4>
+      <p>Created a community forum using Symfony for an artists assocation.</p>
     </Projet>
   </Section>
 );
