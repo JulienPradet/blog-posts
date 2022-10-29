@@ -72,6 +72,9 @@ const Menu = ({ isOpened, toggleMenu }) => (
               </a>
             </li>
             <li>
+                <a href="https://portfolio.julienpradet.fr/">Generative Art</a>
+            </li>
+            <li>
               <a href="mailto:julien@pradet.me?body=Hi! I found your mail on your blog and...">
                 julien@pradet.me
               </a>
