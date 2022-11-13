@@ -64,7 +64,7 @@
     "extract-text-webpack-plugin": "^3.0.0",
     "file-loader": "^0.11.2",
     "fs": "^0.0.1-security",
-    "html-webpack-plugin": "^2.30.1",
+    "html-webpack-plugin": "^5.5.0",
     "husky": "^0.14.3",
     "lighthouse": "^2.9.4",
     "lint-staged": "^4.2.2",
