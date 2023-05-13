@@ -1,0 +1,10 @@
+const buttons = document.querySelectorAll('button');
+
+let widths = [];
+buttons.forEach((button, index) => {
+  widths[index] = button.offsetWidth;
+});
+
+buttons.forEach((button, index) => {
+  button.style.width = (widths[index] * 2) + 'px';
+});
