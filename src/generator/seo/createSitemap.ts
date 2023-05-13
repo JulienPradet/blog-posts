@@ -4,7 +4,7 @@ import { Readable } from 'stream';
 import { join } from 'path';
 import createLog from '../util/log';
 import { getMetas } from './getMetas';
-import { writefile } from '../util/fs';
+import { mkdirp, writefile } from '../util/fs';
 import paths from '../paths';
 
 const log = createLog('SEO');
@@ -14,7 +14,8 @@ const createSitemap = () => {
 
 	const url = 'https://www.julienpradet.fr/';
 
-	return getMetas().pipe(
+	return mkdirp(paths.buildPath).pipe(
+		mergeMap(() => getMetas()),
 		mergeMap((metas) => {
 			const sitemapStream = new SitemapStream({ hostname: url });
 

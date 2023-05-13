@@ -3,7 +3,7 @@ import RSS from 'rss';
 import { map, mergeMap, tap, withLatestFrom } from 'rxjs';
 import { getSiteInfo } from '../getSiteInfo';
 import paths from '../paths';
-import { writefile } from '../util/fs';
+import { mkdirp, writefile } from '../util/fs';
 import createLog from '../util/log';
 import { getMetas } from './getMetas';
 
@@ -26,7 +26,8 @@ const createRss = () => {
 
 	const siteInfo$ = getSiteInfo();
 
-	return getMetas().pipe(
+	return mkdirp(paths.buildPath).pipe(
+		mergeMap(() => getMetas()),
 		withLatestFrom(siteInfo$, (metas, siteInfo) => ({ metas, siteInfo })),
 		tap(({ metas, siteInfo }) => {
 			metas

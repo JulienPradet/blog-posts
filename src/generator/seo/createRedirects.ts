@@ -2,7 +2,7 @@ import { join } from 'path';
 import { map, mergeMap, tap } from 'rxjs';
 import { PageMeta } from '../../components/ArticleMeta';
 import paths from '../paths';
-import { writefile } from '../util/fs';
+import { mkdirp, writefile } from '../util/fs';
 import createLog from '../util/log';
 import { getMetas } from './getMetas';
 
@@ -25,7 +25,8 @@ const getRedirectsFromMeta = (meta: PageMeta) => {
 const createRedirects = () => {
 	log('info', 'Creating redirects');
 
-	return getMetas().pipe(
+	return mkdirp(paths.buildPath).pipe(
+		mergeMap(() => getMetas()),
 		map((metas) =>
 			metas
 				.map((meta) => {
