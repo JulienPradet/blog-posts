@@ -83,7 +83,8 @@
 		"*.js": [
 			"prettier --write",
 			"git add",
-			"eslint"
+			"eslint",
+			"pnpm run test:unit"
 		],
 		"*.css": [
 			"prettier --write",
