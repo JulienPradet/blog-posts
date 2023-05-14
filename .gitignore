@@ -1,4 +1,7 @@
 /tmp
+/static/_redirects
+/static/feed.xml
+/static/sitemap.xml
 
 .DS_Store
 node_modules

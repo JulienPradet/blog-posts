@@ -12,10 +12,9 @@
 	"twitter": "JulienPradet",
 	"scripts": {
 		"precommit": "lint-staged",
-		"generate": "tsx ./src/generator/generate.ts",
+		"generate": "ESBK_TSCONFIG_PATH=./tsconfig-generate.json tsx ./src/generator/generate.ts",
 		"dev": "vite dev",
 		"build": "pnpm run generate && vite build",
-		"postbuild": "npx svelte-sitemap --domain https://www.julienpradet.fr",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
@@ -82,8 +81,7 @@
 	"lint-staged": {
 		"*.{js,ts,jsx,svelte}": [
 			"prettier --write",
-			"eslint",
-			"pnpm run test:unit"
+			"eslint"
 		],
 		"*.css": [
 			"prettier --write"

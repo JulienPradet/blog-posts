@@ -44,10 +44,6 @@
 		.cv-layout {
 			border: none;
 		}
-
-		.screen-only {
-			display: none;
-		}
 	}
 
 	@media screen {
