@@ -25,7 +25,10 @@
 					<svelte:fragment slot="label">Explorations</svelte:fragment>
 				</NavigationItem>
 				<NavigationItem href="/autres/">
-					<svelte:fragment slot="label">Autres liens</svelte:fragment>
+					<svelte:fragment slot="label">Autres</svelte:fragment>
+				</NavigationItem>
+				<NavigationItem href="/conferences/">
+					<svelte:fragment slot="label">Conférences</svelte:fragment>
 				</NavigationItem>
 			</svelte:fragment>
 		</NavigationItem>

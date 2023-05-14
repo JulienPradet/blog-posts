@@ -165,7 +165,7 @@
 	</Competence>
 </Section>
 
-<Section title="Conférences (non exhaustif)">
+<Section title="Conférences">
 	<Conference date={new Date('2020-09-27')}>
 		<svelte:fragment slot="conf">Svelte Society FR</svelte:fragment>
 		<svelte:fragment slot="children">
@@ -199,6 +199,14 @@
 					https://julienpradet.github.io/slides/animations-performantes/
 				</a>
 			</p>
+		</svelte:fragment>
+	</Conference>
+
+	<Conference>
+		<svelte:fragment slot="conf" />
+		<svelte:fragment slot="children">
+			<p>Toutes mes conférences sur</p>
+			<a href="/conferences/">https://www.julienpradet.fr/conferences/</a>
 		</svelte:fragment>
 	</Conference>
 </Section>
