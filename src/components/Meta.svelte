@@ -1,11 +1,28 @@
 <script lang="ts">
 	import { siteInfo } from '../../.svelte-kit/custom/pages';
-	import type { PageMeta } from './ArticleMeta';
+	import type { PageType } from './ArticleMeta';
+	import { jsonLd } from './jsonLd';
+	import { formatIsoDate } from './util/dateFormats';
 
-	export let meta: PageMeta;
+	export let meta: PageType;
 	export let location: string;
 
 	const image = `${siteInfo.homepage}/android-chrome-512x512.png`;
+
+	const jsonDescription =
+		meta.type === 'article'
+			? {
+					'@context': 'https://schema.org',
+					'@type': 'Article',
+					author: {
+						'@type': 'Person',
+						name: siteInfo.author.name
+					},
+					name: meta.title,
+					description: meta.description,
+					datePublished: formatIsoDate(meta.date)
+			  }
+			: null;
 </script>
 
 <svelte:head>
@@ -25,4 +42,7 @@
 	<meta property="og:image" content={image} />
 	<meta property="og:description" content={meta.description} />
 	<link rel="canonical" href={`${siteInfo.homepage}${location}`} />
+	{#if jsonDescription !== null}
+		{@html jsonLd(jsonDescription)}
+	{/if}
 </svelte:head>
