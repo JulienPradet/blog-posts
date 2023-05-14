@@ -39,7 +39,7 @@
 			Staff Front-End Engineer &ndash; 1ère galerie d'art en ligne de plus de 10&nbsp;000 artistes
 		</h4>
 		<p>
-			Mon rôle a évolué de Senior Engineer à Staff Engineer dans une équipe qui est passé de 5 à 25
+			Mon rôle a évolué de Senior Engineer à Staff Engineer dans une équipe qui est passée de 5 à 25
 			personnes :
 		</p>
 		<ul>
