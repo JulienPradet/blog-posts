@@ -60,12 +60,9 @@
 		list-style: none;
 		font-size: 1em;
 		display: flex;
-		gap: 0 0.5em;
+		gap: 0.75em 1em;
 		flex-wrap: wrap;
 		justify-content: flex-start;
-	}
-	.contact > * {
-		margin: 0.5em;
 	}
 	.contact a {
 		display: flex;
@@ -121,12 +118,10 @@
 			margin-right: 0;
 			text-align: right;
 			font-size: 0.9em;
+			gap: 0.25em;
 
 			flex-wrap: nowrap;
 			flex-direction: column;
-		}
-		.contact > * {
-			margin: 0.2em 0;
 		}
 		.contact a {
 			flex-direction: row-reverse;

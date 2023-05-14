@@ -23,7 +23,9 @@
 	}
 	.line__content :global(ul) {
 		margin: 0;
+		padding-left: 1em;
 	}
+
 	.line__content :global(ul + h4),
 	.line__content :global(ul + .h4) {
 		margin-top: 0.5em;
@@ -39,6 +41,9 @@
 		.line__left {
 			text-align: right;
 			width: 13rem;
+		}
+		.line__left :global(.small) {
+			line-height: 1.6;
 		}
 		.line__left :global(.time) {
 			margin-top: 0.08em;
@@ -62,10 +67,10 @@
 		.line__content > :global(.h4),
 		.line__content > :global(.h4:first-child) {
 			margin-top: 0.2rem;
-			margin-bottom: 0.13em;
+			margin-bottom: 0;
 		}
 		.line + :global(.line) {
-			margin-top: 1em;
+			margin-top: 1rem;
 			padding-top: 0;
 			border: none;
 		}
@@ -73,10 +78,10 @@
 
 	@media print {
 		.line__left {
-			width: 9rem;
+			width: 7rem;
 		}
 		.line__left :global(.time--alone) {
-			margin-top: 0.12rem;
+			margin-top: 0.07rem;
 		}
 
 		.line__content > :global(p:first-child) {
@@ -87,6 +92,7 @@
 		.line__content > :global(.h4),
 		.line__content > :global(.h4:first-child) {
 			margin-top: 0.07rem;
+			margin-bottom: 0.07rem;
 		}
 	}
 </style>

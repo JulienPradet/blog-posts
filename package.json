@@ -80,7 +80,7 @@
 	},
 	"browserslist": "> 0.25%, not dead",
 	"lint-staged": {
-		"*.js": [
+		"*.{js,ts,jsx,svelte}": [
 			"prettier --write",
 			"eslint",
 			"pnpm run test:unit"

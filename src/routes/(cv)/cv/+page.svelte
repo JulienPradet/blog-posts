@@ -7,10 +7,6 @@
 	import Info from '../../../components/cv/Info.svelte';
 	import Conference from '../../../components/cv/Conference.svelte';
 	import Header from '../../../components/cv/Header.svelte';
-
-	let anneesASingulart = Math.floor(
-		(new Date().getTime() - new Date('2021-04-06').getTime()) / (1000 * 60 * 60 * 24 * 365)
-	);
 </script>
 
 <svelte:head>
@@ -41,45 +37,43 @@
 	<Experience startDate={new Date('2021-04-06')} title="SINGULART" type="Remote">
 		<h4>
 			Staff Front-End Engineer &ndash; 1ère galerie d'art en ligne de plus de 10&nbsp;000 artistes
-			internationaux (Scale-up)
 		</h4>
 		<p>
-			En tant que premier développeur front-end à rejoindre cette entreprise internationale, mon
-			rôle a évolué de Senior Engineer dans une équipe de 5 personnes à Staff Engineer avec 25
-			personnes réparties en 3 équipes :
+			Mon rôle a évolué de Senior Engineer à Staff Engineer dans une équipe qui est passé de 5 à 25
+			personnes :
 		</p>
 		<ul>
 			<li>
 				Structuration des bonnes pratiques de développement front-end (Composants, Atomic Design,
-				<abbr title="Block Element Modifier">BEM</abbr>, tests automatisés, CI, etc.) améliorant
-				ainsi la déliverabilité de 30%
-			</li>
-			<li>Création et réalisation de tests technique pour le recrutement de l'équipe front-end</li>
-			<li>
-				Mentoring de 15 développeur·se·s front-end & full-stack (formations, meetups internes,
-				review, pair programming)
-			</li>
-			<li>
-				Analyse et amélioration des WebPerfs et des Core Web Vitals (Good mobile <abbr
-					title="Largest Contentful Paint">LCP</abbr
-				>
-				65% -> 87%, Good mobile <abbr title="Cumulative Layout Shift">CLS</abbr> 70% -> 95%)
-			</li>
-			<li>
-				Proposition et développement d'outils afin d'améliorer la collaboration front-end/back-end (<abbr
-					title="Request For Comments">RFC</abbr
-				>,
-				<abbr title="Architecture Decision Record">ADR</abbr>, Roadmaps)
-			</li>
-			<li>
-				Animation de la Guild front-end responsable de la création du Design System et de son
-				adoption progressive
+				<abbr tabIndex="-1" title="Block Element Modifier">BEM</abbr>, tests automatisés, CI, etc.)
 			</li>
 			<li>
 				Architecte des sujets produits stratégiques (feedbacks orientés produit, livraison
 				progressive, analyse d'AB tests)
 			</li>
-			<li>Référent auprès des autres équipes sur les sujets front-end</li>
+			<li>
+				Amélioration des Web Performance et des Core Web Vitals (Mobile <abbr
+					tabIndex="-1"
+					title="Largest Contentful Paint">LCP</abbr
+				>
+				{'<'} 2.4s de 65% à 87%)
+			</li>
+			<li>
+				Proposition et développement d'outils afin d'améliorer la collaboration front-end/back-end (<abbr
+					tabIndex="-1"
+					title="Request For Comments">RFC</abbr
+				>,
+				<abbr tabIndex="-1" title="Architecture Decision Record">ADR</abbr>, Roadmaps)
+			</li>
+			<li>
+				Animation de la Guild Front-End responsable de la création du Design System et de son
+				adoption progressive
+			</li>
+			<li>Recrutement de l'équipe Front-End (tests techniques)</li>
+			<li>
+				Mentorat de 15 développeur·se·s front-end & full-stack (formations, meetups internes,
+				review, pair programming)
+			</li>
 		</ul>
 	</Experience>
 	<Experience
@@ -89,8 +83,8 @@
 		type="Remote"
 	>
 		<h4>
-			Développeur Front-End &ndash; Création et maintenance d'un outil pour développeur·se·s dédié à
-			la mise en place de boutiques e-commerce headless
+			Développeur Front-End &ndash; Outil pour développeur·se·s dédié à la mise en place de
+			boutiques e-commerce headless
 		</h4>
 		<ul>
 			<li>
@@ -104,7 +98,7 @@
 			<li>Rédaction technique pour la documentation du produit</li>
 			<li>Moteur au sujet des décisions techniques</li>
 			<li>
-				Veille importante autour de l'écosystème front-end (Framworks, Tooling, WebPerfs,
+				Veille importante autour de l'écosystème front-end (Framworks, Tooling, Web Performance,
 				Accessibilité, PWAs, etc.)
 			</li>
 			<li>Formation des développeur·se·s utilisants le produit</li>
@@ -113,12 +107,12 @@
 	</Experience>
 	<Experience startDate={new Date('2016-03-07')} endDate={new Date('2020-02-01')} title="Occitech">
 		<h4>
-			Développeur Full-Stack &ndash; Réalisation & maintenance d'applications web spécifiques ou
-			e-commerce (React, PHP, Symfony, Magento…)
+			Développeur Full-Stack &ndash; Préstataire pour applications web spécifiques ou e-commerce
+			(React, PHP, Symfony, Magento…)
 		</h4>
 		<ul>
 			<li>Étude du besoin et conseils de solutions</li>
-			<li>Mise en place de systèmes complexes (Event Sourcing, CQRS…)</li>
+			<li>Mise en place de systèmes métiers (Event Sourcing, CQRS…)</li>
 			<li>Mise en avant de la culture front-end au sein de l'agence</li>
 			<li>Formation et encadrement des développeurs juniors</li>
 		</ul>
@@ -159,7 +153,7 @@
 	<Competence type="Concepts">
 		<p>
 			Programmation Fonctionnelle, Programmation Réactive,{' '}
-			<abbr title="Programmation Orienté Objet">POO</abbr>
+			<abbr tabIndex="-1" title="Programmation Orienté Objet">POO</abbr>
 		</p>
 	</Competence>
 	<Competence type="Langages">
@@ -173,7 +167,7 @@
 
 <Section title="Conférences (non exhaustif)">
 	<Conference date={new Date('2020-09-27')}>
-		<a slot="conf" href="https://france.sveltesociety.dev/">Svelte Society FR</a>
+		<svelte:fragment slot="conf">Svelte Society FR</svelte:fragment>
 		<svelte:fragment slot="children">
 			<h4>Internationaliser son application pour seulement 1kb de JS</h4>
 			<p>
@@ -184,7 +178,7 @@
 		</svelte:fragment>
 	</Conference>
 	<Conference date={new Date('2018-11-20')}>
-		<a slot="conf" href="https://react-toulouse.js.org/meetup/4/">React Toulouse</a>
+		<svelte:fragment slot="conf">React Toulouse</svelte:fragment>
 
 		<svelte:fragment slot="children">
 			<h4>Passer de Storybook à un Design System</h4>
@@ -196,7 +190,7 @@
 		</svelte:fragment>
 	</Conference>
 	<Conference date={new Date('2017-06-12')}>
-		<a slot="conf" href="http://toulouse.aperoweb.fr/">Aperoweb Toulouse</a>
+		<svelte:fragment slot="conf">Aperoweb Toulouse</svelte:fragment>
 
 		<svelte:fragment slot="children">
 			<h4>Animations Performantes</h4>
@@ -229,7 +223,7 @@
 		<p>
 			Je publie régulièrement des projets sur github qui me servent de terrain de jeu pour découvrir
 			de nouvelles technologies. (Bibliothèque d'animation, Outil pour Design System,{' '}
-			<abbr title="Générateur de Site Statique">GSS</abbr>…)
+			<abbr tabIndex="-1" title="Générateur de Site Statique">GSS</abbr>…)
 		</p>
 	</Projet>
 	<Projet name="Ter Aelis">
@@ -259,8 +253,25 @@
 	</Info>
 </Section>
 
+<footer class="footer screen-only">
+	<p><strong><span>Bonne journée</span></strong> 🤗</p>
+</footer>
+
 <style>
 	.inline-block {
 		display: inline-block;
+	}
+
+	.footer {
+		display: flex;
+		justify-content: flex-end;
+		border-top: 0.1rem solid var(--color-highlight);
+		margin-top: 5rem;
+		padding-top: 3rem;
+		margin-bottom: 1rem;
+	}
+
+	.footer p {
+		margin: 0;
 	}
 </style>

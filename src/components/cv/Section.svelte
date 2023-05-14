@@ -41,11 +41,11 @@
 
 		section h2 {
 			margin-top: 2rem;
-			margin-left: 10.5rem;
+			margin-left: 8.5rem;
 		}
 		section h2::before {
-			width: 9rem;
-			margin-left: -10.5rem;
+			width: 7.08rem;
+			margin-left: -8.5rem;
 		}
 	}
 </style>
