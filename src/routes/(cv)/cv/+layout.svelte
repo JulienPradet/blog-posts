@@ -155,26 +155,28 @@
 		left: 0;
 	}
 
-	.cv-layout :global(abbr[title]::after) {
-		pointer-events: none;
-		position: fixed;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		content: attr(title);
-		margin-top: -2.5em;
-		background: var(--color-white);
-		border-top: 1px solid var(--color-highlight);
-		padding: 2rem 1.5rem;
-		text-align: center;
-		opacity: 0;
-		transform: translateY(50%);
-		transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
-	}
+	@media (hover: none) {
+		.cv-layout :global(abbr[title]::after) {
+			pointer-events: none;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			content: attr(title);
+			margin-top: -2.5em;
+			background: var(--color-white);
+			border-top: 1px solid var(--color-highlight);
+			padding: 2rem 1.5rem;
+			text-align: center;
+			opacity: 0;
+			transform: translateY(50%);
+			transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
+		}
 
-	.cv-layout :global(abbr[title]:focus::after) {
-		transform: none;
-		opacity: 1;
+		.cv-layout :global(abbr[title]:focus::after) {
+			transform: none;
+			opacity: 1;
+		}
 	}
 
 	@media screen and (max-width: 400px) {

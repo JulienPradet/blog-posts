@@ -44,7 +44,7 @@
 		</p>
 		<ul>
 			<li>
-				Structuration des bonnes pratiques de développement front-end (Composants, Atomic Design,
+				Structuration des bonnes pratiques de développement Front-End (Composants, Atomic Design,
 				<abbr tabIndex="-1" title="Block Element Modifier">BEM</abbr>, tests automatisés, CI, etc.)
 			</li>
 			<li>
@@ -59,19 +59,19 @@
 				{'<'} 2.4s de 65% à 87%)
 			</li>
 			<li>
-				Proposition et développement d'outils afin d'améliorer la collaboration front-end/back-end (<abbr
+				Proposition et développement d'outils afin d'améliorer la collaboration Front-End/Back-End (<abbr
 					tabIndex="-1"
 					title="Request For Comments">RFC</abbr
 				>,
 				<abbr tabIndex="-1" title="Architecture Decision Record">ADR</abbr>, Roadmaps)
 			</li>
 			<li>
-				Animation de la Guild Front-End responsable de la création du Design System et de son
+				Responsable de la Guild Front-End en charge de la création du Design System et de son
 				adoption progressive
 			</li>
-			<li>Recrutement de l'équipe Front-End (tests techniques)</li>
+			<li>Recrutement de l'équipe Front-End (tests techniques et entretiens)</li>
 			<li>
-				Mentorat de 15 développeur·se·s front-end & full-stack (formations, meetups internes,
+				Mentorat de 15 développeur·se·s Front-End & Full-Stack (formations, meetups internes,
 				review, pair programming)
 			</li>
 		</ul>
@@ -98,22 +98,22 @@
 			<li>Rédaction technique pour la documentation du produit</li>
 			<li>Moteur au sujet des décisions techniques</li>
 			<li>
-				Veille importante autour de l'écosystème front-end (Framworks, Tooling, Web Performance,
+				Veille importante autour de l'écosystème Front-End (Framworks, Tooling, Web Performance,
 				Accessibilité, PWAs, etc.)
 			</li>
-			<li>Formation des développeur·se·s utilisants le produit</li>
-			<li>Support technique et aide à l'avant vente auprès des partenaires</li>
+			<li>Formation des développeur·se·s utilisant le produit</li>
+			<li>Support technique et aide à l'avant-vente auprès des partenaires</li>
 		</ul>
 	</Experience>
 	<Experience startDate={new Date('2016-03-07')} endDate={new Date('2020-02-01')} title="Occitech">
 		<h4>
-			Développeur Full-Stack &ndash; Préstataire pour applications web spécifiques ou e-commerce
+			Développeur Full-Stack &ndash; Préstataire d'applications web spécifiques ou e-commerce
 			(React, PHP, Symfony, Magento…)
 		</h4>
 		<ul>
 			<li>Étude du besoin et conseils de solutions</li>
 			<li>Mise en place de systèmes métiers (Event Sourcing, CQRS…)</li>
-			<li>Mise en avant de la culture front-end au sein de l'agence</li>
+			<li>Mise en avant de la culture Front-End au sein de l'agence</li>
 			<li>Formation et encadrement des développeurs juniors</li>
 		</ul>
 	</Experience>
@@ -149,7 +149,7 @@
 	</Formation>
 </Section>
 
-<Section title="Compétences techniques">
+<Section title="Compétences Techniques">
 	<Competence type="Concepts">
 		<p>
 			Programmation Fonctionnelle, Programmation Réactive,{' '}
@@ -229,8 +229,8 @@
 			<a href="https://github.com/JulienPradet"> https://github.com/JulienPradet </a>
 		</h4>
 		<p>
-			Je publie régulièrement des projets sur github qui me servent de terrain de jeu pour découvrir
-			de nouvelles technologies. (Bibliothèque d'animation, Outil pour Design System,{' '}
+			Je publie régulièrement des projets sur GitHub qui me servent de terrains de jeux pour
+			découvrir de nouvelles technologies. (Bibliothèque d'animation, Outil pour Design System,{' '}
 			<abbr tabIndex="-1" title="Générateur de Site Statique">GSS</abbr>…)
 		</p>
 	</Projet>
@@ -281,5 +281,11 @@
 
 	.footer p {
 		margin: 0;
+	}
+
+	@media print {
+		.footer {
+			display: none;
+		}
 	}
 </style>

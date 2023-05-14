@@ -66,7 +66,7 @@
 		.line__content > :global(h4:first-child),
 		.line__content > :global(.h4),
 		.line__content > :global(.h4:first-child) {
-			margin-top: 0.2rem;
+			margin-top: 0.15rem;
 			margin-bottom: 0;
 		}
 		.line + :global(.line) {
