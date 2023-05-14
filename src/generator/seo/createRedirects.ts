@@ -35,7 +35,7 @@ const createRedirects = () => {
 					});
 				})
 				.filter((meta) => meta.redirect)
-				.map((meta) => meta.redirect.map((redirect) => `${redirect}    ${meta.location}   301`))
+				.map((meta) => meta.redirect.map((redirect) => `${redirect}    /${meta.location}   301`))
 				.reduce((acc, redirects) => acc.concat(redirects), [])
 				.join('\n')
 		),
