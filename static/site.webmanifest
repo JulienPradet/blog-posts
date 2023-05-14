@@ -2,8 +2,8 @@
 	"short_name": "Julien P.",
 	"name": "Enchanté, Julien Pradet",
 	"start_url": "https://www.julienpradet.fr/",
-	"background_color": "#f6edda",
-	"theme_color": "#f6edda",
+	"background_color": "#fff7f1",
+	"theme_color": "#fff7f1",
 	"display": "standalone",
 	"icons": [
 		{
