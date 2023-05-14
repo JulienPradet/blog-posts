@@ -1,8 +1,8 @@
 <script lang="ts">
-	import twitterSvg from './icons/iconmonstr-twitter-1.svg?raw';
-	import githubSvg from './icons/iconmonstr-github-1.svg?raw';
-	import emailSvg from './icons/iconmonstr-email-3.svg?raw';
-	import globeSvg from './icons/iconmonstr-globe-3.svg?raw';
+	import twitterSvg from '../icons/iconmonstr-twitter-1.svg?raw';
+	import githubSvg from '../icons/iconmonstr-github-1.svg?raw';
+	import emailSvg from '../icons/iconmonstr-email-3.svg?raw';
+	import globeSvg from '../icons/iconmonstr-globe-3.svg?raw';
 
 	export let translationHref: string;
 	export let translationHreflang: string;
