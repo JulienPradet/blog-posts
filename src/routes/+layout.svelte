@@ -1,3 +1,13 @@
+<script lang="ts">
+	if (typeof navigator !== 'undefined' && 'serviceWorker' in window.navigator) {
+		window.navigator.serviceWorker.getRegistrations().then((registrations) => {
+			registrations.forEach((registration) => {
+				registration.unregister();
+			});
+		});
+	}
+</script>
+
 <slot />
 
 <style>
