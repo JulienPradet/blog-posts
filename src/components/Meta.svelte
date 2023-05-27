@@ -10,7 +10,7 @@
 	const image = `${siteInfo.homepage}/android-chrome-512x512.png`;
 
 	const jsonDescription =
-		meta.type === 'article'
+		'type' in meta && meta.type === 'article'
 			? {
 					'@context': 'https://schema.org',
 					'@type': 'Article',

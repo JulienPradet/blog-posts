@@ -35,6 +35,7 @@
 		--color-white: #fffdfd;
 		--color-creme: #fff7f1;
 		--color-dark: #181716;
+		--color-dark-lighter: #181716e0;
 		padding: 3rem var(--global-margin);
 		font-family: Ovo, serif;
 		line-height: 1.5;
@@ -49,17 +50,26 @@
 
 	.page :global(h2),
 	.page :global(.h2) {
+		margin-top: 1.5em;
+		margin-bottom: 0;
 		font-size: 2.074rem;
+		line-height: 1.3;
 	}
 
 	.page :global(h3),
 	.page :global(.h3) {
+		margin-top: 1.5em;
+		margin-bottom: 0;
 		font-size: 1.728rem;
+		line-height: 1.3;
 	}
 
 	.page :global(h4),
 	.page :global(.h4) {
+		margin-top: 1.5em;
+		margin-bottom: 0;
 		font-size: 1.44rem;
+		line-height: 1.4;
 	}
 
 	.page :global(.small) {
@@ -108,6 +118,31 @@
 		position: relative;
 		display: inline-block;
 		font-weight: bold;
+	}
+
+	.page :global(blockquote) {
+		margin-left: 0;
+		padding-left: 1rem;
+		border-left: 3px solid rgb(24 23 22 / 15%);
+	}
+
+	.page :global(kbd) {
+		background-color: #eee;
+		border-radius: 3px;
+		border: 1px solid #b4b4b4;
+		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+		color: #333;
+		display: inline-block;
+		font-size: 0.85em;
+		font-weight: normal;
+		line-height: 1.5;
+		padding: 2px 4px 0;
+		white-space: nowrap;
+	}
+
+	.page :global(:not(pre) > code) {
+		font-weight: bold;
+		color: var(--color-dark-lighter);
 	}
 
 	/**

@@ -21,7 +21,7 @@
 	};
 </script>
 
-<Meta {meta} location="/tutoriels/introduction-aux-animations-flips/" />
+<Meta {meta} location="/" />
 
 <Headline
 	headline="Enchanté, Julien&nbsp;Pradet,"

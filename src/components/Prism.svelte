@@ -2,15 +2,13 @@
 	import Prism from 'prismjs';
 	import 'prismjs/components/prism-jsx';
 	import 'prismjs/components/prism-css';
+	import 'prismjs/components/prism-diff';
 	import { afterUpdate } from 'svelte';
 
 	let container: HTMLDivElement;
 
 	afterUpdate(() => {
-		const codeContainers = container.querySelectorAll('pre[class]');
-		for (let i = 0; i < codeContainers.length; i++) {
-			Prism.highlightElement(codeContainers[i]);
-		}
+		Prism.highlightAllUnder(container, false);
 	});
 </script>
 

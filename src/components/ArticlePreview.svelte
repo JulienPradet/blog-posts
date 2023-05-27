@@ -27,7 +27,7 @@
 		border-top: 1px solid rgb(24 23 22 / 15%);
 	}
 
-	h2 {
+	.article-preview h2 {
 		margin-top: 0;
 		margin-bottom: 0.5rem;
 	}

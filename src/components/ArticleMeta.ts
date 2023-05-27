@@ -22,8 +22,10 @@ export type CategoryMeta = PageMeta & {
 	category: ArticleCategory;
 };
 
+export type LandingMeta = PageMeta;
+
 export type WithLocation<T> = T & {
 	location: string;
 };
 
-export type PageType = ArticleMeta | CategoryMeta;
+export type PageType = ArticleMeta | CategoryMeta | LandingMeta;
