@@ -40,12 +40,12 @@
 		</NavigationItem>
 		<NavigationItem href="https://twitter.com/JulienPradet">
 			<svelte:fragment slot="label">
-				<span class="icon" aria-label="Twitter @JulienPradet">{@html twitterSvg}</span>
+				<span class="icon">{@html twitterSvg}</span>
 			</svelte:fragment>
 		</NavigationItem>
 		<NavigationItem href="https://github.com/JulienPradet">
 			<svelte:fragment slot="label">
-				<span class="icon" aria-label="GitHub JulienPradet">{@html githubSvg}</span>
+				<span class="icon">{@html githubSvg}</span>
 			</svelte:fragment>
 		</NavigationItem>
 	</ul>

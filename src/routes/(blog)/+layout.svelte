@@ -31,7 +31,7 @@
 	}
 
 	.page {
-		--global-margin: 1.5rem;
+		--global-margin: 1rem;
 		--color-white: #fffdfd;
 		--color-creme: #fff7f1;
 		--color-dark: #181716;
@@ -140,9 +140,29 @@
 		white-space: nowrap;
 	}
 
-	.page :global(:not(pre) > code) {
-		font-weight: bold;
+	.page :global(:not(pre, a) > code) {
 		color: var(--color-dark-lighter);
+	}
+
+	.page :global(:not(pre) > code),
+	.page :global(a > code) {
+		font-weight: bold;
+		line-height: 1.17;
+	}
+
+	@media (max-width: 1090px) {
+		.page :global(pre) {
+			margin-left: calc(-1 * var(--global-margin));
+			margin-right: calc(-1 * var(--global-margin));
+			padding-left: var(--global-margin);
+			padding-right: var(--global-margin);
+		}
+	}
+
+	@media (max-width: 480px) {
+		.page :global(pre) {
+			font-size: 0.85rem;
+		}
 	}
 
 	/**
@@ -269,6 +289,12 @@
 		margin-bottom: 2em;
 		border: none;
 		border-top: 1px solid rgb(24 23 22 / 15%);
+	}
+
+	@media screen and (min-width: 480px) {
+		.page {
+			--global-margin: 1.5rem;
+		}
 	}
 
 	@media screen and (min-width: 51em) {

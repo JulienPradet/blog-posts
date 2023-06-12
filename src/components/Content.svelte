@@ -2,6 +2,6 @@
 
 <style>
 	section {
-		max-width: 70ch;
+		max-width: 80ch;
 	}
 </style>
