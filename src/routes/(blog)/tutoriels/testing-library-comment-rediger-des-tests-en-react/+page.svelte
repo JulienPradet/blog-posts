@@ -11,7 +11,7 @@
 
 <Meta {meta} location="/tutoriels/testing-library-comment-rediger-des-tests-en-react/" />
 
-<Headline headline={meta.title} subtitle="vendredi 15 mai 2023" />
+<Headline headline={meta.title} subtitle="lundi 12 juin 2023" />
 
 <MainContent>
 	<Content>
