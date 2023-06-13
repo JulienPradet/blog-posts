@@ -38,31 +38,29 @@
 	<Experience lang="en-US" startDate={new Date('2021-04-06')} title="SINGULART" type="Remote">
 		<h4>
 			Staff Front-End Engineer &ndash; 1st online art gallery representing over 10,000 artists
-			worldwide (Scale-up)
+			worldwide
 		</h4>
 		<p>
-			As the first front-end developer to join this international company, my role evolved from
-			Senior Engineer in a team of 5 to Staff Engineer with a total of 25 people split in 3 teams:
+			My role went from Senior Engineer to Staff Engineer in a team that scaled from 5 to 25
+			persons:
 		</p>
 		<ul>
 			<li>
-				Structured best practices in front-end development (Components, Atomic Design,
-				<abbr title="Block Element Modifier">BEM</abbr>, automated tests, CI, etc.) increasing
-				delivery by 30%
-			</li>
-			<li>Created & Led technical interviews for front-end team positions</li>
-			<li>
-				Mentored 15 front-end & full-stack developers (trainings, internal meetups, reviews, pair
-				programming)
+				Structured best practices in Front-End development (Components, Atomic Design,
+				<abbr title="Block Element Modifier">BEM</abbr>, automated tests, CI, etc.)
 			</li>
 			<li>
-				Analyzed and improved WebPerfs and Core Web Vitals (Good mobile <abbr
-					title="Largest Contentful Paint">LCP</abbr
+				Architect on strategic product projects (product minded feedbacks, progressive delivery, AB
+				tests analysis)
+			</li>
+			<li>
+				Improved Web Performance and Core Web Vitals (Mobile <abbr title="Largest Contentful Paint"
+					>LCP</abbr
 				>
-				from 65% to 87%, Good mobile <abbr title="Cumulative Layout Shift">CLS</abbr> from 70% to 95%)
+				{'<'} 2.4s from 65% to 88%)
 			</li>
 			<li>
-				Proposals & development of tools to improve developers efficiency (<abbr
+				Proposals & development of tools to improve back/front collaboration & efficiency (<abbr
 					title="Request For Comments">RFC</abbr
 				>, <abbr title="Architecture Decision Record">ADR</abbr>, Roadmaps)
 			</li>
@@ -70,11 +68,11 @@
 				Led the Front-End Guild owning the creation and the progressive adoption of the Design
 				System
 			</li>
+			<li>Recruted the Front-End team (technical tests & interviews)</li>
 			<li>
-				Architect on strategic product projects (product minded feedbacks, progressive delivery, AB
-				tests analysis)
+				Mentored 15 Front-End & Full-Stack developers (trainings, internal meetups, reviews, pair
+				programming)
 			</li>
-			<li>Point of contact of other teams regarding front-end</li>
 		</ul>
 	</Experience>
 	<Experience
@@ -98,7 +96,7 @@
 			<li>Evaluted and recommended many of the technologies currently in use</li>
 			<li>Kept the stack up to date, following the evolution of the ecosystem</li>
 			<li>
-				Always watching technologies around the front-end ecosystem (frameworks, bundlers, JAMStack,
+				Always watching technologies around the Front-End ecosystem (frameworks, bundlers, JAMStack,
 				Web perf…)
 			</li>
 		</ul>

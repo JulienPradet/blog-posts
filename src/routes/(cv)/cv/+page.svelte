@@ -37,6 +37,7 @@
 	<Experience startDate={new Date('2021-04-06')} title="SINGULART" type="Remote">
 		<h4>
 			Staff Front-End Engineer &ndash; 1ère galerie d'art en ligne de plus de 10&nbsp;000 artistes
+			internationaux
 		</h4>
 		<p>
 			Mon rôle a évolué de Senior Engineer à Staff Engineer dans une équipe qui est passée de 5 à 25
@@ -56,7 +57,7 @@
 					tabIndex="-1"
 					title="Largest Contentful Paint">LCP</abbr
 				>
-				{'<'} 2.4s de 65% à 87%)
+				{'<'} 2.4s de 65% à 88%)
 			</li>
 			<li>
 				Proposition et développement d'outils afin d'améliorer la collaboration Front-End/Back-End (<abbr
