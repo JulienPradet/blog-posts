@@ -95,7 +95,7 @@
 	}
 
 	:global(.token.comment, .token.prolog, .token.doctype, .token.cdata) {
-		color: #5c6370;
+		color: #7e8694;
 	}
 
 	:global(.token.punctuation) {
