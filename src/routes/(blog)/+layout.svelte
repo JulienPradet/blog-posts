@@ -13,7 +13,7 @@
 	</main>
 
 	<footer>
-		<a href="#top">Back to top</a>
+		<a href="#top">Revenir en haut</a>
 		<a href="#main" class="screen-reader screen-reader-focusable">Contenu principal</a>
 	</footer>
 </div>
@@ -116,7 +116,7 @@
 
 	.page :global(strong) {
 		position: relative;
-		display: inline-block;
+		display: inline;
 		font-weight: bold;
 	}
 
@@ -282,6 +282,10 @@
 
 	.page :global(figure:hover figcaption) {
 		opacity: 1;
+	}
+
+	.page :global(summary) {
+		cursor: pointer;
 	}
 
 	.main :global(hr) {

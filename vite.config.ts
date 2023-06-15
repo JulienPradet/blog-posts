@@ -32,6 +32,19 @@ export default defineConfig({
 							.replaceAll(/[^a-z0-9-_]+/g, '-')
 							.replace(/(^-+)|(-+$)/, '')
 				});
+
+				md.core.ruler.before('inline', 'french-typo', function replace(state) {
+					const tokens = state.tokens;
+					for (let i = 2; i < tokens.length; i++) {
+						const token = tokens[i];
+						if (token.type === 'inline') {
+							token.content = token.content
+								.replaceAll(/ ([?!;])/g, '&#8239;$1')
+								.replaceAll(/ :/g, '&nbsp;:');
+						}
+					}
+				});
+
 				return md.render(body);
 			}
 		})
