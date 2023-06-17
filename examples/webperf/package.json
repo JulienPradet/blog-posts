@@ -1,0 +1,24 @@
+{
+  "name": "webperf",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@vitejs/plugin-react": "^4.0.0",
+    "vite": "^4.3.9"
+  },
+  "dependencies": {
+    "moment": "^2.29.4",
+    "photoswipe": "^5.3.7",
+    "prop-types": "^15.8.1",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-photoswipe-gallery": "^2.2.7"
+  }
+}
