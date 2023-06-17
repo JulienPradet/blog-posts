@@ -140,6 +140,9 @@ main {
 
 .pswp__img {
 	object-fit: contain;
+	max-width: 100vw;
+	max-height: 100vh;
+	height: 100vh !important;
 }
 
 @media (min-width: 500px) {
