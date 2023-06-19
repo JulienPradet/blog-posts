@@ -36,7 +36,10 @@ const createRedirects = () => {
 				})
 				.filter((meta) => meta.redirect)
 				.map((meta) => meta.redirect.map((redirect) => `${redirect}    /${meta.location}   301`))
-				.reduce((acc, redirects) => acc.concat(redirects), [])
+				.reduce(
+					(acc, redirects) => acc.concat(redirects),
+					[`/en/cv    /cv/en/    301`, `/en/cv    /cv/en/    301`]
+				)
 				.join('\n')
 		),
 		mergeMap((sitemap) => writefile(join(paths.buildPath, '_redirects'), sitemap + '\n')),
