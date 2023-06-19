@@ -5,8 +5,9 @@
 <Content>
 	<section>
 		<p>
-			Si vous voulez suivre mes publications, il paraît que j'ai un feed <a href="/feed.xml">RSS</a>
-			et un <a href="https://twitter.com/JulienPradet">Twitter</a>.
+			Si vous voulez suivre mes publications, il paraît que j'ai un feed <a href="/feed.xml">RSS</a
+			>, <a href="https://piaille.fr/@julienpradet">Mastodon</a> et un
+			<a href="https://twitter.com/JulienPradet">Twitter</a>.
 		</p>
 		<p>
 			Si vous pensez à d'autres méthodes que vous voudriez que je mette en place (pigeon voyageur,

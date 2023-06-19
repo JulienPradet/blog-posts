@@ -263,7 +263,7 @@
 
 	.page :global(figure) {
 		width: 100%;
-		margin: 1em 0;
+		margin: 2em 0;
 	}
 
 	.page :global(figure > .SVGInline) {
@@ -276,7 +276,7 @@
 		margin-top: 0.5em;
 		text-align: center;
 		font-size: 0.8em;
-		opacity: 0.6;
+		opacity: 0.8;
 		transition: opacity 0.5s ease;
 	}
 

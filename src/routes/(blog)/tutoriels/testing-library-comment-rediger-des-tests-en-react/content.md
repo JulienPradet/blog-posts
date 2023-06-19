@@ -6,8 +6,8 @@ En effet, la finalité de React, Vue, Svelte & co est de produire du HTML, du CS
 
 Dans cet article en deux parties, je vous présenterai donc :
 
-- comment rédiger des tests en React (vous êtes ici)
-- comment adapter ces tests à d'autres front-end (bientôt)
+- <a href="/tutoriels/testing-library-comment-rediger-des-tests-en-react/" aria-current="page">comment rédiger des tests en React</a> (vous êtes ici)
+- [comment adapter ces tests à d'autres front-end](/tutoriels/testing-library-adapter-a-son-propre-framework/)
 
 > ℹ️ Prérequis : pour pouvoir exécuter les exemples de code de ce tutoriel, il vous faudra avoir une pipeline Jest ou Vitest déjà installée.
 
@@ -248,7 +248,7 @@ Cela peut se faire en ajoutant des _transformers_ dans Jest. Le plus immédiat �
 import './style.css';
 ```
 
-> C'est une méthode simple pour démarrer, mais selon la manière dont vous développez votre CSS, ce ne sera peut être pas suffisant. Dans le prochain article, je rentrerai plus en détail sur les _transformers_ et comment les adapter à votre besoin.
+> C'est une méthode simple pour démarrer, mais selon la manière dont vous développez votre CSS, ce ne sera peut être pas suffisant. Dans [le prochain article](/tutoriels/testing-library-adapter-a-son-propre-framework/), je rentrerai plus en détail sur les _transformers_ et comment les adapter à votre besoin.
 
 ## Recapitulatif
 
@@ -286,10 +286,10 @@ Ainsi, quand on regarde ce qu'on a écrit, la seule partie qui est liée à Reac
 
 Mission accomplie ! Bravo d'être arrivé jusqu'ici 👏
 
-Dans la deuxième partie nous verrons comment coder notre propre `render` adapté à nos outils. Pour cela je m'inspirerai de ce dont nous avons eu besoin au boulot : du HTML généré en Twig, du JS et du Sass/Less.
+Dans [la deuxième partie](/tutoriels/testing-library-adapter-a-son-propre-framework/) nous verrons comment coder notre propre `render` adapté à nos outils. Pour cela je m'inspirerai de ce dont nous avons eu besoin au boulot : du HTML généré en Twig, du JS et du Sass/Less.
 
 Si en attendant ça vous a plu ou que vous avez la moindre remarque, n'hésitez pas à me le faire savoir sur [Twitter](https://twitter.com/JulienPradet). J'éclaircirai certains points avec plaisir.
 
 L'infrastructure front-end est un domaine difficile à aborder tellement les outils sont nombreux et évoluent vite. Mais parfois un petit ajustement ou le bon outil au bon endroit peut radicalement améliorer votre expérience de développement et votre efficacité au quotidien. Si vous avez besoin d'accompagnement ou que vous souhaitez initier ces pratiques dans votre entreprise, n'hésitez pas à me contacter par [mail](mailto:julien.pradet+article-blog@gmail.com). Nous pourrons en discuter avec plaisir.
 
-A la semaine prochaine 👋
+A bientôt 👋

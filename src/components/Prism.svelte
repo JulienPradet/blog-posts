@@ -3,6 +3,8 @@
 	import 'prismjs/components/prism-jsx';
 	import 'prismjs/components/prism-css';
 	import 'prismjs/components/prism-diff';
+	import 'prismjs/components/prism-markup-templating';
+	import 'prismjs/components/prism-twig';
 	import { afterUpdate } from 'svelte';
 
 	let container: HTMLDivElement;

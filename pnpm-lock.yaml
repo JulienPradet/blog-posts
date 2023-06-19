@@ -23,6 +23,7 @@ specifiers:
   '@vitest/coverage-c8': ^0.28.4
   chalk: ^5.2.0
   chokidar: ^3.5.3
+  domhandler: ^5.0.3
   eslint: ^8.28.0
   eslint-config-prettier: ^8.5.0
   eslint-plugin-svelte3: ^4.0.0
@@ -80,6 +81,7 @@ devDependencies:
   '@vitest/coverage-c8': 0.28.5_jsdom@21.1.2
   chalk: 5.2.0
   chokidar: 3.5.3
+  domhandler: 5.0.3
   eslint: 8.40.0
   eslint-config-prettier: 8.8.0_eslint@8.40.0
   eslint-plugin-svelte3: 4.0.0_fjycs5d4hyrgmnptoyq55by2xe
@@ -1830,6 +1832,13 @@ packages:
 
   /domhandler/4.3.1:
     resolution: {integrity: sha512-GrwoxYN+uWlzO8uhUXRl0P+kHE4GtVPfYzVLcUxPL7KNdHKj66vvlhiweIHqYYXWlw+T8iLMp42Lm67ghw4WMQ==}
+    engines: {node: '>= 4'}
+    dependencies:
+      domelementtype: 2.3.0
+    dev: true
+
+  /domhandler/5.0.3:
+    resolution: {integrity: sha512-cgwlv/1iFQiFnU96XXgROh8xTeetsnJiDsTc7TYCLFd9+/WNkIqPTxiM/8pSd8VIrhXGTf1Ny1q1hquVqDJB5w==}
     engines: {node: '>= 4'}
     dependencies:
       domelementtype: 2.3.0
