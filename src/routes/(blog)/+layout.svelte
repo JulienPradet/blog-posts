@@ -19,7 +19,19 @@
 </div>
 
 <style>
-	/* latin */
+	@font-face {
+		font-family: 'Ovo-fallback-linux';
+		size-adjust: 83.5%;
+		src: local('DejaVu Serif');
+	}
+
+	@font-face {
+		font-family: 'Ovo-fallback';
+		size-adjust: 108.85%;
+		ascent-override: 72%;
+		src: local('Times New Roman');
+	}
+
 	@font-face {
 		font-family: 'Ovo';
 		font-style: normal;
@@ -37,7 +49,7 @@
 		--color-dark: #181716;
 		--color-dark-lighter: #181716e0;
 		padding: 3rem var(--global-margin);
-		font-family: Ovo, serif;
+		font-family: Ovo, Ovo-fallback, Ovo-fallback-linux, serif;
 		line-height: 1.5;
 		background: var(--color-creme);
 		color: var(--color-dark);
