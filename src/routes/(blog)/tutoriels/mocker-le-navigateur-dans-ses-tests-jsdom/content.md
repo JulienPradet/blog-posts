@@ -1,4 +1,4 @@
-Dans [un tutoriel précédent](/tutoriels/testing-library-comment-rediger-des-tests-en-react/) nous avons vu comment faire des tests unitaires en javascript. Pour cela nous sommes passés par [jsdom](https://github.com/jsdom/jsdom) : une implémentation d'une grande partie des APIs navigateurs en node.js.
+Dans [un tutoriel précédent](/tutoriels/testing-library-comment-rediger-des-tests-en-react/) nous avons vu comment faire des tests unitaires en JavaScript. Pour cela nous sommes passés par [jsdom](https://github.com/jsdom/jsdom) : une implémentation d'une grande partie des APIs navigateurs en Node.js.
 
 L'intérêt de cette librairie est que nous pouvons exécuter de la manipulation de DOM alors que nous ne sommes pas dans un vrai navigateur. Nous avons donc l'opportunité d'exécuter plus rapidement un bon nombre de tests pour aller chercher les cas limites et sécuriser nos composants.
 
