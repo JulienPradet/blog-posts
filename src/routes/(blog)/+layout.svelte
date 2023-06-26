@@ -84,6 +84,13 @@
 		line-height: 1.4;
 	}
 
+	.page :global(li > :first-child) {
+		margin-top: 0;
+	}
+	.page :global(li > :last-child) {
+		margin-bottom: 0;
+	}
+
 	.page :global(.small) {
 		font-size: 0.9rem;
 	}
