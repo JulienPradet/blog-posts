@@ -46,6 +46,7 @@
 		--global-margin: 1rem;
 		--color-white: #fffdfd;
 		--color-creme: #fff7f1;
+		--color-border: rgb(24 23 22 / 15%);
 		--color-dark: #181716;
 		--color-dark-lighter: #181716e0;
 		padding: 3rem var(--global-margin);
@@ -142,7 +143,7 @@
 	.page :global(blockquote) {
 		margin-left: 0;
 		padding-left: 1rem;
-		border-left: 3px solid rgb(24 23 22 / 15%);
+		border-left: 3px solid var(--color-border);
 	}
 
 	.page :global(kbd) {
@@ -157,6 +158,32 @@
 		line-height: 1.5;
 		padding: 2px 4px 0;
 		white-space: nowrap;
+	}
+
+	.page :global(table) {
+		border-collapse: collapse;
+		margin: 2rem auto;
+	}
+	.page :global(th),
+	.page :global(td) {
+		padding: 0.25rem 1rem;
+		border: 1px solid var(--color-border);
+	}
+
+	.page :global(details + details) {
+		margin-top: 1rem;
+	}
+
+	.page :global(details > *) {
+		padding-left: 1.3rem;
+	}
+
+	.page :global(details > summary) {
+		margin-left: -1.3rem;
+	}
+
+	.page :global(li > input[type='checkbox']:first-child) {
+		margin-right: 0.5rem;
 	}
 
 	.page :global(:not(pre, a) > code) {
@@ -311,7 +338,7 @@
 		margin-top: 2em;
 		margin-bottom: 2em;
 		border: none;
-		border-top: 1px solid rgb(24 23 22 / 15%);
+		border-top: 1px solid var(--color-border);
 	}
 
 	@media screen and (min-width: 480px) {

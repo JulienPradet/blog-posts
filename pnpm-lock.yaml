@@ -32,6 +32,7 @@ specifiers:
   lint-staged: ^13.2.2
   markdown-it: ^13.0.1
   markdown-it-anchor: ^8.6.7
+  markdown-it-checkbox: ^1.1.0
   mkdirp: ^3.0.1
   prettier: ^2.8.0
   prettier-plugin-svelte: ^2.8.1
@@ -90,6 +91,7 @@ devDependencies:
   lint-staged: 13.2.2
   markdown-it: 13.0.1
   markdown-it-anchor: 8.6.7_ea7kj7wzjkld5jo2noyjqxi764
+  markdown-it-checkbox: 1.1.0
   mkdirp: 3.0.1
   prettier: 2.8.8
   prettier-plugin-svelte: 2.10.0_blbg2s7pis747igzn3ilcyh5ou
@@ -2991,6 +2993,12 @@ packages:
       markdown-it: 13.0.1
     dev: true
 
+  /markdown-it-checkbox/1.1.0:
+    resolution: {integrity: sha512-NkZVjnXo5G+cLNdi7DPZxICypBuxFE9F8sx3YGMZn+Cfizr8EZ/1TFUKl7ZnefF6cr1aFHbnQ5iA3rc4cp7EyA==}
+    dependencies:
+      underscore: 1.13.6
+    dev: true
+
   /markdown-it/12.3.2:
     resolution: {integrity: sha512-TchMembfxfNVpHkbtriWltGWc+m3xszaRD0CZup7GFFhzIgQqxIfn3eGj1yZpfuflzPvfkt611B2Q/Bsk1YnGg==}
     hasBin: true
@@ -4069,6 +4077,10 @@ packages:
 
   /ufo/1.1.2:
     resolution: {integrity: sha512-TrY6DsjTQQgyS3E3dBaOXf0TpPD8u9FVrVYmKVegJuFw51n/YB9XPt+U6ydzFG5ZIN7+DIjPbNmXoBj9esYhgQ==}
+    dev: true
+
+  /underscore/1.13.6:
+    resolution: {integrity: sha512-+A5Sja4HP1M08MaXya7p5LvjuM7K6q/2EaC0+iovj/wOcMsTzMvDFbasi/oSapiwOlt252IqsKqPjCl7huKS0A==}
     dev: true
 
   /undici/5.22.1:
