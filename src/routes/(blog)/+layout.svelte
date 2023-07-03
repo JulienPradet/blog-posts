@@ -334,6 +334,10 @@
 		cursor: pointer;
 	}
 
+	.main :global(ul) {
+		padding-left: 1.5rem;
+	}
+
 	.main :global(hr) {
 		margin-top: 2em;
 		margin-bottom: 2em;
@@ -344,6 +348,10 @@
 	@media screen and (min-width: 480px) {
 		.page {
 			--global-margin: 1.5rem;
+		}
+
+		.main :global(ul) {
+			padding-left: 2.5rem;
 		}
 	}
 

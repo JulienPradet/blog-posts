@@ -40,11 +40,14 @@
 		développement web, mais vous n'êtes pas à l'abri de quelques surprises.
 	</p>
 	<p>
-		Vous pouvez me trouver à Toulouse, mais aussi sur <a href="https://twitter.com/JulienPradet"
-			>Twitter</a
+		Vous pouvez me trouver à Toulouse, mais aussi sur <a href="https://piaille.fr/@julienpradet"
+			>Mastodon</a
 		>
-		ou à l'occasion de meetups. N'hésitez pas à me
-		<a href="mailto:julien@pradet.me?subject=Salut%20!">contacter</a>. C'est toujours un plaisir.
+		ou <a href="https://twitter.com/JulienPradet">Twitter</a>. Vous avez des sujets de performance ?
+		Peut-être pouvons-nous
+		<a href="/developpeur-web-performance-freelance/" title="Développeur front-end freelance"
+			>travailler ensemble</a
+		> ?
 	</p>
 </Content>
 

@@ -9,12 +9,13 @@
 		<NavigationItem href="/">
 			<svelte:fragment slot="label">
 				<span aria-label="Accueil" slot="label">🏠</span>
-				Blog tech
+				Menu
 			</svelte:fragment>
 			<svelte:fragment slot="children">
 				<NavigationItem href="/">
-					<svelte:fragment slot="label">Tous les articles</svelte:fragment>
+					<svelte:fragment slot="label">Accueil</svelte:fragment>
 				</NavigationItem>
+				<hr />
 				<NavigationItem href="/tutoriels/">
 					<svelte:fragment slot="label">Tutoriels</svelte:fragment>
 				</NavigationItem>
@@ -27,16 +28,17 @@
 				<NavigationItem href="/autres/">
 					<svelte:fragment slot="label">Autres</svelte:fragment>
 				</NavigationItem>
+				<hr />
 				<NavigationItem href="/conferences/">
 					<svelte:fragment slot="label">Conférences</svelte:fragment>
 				</NavigationItem>
+				<NavigationItem href="https://portfolio.julienpradet.fr">
+					<svelte:fragment slot="label">Art Génératif (sans IA)</svelte:fragment>
+				</NavigationItem>
 			</svelte:fragment>
 		</NavigationItem>
-		<NavigationItem href="https://portfolio.julienpradet.fr">
-			<svelte:fragment slot="label">Portfolio</svelte:fragment>
-		</NavigationItem>
-		<NavigationItem href="/cv/">
-			<svelte:fragment slot="label">CV</svelte:fragment>
+		<NavigationItem href="/developpeur-web-performance-freelance/">
+			<svelte:fragment slot="label">Travailler ensemble</svelte:fragment>
 		</NavigationItem>
 		<NavigationItem href="https://twitter.com/JulienPradet">
 			<svelte:fragment slot="label">
@@ -84,6 +86,12 @@
 	.icon :global(svg) {
 		display: block;
 		width: 1em;
+	}
+
+	hr {
+		height: 1px;
+		border: none;
+		margin: 0.8rem 0 0.6rem;
 	}
 
 	@media (min-width: 720px) {
