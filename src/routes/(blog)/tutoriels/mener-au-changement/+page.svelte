@@ -11,7 +11,7 @@
 
 <Meta {meta} location="/tutoriels/mocker-le navigateur-dans-ses-tests-jsdom/" />
 
-<Headline headline={meta.title} subtitle="vendredi 15 mai 2023" />
+<Headline headline={meta.title} subtitle="lundi 03 juillet 2023" />
 
 <MainContent>
 	<Content>
