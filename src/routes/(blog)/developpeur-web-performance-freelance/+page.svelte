@@ -86,7 +86,7 @@
 		<p>
 			En tant que Staff Engineer à <a href="https://www.singulart.com/">SINGULART</a>, leader de la
 			vente d'art en ligne, j'ai aussi contribué à améliorer le nombre de visites mobiles avec un
-			<a href="/tutoriels/pourquoi-ameliorer-le-lcp/">LCP</a> &lt; 2.4s de 65% à 88%.
+			LCP &lt; 2.4s de 65% à 88%.
 		</p>
 
 		<p>Vous pouvez retrouver le détail de mes expériences sur mon <a href="/cv/">CV</a>.</p>
