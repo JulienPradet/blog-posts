@@ -11,7 +11,7 @@
 	const dayType = date.getHours() > 6 && date.getHours() < 17 ? 'journée' : 'soirée';
 
 	let meta: PageMeta = {
-		title: 'Travaillons ensemble',
+		title: 'Développeur Front-End & Web Performance Freelance',
 		description: `Bonjour, je m'appelle Julien Pradet et je suis développeur front-end freelance, spécialisé en Web Performance.`,
 		date: date
 	};
