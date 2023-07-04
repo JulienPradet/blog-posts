@@ -73,7 +73,7 @@
 
 		<p>
 			J'ai participé à la création de <a href="https://www.front-commerce.com/">Front-Commerce</a>,
-			un thème e-commerce en React & GraphQL, qui a permis entre autre à
+			un thème e-commerce orienté performance en React & GraphQL, qui a permis entre autre à
 			<a
 				href="https://www.front-commerce.com/double-your-conversion-rate-in-16-weeks-devialet-case-study/"
 				>Devialet d'augmenter son taux de conversion de +100%</a
@@ -85,8 +85,8 @@
 		</p>
 		<p>
 			En tant que Staff Engineer à <a href="https://www.singulart.com/">SINGULART</a>, leader de la
-			vente d'art en ligne, j'ai aussi contribué à améliorer le nombre de visites mobiles avec un
-			LCP &lt; 2.4s de 65% à 88%.
+			vente d'art en ligne, j'ai aussi contribué à améliorer l'expérience sur mobile en augmentant
+			la part de LCP &lt; 2.4s de 65% à 88%.
 		</p>
 
 		<p>Vous pouvez retrouver le détail de mes expériences sur mon <a href="/cv/">CV</a>.</p>
