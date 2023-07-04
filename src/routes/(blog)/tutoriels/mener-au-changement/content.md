@@ -1,4 +1,4 @@
-Aujourd'hui je vais vous partager quelque chose de différent de d'habitude. Vous n'aurez pas d'exemple de code ni de présentation d'une librairie qui vous veut du bien. J'espère que vous en retirerai quand même quelque chose que vous pourrez appliquer dès demain dans votre boulot.
+Aujourd'hui je vais vous partager quelque chose de différent de d'habitude. Vous n'aurez pas d'exemple de code ni de présentation d'une librairie qui vous veut du bien. J'espère que vous en retirerez quand même quelque chose que vous pourrez appliquer dès demain dans votre boulot.
 
 Je vais vous parler de mon expérience à [SINGULART](https://www.singulart.com/). Plus particulièrement je vais me concentrer sur ce qui s'est passé ces deux dernières années qui a permis de faire évoluer la codebase, donner plus d'autonomie à l'équipe front et améliorer notre efficacité au quotidien.
 
