@@ -7,10 +7,10 @@
 <nav>
 	<ul>
 		<NavigationItem href="/">
-			<svelte:fragment slot="label">
-				<span aria-label="Accueil" slot="label">🏠</span>
-				Menu
-			</svelte:fragment>
+			<span aria-label="Accueil" slot="label">🏠</span>
+		</NavigationItem>
+		<NavigationItem href={null}>
+			<svelte:fragment slot="label">Menu</svelte:fragment>
 			<svelte:fragment slot="children">
 				<NavigationItem href="/">
 					<svelte:fragment slot="label">Accueil</svelte:fragment>

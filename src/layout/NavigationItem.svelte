@@ -7,7 +7,7 @@
 
 	let closeButton: HTMLButtonElement;
 	let openButton: HTMLAnchorElement | HTMLButtonElement;
-	let listItem: Node;
+	let children: Node;
 
 	enum State {
 		closed = 'closed',
@@ -17,6 +17,11 @@
 	}
 	let state: State = State.closed;
 
+	const onClickOutside = (event: MouseEvent | TouchEvent) => {
+		if (event.target !== null && !children.contains(event.target as Node)) {
+			close();
+		}
+	};
 	const close = async (event?: Event) => {
 		if (state === State.closed) {
 			return;
@@ -24,10 +29,12 @@
 		if (event) {
 			event.stopPropagation();
 		}
+		document.body.removeEventListener('click', onClickOutside);
 		state = $$slots.children ? State.closing : State.closed;
 	};
 	const open = async () => {
 		state = $$slots.children ? State.opening : State.opened;
+		document.body.addEventListener('click', onClickOutside);
 	};
 
 	const onTransitionEnd = () => {
@@ -45,8 +52,7 @@
 	});
 
 	const onClick = (event: Event) => {
-		const pointerType = (event as PointerEvent).pointerType;
-		if (pointerType === 'touch') {
+		if ($$slots.children) {
 			if (state !== State.opened) {
 				event.preventDefault();
 				event.stopPropagation();
@@ -80,7 +86,7 @@
 	});
 </script>
 
-<li on:mouseenter={open} on:mouseleave={close} class={state} bind:this={listItem}>
+<li class={state}>
 	{#if href}
 		<a {href} bind:this={openButton} on:keydown={onKeydown} on:click={onClick}>
 			<slot name="label" />
@@ -91,7 +97,7 @@
 		</button>
 	{/if}
 	{#if $$slots.children && state !== State.closed}
-		<ul use:trapFocus on:transitionend={onTransitionEnd}>
+		<ul use:trapFocus on:transitionend={onTransitionEnd} bind:this={children}>
 			<button
 				on:click={onCloseButton}
 				bind:this={closeButton}
