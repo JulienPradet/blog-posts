@@ -38,7 +38,11 @@ const createRedirects = () => {
 				.map((meta) => meta.redirect.map((redirect) => `${redirect}    /${meta.location}   301`))
 				.reduce(
 					(acc, redirects) => acc.concat(redirects),
-					[`/en/cv    /cv/en/    301`, `/en/cv    /cv/en/    301`]
+					[
+						`/en/cv    /cv/en/    301`,
+						`/en/cv/    /cv/en/    301`,
+						`/images-resize/*    https://julienpradet.twic.pics/images/:splat    200`
+					]
 				)
 				.join('\n')
 		),
