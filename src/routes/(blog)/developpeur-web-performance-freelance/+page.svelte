@@ -20,32 +20,34 @@
 <Meta {meta} location="/" />
 
 <Headline
+	isMainTitle={false}
 	headline="Enchanté, Julien&nbsp;Pradet,"
 	subtitle="Ça vous dit de travailler ensemble&nbsp;?"
 />
 
 <Content>
-	<p>
+	<h1 class="main-title">
 		Je suis un <strong>développeur front-end freelance</strong> spécialisé dans la
 		<strong>Web Performance</strong>.
-	</p>
+	</h1>
 
 	<p>Avec plus de <strong>8 ans d'expérience</strong> dans le web je peux&nbsp;:</p>
 
 	<ul>
 		<li>
-			vous aider à rassembler les arguments pour débloquer un budget performance au service de vos
-			utilisateurs
+			auditer et prioriser les chantiers à mettre en place pour améliorer la performance de votre
+			site
 		</li>
-		<li>auditer et prioriser les chantiers à mettre en place</li>
 		<li>former vos équipes afin de les rendre autonomes sur ces problématiques</li>
 		<li>réaliser les chantiers ou vous débloquer sur un problème épineux</li>
+		<li>effectuer des missions de développement front-end plus classiques</li>
+		<li>apporter simplicité et bonne humeur</li>
 	</ul>
 
 	<p>
-		Mes atouts sont que je m'intègre facilement au sein d'un <strong>collectif</strong>, je prends
-		les décisions en fonction des <strong>enjeux produits</strong> et je mesure avant/après les changements
-		pour orienter les choix et participer à la vulgarisation des problèmes.
+		Je m'intègre facilement au sein d'un <strong>collectif</strong>, je prends les décisions en
+		fonction des <strong>enjeux produits</strong>, je mesure avant et après mes développements pour
+		guider les choix et je participe à l'<strong>apprentissage continu</strong> en documentant les changements.
 	</p>
 
 	<p>
@@ -53,10 +55,10 @@
 			>HTML</strong
 		>,
 		<strong>CSS</strong>, <strong>JS</strong>. J'ai aussi une expertise en <strong>React</strong> et
-		<strong>Svelte</strong> mais ne rechigne pas à travailler sur des stacks <em>à l'ancienne</em>.
-		Côté back-end, je suis à l'aise sur du <strong>Node.js</strong> &
-		<strong>PHP</strong> (Symfony). Mais l'outil n'est qu'un moyen et mes connaissances sont suffisamment
-		génériques pour m'adapter à votre stack.
+		<strong>Svelte</strong> mais ne rechigne pas à travailler sur des stacks dîtes
+		<em>à l'ancienne</em>. Côté back-end, même s'il ne s'agit pas de mon coeur de métier, je suis à
+		l'aise sur du Node.js & PHP (Symfony). Mais l'outil n'est qu'un moyen et mes connaissances sont
+		suffisamment génériques pour m'adapter à votre stack.
 	</p>
 
 	<p>
@@ -73,7 +75,7 @@
 
 		<p>
 			J'ai participé à la création de <a href="https://www.front-commerce.com/">Front-Commerce</a>,
-			un thème e-commerce orienté performance en React & GraphQL, qui a permis entre autre à
+			un framework e-commerce orienté performance en React & GraphQL, qui a permis entre autre à
 			<a
 				href="https://www.front-commerce.com/double-your-conversion-rate-in-16-weeks-devialet-case-study/"
 				>Devialet d'augmenter son taux de conversion de +100%</a
@@ -81,12 +83,17 @@
 			et à
 			<a href="https://www.front-commerce.com/improve-online-engagement-kaporal-case-study/"
 				>Kaporal qui a diminué son taux de rebond de -60%</a
-			>.
+			>. Au delà du développement au quotidien du framework, j'ai été en charge de la formation des
+			équipes utilisant Front-Commerce ainsi que des audits de leurs projets (qualité et
+			performance).
 		</p>
 		<p>
 			En tant que Staff Engineer à <a href="https://www.singulart.com/">SINGULART</a>, leader de la
 			vente d'art en ligne, j'ai aussi contribué à améliorer l'expérience sur mobile en augmentant
-			la part de LCP &lt; 2.4s de 65% à 88%.
+			la part de LCP &lt; 2.4s de 65% à 88%. Mon rôle est de
+			<a href="/tutoriels/mener-au-changement/">mettre en place l'architecture front-end</a>,
+			travailler sur l'implémentation des projets critiques, former les équipes et mener les
+			chantiers globaux de Web Performance.
 		</p>
 
 		<p>Vous pouvez retrouver le détail de mes expériences sur mon <a href="/cv/">CV</a>.</p>
@@ -110,3 +117,12 @@
 
 	<FollowIncentive />
 </MainContent>
+
+<style>
+	h1.main-title {
+		font-size: 1.5rem;
+		line-height: inherit;
+		font-weight: inherit;
+		margin-bottom: 2rem;
+	}
+</style>
