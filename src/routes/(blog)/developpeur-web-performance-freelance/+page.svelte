@@ -4,7 +4,6 @@
 	import MainContent from '../../../components/MainContent.svelte';
 
 	import type { PageMeta } from '../../../components/ArticleMeta';
-	import FollowIncentive from '../../../components/FollowIncentive.svelte';
 	import Meta from '../../../components/Meta.svelte';
 
 	const date = new Date();
@@ -111,10 +110,6 @@
 
 		<p>En vous souhaitant une belle {dayType}.</p>
 	</Content>
-
-	<hr />
-
-	<FollowIncentive />
 </MainContent>
 
 <style>
