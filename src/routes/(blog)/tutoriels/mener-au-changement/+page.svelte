@@ -9,7 +9,7 @@
 	import meta from './meta';
 </script>
 
-<Meta {meta} location="/tutoriels/mocker-le navigateur-dans-ses-tests-jsdom/" />
+<Meta {meta} location="/tutoriels/mener-au-changement/" />
 
 <Headline headline={meta.title} subtitle="lundi 03 juillet 2023" />
 
