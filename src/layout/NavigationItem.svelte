@@ -127,6 +127,17 @@
 		border-bottom: 1px solid rgb(24 23 22 / 10%);
 		width: 100%;
 		transition: transform 0.1s ease-in-out, opacity 0.1s ease-in-out;
+		color: var(--color-dark);
+	}
+
+	li a:hover,
+	li a:focus,
+	li a:hover > :global(.icon),
+	li a:focus > :global(.icon),
+	li .link:hover,
+	li .link:focus {
+		color: var(--color-dark);
+		text-decoration-color: var(--color-dark);
 	}
 
 	ul,

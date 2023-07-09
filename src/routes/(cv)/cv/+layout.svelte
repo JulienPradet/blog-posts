@@ -7,36 +7,12 @@
 </div>
 
 <style>
-	@font-face {
-		font-family: 'Ovo-fallback-linux';
-		size-adjust: 83.5%;
-		src: local('DejaVu Serif');
-	}
-
-	@font-face {
-		font-family: 'Ovo-fallback';
-		size-adjust: 108.85%;
-		ascent-override: 72%;
-		src: local('Times New Roman');
-	}
-
-	@font-face {
-		font-family: 'Ovo';
-		font-style: normal;
-		font-weight: 400;
-		font-display: swap;
-		src: url(/ovo.woff2) format('woff2');
-		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-			U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-	}
-
 	.cv-layout {
 		--color-white: #fffdfd;
 		--color-creme: #fff7f1;
 		--color-highlight: #f6b27e;
 		--color-accent: #fbd5b8;
 		--color-dark: #181716;
-		font-family: Ovo, Ovo-fallback, Ovo-fallback-linux, serif;
 		line-height: 1.5;
 		background: var(--color-creme);
 		color: var(--color-dark);
@@ -111,7 +87,7 @@
 	.cv-layout :global(strong) {
 		position: relative;
 		display: inline-block;
-		font-weight: normal;
+		font-weight: var(--weight-normal);
 	}
 	.cv-layout :global(strong > *) {
 		position: relative;

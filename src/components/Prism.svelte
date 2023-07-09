@@ -19,6 +19,13 @@
 </div>
 
 <style>
+	div {
+		display: contents;
+	}
+	div > :global(:first-child) {
+		margin-top: 0;
+	}
+
 	/**
     * prism.js default theme for JavaScript, CSS and HTML
     * Based on dabblet (http://dabblet.com)

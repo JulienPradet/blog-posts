@@ -24,7 +24,6 @@
 	h1,
 	.h1 {
 		margin: 0;
-		font-weight: normal;
 		line-height: 0.95;
 	}
 

@@ -32,7 +32,7 @@ En commençant petit, le but était de commencer à me familiariser avec l'équi
 
 ## 1. Etablir la confiance
 
-L'étape suivante était de construire un socle de collaboration. Rien ne peut fonctionner si chaque personne de l'équipe oeuvre dans son sens. Et cela passe donc par commencer à s'aligner ensemble afin d'avoir confiance dans le jugement de chacun•e. Ce n'est pas une étape qui a été réléchie et planifiée comme telle. Cependant, avec le recul, je pense que c'est ce qui m'a permis de façonner une forme de confiance dans ce que je pouvais apporter à l'équipe et l'entreprise.
+L'étape suivante était de construire un socle de collaboration. Rien ne peut fonctionner si chaque personne de l'équipe oeuvre dans son sens. Et cela passe donc par commencer à s'aligner ensemble afin d'avoir confiance dans le jugement de chacun·e. Ce n'est pas une étape qui a été réléchie et planifiée comme telle. Cependant, avec le recul, je pense que c'est ce qui m'a permis de façonner une forme de confiance dans ce que je pouvais apporter à l'équipe et l'entreprise.
 
 Notamment une des actions les plus efficaces a été de prendre 10 minutes toutes les semaines lors de la réunion de veille hebdomadaire pour présenter des sujets front. Là encore, mon but n'était pas de présenter le dernier framework à la mode &ndash; ça n'aurait pas passionné grand monde avec une équipe essentiellement constituée de full-stack orientés back. Je me suis contenté d'extraire les commentaires que je pouvais faire dans les PRs pour que ça bénéficie au plus grand nombre et surtout que ce soit faisable/adoptable dès le lendemain.
 

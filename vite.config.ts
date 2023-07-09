@@ -25,7 +25,8 @@ export default defineConfig({
 				})
 					.use(markdownItAnchor, {
 						permalink: markdownItAnchor.permalink.ariaHidden({
-							space: false,
+							symbol: '¶',
+							space: true,
 							placement: 'after'
 						}),
 						slugify: (text: string) =>
@@ -60,5 +61,8 @@ export default defineConfig({
 		include: ['src/**/*.{test,spec}.{js,ts}'],
 		environment: 'jsdom',
 		setupFiles: ['./tests/setup.ts']
+	},
+	server: {
+		host: '0.0.0.0'
 	}
 });

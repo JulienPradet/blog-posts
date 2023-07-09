@@ -54,6 +54,9 @@
 </nav>
 
 <style>
+	nav {
+		color: #605d59;
+	}
 	ul {
 		display: flex;
 		flex-wrap: wrap;

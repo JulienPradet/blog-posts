@@ -19,29 +19,6 @@
 </div>
 
 <style>
-	@font-face {
-		font-family: 'Ovo-fallback-linux';
-		size-adjust: 83.5%;
-		src: local('DejaVu Serif');
-	}
-
-	@font-face {
-		font-family: 'Ovo-fallback';
-		size-adjust: 108.85%;
-		ascent-override: 72%;
-		src: local('Times New Roman');
-	}
-
-	@font-face {
-		font-family: 'Ovo';
-		font-style: normal;
-		font-weight: 400;
-		font-display: swap;
-		src: url(/ovo.woff2) format('woff2');
-		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC,
-			U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
-	}
-
 	.page {
 		--global-margin: 1rem;
 		--color-white: #fffdfd;
@@ -50,7 +27,6 @@
 		--color-dark: #181716;
 		--color-dark-lighter: #181716e0;
 		padding: 3rem var(--global-margin);
-		font-family: Ovo, Ovo-fallback, Ovo-fallback-linux, serif;
 		line-height: 1.5;
 		background: var(--color-creme);
 		color: var(--color-dark);
@@ -121,11 +97,17 @@
 		text-decoration-color: rgb(118 114 110 / 100%);
 		text-decoration-thickness: 2px;
 		text-underline-offset: calc(0.4em - 2px);
+		outline-offset: 0.25rem;
 	}
 	.main :global(a),
 	.main :global(.link) {
 		text-decoration-color: rgb(207 58 0 / 50%);
 		color: rgb(207 58 0);
+	}
+
+	.main :global(a::selection),
+	.main :global(.link::selection) {
+		background: rgb(207 58 0 / 80%);
 	}
 	.main :global(a:hover),
 	.main :global(a:focus),
@@ -137,7 +119,7 @@
 	.page :global(strong) {
 		position: relative;
 		display: inline;
-		font-weight: bold;
+		font-weight: var(--weight-bold);
 	}
 
 	.page :global(blockquote) {
@@ -154,7 +136,7 @@
 		color: #333;
 		display: inline-block;
 		font-size: 0.85em;
-		font-weight: normal;
+		font-weight: var(--weight-black);
 		line-height: 1.5;
 		padding: 2px 4px 0;
 		white-space: nowrap;
@@ -186,14 +168,17 @@
 		margin-right: 0.5rem;
 	}
 
-	.page :global(:not(pre, a) > code) {
-		color: var(--color-dark-lighter);
-	}
-
 	.page :global(:not(pre) > code),
 	.page :global(a > code) {
-		font-weight: bold;
+		font-weight: var(--weight-bold);
 		line-height: 1.17;
+	}
+
+	.page :global(li > pre),
+	.page :global(li > pre:first-child),
+	.page :global(li > pre:last-child) {
+		margin-top: 1rem;
+		margin-bottom: 1rem;
 	}
 
 	@media (max-width: 1090px) {
