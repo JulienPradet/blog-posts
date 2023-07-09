@@ -29,6 +29,9 @@
 					<svelte:fragment slot="label">Autres</svelte:fragment>
 				</NavigationItem>
 				<hr />
+				<NavigationItem href="/cv/">
+					<svelte:fragment slot="label">CV</svelte:fragment>
+				</NavigationItem>
 				<NavigationItem href="/conferences/">
 					<svelte:fragment slot="label">Conférences</svelte:fragment>
 				</NavigationItem>
