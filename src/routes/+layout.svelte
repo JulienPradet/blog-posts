@@ -42,24 +42,32 @@
 	}
 
 	@font-face {
+		font-family: Assistant-Critical;
+		src: url(/fonts/assistant-critical.woff2) format('woff2');
+		unicode-range: U+0030-0039, U+0041-005A, U+0061-007A, U+00E9, U+002C, U+002E, U+0020, U+00A0;
+	}
+
+	@font-face {
 		font-family: 'Assistant';
 		font-style: normal;
 		font-weight: 200 800;
 		font-display: fallback;
-		src: url(/assistant.woff2) format('woff2');
+		src: url(/fonts/assistant.woff2) format('woff2');
 		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
 			U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
 			U+FFFD;
 	}
 
 	:root {
-		--weight-normal: 450;
+		--weight-normal: 400;
 		--weight-bold: 700;
 		--weight-black: 800;
 	}
 
 	:global(body) {
-		font-family: Assistant, Assistant-fallback, Assistant-fallback-linux, serif;
+		font-family: Assistant, Assistant-Critical, Assistant-fallback, Assistant-fallback-linux,
+			-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans',
+			'Droid Sans', 'Helvetica Neue', sans-serif;
 		font-weight: var(--weight-normal);
 	}
 
