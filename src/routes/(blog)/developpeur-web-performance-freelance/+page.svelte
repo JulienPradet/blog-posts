@@ -35,8 +35,7 @@
 
 	<ul>
 		<li>
-			auditer et prioriser les chantiers à mettre en place pour améliorer la performance de votre
-			site
+			auditer et prioriser les chantiers à mettre en place pour améliorer la rapidité de votre site
 		</li>
 		<li>former vos équipes afin de les rendre autonomes sur ces problématiques</li>
 		<li>réaliser les chantiers ou vous débloquer sur un problème épineux</li>
@@ -120,9 +119,15 @@
 
 <style>
 	h1.main-title {
-		font-size: 1.5rem;
+		font-size: 1.44rem;
 		line-height: inherit;
 		font-weight: inherit;
 		margin-bottom: 2rem;
+	}
+
+	@media (max-width: 400px) {
+		h1.main-title {
+			font-size: 1.2rem;
+		}
 	}
 </style>

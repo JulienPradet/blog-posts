@@ -30,8 +30,14 @@
 	.subline {
 		display: block;
 		margin: 0.2rem 0 0 0;
-		font-size: 1.8rem;
+		font-size: 2.074rem;
 		line-height: 1.2;
 		color: #605d59;
+	}
+
+	@media (max-width: 400px) {
+		.subline {
+			font-size: 1.728rem;
+		}
 	}
 </style>

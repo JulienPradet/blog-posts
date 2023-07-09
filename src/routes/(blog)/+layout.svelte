@@ -359,19 +359,23 @@
 			font-size: 1em;
 		}
 
-		.page :global(h1) {
+		.page :global(h1),
+		.page :global(.h1) {
 			font-size: 2.074rem;
 		}
 
-		.page :global(h2) {
+		.page :global(h2),
+		.page :global(.h2) {
 			font-size: 1.728rem;
 		}
 
-		.page :global(h3) {
+		.page :global(h3),
+		.page :global(.h3) {
 			font-size: 1.44rem;
 		}
 
-		.page :global(h4) {
+		.page :global(h4),
+		.page :global(.h4) {
 			font-size: 1.2rem;
 		}
 	}
