@@ -22,7 +22,7 @@ Avant de commencer, si vous n'avez jamais entendu parler de LCP, voyons comment 
 Admettons que vous allez sur un site pour la première fois : à partir de quand est-ce que vous aurez l'impression que votre site sera chargé ? Généralement ce sera à l'instant où le plus grand élément de la page est chargé. Ca peut être la plus grande image, le plus grand titre, etc. En effet, quand bien même le navigateur continue de charger des choses en tâche de fond, vous pourrez commencer à consommer le contenu du site et ne serez pas frustré d'attendre.
 
 <figure tabindex="0">
-<img alt="Timelapse du temps de chargement de genart.social/@julienpradet qui montre d'abord une page blanche, puis une page avec un spinner pendant 3 secondes pour enfin afficher l'image principale au bout de 8 secondes." src="/images/posts/lcp/filmstrip.jpg">
+<img alt="Timelapse du temps de chargement de genart.social/@julienpradet qui montre d'abord une page blanche, puis une page avec un spinner pendant 3 secondes pour enfin afficher l'image principale au bout de 8 secondes." src="/images/posts/lcp/filmstrip.jpg" loading="lazy">
 <figcaption>Screenshot du filmstrip généré par <a href="https://www.webpagetest.org/">webpagetest.org</a></figcaption>
 </figure>
 
@@ -37,7 +37,7 @@ Première raison : ne pas frustrer ses utilisateurs, c'est bien. 😁
 De manière plus concrète, de nombreux cas montrent que cela [améliore aussi le taux de conversion](https://www.radware.com/blog/wp-content/uploads/2014/04/conversion-infographics.gif) : plus votre page va vite, plus vos utilisateurices aurons de chance d'acheter ou de faire l'action que vous attendez d'elleux.
 
 <figure tabindex="0">
-<img alt="A 2.4s, le taux de conversion est à 1.9%, à 4.2, il passe en dessous de 1%" src="/images/posts/lcp/conversion-rate-page-load-time.svg" width="500" />
+<img alt="A 2.4s, le taux de conversion est à 1.9%, à 4.2, il passe en dessous de 1%" src="/images/posts/lcp/conversion-rate-page-load-time.svg" width="500"  loading="lazy"/>
 <figcaption>Source: <a href="https://www.cloudflare.com/learning/performance/more/website-performance-conversion-rates/">Cloudflare</a></figcaption>
 </figure>
 
@@ -54,13 +54,13 @@ Cela dit, les exemples sont tellement nombreux et variés qu'on peut quand même
 Un autre impact auquel on peut s'attendre est au niveau du <abbr title="Search Engine Optimisation">SEO</abbr> : Google considérera que votre site est rapide (et [le prendra en compte pour le ranking de votre page](https://support.google.com/webmasters/answer/9205520?hl=fr)) si LCP < 2.5s. Plus exactement, si 75% des personnes qui visitent votre page ont un LCP < 2.5s.
 
 <figure tabindex="0">
-<img alt="LCP : Good < 2.5s, Needs improvements < 4.0s, Bad >= 4.0s" src="/images/posts/lcp/lcp-good-bad.svg"/>
+<img alt="LCP : Good < 2.5s, Needs improvements < 4.0s, Bad >= 4.0s" src="/images/posts/lcp/lcp-good-bad.svg" loading="lazy"/>
 </figure>
 
 Ce que j'ai pu constater sur des projets sur lesquels j'ai travaillé, c'est que ça a eu un réel effet sur l'indexation : dès que nous avons mis en production certaines améliorations de performance, le nombre de pages analysées repart à la hausse dans ce rapport de Google Search Console. L'effet concret au niveau des SERP n'est pas forcément évident pour le moment mais c'est un bon indice pour dire qu'on fait plaisir à Google et donc que ça ne peut aller que dans le bon sens.
 
 <figure tabindex="0">
-<img alt="Rapport des Core Web Vitals dans Google Search Console : un graphe qui montre que le nombre total de pages augmente lors que la performance des pages augmente" src="/images/posts/lcp/core-web-vitals-in-google-search-console.png"/>
+<img alt="Rapport des Core Web Vitals dans Google Search Console : un graphe qui montre que le nombre total de pages augmente lors que la performance des pages augmente" src="/images/posts/lcp/core-web-vitals-in-google-search-console.png" loading="lazy"/>
 </figure>
 
 ### Green IT
@@ -75,13 +75,17 @@ Un moyen simple est d'utiliser le CrUX : Chrome UX Report. A partir de l'URL de 
 
 Par exemple voici le rapport de performance de [MDN](https://developer.mozilla.org/en-US/).
 
-![Rapport du LCP sur MDN via le Chrome UX Report quasiment tout vert !](/images/posts/lcp/lcp-mdn-apr-2023.png)
+<figure tabindex="0">
+<img alt="Rapport du LCP sur MDN via le Chrome UX Report quasiment tout vert !" src="/images/posts/lcp/lcp-mdn-apr-2023.png" loading="lazy">
+</figure>
 
 En faisant ce rapport vous saurez en un clic si vous avez beaucoup de travail à effectuer ou non. Pour MDN, 96.23% des pages qui ont un LCP < 2.5s et un 75ème percentile à 900ms, c'est très très **très** bien. Certainement une cible qui sera difficile à atteindre dans votre contexte.
 
 Vous saurez que vous avez du travail à faire si à l'inverse le résultat ressemble à ça. Et cela ressemblera à ça. Ce sera sûrement pire si vous n'avez jamais abordé le sujet jusqu'à maintenant.
 
-![Rapport du LCP pour un site anonyme via le Chrome UX Report avec un 75ème percentil dans le rouge](/images/posts/lcp/lcp-poor-apr-2023.png)
+<figure tabindex="0">
+<img alt="Rapport du LCP pour un site anonyme via le Chrome UX Report avec un 75ème percentil dans le rouge" src="/images/posts/lcp/lcp-poor-apr-2023.png" loading="lazy">
+</figure>
 
 Une fois que vous aurez une idée de où vous en êtes, vous saurez si ça vaut le coup de mettre des efforts dans le LCP ou non.
 
