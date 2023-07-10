@@ -88,7 +88,7 @@
 		<p>
 			En tant que Staff Engineer à <a href="https://www.singulart.com/">SINGULART</a>, leader de la
 			vente d'art en ligne, j'ai aussi contribué à améliorer l'expérience sur mobile en augmentant
-			la part de LCP &lt; 2.4s de 65% à 88%. Mon rôle est de
+			la part de LCP &lt; 2.5s de 65% à 88%. Mon rôle est de
 			<a href="/tutoriels/mener-au-changement/">mettre en place l'architecture front-end</a>,
 			travailler sur l'implémentation des projets critiques, former les équipes et mener les
 			chantiers globaux de Web Performance.
