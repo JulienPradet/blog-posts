@@ -25,7 +25,7 @@ export default defineConfig({
 				})
 					.use(markdownItAnchor, {
 						permalink: markdownItAnchor.permalink.ariaHidden({
-							symbol: '¶',
+							symbol: '§',
 							space: true,
 							placement: 'after'
 						}),
