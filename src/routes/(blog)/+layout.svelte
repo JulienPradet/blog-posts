@@ -61,6 +61,13 @@
 		line-height: 1.4;
 	}
 
+	.page :global(h5) {
+		margin-top: 1.5em;
+		margin-bottom: 0;
+		line-height: 1.5;
+		font-size: 1.2rem;
+	}
+
 	.page :global(li > :first-child) {
 		margin-top: 0;
 	}
@@ -174,9 +181,9 @@
 		line-height: 1.17;
 	}
 
-	.page :global(li > pre),
-	.page :global(li > pre:first-child),
-	.page :global(li > pre:last-child) {
+	.page :global(li > :is(pre, p)),
+	.page :global(li > :is(pre, p):first-child),
+	.page :global(li > :is(pre, p):last-child) {
 		margin-top: 1rem;
 		margin-bottom: 1rem;
 	}
@@ -238,7 +245,8 @@
 	.page :global(h1:has(.header-anchor)),
 	.page :global(h2:has(.header-anchor)),
 	.page :global(h3:has(.header-anchor)),
-	.page :global(h4:has(.header-anchor)) {
+	.page :global(h4:has(.header-anchor)),
+	.page :global(h5:has(.header-anchor)) {
 		position: relative;
 		scroll-margin-top: 1em;
 	}
@@ -377,6 +385,11 @@
 		.page :global(h4),
 		.page :global(.h4) {
 			font-size: 1.2rem;
+		}
+
+		.page :global(h5),
+		.page :global(.h5) {
+			font-size: 1rem;
 		}
 	}
 

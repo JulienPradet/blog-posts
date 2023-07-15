@@ -21,7 +21,7 @@
 	@font-face {
 		font-family: 'Assistant-fallback-linux';
 		font-weight: 700;
-		size-adjust: 80%;
+		size-adjust: 79%;
 		ascent-override: 106%;
 		src: local('DejaVu Sans Bold');
 	}
@@ -43,13 +43,13 @@
 
 	@font-face {
 		font-family: 'Assistant';
-		font-style: normal;
 		font-weight: 200 800;
 		font-display: swap;
-		src: url(/fonts/assistant.woff2) format('woff2');
-		unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
-			U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
-			U+FFFD;
+		src: url(/fonts/Assistant.woff2) format('woff2');
+		unicode-range: U+20-5F, U+61-7A, U+7C, U+A0, U+A7, U+A9, U+AB, U+B2-B3, U+BB, U+C0, U+C2,
+			U+C6-CB, U+CE-CF, U+D4, U+D9, U+DB-DC, U+E0, U+E2, U+E6-EB, U+EE-EF, U+F4, U+F9, U+FB-FC, U+FF,
+			U+152-153, U+178, U+2B3, U+2E2, U+1D48-1D49, U+2010-2011, U+2013-2014, U+2019, U+201C-201D,
+			U+2020-2021, U+2026, U+202F-2030, U+20AC, U+2212;
 	}
 
 	:root {
@@ -59,9 +59,7 @@
 	}
 
 	:global(body) {
-		font-family: Assistant, Assistant-fallback, Assistant-fallback-linux, -apple-system,
-			BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Fira Sans', 'Droid Sans',
-			'Helvetica Neue', sans-serif;
+		font-family: Assistant, Assistant-fallback, Assistant-fallback-linux, system-ui, sans-serif;
 		font-weight: var(--weight-normal);
 	}
 
