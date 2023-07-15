@@ -21,7 +21,7 @@ const createSitemap = () => {
 
 			const links = [
 				{ url: '/', changefreq: 'weekly' },
-				{ url: '/developpeur-web-performance-freelance', changefreq: 'weekly' },
+				{ url: '/developpeur-web-performance-freelance/', changefreq: 'weekly' },
 				...metas
 					.filter((meta) => !meta.removeFromSitemap)
 					.filter((meta) => {
