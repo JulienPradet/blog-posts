@@ -1,12 +1,23 @@
 @font-face {
+	font-family: 'Ovo-fallback-linux';
+	size-adjust: 85%;
+	src: local('DejaVu Serif');
+}
+
+@font-face {
+	font-family: 'Ovo-fallback';
+	size-adjust: 109.1%;
+	ascent-override: 72%;
+	src: local('Times New Roman');
+}
+
+@font-face {
 	font-family: 'Ovo';
 	font-style: normal;
-	font-weight: 400;
 	font-display: fallback;
-	src: url(/examples/webperf/ovo.woff2) format('woff2');
-	unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304,
-		U+0308, U+0329, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF,
-		U+FFFD;
+	src: url(/examples/webperf/Ovo-critical.woff2) format('woff2');
+	unicode-range: U+9, U+A, U+20, U+27-29, U+2C-2E, U+3F, U+41-48, U+4A-4E, U+50, U+52, U+53, U+55-57,
+		U+5A, U+5F, U+61-69, U+6B-7A, U+A0, U+E0, U+E8-EA, U+F4, U+F9, U+142, U+1F50E;
 }
 
 :root {
@@ -19,7 +30,7 @@
 	--color-shade: rgba(24, 14, 5, 0.7);
 	--color-shade-transparent: rgba(24, 14, 5, 0);
 
-	font-family: 'Ovo', Arial, Helvetica, sans-serif;
+	font-family: Ovo, Ovo-fallback, Ovo-fallback-linux, Arial, Helvetica, sans-serif;
 }
 
 * {
@@ -46,16 +57,20 @@ a {
 }
 
 .content {
-	max-width: 120ch;
+	max-width: 75rem; /* 120ch */
 	padding-left: 1rem;
 	padding-right: 1rem;
 	margin: 3rem auto;
 }
 
 .paragraph {
-	max-width: 90ch;
+	max-width: 56rem; /* 90ch */
 	margin-left: auto;
 	margin-right: auto;
+}
+
+.small {
+	font-style: italic;
 }
 
 header,
@@ -290,6 +305,10 @@ main {
 	.newsletter {
 		grid-template-columns: 1fr 2.24fr;
 		column-gap: 3rem;
+	}
+	.newsletter__image {
+		display: flex;
+		align-items: center;
 	}
 	.newsletter__image img {
 		max-height: 15rem;
