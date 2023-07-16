@@ -3,7 +3,7 @@ Le [Largest Contentful Paint (LCP)](https://web.dev/lcp/) fait partie des Core W
 Ce premier article est une introduction qui présente ce qu'est le LCP, pourquoi c'est important et quels outils utiliser pour l'analyser. Dans les prochains articles je vous parlerai de quelques bonnes pratiques testées et approuvées qui peuvent avoir un effet drastique sur la performance ressentie de vos pages.
 
 - Pourquoi améliorer le LCP de vos pages ? **(vous êtes ici)**
-- Analyser votre gestion réseau pour améliorer FCP et LCP (bientôt)
+- [Analyser votre gestion réseau pour améliorer FCP et LCP](/tutoriels/reseau-et-core-web-vitals/)
 - Optimiser la taille des images : s'en sortir avec picture, source & srcset (bientôt)
 - Optimiser le chargement des fonts (bientôt)
 - Optimiser la gestion des icônes (bientôt)
