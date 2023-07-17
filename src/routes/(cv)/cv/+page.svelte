@@ -15,7 +15,7 @@
 		name="description"
 		content="Je suis un développeur web, touche-à-tout, et curieux d'apprendre de nouvelles manières de répondre aux besoins des utilisateurs et utilisatrices."
 	/>
-	<link rel="alternate" href="/cv/en" hreflang="en-us" />
+	<link rel="alternate" href="/cv/en/" hreflang="en-us" />
 </svelte:head>
 
 <Header translationHref="/cv/en/" translationHreflang="en-us" translationLang="en">
