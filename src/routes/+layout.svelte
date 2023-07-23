@@ -16,6 +16,10 @@
 		size-adjust: 81.9%;
 		ascent-override: 114%;
 		src: local('DejaVu Sans');
+		unicode-range: U+20-5F, U+61-7A, U+7C, U+A0, U+A7, U+A9, U+AB, U+B2-B3, U+BB, U+C0, U+C2,
+			U+C6-CB, U+CE-CF, U+D4, U+D9, U+DB-DC, U+E0, U+E2, U+E6-EB, U+EE-EF, U+F4, U+F9, U+FB-FC, U+FF,
+			U+152-153, U+178, U+2B3, U+2E2, U+1D48-1D49, U+2010-2011, U+2013-2014, U+2019, U+201C-201D,
+			U+2020-2021, U+2026, U+202F-2030, U+20AC, U+2212;
 	}
 
 	@font-face {
@@ -24,6 +28,10 @@
 		size-adjust: 79%;
 		ascent-override: 106%;
 		src: local('DejaVu Sans Bold');
+		unicode-range: U+20-5F, U+61-7A, U+7C, U+A0, U+A7, U+A9, U+AB, U+B2-B3, U+BB, U+C0, U+C2,
+			U+C6-CB, U+CE-CF, U+D4, U+D9, U+DB-DC, U+E0, U+E2, U+E6-EB, U+EE-EF, U+F4, U+F9, U+FB-FC, U+FF,
+			U+152-153, U+178, U+2B3, U+2E2, U+1D48-1D49, U+2010-2011, U+2013-2014, U+2019, U+201C-201D,
+			U+2020-2021, U+2026, U+202F-2030, U+20AC, U+2212;
 	}
 
 	@font-face {
@@ -31,6 +39,10 @@
 		size-adjust: 92.94%;
 		ascent-override: 110%;
 		src: local('Arial');
+		unicode-range: U+20-5F, U+61-7A, U+7C, U+A0, U+A7, U+A9, U+AB, U+B2-B3, U+BB, U+C0, U+C2,
+			U+C6-CB, U+CE-CF, U+D4, U+D9, U+DB-DC, U+E0, U+E2, U+E6-EB, U+EE-EF, U+F4, U+F9, U+FB-FC, U+FF,
+			U+152-153, U+178, U+2B3, U+2E2, U+1D48-1D49, U+2010-2011, U+2013-2014, U+2019, U+201C-201D,
+			U+2020-2021, U+2026, U+202F-2030, U+20AC, U+2212;
 	}
 
 	@font-face {
@@ -39,6 +51,10 @@
 		size-adjust: 80.4%;
 		ascent-override: 124%;
 		src: local('Arial Black');
+		unicode-range: U+20-5F, U+61-7A, U+7C, U+A0, U+A7, U+A9, U+AB, U+B2-B3, U+BB, U+C0, U+C2,
+			U+C6-CB, U+CE-CF, U+D4, U+D9, U+DB-DC, U+E0, U+E2, U+E6-EB, U+EE-EF, U+F4, U+F9, U+FB-FC, U+FF,
+			U+152-153, U+178, U+2B3, U+2E2, U+1D48-1D49, U+2010-2011, U+2013-2014, U+2019, U+201C-201D,
+			U+2020-2021, U+2026, U+202F-2030, U+20AC, U+2212;
 	}
 
 	@font-face {
