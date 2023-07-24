@@ -12,7 +12,7 @@ Pas de panique, on va y aller petit à petit et à la fin de cet article vous au
   - [Lazyload & Preload des images](#lazyload-preload-des-images)
   - [Différer le JavaScript & CSS](#differer-le-javascript-et-le-css)
   - [Fetch Priority](#fetch-priority)
-- Optimiser la taille des images : s'en sortir avec picture, source & srcset (bientôt)
+- [Optimiser les images sur le web : checklist des bonnes pratiques](/tutoriels/optimiser-le-chargement-des-images/)
 - Optimiser le chargement des fonts (bientôt)
 - Optimiser la gestion des icônes (bientôt)
 - Quelles techniques pour diminuer la quantité de JavaScript ? (bientôt)
