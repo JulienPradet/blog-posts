@@ -40,7 +40,7 @@ const launchQueue = async () => {
 		const page = await browser.newPage();
 		await page.setViewport({
 			width: 1600,
-			height: 836,
+			height: 826,
 			deviceScaleFactor: 1
 		});
 		await page.goto(`http://localhost:5173/cover-image/?path=${location}`, {
