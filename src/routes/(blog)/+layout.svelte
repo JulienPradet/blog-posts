@@ -91,8 +91,11 @@
 		text-decoration-thickness: 1px;
 		text-underline-offset: 0.4em;
 		text-decoration-color: rgb(118 114 110 / 50%);
-		transition: opacity 0.15s ease-in-out, text-decoration-color 0.15s ease-in-out,
-			text-decoration-thickness 0.15s ease-in-out, text-decoration-offset 0.15s ease-in-out;
+		transition:
+			opacity 0.15s ease-in-out,
+			text-decoration-color 0.15s ease-in-out,
+			text-decoration-thickness 0.15s ease-in-out,
+			text-decoration-offset 0.15s ease-in-out;
 		cursor: pointer;
 	}
 
@@ -139,7 +142,9 @@
 		background-color: #eee;
 		border-radius: 3px;
 		border: 1px solid #b4b4b4;
-		box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2), 0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
+		box-shadow:
+			0 1px 1px rgba(0, 0, 0, 0.2),
+			0 2px 0 0 rgba(255, 255, 255, 0.7) inset;
 		color: #333;
 		display: inline-block;
 		font-size: 0.85em;
@@ -290,7 +295,8 @@
 		margin-top: 3rem;
 	}
 
-	.page :global(img) {
+	.page :global(img),
+	.page :global(video) {
 		display: block;
 		margin: 0 auto;
 		max-width: 100%;
