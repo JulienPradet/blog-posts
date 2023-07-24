@@ -30,11 +30,13 @@
 	<meta name="author" content={siteInfo.author.name} />
 	<meta name="description" content={meta.description} />
 	<meta name="twitter:site" content="@JulienPradet" />
+	<meta name="twitter:url" content="https://www.julienpradet.fr/" />
 	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:creator" content="@JulienPradet" />
 	<meta name="twitter:title" content={meta.title} />
 	<meta name="twitter:description" content={meta.description} />
 	<meta name="twitter:image" content={`${siteInfo.homepage}${image}`} />
+	<meta name="twitter:image:src" content={`${siteInfo.homepage}${image}`} />
 	<meta property="og:site_name" content={siteInfo.site_name} />
 	<meta property="og:type" content="page" />
 	<meta property="og:title" content={meta.title} />
