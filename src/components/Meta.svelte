@@ -30,7 +30,7 @@
 	<meta name="author" content={siteInfo.author.name} />
 	<meta name="description" content={meta.description} />
 	<meta name="twitter:site" content="@JulienPradet" />
-	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:card" content="summary_large_image" />
 	<meta name="twitter:creator" content="@JulienPradet" />
 	<meta name="twitter:title" content={meta.title} />
 	<meta name="twitter:description" content={meta.description} />
