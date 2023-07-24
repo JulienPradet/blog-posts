@@ -34,12 +34,12 @@
 	<meta name="twitter:creator" content="@JulienPradet" />
 	<meta name="twitter:title" content={meta.title} />
 	<meta name="twitter:description" content={meta.description} />
-	<meta name="twitter:image" content={image} />
+	<meta name="twitter:image" content={`${siteInfo.homepage}${image}`} />
 	<meta property="og:site_name" content={siteInfo.site_name} />
 	<meta property="og:type" content="page" />
 	<meta property="og:title" content={meta.title} />
 	<meta property="og:url" content={`${siteInfo.homepage}${location}`} />
-	<meta property="og:image" content={image} />
+	<meta property="og:image" content={`${siteInfo.homepage}${image}`} />
 	<meta property="og:description" content={meta.description} />
 	<link rel="canonical" href={`${siteInfo.homepage}${location}`} />
 	{#if jsonDescription !== null}
