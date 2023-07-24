@@ -29,12 +29,12 @@
 	<title>{`${meta.title} | ${siteInfo.author.name}`}</title>
 	<meta name="author" content={siteInfo.author.name} />
 	<meta name="description" content={meta.description} />
-	<meta property="twitter:site" content="@JulienPradet" />
-	<meta property="twitter:card" content="summary" />
-	<meta property="twitter:creator" content="@JulienPradet" />
-	<meta property="twitter:title" content={meta.title} />
-	<meta property="twitter:description" content={meta.description} />
-	<meta property="twitter:image" content={image} />
+	<meta name="twitter:site" content="@JulienPradet" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:creator" content="@JulienPradet" />
+	<meta name="twitter:title" content={meta.title} />
+	<meta name="twitter:description" content={meta.description} />
+	<meta name="twitter:image" content={image} />
 	<meta property="og:site_name" content={siteInfo.site_name} />
 	<meta property="og:type" content="page" />
 	<meta property="og:title" content={meta.title} />
