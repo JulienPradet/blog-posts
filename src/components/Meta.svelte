@@ -7,7 +7,7 @@
 	export let meta: PageType;
 	export let location: string;
 
-	const image = `${siteInfo.homepage}/android-chrome-512x512.png`;
+	const image = `/images/cover${location}image.jpg`;
 
 	const jsonDescription =
 		'type' in meta && meta.type === 'article'
