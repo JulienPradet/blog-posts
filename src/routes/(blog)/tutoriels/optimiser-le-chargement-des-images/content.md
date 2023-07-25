@@ -4,7 +4,7 @@ Pour améliorer ce LCP, nous avons vu que [bien maîtriser son réseau](/tutorie
 
 Dans cet article, nous allons continuer à améliorer celles-ci en approfondissant la gestion des images et notamment le comportement des balises `<picture>`, `<source>` et `<img>`. A la fin, vous en sortirez avec une méthode pour choisir les bons formats et les bonnes tailles en toute circonstance.
 
-Si vous ressentez le besoin d'avoir plus d'accompagnement dans votre entreprise pour mettre en place ces sujets, n'hésitez pas à me contacter par [mail](mailto:julien.pradet+article-blog@gmail.com). Peut-être pouvons nous [travailler ensemble](http://localhost:5173/developpeur-web-performance-freelance/) afin de poser les premières briques ?
+Si vous ressentez le besoin d'avoir plus d'accompagnement dans votre entreprise pour mettre en place ces sujets, n'hésitez pas à me contacter par [mail](mailto:julien.pradet+article-blog@gmail.com). Peut-être pouvons nous [travailler ensemble](/developpeur-web-performance-freelance/) afin de poser les premières briques ?
 
 - [Pourquoi améliorer le LCP de vos pages ?](/tutoriels/pourquoi-ameliorer-le-lcp/)
 - [Analyser le comportement réseau pour améliorer FCP et LCP](/tutoriels/reseau-et-core-web-vitals/)
@@ -24,7 +24,7 @@ Si vous ressentez le besoin d'avoir plus d'accompagnement dans votre entreprise 
 
 Afin de commencer à rentrer dans le dur du sujet, rappelons déjà les premières optimisations que vous pouvez faire à moindre coût :
 
-1. [les images sont correctement **compressées**](http://localhost:5173/tutoriels/reseau-et-core-web-vitals/#optimisation-des-fichiers)
+1. [les images sont correctement **compressées**](/tutoriels/reseau-et-core-web-vitals/#optimisation-des-fichiers)
 
 Généralement, vos images seront du jpg et/ou du png. Une image bien optimisée peut faire toute la différence en termes de poids de fichier (jusqu'à -80%).
 
