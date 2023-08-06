@@ -88,12 +88,16 @@
 	/* Code blocks */
 	:global(pre[class*='language-']) {
 		padding: 1em;
-		margin: 0.5em 0;
+		margin: 1em 0;
 		overflow: auto;
 	}
 
 	:global(:not(pre) > code[class*='language-'], pre[class*='language-']) {
 		background: #282c34;
+	}
+
+	:global(code[class*='language-']) {
+		tab-size: 2;
 	}
 
 	/* Inline code */
@@ -209,6 +213,10 @@
 		:global(.line-numbers .line-numbers-rows) {
 			left: -6rem;
 			width: 3rem; /* works for line-numbers below 1000 lines */
+		}
+
+		:global(code[class*='language-']) {
+			tab-size: 4;
 		}
 	}
 </style>

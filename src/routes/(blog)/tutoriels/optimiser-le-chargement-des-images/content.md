@@ -15,7 +15,7 @@ Si vous ressentez le besoin d'avoir plus d'accompagnement dans votre entreprise 
   - [Preload une image responsive](#preload-une-image-responsive)
   - [Récapitulatif](#recapitulatif)
 - [Optimiser le chargement des fonts](/tutoriels/optimiser-le-chargement-des-fonts/)
-- Optimiser la gestion des icônes (bientôt)
+- [Optimiser la gestion des icônes](/tutoriels/optimiser-le-chargement-des-icones/)
 - Quelles techniques pour diminuer la quantité de JavaScript ? (bientôt)
 - Quelles métriques suivre en dehors des Core Web Vitals ? (bientôt)
 - Et plus encore 🫶

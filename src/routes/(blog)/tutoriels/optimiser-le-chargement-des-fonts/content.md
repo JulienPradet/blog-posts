@@ -15,7 +15,7 @@ Récapitulatif des articles de cette série :
   - [2. Utiliser plusieurs graisses de fonts grâce aux Variable Fonts](#2-utiliser-plusieurs-graisses-de-fonts-grace-aux-variable-fonts)
   - [3. Utiliser plusieurs fonts](#3-utiliser-plusieurs-fonts)
   - [Récapitulatif des bonnes pratiques](#recapitulatif)
-- Optimiser la gestion des icônes (bientôt)
+- [Optimiser la gestion des icônes](/tutoriels/optimiser-le-chargement-des-icones/)
 - Quelles techniques pour diminuer la quantité de JavaScript ? (bientôt)
 - Quelles métriques suivre en dehors des Core Web Vitals ? (bientôt)
 - Et plus encore 🫶

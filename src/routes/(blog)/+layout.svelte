@@ -163,6 +163,9 @@
 		padding: 0.25rem 1rem;
 		border: 1px solid var(--color-border);
 	}
+	.page :global(figure > table) {
+		margin-bottom: 0;
+	}
 
 	.page :global(details + details) {
 		margin-top: 1rem;

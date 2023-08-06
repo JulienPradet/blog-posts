@@ -14,7 +14,7 @@ Pas de panique, on va y aller petit à petit et à la fin de cet article vous au
   - [Fetch Priority](#fetch-priority)
 - [Optimiser les images sur le web : checklist des bonnes pratiques](/tutoriels/optimiser-le-chargement-des-images/)
 - [Optimiser le chargement des fonts](/tutoriels/optimiser-le-chargement-des-fonts/)
-- Optimiser la gestion des icônes (bientôt)
+- [Optimiser la gestion des icônes](/tutoriels/optimiser-le-chargement-des-icones/)
 - Quelles techniques pour diminuer la quantité de JavaScript ? (bientôt)
 - Quelles métriques suivre en dehors des Core Web Vitals ? (bientôt)
 - Et plus encore 🫶
