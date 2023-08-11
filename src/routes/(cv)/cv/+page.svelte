@@ -57,7 +57,7 @@
 					tabIndex="-1"
 					title="Largest Contentful Paint">LCP</abbr
 				>
-				{'<'} 2.4s de 65% à 88%)
+				{'<'} 2.4s de 65% à 92%)
 			</li>
 			<li>
 				Proposition et développement d'outils afin d'améliorer la collaboration Front-End/Back-End (<abbr

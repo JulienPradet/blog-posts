@@ -57,7 +57,7 @@
 				Improved Web Performance and Core Web Vitals (Mobile <abbr title="Largest Contentful Paint"
 					>LCP</abbr
 				>
-				{'<'} 2.4s from 65% to 88%)
+				{'<'} 2.4s from 65% to 92%)
 			</li>
 			<li>
 				Proposals & development of tools to improve back/front collaboration & efficiency (<abbr
