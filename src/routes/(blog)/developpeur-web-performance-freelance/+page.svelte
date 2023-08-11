@@ -16,7 +16,7 @@
 	};
 </script>
 
-<Meta {meta} location="/" />
+<Meta {meta} location="/developpeur-web-performance-freelance/" />
 
 <Headline
 	isMainTitle={false}
