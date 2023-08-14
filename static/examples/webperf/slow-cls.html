@@ -1,0 +1,287 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width,viewport-fit=cover" />
+		<title>Exemple de site avec du CLS (lent)</title>
+
+		<link href="/examples/webperf/cls.css" rel="stylesheet" />
+
+		<link
+			rel="preload"
+			as="font"
+			type="font/woff2"
+			href="/examples/webperf/Ovo-critical.woff2"
+			crossorigin
+		/>
+
+		<script src="/examples/webperf/cls.js" type="module" defer fetchpriority="low"></script>
+
+		<meta name="msapplication-TileColor" content="#fff7f1" />
+		<meta name="theme-color" content="#fff7f1" />
+
+		<meta
+			name="description"
+			content="Site d'exemple permettant d'effectuer des analyses de performance web, se concentrant surtout sur la Web Performance."
+		/>
+		<link rel="canonical" href="https://www.julienpradet.fr/examples/webperf/slow.html" />
+	</head>
+	<body>
+		<header id="top">
+			<div class="content header">
+				<p>Exemple de <abbr title="Cumulative Layout Shift">CLS</abbr> (lent)</p>
+				<nav>
+					<ul>
+						<li>
+							<a href="./slow-cls.html" aria-current="page"
+								>Voir la version lente (vous êtes ici)</a
+							>
+						</li>
+						<li>
+							<a href="./fast-cls.html">Voir la version rapide</a>
+						</li>
+					</ul>
+				</nav>
+			</div>
+		</header>
+
+		<main>
+			<section class="js-hellobar hellobar" aria-live="polite"></section>
+
+			<section class="hero background--dark">
+				<h1>Quand cliquer devient frustrant</h1>
+				<button>Revenir à l'article</button>
+			</section>
+
+			<section class="content">
+				<p class="paragraph">
+					Dans cette page, plusieurs types de Layout Shift ont été introduits : au chargement, au
+					scroll et à l'interaction. Le but est de montrer comment peut-on les repérer puis les
+					corriger. Si vous voulez en savoir plus, n'hésitez pas à vous référer à
+					<a href="/tutoriels/comment-detecter-du-cls/"
+						>Comment diagnostiquer et corriger du Cumulative Layout Shift (CLS)</a
+					>.
+				</p>
+			</section>
+
+			<section class="content article-grid">
+				<article class="article-preview">
+					<a
+						class="photoswipe-image"
+						href="/images/posts/lcp/graphic-node-EA0gEEIGsoU-unsplash-opti.jpg"
+					>
+						<img
+							alt="Vue d'une arche ouverte dans un ancien mur en pierre. Au travers de cette arche, on en voit une autre de la même forme, et ce récursivement."
+							src="/images/posts/lcp/graphic-node-EA0gEEIGsoU-unsplash-opti.jpg"
+							srcset="
+								https://www.julienpradet.fr/images-transform/posts/lcp/graphic-node-EA0gEEIGsoU-unsplash.jpg?twic=v1/resize=358x-/quality-min=80/output=auto 358w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/graphic-node-EA0gEEIGsoU-unsplash.jpg?twic=v1/resize=452x-/quality-min=80/output=auto 452w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/graphic-node-EA0gEEIGsoU-unsplash.jpg?twic=v1/resize=716x-/quality-min=80/output=auto 716w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/graphic-node-EA0gEEIGsoU-unsplash.jpg?twic=v1/resize=904x-/quality-min=80/output=auto 904w
+							"
+							sizes="(min-width: 1219px) 358px, (min-width: 1000px) 30vw, (min-width: 500px) 50vw, 100vw"
+							loading="lazy"
+						/>
+					</a>
+					<div class="article-preview__content">
+						<h2 lang="en">brown arch</h2>
+						<p>
+							par <a href="https://unsplash.com/photos/EA0gEEIGsoU">Graphic Node</a>, publié
+							<time datetime="2019-02-19T14:06:28.000Z"></time>
+						</p>
+					</div>
+				</article>
+				<article class="article-preview">
+					<a class="photoswipe-image" href="/images/posts/lcp/uta-scholl-W-bi51DgwYQ-unsplash.jpg">
+						<img
+							alt="Alerte petit chat ! Un chat gris et blanc pointe le bout du nez pour rejoindre la fraîcheur conservée par la porte massive peinte en bleu ciel dans la chaleur tunisienne."
+							src="/images/posts/lcp/uta-scholl-W-bi51DgwYQ-unsplash.jpg"
+							srcset="
+								https://www.julienpradet.fr/images-transform/posts/lcp/uta-scholl-W-bi51DgwYQ-unsplash.jpg?twic=v1/resize=358x-/quality-min=80/output=auto 358w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/uta-scholl-W-bi51DgwYQ-unsplash.jpg?twic=v1/resize=452x-/quality-min=80/output=auto 452w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/uta-scholl-W-bi51DgwYQ-unsplash.jpg?twic=v1/resize=716x-/quality-min=80/output=auto 716w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/uta-scholl-W-bi51DgwYQ-unsplash.jpg?twic=v1/resize=904x-/quality-min=80/output=auto 904w
+							"
+							sizes="(min-width: 1219px) 358px, (min-width: 1000px) 30vw, (min-width: 500px) 50vw, 100vw"
+							loading="lazy"
+						/>
+					</a>
+					<div class="article-preview__content">
+						<h2 lang="en">white and black cat on brown wooden window</h2>
+						<p>
+							par <a href="https://unsplash.com/photos/W-bi51DgwYQ">Uta Scholl</a>, publié
+							<time datetime="2021-06-23T16:47:15.000Z"></time>
+						</p>
+					</div>
+				</article>
+				<article class="article-preview">
+					<a
+						class="photoswipe-image"
+						href="/images/posts/lcp/dawid-zawila-xclq1CPq1M4-unsplash.jpg"
+					>
+						<img
+							alt="Dans une pièce sombre, on voit au travers d'une porte ouverte la vue sur une ville méditéranéene, colorée et chaleureuse."
+							src="/images/posts/lcp/dawid-zawila-xclq1CPq1M4-unsplash.jpg"
+							srcset="
+								https://www.julienpradet.fr/images-transform/posts/lcp/dawid-zawila-xclq1CPq1M4-unsplash.jpg?twic=v1/resize=358x-/quality-min=80/output=auto 358w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/dawid-zawila-xclq1CPq1M4-unsplash.jpg?twic=v1/resize=452x-/quality-min=80/output=auto 452w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/dawid-zawila-xclq1CPq1M4-unsplash.jpg?twic=v1/resize=716x-/quality-min=80/output=auto 716w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/dawid-zawila-xclq1CPq1M4-unsplash.jpg?twic=v1/resize=904x-/quality-min=80/output=auto 904w
+							"
+							sizes="(min-width: 1219px) 358px, (min-width: 1000px) 30vw, (min-width: 500px) 50vw, 100vw"
+							loading="lazy"
+						/>
+					</a>
+					<div class="article-preview__content">
+						<h2 lang="en">view of concrete buildings from window during daytime</h2>
+						<p>
+							par <a href="https://unsplash.com/photos/xclq1CPq1M4">Dawid Zawiła</a>, publié
+							<time datetime="2016-08-20T20:24:02.000Z"></time>
+						</p>
+					</div>
+				</article>
+				<article class="article-preview">
+					<a class="photoswipe-image" href="/images/posts/lcp/safa-_made-_6X8ds1PvtA-unsplash.jpg">
+						<img
+							alt="Une porte en bois, verte, usée au milieu d'une cours en terre séchée dans les anciens styles architecturaux des pays du Moyen-Orient (Dubaï)."
+							src="/images/posts/lcp/safa-_made-_6X8ds1PvtA-unsplash.jpg"
+							srcset="
+								https://www.julienpradet.fr/images-transform/posts/lcp/safa-_made-_6X8ds1PvtA-unsplash.jpg?twic=v1/resize=358x-/quality-min=80/output=auto 358w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/safa-_made-_6X8ds1PvtA-unsplash.jpg?twic=v1/resize=452x-/quality-min=80/output=auto 452w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/safa-_made-_6X8ds1PvtA-unsplash.jpg?twic=v1/resize=716x-/quality-min=80/output=auto 716w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/safa-_made-_6X8ds1PvtA-unsplash.jpg?twic=v1/resize=904x-/quality-min=80/output=auto 904w
+							"
+							sizes="(min-width: 1219px) 358px, (min-width: 1000px) 30vw, (min-width: 500px) 50vw, 100vw"
+							loading="lazy"
+						/>
+					</a>
+
+					<div class="article-preview__content">
+						<h2 lang="en">a building with a green door</h2>
+						<p>
+							par <a href="https://unsplash.com/photos/_6X8ds1PvtA">safa _made</a>, publié
+							<time datetime="2022-08-20T12:23:59.000Z"></time>
+						</p>
+					</div>
+				</article>
+				<article class="article-preview">
+					<a
+						class="photoswipe-image"
+						href="/images/posts/lcp/samuel-mcgarrigle-mtyPgxlVsrE-unsplash.jpg"
+					>
+						<img
+							alt="Une porte fermée, jaune canary, sur un beau mur en brique rouge dans un style très londonien."
+							src="/images/posts/lcp/samuel-mcgarrigle-mtyPgxlVsrE-unsplash.jpg"
+							srcset="
+								https://www.julienpradet.fr/images-transform/posts/lcp/samuel-mcgarrigle-mtyPgxlVsrE-unsplash.jpg?twic=v1/resize=358x-/quality-min=80/output=auto 358w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/samuel-mcgarrigle-mtyPgxlVsrE-unsplash.jpg?twic=v1/resize=452x-/quality-min=80/output=auto 452w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/samuel-mcgarrigle-mtyPgxlVsrE-unsplash.jpg?twic=v1/resize=716x-/quality-min=80/output=auto 716w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/samuel-mcgarrigle-mtyPgxlVsrE-unsplash.jpg?twic=v1/resize=904x-/quality-min=80/output=auto 904w
+							"
+							sizes="(min-width: 1219px) 358px, (min-width: 1000px) 30vw, (min-width: 500px) 50vw, 100vw"
+							loading="lazy"
+						/>
+					</a>
+					<div class="article-preview__content">
+						<h2 lang="en">yellow wooden door is close</h2>
+						<p>
+							par <a href="https://unsplash.com/photos/mtyPgxlVsrE">Samuel McGarrigle</a>, publié
+							<time datetime="2019-01-05T22:51:40.000Z"></time>
+						</p>
+					</div>
+				</article>
+				<article class="article-preview">
+					<a
+						class="photoswipe-image"
+						href="/images/posts/lcp/divya-arvind-MtZaU5eERMQ-unsplash.jpg"
+					>
+						<img
+							alt="Un magnifique montant de porte en pierre finement sculpté aux milieux de ruines envahies par la nature. Derrière ce premier montant un deuxième qui ressemble plus à un cadre qu'à une porte."
+							src="/images/posts/lcp/divya-arvind-MtZaU5eERMQ-unsplash.jpg"
+							srcset="
+								https://www.julienpradet.fr/images-transform/posts/lcp/divya-arvind-MtZaU5eERMQ-unsplash.jpg?twic=v1/resize=358x-/quality-min=80/output=auto 358w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/divya-arvind-MtZaU5eERMQ-unsplash.jpg?twic=v1/resize=452x-/quality-min=80/output=auto 452w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/divya-arvind-MtZaU5eERMQ-unsplash.jpg?twic=v1/resize=716x-/quality-min=80/output=auto 716w,
+								https://www.julienpradet.fr/images-transform/posts/lcp/divya-arvind-MtZaU5eERMQ-unsplash.jpg?twic=v1/resize=904x-/quality-min=80/output=auto 904w
+							"
+							sizes="(min-width: 1219px) 358px, (min-width: 1000px) 30vw, (min-width: 500px) 50vw, 100vw"
+							loading="lazy"
+						/>
+					</a>
+					<div class="article-preview__content">
+						<h2 lang="en">brown wooden frame on green grass</h2>
+						<p>
+							par <a href="https://unsplash.com/photos/MtZaU5eERMQ">Divya Arvind</a>, publié
+							<time datetime="2021-06-13T07:43:18.000Z"></time>
+						</p>
+					</div>
+				</article>
+			</section>
+
+			<section class="content">
+				<div class="newsletter background--dark">
+					<h2 class="newsletter__title">Besoin d'un guide&nbsp;?</h2>
+					<picture class="newsletter__image">
+						<source
+							media="(min-width: 1000px)"
+							srcset="
+								https://www.julienpradet.fr/images-transform/posts/lcp/explorer.jpg?twic=v1/cover=336x240/focus=auto/quality-min=80/output=auto 1x,
+								https://www.julienpradet.fr/images-transform/posts/lcp/explorer.jpg?twic=v1/cover=672x480/focus=auto/quality-min=80/output=auto 2x
+							"
+							width="336"
+							height="240"
+						/>
+						<source
+							media="(min-width: 600px)"
+							srcset="
+								https://www.julienpradet.fr/images-transform/posts/lcp/explorer.jpg?twic=v1/cover=480x600/focus=auto/quality-min=80/output=auto 2x
+							"
+							width="240"
+							height="300"
+						/>
+						<source
+							media="(min-width: 416px)"
+							srcset="
+								https://www.julienpradet.fr/images-transform/posts/lcp/explorer.jpg?twic=v1/cover=1070x416/focus=auto/quality-min=80/output=auto 2x
+							"
+							width="535"
+							height="208"
+						/>
+						<img
+							alt="Dans une terre aride, presque désertique, une formation rocheuse s'élève dans les airs. Une personne s'engouffre dans une des ouvertures créée dans la roche."
+							src="https://www.julienpradet.fr/images-transform/posts/lcp/explorer.jpg?twic=v1/cover=622x416/focus=auto/quality-min=80/output=auto"
+							loading="lazy"
+							width="622"
+							height="416"
+						/>
+					</picture>
+					<div class="newsletter__content">
+						<p>
+							Vous avez des <strong>problèmes de performance</strong> ? Vous ne savez pas vraiment
+							par où commencer ?
+						</p>
+						<p>
+							Je concocte au fur et à mesure des semaines des
+							<a href="https://www.julienpradet.fr/tutoriels/pourquoi-ameliorer-le-lcp/"
+								>guides complets autour de la Web Performance</a
+							>. Mais chaque site est spécifique et fait face à ses propres difficultés. Peut-être
+							avez-vous besoin d'un
+							<a href="/developpeur-web-performance-freelance/">expert en web performance</a> afin
+							de débroussailler le chemin ensemble ?
+						</p>
+
+						<p class="small">
+							Couverture par <a href="https://unsplash.com/photos/YmKrSJpc2HM">Jamie Fenn</a>
+						</p>
+					</div>
+				</div>
+			</section>
+		</main>
+
+		<footer>
+			<div class="content footer">
+				<a href="#top">Revenir en haut</a>
+			</div>
+		</footer>
+	</body>
+</html>
