@@ -31,7 +31,7 @@
 	$: {
 		if ($page && typeof window !== 'undefined') {
 			_paq.push(['setCustomUrl', window.location.pathname]);
-			_paq.push(['setDocumentTitle', document.title.replace(' | Julien Pradet', '')]);
+			_paq.push(['setDocumentTitle', document.title]);
 			_paq.push(['trackPageView']);
 		}
 	}
