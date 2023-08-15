@@ -13,8 +13,6 @@
 	if (typeof window !== 'undefined') {
 		window._paq = _paq;
 		/* tracker methods like "setCustomDimension" should be called before "trackPageView" */
-		_paq.push(['trackPageView']);
-		_paq.push(['enableLinkTracking']);
 		(function () {
 			var u = 'https://analytics.julienpradet.fr/';
 			_paq.push(['setTrackerUrl', u + 'matomo.php']);
@@ -33,6 +31,7 @@
 			_paq.push(['setCustomUrl', window.location.pathname]);
 			_paq.push(['setDocumentTitle', document.title]);
 			_paq.push(['trackPageView']);
+			_paq.push(['enableLinkTracking']);
 		}
 	}
 </script>
