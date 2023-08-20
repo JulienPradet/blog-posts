@@ -223,6 +223,7 @@ main {
 .article-preview {
 	position: relative;
 	height: fit-content;
+	overflow: hidden;
 }
 
 .article-preview__content {
@@ -231,7 +232,9 @@ main {
 	left: 0;
 	right: 0;
 	padding: 1rem;
-	transition: padding 0.2s ease-in-out;
+	padding-bottom: 4rem;
+	transform: translateY(3rem);
+	transition: transform 0.2s ease-in-out;
 }
 .article-preview__content::before {
 	content: '';
@@ -243,7 +246,7 @@ main {
 	position: relative;
 }
 .article-preview:hover .article-preview__content {
-	padding-bottom: 3rem;
+	transform: translateY(0);
 }
 
 .article-preview h2 {
