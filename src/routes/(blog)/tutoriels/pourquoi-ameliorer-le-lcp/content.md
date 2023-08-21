@@ -7,6 +7,7 @@ Ce premier article est une introduction qui présente ce qu'est le LCP, pourquoi
 - [Optimiser les images sur le web : checklist des bonnes pratiques](/tutoriels/optimiser-le-chargement-des-images/)
 - [Optimiser le chargement des fonts](/tutoriels/optimiser-le-chargement-des-fonts/)
 - [Optimiser la gestion des icônes](/tutoriels/optimiser-le-chargement-des-icones/)
+- [Comment diagnostiquer et corriger du Cumulative Layout Shift (CLS) ?](/tutoriels/comment-detecter-du-cls/)
 - Quelles techniques pour diminuer la quantité de JavaScript ? (bientôt)
 - Quelles métriques suivre en dehors des Core Web Vitals ? (bientôt)
 - Et plus encore 🫶

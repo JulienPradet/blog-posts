@@ -8,7 +8,10 @@
 	import FollowIncentive from '../../../../components/FollowIncentive.svelte';
 	import Meta from '../../../../components/Meta.svelte';
 	import meta from './meta';
-	import DemoFont from './DemoFont.svelte';
+	import Tabs from '../../../../components/Tabs.svelte';
+	import fontWithoutSizeAdjust from './screen-font-fallback-without-adjust.png';
+	import fontWithSizeAdjust from './screen-font-fallback-with-adjust.png';
+	import font from './screen-font.png';
 </script>
 
 <Meta {meta} location="/tutoriels/optimiser-le-chargement-des-fonts/" />
@@ -19,7 +22,13 @@
 	<Content>
 		<Prism>
 			{@html content}
-			<DemoFont />
+			<Tabs
+				tabs={[
+					{ label: 'Fallback sans size-adjust', img: fontWithoutSizeAdjust },
+					{ label: 'Fallback avec size-adjust', img: fontWithSizeAdjust },
+					{ label: 'Font finale', img: font }
+				]}
+			/>
 			{@html content2}
 		</Prism>
 	</Content>

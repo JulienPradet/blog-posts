@@ -16,6 +16,7 @@ Récapitulatif des articles de cette série :
   - [3. Utiliser plusieurs fonts](#3-utiliser-plusieurs-fonts)
   - [Récapitulatif des bonnes pratiques](#recapitulatif)
 - [Optimiser la gestion des icônes](/tutoriels/optimiser-le-chargement-des-icones/)
+- [Comment diagnostiquer et corriger du Cumulative Layout Shift (CLS) ?](/tutoriels/comment-detecter-du-cls/)
 - Quelles techniques pour diminuer la quantité de JavaScript ? (bientôt)
 - Quelles métriques suivre en dehors des Core Web Vitals ? (bientôt)
 - Et plus encore 🫶

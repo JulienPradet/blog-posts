@@ -16,6 +16,7 @@ Si vous ressentez le besoin d'avoir plus d'accompagnement dans votre entreprise 
   - [Récapitulatif](#recapitulatif)
 - [Optimiser le chargement des fonts](/tutoriels/optimiser-le-chargement-des-fonts/)
 - [Optimiser la gestion des icônes](/tutoriels/optimiser-le-chargement-des-icones/)
+- [Comment diagnostiquer et corriger du Cumulative Layout Shift (CLS) ?](/tutoriels/comment-detecter-du-cls/)
 - Quelles techniques pour diminuer la quantité de JavaScript ? (bientôt)
 - Quelles métriques suivre en dehors des Core Web Vitals ? (bientôt)
 - Et plus encore 🫶
@@ -685,7 +686,6 @@ Avant de nous quitter, il y a un dernier élément que j'aimerais que vous ayez 
 
 <figure>
 <video controls src="/images/posts/lcp/compare-cls.mp4"></video>
-<figcaption></figcaption>
 </figure>
 
 Petit indice, c'est particulièrement visible à 3.3s de chargement.

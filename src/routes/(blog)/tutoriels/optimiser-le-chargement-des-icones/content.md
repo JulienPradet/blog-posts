@@ -15,6 +15,7 @@ Cet article fait partie d'une série d'articles en lien avec la Web Performance 
   - [Etape 4 : Remote SVG Symbol](#etape-4-remote-svg-symbol)
   - [Comment mettre en place ces méthodes quand je code en React ?](#comment-mettre-en-place-ces-methodes-quand-je-code-en-react)
   - [Matrice de décision](#recapitulatif)
+- [Comment diagnostiquer et corriger du Cumulative Layout Shift (CLS) ?](/tutoriels/comment-detecter-du-cls/)
 - Quelles techniques pour diminuer la quantité de JavaScript ? (bientôt)
 - Quelles métriques suivre en dehors des Core Web Vitals ? (bientôt)
 - Et plus encore 🫶
