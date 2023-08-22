@@ -101,6 +101,8 @@ On les voit bien au niveau du graphe parce que cela correspond aux cassures sur 
 Ensuite, vos utilisateurices auront certainement des résolutions différentes. Notamment 375px de largeur est un format encore très répandu aujourd'hui pour les iPhones. Les tablettes sont environ vers 768px. Et sur ordinateur, on a l'habitude du 1920x1080. C'est vrai chez les devs, mais chez beaucoup de gens, les écrans de laptops sont par défaut zoomés à 150%, donc c'est plutôt du 1280x720.
 
 > 💡 Il est difficile d'avoir des ressources fiables à ce sujet. Il est donc vivement conseillé de sortir ces données de vos analytics. Mais à défaut, n'hésitez pas à suivre Andy Bell ([@andy@bell.bz](https://bell.bz/@andy)) qui a fait [une étude récente](https://bell.bz/@andy/110628238964717341) à ce sujet et publiera plus d'informations bientôt.
+>
+> **Mise à jour :** l'étude a été résumée ici : https://viewports.fyi/
 
 Pour notre exemple, nous allons donc considérer les tailles suivantes et les récupérer de notre graphe :
 
