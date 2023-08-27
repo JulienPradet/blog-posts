@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="stylesheet" href="./style.css" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" href="./logo.svg" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#181716" />
+		<meta name="apple-mobile-web-app-title" content="Julien Pradet" />
+		<meta name="application-name" content="Julien Pradet" />
+		<meta name="msapplication-TileColor" content="#fff7f1" />
+		<meta name="theme-color" content="#fff7f1" />
+		<meta name="viewport" content="width=device-width,viewport-fit=cover" />
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<header class="main-header">
+			<img
+				src="./background.png"
+				alt="A peaceful grass scenery to ease your mind before diving in."
+				class="main-header__background"
+			/>
+			<div class="author js-author">
+				<div class="author__background js-animate"></div>
+				<img src="./logo.svg" alt="" class="author__avatar js-animate" />
+				<div class="author__info">
+					<h1 class="author__name js-animate">Enchanté, Julien&nbsp;Pradet</h1>
+					<address class="author__address js-animate" data-animate-translate="false">
+						<a href="https://piaille.fr/@julienpradet">@julienpradet@piaille.fr</a>
+					</address>
+				</div>
+				<div class="author__contact js-animate">
+					<a href="/contact" class="button">
+						<svg
+							xmlns="http://www.w3.org/2000/svg"
+							width="24"
+							height="24"
+							viewBox="0 0 75.294 75.294"
+						>
+							<path
+								d="M66.097 12.089h-56.9C4.126 12.089 0 16.215 0 21.286v32.722c0 5.071 4.126 9.197 9.197 9.197h56.9c5.071 0 9.197-4.126 9.197-9.197V21.287c.001-5.072-4.125-9.198-9.197-9.198zm-4.494 6L37.647 33.523 13.691 18.089h47.912zm4.494 39.117h-56.9A3.201 3.201 0 0 1 6 54.009V21.457l29.796 19.16c.04.025.083.042.124.065.043.024.087.047.131.069.231.119.469.215.712.278.025.007.05.01.075.016.267.063.537.102.807.102h.006c.27 0 .54-.038.807-.102.025-.006.05-.009.075-.016.243-.063.48-.159.712-.278a3.27 3.27 0 0 0 .131-.069c.041-.023.084-.04.124-.065l29.796-19.16v32.551a3.204 3.204 0 0 1-3.199 3.198z"
+								fill="currentColor"
+								aria-hidden="true"
+							/>
+						</svg>
+						<span class="sr-only-mobile">Me contacter</span>
+					</a>
+				</div>
+			</div>
+		</header>
+
+		<div class="container article-list">
+			<div class="article-skeleton"></div>
+			<div class="article-skeleton"></div>
+			<div class="article-skeleton"></div>
+			<div class="article-skeleton"></div>
+			<div class="article-skeleton"></div>
+			<div class="article-skeleton"></div>
+			<div class="article-skeleton"></div>
+		</div>
+
+		<script type="module" src="./script.js"></script>
+	</body>
+</html>
