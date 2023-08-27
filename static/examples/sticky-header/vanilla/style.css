@@ -131,7 +131,13 @@ h1 {
 
 .main-header {
 	position: relative;
-	margin-bottom: 8rem;
+	margin-bottom: 4rem;
+}
+
+@media (min-width: 40rem) {
+	.main-header {
+		margin-bottom: 8rem;
+	}
 }
 
 .main-header::before {
@@ -145,16 +151,16 @@ h1 {
 
 .main-header__background {
 	display: block;
-}
-@media (max-width: 40rem) {
-	.main-header__background {
-		padding-bottom: 196px;
-	}
+	width: 100%;
+	height: auto;
+	max-height: 300px;
+	object-fit: cover;
+	object-position: 50% 33%;
 }
 
 .author {
 	--gutter-width: max(0.5rem, calc((100% - var(--container-max-width)) / 2));
-	position: absolute;
+	position: relative;
 	left: 0;
 	bottom: 0;
 	width: 100%;
@@ -164,8 +170,14 @@ h1 {
 		'GutterLeft Info Contact GutterRight';
 	grid-template-columns: var(--gutter-width) 1fr auto var(--gutter-width);
 	align-items: center;
-	row-gap: 2rem;
+	row-gap: 1rem;
 	margin-top: -4rem;
+}
+
+@media (min-width: 40rem) {
+	.author {
+		row-gap: 2rem;
+	}
 }
 
 .author__avatar {
@@ -177,32 +189,28 @@ h1 {
 	background: white;
 	border: 0.25rem solid black;
 	border-radius: 50%;
-
-	view-transition-name: author-avatar;
 }
 
 .author__info {
 	grid-area: Info;
 	margin-right: 2rem;
-
-	view-transition-name: author-info;
 }
 
 .author__name {
 	margin: 0 0 0 0;
 }
 
-.author__address {
-}
-
 .author__contact {
 	grid-area: Contact;
+}
 
-	view-transition-name: author-contact;
+.author__contact .button {
+	padding: 0.5rem;
 }
 
 .author__background {
 	position: absolute;
+	z-index: -1;
 	top: 4rem;
 	bottom: 0;
 	left: 0;

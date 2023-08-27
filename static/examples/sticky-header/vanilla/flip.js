@@ -13,7 +13,7 @@ const getDataFromElement = (element) => {
 };
 
 const defaultOptions = {
-	duration: 200,
+	duration: 400,
 	updateTranslate: true,
 	updateScale: true,
 	updateOpacity: true,

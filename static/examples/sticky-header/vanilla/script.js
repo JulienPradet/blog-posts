@@ -1,15 +1,12 @@
 import { animate } from './animate.js';
-import { throttle } from './throttle.js';
 
 const author = document.querySelector('.js-author');
-const authorInfo = document.querySelector('.author__info');
-const scrollLimit =
-	document.querySelector('.main-header').clientHeight -
-	(0.6 * author.clientHeight + 0.4 * authorInfo.clientHeight);
+const mainHeader = document.querySelector('.main-header');
+const banner = document.querySelector('.main-header > img');
 
-const updateStickyAuthorIfNeeded = throttle(function () {
-	const isSticky = window.scrollY > scrollLimit;
+mainHeader.style.minHeight = `${mainHeader.clientHeight}px`;
 
+const updateStickyAuthorIfNeeded = function (isSticky) {
 	if (
 		(author.classList.contains('author--sticky') && isSticky) ||
 		(!author.classList.contains('author--sticky') && !isSticky)
@@ -21,7 +18,18 @@ const updateStickyAuthorIfNeeded = throttle(function () {
 	animate(elementsToAnimate, () => {
 		author.classList.toggle('author--sticky', isSticky);
 	});
-}, 50);
+};
 
-updateStickyAuthorIfNeeded();
-document.addEventListener('scroll', updateStickyAuthorIfNeeded, { passive: true });
+const observer = new IntersectionObserver(
+	(entries) => {
+		entries.forEach((entry) => {
+			updateStickyAuthorIfNeeded(!entry.isIntersecting);
+		});
+	},
+	{
+		threshold: 0,
+		rootMargin: '-50px 0px'
+	}
+);
+
+observer.observe(banner);
