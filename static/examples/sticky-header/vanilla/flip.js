@@ -35,7 +35,6 @@ class Flip {
 			updateScale: element.dataset.animateScale !== 'false',
 			updateTranslate: element.dataset.animateTranslate !== 'false'
 		};
-		this.animate = this.animate.bind(this);
 	}
 
 	first() {
@@ -44,6 +43,7 @@ class Flip {
 	}
 
 	last() {
+		this.element.style.transition = null;
 		this.element.style.transformOrigin = null;
 		this.element.style.transform = null;
 		this.element.style.opacity = null;
@@ -91,7 +91,6 @@ class Flip {
 		);
 		this.element.style.transformOrigin = '0 0';
 		this.element.style.willChange = 'transform, opacity';
-		return Promise.resolve(true);
 	}
 
 	play() {
@@ -99,31 +98,21 @@ class Flip {
 
 		this._start = window.performance.now() + this.options.delay * slowMotionFactor;
 
-		const promise = new Promise((resolve, reject) => {
-			this.resolve = resolve;
-			this.reject = reject;
+		return new Promise((resolve, reject) => {
+			requestAnimationFrame(() => {
+				try {
+					const handleTransitionEnd = () => {
+						this.element.removeEventListener('transitionend', handleTransitionEnd);
+						resolve();
+					};
+					this.element.addEventListener('transitionend', handleTransitionEnd);
+					this.element.style.transition = 'transform 0.4s ease-in-out, opacity 0.4s ease-in-out';
+					this.resetStyle();
+				} catch (e) {
+					reject(e);
+				}
+			});
 		});
-		window.requestAnimationFrame(this.animate);
-
-		return promise;
-	}
-
-	animate() {
-		if (!this._invert) {
-			return;
-		}
-		let time =
-			(window.performance.now() - this._start) / (this.options.duration * slowMotionFactor);
-		if (time > 1) time = 1;
-		if (time < 0) time = 0;
-
-		this.updateStyle(Math.pow(time, 2) / (Math.pow(time, 2) + Math.pow(1 - time, 2)));
-
-		if (time < 1) {
-			window.requestAnimationFrame(this.animate);
-		} else {
-			this.resetStyle();
-		}
 	}
 
 	updateStyle(time) {

@@ -37,8 +37,17 @@ function animate(elements, changeCallback) {
 	flipList.forEach((flip) => flip.invert());
 
 	// Once all the heavy calculations are done, launch the animation
-	return Promise.all(flipList.map((flip) => flip.play())).then(() => {
-		// hide implementation details of flip in the returned response by returning nothgin
+	return new Promise((resolve, reject) => {
+		window.requestAnimationFrame(() => {
+			try {
+				Promise.all(flipList.map((flip) => flip.play()))
+					// hide the implementation details of animation by making sure nothing is exposed
+					.then(() => resolve())
+					.catch((error) => reject(error));
+			} catch (error) {
+				reject(error);
+			}
+		});
 	});
 }
 

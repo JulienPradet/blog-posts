@@ -132,8 +132,8 @@ h1 {
 
 .main-header {
 	position: relative;
-	margin-bottom: 4rem;
-	background: var(--color-creme);
+	margin-bottom: 2rem;
+	background: white;
 }
 
 .main-header::before {
@@ -148,7 +148,7 @@ h1 {
 
 @media (min-width: 40rem) {
 	.main-header {
-		margin-bottom: 8rem;
+		margin-bottom: 2rem;
 	}
 }
 
@@ -191,14 +191,11 @@ h1 {
 	--ratio: calc(8 / 3); /* The goal is to have something that has a 8rem width when not sticky */
 	--size: calc(var(--small-size) * var(--ratio));
 	--border-width: calc(var(--small-border-width) * var(--ratio));
-	--padding: calc(0.3rem * var(--ratio)) calc(0.25rem * var(--ratio)) calc(0.3rem * var(--ratio))
-		calc(0.35rem * var(--ratio));
 
 	grid-area: Avatar;
 	width: var(--size);
 	height: var(--size);
 	margin: 0 0 0 0;
-	padding: var(--padding);
 	background: white;
 	border: var(--border-width) solid var(--color-creme);
 	border-radius: 50%;
@@ -231,8 +228,8 @@ h1 {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	opacity: 1;
-	background: var(--color-creme);
+	opacity: 0.5;
+	background: #ffefe3;
 }
 
 .author--sticky {
@@ -283,6 +280,10 @@ h1 {
 	position: absolute;
 	opacity: 0;
 	pointer-events: none;
+}
+
+.main-header:has(.author--sticky) {
+	background: white;
 }
 
 .article-skeleton {
