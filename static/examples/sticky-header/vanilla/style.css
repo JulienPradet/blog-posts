@@ -132,8 +132,11 @@ h1 {
 
 .main-header {
 	position: relative;
+	width: 100%;
 	margin-bottom: 2rem;
 	background: white;
+	/* on mobile iOS, the scale animation triggers some horizontal zoom */
+	overflow: hidden;
 }
 
 @media (min-width: 40rem) {
