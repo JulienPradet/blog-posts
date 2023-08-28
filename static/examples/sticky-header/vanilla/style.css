@@ -59,8 +59,9 @@
 	--weight-normal: 400;
 	--weight-bold: 700;
 	--weight-black: 800;
-	--color-primary: #36933b;
-	--color-primary-text: #36933b;
+	--color-creme: #fff7f1;
+	--color-primary: rgb(207 58 0);
+	--color-primary-text: rgb(207 58 0);
 	--container-max-width: 60rem;
 }
 
@@ -132,21 +133,23 @@ h1 {
 .main-header {
 	position: relative;
 	margin-bottom: 4rem;
+	background: var(--color-creme);
+}
+
+.main-header::before {
+	content: '';
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	width: 100%;
+	height: 160px;
+	background: white;
 }
 
 @media (min-width: 40rem) {
 	.main-header {
 		margin-bottom: 8rem;
 	}
-}
-
-.main-header::before {
-	content: '';
-	position: absolute;
-	inset: 0;
-	top: auto;
-	height: 158px;
-	background: white;
 }
 
 .main-header__background {
@@ -163,31 +166,41 @@ h1 {
 	position: relative;
 	left: 0;
 	bottom: 0;
+	z-index: 1;
 	width: 100%;
 	display: grid;
 	grid-template-areas:
-		'GutterLeft Avatar . GutterRight'
-		'GutterLeft Info Contact GutterRight';
-	grid-template-columns: var(--gutter-width) 1fr auto var(--gutter-width);
+		'GutterLeft Avatar . . GutterRight'
+		'GutterLeft Info Info Contact GutterRight';
+	grid-template-columns: var(--gutter-width) 8rem 1fr auto var(--gutter-width);
 	align-items: center;
 	row-gap: 1rem;
 	margin-top: -4rem;
+	padding-bottom: 2rem;
 }
 
 @media (min-width: 40rem) {
 	.author {
-		row-gap: 2rem;
+		row-gap: 1rem;
 	}
 }
 
 .author__avatar {
+	--small-size: 3rem;
+	--small-border-width: 0.15rem;
+	--ratio: calc(8 / 3); /* The goal is to have something that has a 8rem width when not sticky */
+	--size: calc(var(--small-size) * var(--ratio));
+	--border-width: calc(var(--small-border-width) * var(--ratio));
+	--padding: calc(0.3rem * var(--ratio)) calc(0.25rem * var(--ratio)) calc(0.3rem * var(--ratio))
+		calc(0.35rem * var(--ratio));
+
 	grid-area: Avatar;
-	width: 8rem;
-	height: 8rem;
+	width: var(--size);
+	height: var(--size);
 	margin: 0 0 0 0;
-	padding: 1rem 0.85rem 1rem 1.15rem;
+	padding: var(--padding);
 	background: white;
-	border: 0.25rem solid black;
+	border: var(--border-width) solid var(--color-creme);
 	border-radius: 50%;
 }
 
@@ -197,6 +210,7 @@ h1 {
 }
 
 .author__name {
+	width: fit-content;
 	margin: 0 0 0 0;
 }
 
@@ -204,8 +218,10 @@ h1 {
 	grid-area: Contact;
 }
 
-.author__contact .button {
-	padding: 0.5rem;
+@media (max-width: 40rem) {
+	.author__contact .button {
+		padding: 0.5rem;
+	}
 }
 
 .author__background {
@@ -216,8 +232,7 @@ h1 {
 	left: 0;
 	width: 100%;
 	opacity: 1;
-	background: white;
-	/* box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px; */
+	background: var(--color-creme);
 }
 
 .author--sticky {
@@ -225,17 +240,15 @@ h1 {
 	top: 0;
 	bottom: auto;
 	grid-template-areas: 'GutterLeft Avatar  Info Contact GutterRight';
-	grid-template-columns: var(--gutter-width) auto 1fr auto var(--gutter-width);
+	grid-template-columns: var(--gutter-width) 3rem 1fr auto var(--gutter-width);
 	margin-top: 0;
 	padding: 0.5rem;
-	backdrop-filter: blur(10px);
+
+	backdrop-filter: blur(5px);
 }
 
 .author--sticky .author__avatar {
-	width: 3rem;
-	height: 3rem;
-	padding: 0.5rem 0.425rem 0.5rem 0.575rem;
-	border-width: 0.125rem;
+	--ratio: 1;
 }
 
 .author--sticky .author__info {
@@ -252,6 +265,7 @@ h1 {
 	top: 0;
 	bottom: 0;
 	opacity: 0.5;
+	background: #ffefe3;
 }
 /* 
 .author::before {
@@ -266,7 +280,9 @@ h1 {
 } */
 
 .author--sticky .author__address {
-	display: none;
+	position: absolute;
+	opacity: 0;
+	pointer-events: none;
 }
 
 .article-skeleton {
@@ -278,3 +294,9 @@ h1 {
 .article-skeleton + .article-skeleton {
 	margin-top: 2rem;
 }
+
+/* .js-animate {
+	transition:
+		transform 0.3s ease-in-out,
+		opacity 0.3s ease-in-out;
+} */

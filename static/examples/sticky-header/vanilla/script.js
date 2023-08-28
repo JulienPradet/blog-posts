@@ -1,35 +1,37 @@
 import { animate } from './animate.js';
 
-const author = document.querySelector('.js-author');
-const mainHeader = document.querySelector('.main-header');
-const banner = document.querySelector('.main-header > img');
+document.addEventListener('DOMContentLoaded', () => {
+	const author = document.querySelector('.js-author');
+	const mainHeader = document.querySelector('.main-header');
+	const banner = document.querySelector('.main-header > img');
 
-mainHeader.style.minHeight = `${mainHeader.clientHeight}px`;
+	mainHeader.style.minHeight = `${mainHeader.clientHeight}px`;
 
-const updateStickyAuthorIfNeeded = function (isSticky) {
-	if (
-		(author.classList.contains('author--sticky') && isSticky) ||
-		(!author.classList.contains('author--sticky') && !isSticky)
-	) {
-		return;
-	}
+	const updateStickyAuthorIfNeeded = function (isSticky) {
+		if (
+			(author.classList.contains('author--sticky') && isSticky) ||
+			(!author.classList.contains('author--sticky') && !isSticky)
+		) {
+			return;
+		}
 
-	const elementsToAnimate = author.querySelectorAll('.js-animate');
-	animate(elementsToAnimate, () => {
-		author.classList.toggle('author--sticky', isSticky);
-	});
-};
-
-const observer = new IntersectionObserver(
-	(entries) => {
-		entries.forEach((entry) => {
-			updateStickyAuthorIfNeeded(!entry.isIntersecting);
+		const elementsToAnimate = author.querySelectorAll('.js-animate');
+		animate(elementsToAnimate, () => {
+			author.classList.toggle('author--sticky', isSticky);
 		});
-	},
-	{
-		threshold: 0,
-		rootMargin: '-50px 0px'
-	}
-);
+	};
 
-observer.observe(banner);
+	const observer = new IntersectionObserver(
+		(entries) => {
+			entries.forEach((entry) => {
+				updateStickyAuthorIfNeeded(!entry.isIntersecting);
+			});
+		},
+		{
+			threshold: 0,
+			rootMargin: '-50px 0px'
+		}
+	);
+
+	observer.observe(banner);
+});

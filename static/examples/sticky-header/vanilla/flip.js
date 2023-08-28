@@ -39,10 +39,15 @@ class Flip {
 	}
 
 	first() {
+		this._invert = null;
 		this._first = getDataFromElement(this.element);
 	}
 
 	last() {
+		this.element.style.transformOrigin = null;
+		this.element.style.transform = null;
+		this.element.style.opacity = null;
+		this.element.style.zIndex = null;
 		this._last = getDataFromElement(this.element);
 	}
 
