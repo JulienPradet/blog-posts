@@ -63,6 +63,7 @@
 	--color-primary: rgb(207 58 0);
 	--color-primary-text: rgb(207 58 0);
 	--container-max-width: 60rem;
+	--container-padding: 0.5rem;
 }
 
 * {
@@ -126,15 +127,15 @@ h1 {
 .container {
 	max-width: var(--container-max-width);
 	margin: 0 auto;
-	padding-left: 0.5rem;
-	padding-right: 0.5rem;
+	padding-left: var(--container-padding);
+	padding-right: var(--container-padding);
 }
 
 .main-header {
 	position: relative;
 	width: 100%;
 	margin-bottom: 2rem;
-	background: white;
+	background: var(--color-creme);
 	/* on mobile iOS, the scale animation triggers some horizontal zoom */
 	overflow: hidden;
 }
@@ -150,12 +151,16 @@ h1 {
 	width: 100%;
 	height: auto;
 	max-height: 300px;
+	max-height: min(40lvh, 300px);
 	object-fit: cover;
 	object-position: 50% 33%;
 }
 
 .author {
-	--gutter-width: max(0.5rem, calc((100% - var(--container-max-width)) / 2));
+	--gutter-width: max(
+		0.5rem,
+		calc((100% - var(--container-max-width)) / 2 + var(--container-padding))
+	);
 	position: relative;
 	left: 0;
 	bottom: 0;
@@ -221,8 +226,7 @@ h1 {
 	bottom: 0;
 	left: 0;
 	width: 100%;
-	opacity: 0.5;
-	background: #ffefe3;
+	background: var(--color-creme);
 }
 
 .author--sticky {
@@ -233,8 +237,7 @@ h1 {
 	grid-template-columns: var(--gutter-width) 3rem 1fr auto var(--gutter-width);
 	margin-top: 0;
 	padding: 0.5rem;
-
-	backdrop-filter: blur(5px);
+	backdrop-filter: blur(2px);
 }
 
 .author--sticky .author__avatar {
@@ -255,7 +258,7 @@ h1 {
 	top: 0;
 	bottom: 0;
 	opacity: 0.5;
-	background: #ffefe3;
+	background: var(--color-creme);
 }
 /* 
 .author::before {
