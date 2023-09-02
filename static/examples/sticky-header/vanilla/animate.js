@@ -3,11 +3,17 @@ import Flip from './flip.js';
 /**
  * Animate some elements using FLIP animations
  * https://aerotwist.com/blog/flip-your-animations/
+ *
  * Something important to keep in mind is that for now it's not
  * able to animate anything that relies on `transform` or `scale`.
  * Instead use the CSS you are used to to position your elements
  * (margin, flex, grid, whatever). `animate` will make sure to
  * transform these in `transform` or `opacity` transitions instead.
+ *
+ * In practice this makes animations 10x easier because you only need
+ * to consider the starting position and the ending position without
+ * having to calculate every single transform manually to keep a performant
+ * animation.
  *
  * @param {HTMLElement[]|HTMLElement|NodeList<HTMLElement>} elements the element(s) that will be animated
  * @param {() => void} changeCallback the function that moves the elements to their final position
@@ -42,7 +48,7 @@ function animate(elements, changeCallback) {
 		// that `play` happens in another frame.
 		// If that was not the case, then the transition wouldn't happen
 		// at all.
-		window.requestAnimationFrame(() => {
+		requestAnimationFrame(() => {
 			// Move all elements to their first position by faking it with transforms in CSS
 			// DO NOT merge this forEach with the forEach of `flip.last`. This could result in performance issues.
 			flipList.forEach((flip) => flip.invert());

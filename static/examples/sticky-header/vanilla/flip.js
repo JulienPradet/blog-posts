@@ -32,7 +32,7 @@ class Flip {
 		this.element = element;
 
 		// For now only data-animate-scale & data-animate-translate are configurable.
-		// This is because I didn't have a use case where I needed to
+		// This is because I didn't have a use case where I needed to.
 		this.options = {
 			...defaultOptions,
 			duration: defaultOptions.duration * slowMotionFactor,
@@ -109,7 +109,7 @@ class Flip {
 			this.element.style.opacity = this._first.opacity;
 		}
 
-		// I'm not quite sure about this part yet.
+		// I'm not quite sure about this part about zIndex yet.
 		// Is it more relevant to put the element in front or behind during the animation?
 		// I guess it depends on the scenario and should be configurable.
 		this.element.style.zIndex = Math.min(

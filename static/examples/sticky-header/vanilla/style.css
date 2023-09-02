@@ -313,10 +313,14 @@ h1 {
 	pointer-events: none;
 }
 
+.article-list {
+	margin-top: 2rem;
+}
+
 .article-skeleton {
 	width: 100%;
 	height: 10rem;
-	background: lightgrey;
+	background: #ede9e8;
 }
 
 .article-skeleton + .article-skeleton {

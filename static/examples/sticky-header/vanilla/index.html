@@ -16,13 +16,16 @@
 		<meta name="viewport" content="width=device-width,viewport-fit=cover" />
 	</head>
 	<body data-sveltekit-preload-data="hover">
-		<header class="main-header">
+		<header class="main-header js-header">
+			<!-- Please forgive me, for the demo's sake I didn't optimize the background cover image.
+            Don't hesitate to refer to https://www.julienpradet.fr/tutoriels/optimiser-le-chargement-des-images/
+            if that's something you'd want more info about -->
 			<img
 				src="./background.png"
 				alt="A peaceful grass scenery to ease your mind before diving in."
 				width="375"
 				height="140"
-				class="main-header__background"
+				class="main-header__background js-cover"
 			/>
 			<div class="author js-author">
 				<div class="author__background js-animate"></div>
@@ -61,6 +64,18 @@
 				</div>
 			</div>
 		</header>
+
+		<div class="container">
+			<p>
+				Cet exemple est hautement inspiré par
+				<a href="https://codepen.io/jh3y/pen/YzdyjrG">Une démo de @jhey</a>.
+			</p>
+			<p>
+				Le but est d'avoir une animation du sticky sans pour autant se reposer sur les Scroll Driven
+				Animations. Un article de blog est en cours de rédaction pour expliquer pourquoi et partager
+				mes apprentissages en construisant cette démo.
+			</p>
+		</div>
 
 		<div class="container article-list">
 			<div class="article-skeleton"></div>
