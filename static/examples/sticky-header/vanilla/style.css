@@ -208,6 +208,12 @@ h1 {
 	background: white;
 	border: var(--border-width) solid var(--color-creme);
 	border-radius: 50%;
+	object-fit: cover;
+	object-position: 0 0;
+}
+
+.author--animating:not(.author--sticky) .author__avatar {
+	animation: 0.4s steps(19) 0s 1 reverse forwards look-down;
 }
 
 .author__info {
@@ -257,6 +263,20 @@ h1 {
 
 .author--sticky .author__avatar {
 	--ratio: 1;
+	object-position: 100% 0;
+}
+
+.author--sticky.author--animating .author__avatar {
+	animation: 0.4s steps(19) 0s 1 normal forwards look-down;
+}
+
+@keyframes look-down {
+	from {
+		object-position: 0 0;
+	}
+	to {
+		object-position: 100% 0;
+	}
 }
 
 .author--sticky .author__info {

@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', () => {
 	const mainHeader = document.querySelector('.main-header');
 	const banner = document.querySelector('.main-header > img');
 
+	switchToSpriteAvatar(avatar);
+
 	let isAnimating = false;
 
 	const updateStickyAuthorIfNeeded = function (isSticky) {
@@ -20,7 +22,9 @@ document.addEventListener('DOMContentLoaded', () => {
 		isAnimating = true;
 		animate(elementsToAnimate, () => {
 			author.classList.toggle('author--sticky', isSticky);
+			author.classList.add('author--animating');
 		}).then(() => {
+			author.classList.remove('author--animating');
 			isAnimating = false;
 			updateMinHeightIfNeeded();
 		});
@@ -57,6 +61,21 @@ document.addEventListener('DOMContentLoaded', () => {
 	// - if an animation was just triggered, it's too early to compute the minHeight. we'll have to wait for the animation to finish - this is why we've added a then to the `animate` above
 	// - the view port only changed in height, not in width
 	let previousBannerHeight = 0;
+
+/**
+ * Replace the avatar image with the sprite image.
+ * The goal is to download a lightweight image on first paint and replace into the sprite image
+ * afterward, when we know it'll be useful
+ * @param {HTMLImageElement} avatar
+ */
+function switchToSpriteAvatar(avatar) {
+	const sprite = document.createElement('img');
+	sprite.src = avatar.dataset.spriteSrc;
+	sprite.addEventListener('load', () => {
+		console.log('load');
+		avatar.src = sprite.src;
+	});
+}
 	let previousAuthorHeight = 0;
 	function updateMinHeightIfNeeded() {
 		const isSticky = author.classList.contains('author--sticky');
