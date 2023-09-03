@@ -8,7 +8,8 @@ const getDataFromElement = (element) => {
 	return {
 		boundingBox: element.getBoundingClientRect(),
 		opacity: parseFloat(style.opacity),
-		zIndex: style.zIndex
+		zIndex: style.zIndex,
+		transition: style.transition
 	};
 };
 
@@ -141,7 +142,10 @@ class Flip {
 				};
 
 				this.element.addEventListener('transitionend', handleTransitionEnd);
-				this.element.style.transition = `transform ${this.options.duration}ms ease-in-out, opacity ${this.options.duration}ms ease-in-out`;
+				this.element.style.transition = [
+					this._last.transition,
+					`transform ${this.options.duration}ms ease-in-out, opacity ${this.options.duration}ms ease-in-out`
+				].join(', ');
 				// Trigger animation by removing transforms => element will starting transitioning
 				// to its final position
 				this.element.style.transform = null;
