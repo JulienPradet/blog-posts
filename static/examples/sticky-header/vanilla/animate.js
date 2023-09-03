@@ -20,7 +20,7 @@ import Flip from './flip.js';
  * @return {Promise<void>} the promise will resolve once the animation has ended
  */
 function animate(elements, changeCallback) {
-	if (window.matchMedia('(prefers-reduced-motion)').matches) {
+	if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
 		changeCallback();
 		return Promise.resolve();
 	}

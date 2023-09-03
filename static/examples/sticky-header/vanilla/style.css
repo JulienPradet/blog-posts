@@ -212,8 +212,19 @@ h1 {
 	object-position: 0 0;
 }
 
-.author--animating .author__avatar {
-	animation: 0.4s steps(19) 0s 1 reverse forwards look-down;
+@keyframes look-down {
+	from {
+		object-position: 0 0;
+	}
+	to {
+		object-position: 100% 0;
+	}
+}
+
+@media (prefers-reduced-motion: no-preference) {
+	.author--animating .author__avatar {
+		animation: 0.4s steps(19) 0s 1 reverse forwards look-down;
+	}
 }
 
 .author__info {
@@ -266,16 +277,9 @@ h1 {
 	object-position: 100% 0;
 }
 
-.author--sticky.author--animating .author__avatar {
-	animation-direction: normal;
-}
-
-@keyframes look-down {
-	from {
-		object-position: 0 0;
-	}
-	to {
-		object-position: 100% 0;
+@media (prefers-reduced-motion: no-preference) {
+	.author--sticky.author--animating .author__avatar {
+		animation-direction: normal;
 	}
 }
 
