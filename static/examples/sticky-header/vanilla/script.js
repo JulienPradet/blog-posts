@@ -89,7 +89,6 @@ function switchToSpriteAvatar(avatar) {
 	const sprite = document.createElement('img');
 	sprite.src = avatar.dataset.spriteSrc;
 	sprite.addEventListener('load', () => {
-		console.log('load');
 		avatar.src = sprite.src;
 	});
 }

@@ -169,7 +169,7 @@ h1 {
 
 .author {
 	--gutter-width: max(
-		0.5rem,
+		var(--container-padding),
 		calc((100% - var(--container-max-width)) / 2 + var(--container-padding))
 	);
 	position: relative;
@@ -212,7 +212,7 @@ h1 {
 	object-position: 0 0;
 }
 
-.author--animating:not(.author--sticky) .author__avatar {
+.author--animating .author__avatar {
 	animation: 0.4s steps(19) 0s 1 reverse forwards look-down;
 }
 
@@ -267,7 +267,7 @@ h1 {
 }
 
 .author--sticky.author--animating .author__avatar {
-	animation: 0.4s steps(19) 0s 1 normal forwards look-down;
+	animation-direction: normal;
 }
 
 @keyframes look-down {
@@ -295,17 +295,6 @@ h1 {
 	opacity: 0.5;
 	background: var(--color-creme);
 }
-/* 
-.author::before {
-	content: '';
-	position: absolute;
-	background: white;
-	bottom: 0;
-	left: 0;
-	width: 100%;
-	height: calc(1.4rem * 1.2 + 1rem * 1.5 + 1rem);
-	opacity: 0.5;
-} */
 
 .author--sticky .author__address {
 	position: absolute;
@@ -326,9 +315,3 @@ h1 {
 .article-skeleton + .article-skeleton {
 	margin-top: 2rem;
 }
-
-/* .js-animate {
-	transition:
-		transform 0.3s ease-in-out,
-		opacity 0.3s ease-in-out;
-} */
