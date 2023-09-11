@@ -20,7 +20,7 @@ Cet article fait partie d'une série d'articles en lien avec la Web Performance 
 - Quelles métriques suivre en dehors des Core Web Vitals ? (bientôt)
 - Et plus encore 🫶
 
-Si vous avez besoin d'une entrée en matière plus rapide, je suis aussi [disponible en freelance pour vous accompagner sur des problématiques de performance](/developpeur-web-performance-freelance/).
+Si vous avez besoin d'une entrée en matière plus rapide, je suis aussi [disponible en freelance pour vous accompagner sur des problématiques de performance](/developpeur-web-performance/).
 
 ## Etape 1 : Une image par icone
 
@@ -479,7 +479,7 @@ Si on devait résumer tout ça dans une matrice de décision :
 
 Ce qu'il faut aussi retenir, c'est que tant que vous avez une quantité limitée d'icones, utiliser une balise SVG inline ou une balise `<img>` sera certainement largement suffisant. N'hésitez donc pas à mesurer votre site avant de vous lancer dans des optimisations prématurées.
 
-Vous avez du mal à déterminer quelle est la meilleure solution pour vous ou sur quels chantiers de performance vous lancer ? [Contactez-moi](mailto:julien.pradet@gmail.com). Nous pouvons certainement [travailler ensemble](/developpeur-web-performance-freelance/) afin de rendre votre site rapide et [améliorer votre taux de conversion](/tutoriels/pourquoi-ameliorer-le-lcp/#taux-de-conversion).
+Vous avez du mal à déterminer quelle est la meilleure solution pour vous ou sur quels chantiers de performance vous lancer ? [Contactez-moi](mailto:julien.pradet@gmail.com). Nous pouvons certainement [travailler ensemble](/developpeur-web-performance/) afin de rendre votre site rapide et [améliorer votre taux de conversion](/tutoriels/pourquoi-ameliorer-le-lcp/#taux-de-conversion).
 
 Si vous avez trouvé tout cela fort intéressant et êtes curieuse·x de connaître la suite, n'hésitez pas à me suivre ou à me poser des questions sur [Mastodon](https://piaille.fr/@julienpradet) ou [Twitter](https://twitter.com/JulienPradet). Notamment, dans mon prochain article, je parlerai des différentes stratégies pour diminuer votre quantité de JavaScript.
 

@@ -40,7 +40,7 @@
 				</NavigationItem>
 			</svelte:fragment>
 		</NavigationItem>
-		<NavigationItem href="/developpeur-web-performance-freelance/">
+		<NavigationItem href="/developpeur-web-performance/">
 			<svelte:fragment slot="label">Travailler ensemble</svelte:fragment>
 		</NavigationItem>
 		<NavigationItem href="https://twitter.com/JulienPradet">

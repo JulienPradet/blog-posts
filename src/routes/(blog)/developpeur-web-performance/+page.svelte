@@ -17,7 +17,7 @@
 	};
 </script>
 
-<Meta {meta} location="/developpeur-web-performance-freelance/" />
+<Meta {meta} location="/developpeur-web-performance/" />
 
 <Headline
 	isMainTitle={false}
@@ -54,7 +54,7 @@
 			>HTML</strong
 		>,
 		<strong>CSS</strong>, <strong>JS</strong>. J'ai aussi une expertise en <strong>React</strong> et
-		<strong>Svelte</strong> mais ne rechigne pas à travailler sur des stacks dîtes
+		<strong>Svelte</strong> mais apprécie aussi travailler sur des stacks dîtes
 		<em>à l'ancienne</em>. Côté back-end, même s'il ne s'agit pas de mon coeur de métier, je suis à
 		l'aise sur du Node.js & PHP (Symfony). Mais l'outil n'est qu'un moyen et mes connaissances sont
 		suffisamment génériques pour m'adapter à votre stack.
@@ -99,7 +99,7 @@
 	</Content>
 
 	<Content>
-		<h2>Me contacter</h2>
+		<h2 id="contact">Me contacter</h2>
 
 		<p>
 			Si vous êtes arrivés jusqu'ici, que vous souhaitez travailler ensemble (remote ou Toulouse) et
@@ -127,6 +127,10 @@
 		h1.main-title {
 			font-size: 1.2rem;
 		}
+	}
+
+	#contact {
+		margin-top: 3rem;
 	}
 
 	.bye {

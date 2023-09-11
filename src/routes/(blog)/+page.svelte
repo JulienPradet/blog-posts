@@ -15,8 +15,8 @@
 	articles.sort(sortByDate);
 
 	let meta: PageMeta = {
-		title: 'Blog tech',
-		description: `Je suis un agglomérat de plein de choses. Je fais de l'illustration, de la 3D (surtout de la sculpture) et un peu de graphisme. Mais je suis surtout un furieux optimiste qui a envie de partager avec les autres.`,
+		title: 'Blog tech sur le web, le front-end et la web performance',
+		description: `Je suis un dev qui espère rendre le web un peu meilleur en partageant ce que j'ai appris au fil des années.`,
 		date: new Date()
 	};
 </script>
@@ -29,25 +29,26 @@
 />
 
 <Content>
+	<p>Je vous souhaite la bienvenue, à vous qui venez visiter mon petit espace sur le web.</p>
 	<p>
-		Je suis une espèce d'agglomérat de plein de choses. Je fais du dev, de l'<a
-			href="https://portfolio.julienpradet.fr">art génératif</a
-		>, de la 3D (surtout de la sculpture), un peu de graphisme, et d'autres trucs encore. Mais je
-		suis surtout un furieux optimiste.
+		<strong>Est-ce que vous êtes arrivé dans le coin parce que votre site web est lent ?</strong>
+		Alors peut-être que vous serez intéressé par les
+		<a href="/developpeur-web-performance/">services web performance</a> que je propose.
 	</p>
 	<p>
-		Sur ce blog, je veux écrire sur des choses qui me plaisent. Généralement, ce sera sur du
-		développement web, mais vous n'êtes pas à l'abri de quelques surprises.
+		<strong>Ou bien êtes-vous tombé sur un des articles que j'ai écrit ?</strong> En effet, j'aime
+		partager autour du web. Généralement ça tourne autour de la web performance, du développement
+		front-end ou de l'organisation d'équipe. Mais je suis une espèce d'agglomérat de plein de choses
+		alors il m'arrive de vagabonder vers d'autres contrées. Par exemple, j'ai pas mal exploré
+		<a href="https://portfolio.julienpradet.fr">l'Art Génératif</a> récemment.
 	</p>
 	<p>
-		Vous pouvez me trouver à Toulouse, mais aussi sur <a href="https://piaille.fr/@julienpradet"
-			>Mastodon</a
-		>
-		ou <a href="https://twitter.com/JulienPradet">Twitter</a>. Vous avez des sujets de performance ?
-		Peut-être pouvons-nous
-		<a href="/developpeur-web-performance-freelance/" title="Développeur front-end freelance"
-			>travailler ensemble</a
-		> ?
+		<strong>Dans tous les cas, je serais heureux d'entendre parler de vous.</strong> Alors n'hésitez
+		pas à me contacter, que ce soit
+		<a href="/developpeur-web-performance/#contact">en direct</a>, ou sur mes réseaux sociaux :
+		<a href="https://piaille.fr/@julienpradet">Mastodon</a>,
+		<a href="https://twitter.com/JulienPradet">Twitter</a>
+		ou <a href="https://www.linkedin.com/in/julienpradet/">LinkedIn</a>.
 	</p>
 </Content>
 

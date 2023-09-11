@@ -4,7 +4,7 @@ Pour améliorer ce LCP, nous avons vu que [bien maîtriser son réseau](/tutorie
 
 Dans cet article, nous allons continuer à améliorer celles-ci en approfondissant la gestion des images et notamment le comportement des balises `<picture>`, `<source>` et `<img>`. A la fin, vous en sortirez avec une méthode pour choisir les bons formats et les bonnes tailles en toute circonstance.
 
-Si vous ressentez le besoin d'avoir plus d'accompagnement dans votre entreprise pour mettre en place ces sujets, n'hésitez pas à me contacter par [mail](mailto:julien.pradet+article-blog@gmail.com). Peut-être pouvons nous [travailler ensemble](/developpeur-web-performance-freelance/) afin de poser les premières briques ?
+Si vous ressentez le besoin d'avoir plus d'accompagnement dans votre entreprise pour mettre en place ces sujets, n'hésitez pas à me contacter par [mail](mailto:julien.pradet+article-blog@gmail.com). Peut-être pouvons nous [travailler ensemble](/developpeur-web-performance/) afin de poser les premières briques ?
 
 - [Pourquoi améliorer le LCP de vos pages ?](/tutoriels/pourquoi-ameliorer-le-lcp/)
 - [Analyser le comportement réseau pour améliorer FCP et LCP](/tutoriels/reseau-et-core-web-vitals/)
@@ -763,6 +763,6 @@ Afin que vous puissiez bénéficier des mêmes gains sur votre site, et parce qu
 
 Si vous avez toujours soif de Web Performance, sachez que je publie en ce moment un article par semaine à ce sujet. N'hésitez donc pas à me suivre sur les réseaux sociaux et à partager cet article, cela contribuera à me motiver à tenir le rythme 😁
 
-Pour rappel, je suis aussi [disponible en freelance](/developpeur-web-performance-freelance/) et peut travailler avec vous sur vos travaux en rapport avec la web performance. Que vous ayez des lenteurs déjà identifiées ou que vous ayez besoin de savoir si oui ou non la performance est un enjeux pour votre entreprise, je peux vous aider.
+Pour rappel, je suis aussi [disponible en freelance](/developpeur-web-performance/) et peut travailler avec vous sur vos travaux en rapport avec la web performance. Que vous ayez des lenteurs déjà identifiées ou que vous ayez besoin de savoir si oui ou non la performance est un enjeux pour votre entreprise, je peux vous aider.
 
 Dans tous les cas, la semaine prochaine nous parlerons optimisation des fonts, stay tuned !

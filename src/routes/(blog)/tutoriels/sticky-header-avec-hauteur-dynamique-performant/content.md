@@ -422,7 +422,7 @@ A ce stade, nous avons donc un header qui peut être en mode normal ou en mode s
 
 Pour cela, nous allons utiliser les animations FLIP. Pour celles et ceux qui me suivent depuis longtemps, ça vous parlera peut-être parce que j'ai déjà écrit <a href="/tutoriels/introduction-aux-animations-flips/" title="Introduction aux animations FLIP">un article à ce sujet</a> il y a plus de 5 ans.
 
-En quelques mots, le but de ces animations est de calculer la différence entre l'état de départ et l'état d'arrivée pour ensuite être capable de faire l'animation uniquement en utilisant les propriétés CSS `transform` et `opacity` qui sont [le seul moyen d'avoir des animations performantes sur le web](http://localhost:5173/tutoriels/des-animations-performantes-1/).
+En quelques mots, le but de ces animations est de calculer la différence entre l'état de départ et l'état d'arrivée pour ensuite être capable de faire l'animation uniquement en utilisant les propriétés CSS `transform` et `opacity` qui sont [le seul moyen d'avoir des animations performantes sur le web](/tutoriels/des-animations-performantes-1/).
 
 Plus précisément cela se fait en 4 étapes, une par lettre :
 
@@ -763,7 +763,7 @@ En tout cas c'était une chouette démo à faire et ça m'a remotivé à faire d
 
 Si vous voulez continuer de suivre mes tutoriels, n'hésitez pas à me suivre sur les réseaux sociaux ([Mastodon](https://piaille.fr/@julienpradet), [LinkedIn](https://www.linkedin.com/in/julienpradet/) ou [Twitter](https://twitter.com/JulienPradet), voire même [RSS](/feed.xml)). J'essaye de publier un article par semaine autour de la performance web et du développement front-end dans son ensemble pour partager mes découvertes et ma façon de travailler.
 
-Si lire des articles vous paraît trop long et que vous avez des besoins plus urgents à adresser, sachez que je suis [disponible en freelance](http://localhost:5173/developpeur-web-performance-freelance/) pour vous aider à monter en compétence, régler vos soucis de performance ou ajouter un petit plus à votre site web. Alors n'hésitez pas à me contacter !
+Si lire des articles vous paraît trop long et que vous avez des besoins plus urgents à adresser, sachez que je suis [disponible en freelance](/developpeur-web-performance/) pour vous aider à monter en compétence, régler vos soucis de performance ou ajouter un petit plus à votre site web. Alors n'hésitez pas à me contacter !
 
 Des bisous et à la semaine prochaine 😘
 

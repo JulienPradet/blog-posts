@@ -2,7 +2,7 @@ Nous voici de retour dans cette série d'articles liés à la web performance. C
 
 Nous allons donc voir dans cet article les différentes configurations possibles et ce qu'il est pertinent de gérer pour améliorer au maximum la performance ressentie par vos utilisateurices.
 
-Si vous ressentez le besoin d'avoir plus d'accompagnement dans votre entreprise pour mettre en place ces sujets, n'hésitez pas à me contacter par [mail](mailto:julien.pradet+article-blog@gmail.com). Peut-être pouvons-nous [travailler ensemble](/developpeur-web-performance-freelance/) pour proposer la meilleure expérience à vos utilisateurices ?
+Si vous ressentez le besoin d'avoir plus d'accompagnement dans votre entreprise pour mettre en place ces sujets, n'hésitez pas à me contacter par [mail](mailto:julien.pradet+article-blog@gmail.com). Peut-être pouvons-nous [travailler ensemble](/developpeur-web-performance/) pour proposer la meilleure expérience à vos utilisateurices ?
 
 Récapitulatif des articles de cette série :
 

@@ -12,7 +12,7 @@ Ce premier article est une introduction qui présente ce qu'est le LCP, pourquoi
 - Quelles métriques suivre en dehors des Core Web Vitals ? (bientôt)
 - Et plus encore 🫶
 
-Si vous avez dû faire face à ces problématiques mais que vous êtes toujours en guerre contre la lenteur de votre site, courage, tout n'est pas perdu. Chaque site est différent avec ses propres problématiques. Nous pourrions par exemple [travailler ensemble](/developpeur-web-performance-freelance/) pour prioriser les actions, former vos équipes et trouver des solutions.
+Si vous avez dû faire face à ces problématiques mais que vous êtes toujours en guerre contre la lenteur de votre site, courage, tout n'est pas perdu. Chaque site est différent avec ses propres problématiques. Nous pourrions par exemple [travailler ensemble](/developpeur-web-performance/) pour prioriser les actions, former vos équipes et trouver des solutions.
 
 En attendant, bonne lecture !
 

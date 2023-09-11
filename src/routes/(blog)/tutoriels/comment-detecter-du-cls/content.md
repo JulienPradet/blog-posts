@@ -8,7 +8,7 @@ Jusqu'à maintenant dans les articles que j'ai publié autour de la performance,
 
 Cependant, aujourd'hui je vais vous parler du deuxième aspect : comment gérer le chargement de ma page pour améliorer la performance ressentie ? Notamment, avec l'avènement des [Core Web Vitals](https://web.dev/vitals/#core-web-vitals) poussées par Google, la métrique qui va nous intéresser est le [Cumulative Layout Shift (CLS)](https://web.dev/cls/).
 
-Si vous voulez en savoir plus sur la Web Performance, n'hésitez pas à jeter un coup d'œil aux autres articles suivants. Si vous n'avez pas le temps de vous former à ces sujets ou que vous devez améliorer vos performances avant une date clé, sachez aussi que je peux venir en renfort dans vos équipes afin de mener [audit, correctifs ou formation](/developpeur-web-performance-freelance/).
+Si vous voulez en savoir plus sur la Web Performance, n'hésitez pas à jeter un coup d'œil aux autres articles suivants. Si vous n'avez pas le temps de vous former à ces sujets ou que vous devez améliorer vos performances avant une date clé, sachez aussi que je peux venir en renfort dans vos équipes afin de mener [audit, correctifs ou formation](/developpeur-web-performance/).
 
 - [Pourquoi améliorer le LCP de vos pages ?](/tutoriels/pourquoi-ameliorer-le-lcp/)
 - [Analyser le comportement réseau pour améliorer FCP et LCP](/tutoriels/reseau-et-core-web-vitals/)

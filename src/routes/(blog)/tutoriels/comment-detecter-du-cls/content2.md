@@ -299,7 +299,7 @@ Grâce à ces différentes techniques, nous n'avons plus de CLS sur la [page de 
 
 Enfin, si vous cherchez plus d'infos autour du CLS et que vous aimez les formats vidéos, je vous conseille vivement la conf de [Raphaël Goetter](https://vimeo.com/782994958).
 
-En tout cas, j'espère que cet article vous aura été utile et que, grâce à celui-ci, vous allez rendre vos sites plus utilisables. Si vous êtes face à un problème épineux ou simplement que vous avez besoin de renfort sur ces sujets, n'hésitez pas à me [contacter](/developpeur-web-performance-freelance/).
+En tout cas, j'espère que cet article vous aura été utile et que, grâce à celui-ci, vous allez rendre vos sites plus utilisables. Si vous êtes face à un problème épineux ou simplement que vous avez besoin de renfort sur ces sujets, n'hésitez pas à me [contacter](/developpeur-web-performance/).
 
 En ce qui me concerne, je vais continuer à écrire régulièrement des articles autour de la Web Performance. Il y en a au moins 2 dans les bacs, alors n'hésitez pas à me suivre sur les réseaux sociaux ([Mastodon](https://piaille.fr/@julienpradet), [LinkedIn](https://www.linkedin.com/in/julienpradet/) ou [Twitter](https://twitter.com/JulienPradet)) et à me dire ce que je devrais améliorer pour la suite.
 
