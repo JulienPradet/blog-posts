@@ -45,7 +45,8 @@
 	<p>
 		<strong>Dans tous les cas, je serais heureux d'entendre parler de vous.</strong> Alors n'hésitez
 		pas à me contacter, que ce soit
-		<a href="/developpeur-web-performance/#contact">en direct</a>, ou sur mes réseaux sociaux :
+		<a href="/developpeur-web-performance/#contact">via le formulaire</a>, ou sur mes réseaux
+		sociaux :
 		<a href="https://piaille.fr/@julienpradet">Mastodon</a>,
 		<a href="https://twitter.com/JulienPradet">Twitter</a>
 		ou <a href="https://www.linkedin.com/in/julienpradet/">LinkedIn</a>.
