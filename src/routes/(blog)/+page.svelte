@@ -33,14 +33,15 @@
 	<p>
 		<strong>Est-ce que vous êtes arrivé dans le coin parce que votre site web est lent ?</strong>
 		Alors peut-être que vous serez intéressé par les
-		<a href="/developpeur-web-performance/">services web performance</a> que je propose.
+		<a href="/developpeur-web-performance/">services autour de la Web Performance</a> que je propose.
 	</p>
 	<p>
 		<strong>Ou bien êtes-vous tombé sur un des articles que j'ai écrit ?</strong> En effet, j'aime
-		partager autour du web. Généralement ça tourne autour de la web performance, du développement
+		partager autour du web. Généralement ça tourne autour de la Web Performance, du développement
 		front-end ou de l'organisation d'équipe. Mais je suis une espèce d'agglomérat de plein de choses
 		alors il m'arrive de vagabonder vers d'autres contrées. Par exemple, j'ai pas mal exploré
-		<a href="https://portfolio.julienpradet.fr">l'Art Génératif</a> récemment.
+		<a href="https://portfolio.julienpradet.fr">l'Art Génératif</a> récemment ou, si on remonte plus
+		loin, la 3D (sculpture notamment).
 	</p>
 	<p>
 		<strong>Dans tous les cas, je serais heureux d'entendre parler de vous.</strong> Alors n'hésitez
