@@ -5,6 +5,7 @@
 
 	import type { PageMeta } from '../../../components/ArticleMeta';
 	import Meta from '../../../components/Meta.svelte';
+	import Form from './Form.svelte';
 
 	const date = new Date();
 	const dayType = date.getHours() > 6 && date.getHours() < 17 ? 'journée' : 'soirée';
@@ -105,10 +106,12 @@
 			que, point bonus, vous aimez les chocolatines, je serai ravi d'en savoir plus. N'hésitez pas à
 			m'envoyer un mail à <a href="mailto:julien.pradet+chocolatine@gmail.com"
 				>julien.pradet+chocolatine@gmail.com</a
-			>.
+			> ou à me contacter directement via ce formulaire.
 		</p>
 
-		<p>En vous souhaitant une belle {dayType}.</p>
+		<Form />
+
+		<p class="bye">En vous souhaitant une belle {dayType}. 👋</p>
 	</Content>
 </MainContent>
 
@@ -124,5 +127,10 @@
 		h1.main-title {
 			font-size: 1.2rem;
 		}
+	}
+
+	.bye {
+		margin-top: 5rem;
+		font-weight: var(--weight-bold);
 	}
 </style>
