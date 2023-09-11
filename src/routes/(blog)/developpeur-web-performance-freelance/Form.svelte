@@ -49,6 +49,7 @@
 </script>
 
 <form name="contact" method="POST" data-netlify="true" on:submit={onSubmit}>
+	<input type="hidden" name="form-name" value="contact" />
 	<div>
 		<label for="contact-name">Votre nom</label>
 		<input
