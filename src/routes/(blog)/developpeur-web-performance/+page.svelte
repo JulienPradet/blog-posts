@@ -61,10 +61,11 @@
 	</p>
 
 	<p>
-		Si cette courte description a piqué votre curiosité, vous pouvez me contacter par <a
-			href="mailto:julien.pradet+travailler-ensemble@gmail.com">mail</a
-		>
-		ou sur <a href="https://www.linkedin.com/in/julienpradet/">LinkedIn</a>.
+		Si cette courte description a piqué votre curiosité, vous pouvez me contacter via le <a
+			href="#contact">formulaire</a
+		>, par <a href="mailto:julien.pradet+travailler-ensemble@gmail.com">mail</a>
+		ou sur <a href="https://www.linkedin.com/in/julienpradet/">LinkedIn</a>. Je réponds généralement
+		dans la journée.
 	</p>
 </Content>
 
@@ -131,6 +132,7 @@
 
 	#contact {
 		margin-top: 3rem;
+		scroll-margin-block: 1rem;
 	}
 
 	.bye {
