@@ -47,9 +47,9 @@ Plus concrètement, si on me demande :
 
 > **Est-ce qu'on peut ajouter un CMS (Content Management System) à notre site ?**
 
-La réponse est forcément oui. Mais ce n'est pas le même effort de permettre à une personne d'ajouter du gras ou un lien au milieu d'un texte vs avoir la possibilité d'administrer du contenu qui respecte notre charte graphique, avec des modules complexes à base d'images, de données structurées, etc.
+La réponse est forcément oui. Mais ça peut être un petit outil qui gère de la syntaxe (gras, italique, etc.) jusqu'à un système capable de gérer des design complexes.
 
-Vu que ça ressemble à une question vaste pour une stratégie long terme, je vais donc sûrement répondre que je reviens vers la personne dans une semaine ou deux avec plus d'éléments. Si au contraire il y a besoin d'améliorer la gestion de contenu pour la fin de la semaine, il faut que je m'y penche rapidement.
+Vu que ça ressemble à une question vaste pour une stratégie long terme, je vais donc sûrement répondre que je reviens vers la personne dans une semaine ou deux avec plus d'éléments. Et ce sera peut-être trop tard.
 
 De fait, une meilleure manière de poser la question serait :
 
@@ -69,11 +69,7 @@ Mais rares sont les questions qui prennent réellement 5min. Celles qui ont le p
 
 Reprenons l'exemple du CSS :
 
-> **Comment faire pour changer la couleur de fond en CSS ?**
-
-On y avait déjà ajouté le contexte :
-
-> **Je suis en train de travailler sur le projet de la nouvelle bannière en page d'accueil. Au niveau des maquettes il y a un bouton qu'on n'a pas dans nos composants.** Comment faire pour changer la couleur de fond en CSS ?
+> **Je suis en train de travailler sur le projet de la nouvelle bannière en page d'accueil. Au niveau des maquettes il y a un bouton qu'on n'a pas dans nos composants. Comment faire pour changer la couleur de fond en CSS ?**
 
 On pourrait y ajouter la solution à laquelle on a pensé :
 
@@ -82,7 +78,7 @@ On pourrait y ajouter la solution à laquelle on a pensé :
 
 Potentiellement, la réponse peut simplement être "Yep, parfait 🙌". Et même si ce n'est pas le cas (vu qu'ici on préfère utiliser le contexte plutôt qu'une variante), ça me permet de mieux calibrer ma réponse : je sais ce que la personne a déjà exploré et je vais pouvoir alléger ma réponse **et** adapter son contenu à ce que la personne avait déjà en tête. Il y a plus de chances que ça rentre dans mes 5min disponibles.
 
-Vous pouvez d'ailleurs remarquer que j'ai glissé dans la question une explication de _pourquoi_ on a envisagé cette solution. Cela permet à nouveau de prémacher le travail car en réfléchissant à une solution, je réfléchis moi-même aux différents éléments qui m'amènent à cette conclusion. S'il manque un élément, je suis en mesure de plus facilement le pointer du doigt pour qu'il soit pris en considération dans la solution finale.
+Vous pouvez d'ailleurs remarquer que j'ai glissé dans la question une explication de _pourquoi_ on a envisagé cette solution. Cela permet à nouveau de prémâcher le travail car en réfléchissant à une solution, je réfléchis moi-même aux différents éléments qui m'amènent à cette conclusion. S'il manque un élément, je suis en mesure de plus facilement le pointer du doigt pour qu'il soit pris en considération dans la solution finale.
 
 Par ailleurs, c'est aussi comme ça qu'on crée de l'alignement et que les questions se raréfient : le plus gros du travail a été fait par la personne qui a posé la question. Avec l'expérience sur le projet, elle deviendra donc de plus en plus autonome et constatera que son intuition est souvent la bonne.
 
@@ -90,7 +86,7 @@ Si vous êtes junior, c'est donc une excellente technique à mettre en place. C'
 
 Attention cependant, cela peut aussi créer un biais. En effet, en proposant une ou des solutions, si le sujet est complexe, on risque d'orienter la réponse vers notre proposition plutôt que vers la bonne réponse. C'est par exemple pour ça que dans le contexte d'interview utilisateurice, il y a toute une méthodologie et une manière d'aborder les discussions pour éviter au maximum ces biais. Mais pour la majorité des questions du quotidien, proposer des solutions et expliquer pourquoi, accélérera réellement les discussions.
 
-L'étape ultime de cette méthode est de transformer une question en un "Pour info". Il faut prendre soin d'en discuter en amont avec les personnes avec qui vous travaillez pour s'assurer que ce soit bien perçu. Mais si vous êtes quasiment sûr de la solution que vous souhaitez choisir, que toutefois cela peut impacter d'autres personnes ou que vous avez conscience que cela peut être sujet à débat, alors il est important de partager l'information.
+L'étape ultime de cette méthode est de transformer une question en un "Pour info" ou "Sauf mention contraire". Il faut prendre soin d'en discuter en amont avec les personnes avec qui vous travaillez pour s'assurer que ce soit bien perçu. Mais si vous êtes quasiment sûr de la solution que vous souhaitez choisir, que toutefois cela peut impacter d'autres personnes ou que vous avez conscience que cela peut être sujet à débat, alors il est important de partager l'information.
 
 > **Pour info, je vais ajouter une nouvelle variante sur le Button parce que j'en ai besoin pour afficher le bouton en blanc par dessus une image.**
 
@@ -98,7 +94,7 @@ Si ce n'est pas la bonne solution et que c'est un sujet suffisamment important p
 
 ## Une question est l'origine d'une réflexion à plusieurs
 
-Enfin, quand on vient me poser une question, il faut bien avoir en tête que je n'ai pas la science infuse. Généralement, je vais faire au mieux pour partager mon expérience, expliquer pourquoi je choisirais telle ou telle solution. Avec le temps, il commence à y avoir de plus en plus de sujets sur lesquels je peux avoir raison.
+Enfin, quand on vient me poser une question, il faut bien avoir en tête que je n'ai pas la science infuse. Généralement, je vais faire au mieux pour partager mon expérience, expliquer pourquoi je choisirais telle ou telle solution.
 
 Mais je peux me tromper. Comme n'importe qui qui reçoit une question.
 
@@ -106,9 +102,9 @@ C'est pour cette raison que lorsque vous vous tournez vers une personne pour obt
 
 Ceci est encore accentué par le fait que certaines des questions se trouveront à l'intersection de plusieurs expertises :
 
-> **Quand une personne soumet ce formulaire, tu préfères recevoir un mail ou qu'on crée un Contact dans le <abbr title="Customer Relationship Management">CRM</abbr> ?**
+> **Quand une personne soumet ce formulaire, tu préfères recevoir un mail ou qu'on crée un Contact dans notre outil de gestion des clients (<abbr title="Customer Relationship Management">CRM</abbr>) ?**
 
-Dans un monde idéal, le CRM est certainement la solution la plus pérenne parce que cela permet ensuite d'automatiser facilement tout un tas de tâches et d'éviter le [Bus Factor](https://fr.wikipedia.org/wiki/Facteur_d%27autobus). Mais en réalité, la question est plutôt :
+Dans un monde idéal, le CRM est certainement la solution la plus pérenne. Mais en réalité, la question est plutôt :
 
 > **Est-ce que tu préfères recevoir un mail et qu'on ait le temps de finir cette autre fonctionnalité ? Ou qu'on le mette dans le CRM et dans ce cas on va devoir faire sauter/repousser l'autre fonctionnalité ?**
 
@@ -132,18 +128,18 @@ Toutefois, attention à ne pas poser une question dans le vague : en n'adressant
 
 Dans ma vie professionnelle, j'ai vu 2 solutions :
 
-- l'extrême majorité du temps, on m'a répondu qu'il ne fallait pas s'inquiéter et qu'on contraire c'était l'occasion de commencer à bosser avec un peu tout le monde
+- l'extrême majorité du temps, on m'a répondu qu'il ne fallait pas s'inquiéter et qu'au contraire c'était l'occasion de commencer à bosser avec un peu tout le monde
 - ou alors, on a mis en place un système de buddy : une personne dédiée qui pourra vous accompagner dans vos problématiques ou au pire vous rediriger vers la bonne personne si besoin
 
-Choisissez celle la solution qui vous convient le mieux.
+Choisissez la solution qui vous convient le mieux.
 
 Si vous êtes lead d'une équipe, n'oubliez pas que l'effort que ça demande à la personne qui pose la question peut être bien plus élevé que ce que vous imaginez. Si vous constatez que les questions mettent du temps à arriver, c'est à vous de trouver une meilleur organisation ou à accompagner la personne pour qu'elle puisse prendre ses aises.
 
-**Si, au contraire, la personne sachante ne fait pas partie de votre équipe : cela peut être un autre frein.**
+**Si, au contraire, la personne sachante ne fait pas partie de votre équipe : cela peut créer un frein.**
 
-Est-ce qu'elle mériterait de faire partie de votre équipe, même de manière temporaire ? Ouvrir un canal de discussion avec la personne sera certainement le moyen le plus efficace d'accélérer le temps de réponse. Mais ce n'est pas toujours faisable. Il peut alors être pertinent de trouver ensemble la méthode la plus efficace pour faire avancer les sujets : Une synchro hebdomadaire ? Un récap des questions par mails ? Des tickets où la personne est explicitement mentionnée ? (Spoiler alert : les mentions dans les tickets ça marche rarement) Toujours est-il qu'il est important de s'aligner sur ce sujet afin d'adopter la stratégie la plus efficace.
+Est-ce qu'elle mériterait de faire partie de votre équipe, même de manière temporaire ? Ouvrir un canal de discussion avec la personne sera certainement le moyen le plus efficace d'accélérer le temps de réponse. Mais ce n'est pas toujours faisable. Il peut alors être pertinent de trouver ensemble la méthode la plus efficace pour faire avancer les sujets : Une synchro hebdomadaire ? Un récap des questions par mails ? Des tickets où la personne est explicitement mentionnée ? (Spoiler alert : les mentions dans les tickets ça marche rarement.) Toujours est-il qu'il est important de s'aligner sur ce sujet afin d'adopter la stratégie la plus efficace.
 
-Parfois, ce ne sera pas suffisant. Parce qu'il y a une structure hiérarchique qui rend les choses compliquées. Parce qu'il y a une barrière de la langue. Parce que cette personne ne s'est pas montrée clémente la dernière fois que vous avez posé une question. Cela mériterait un ou plusieurs articles de blog pour aborder ce sujet. Mais une première piste serait de vous entourer de personnes qui seront en mesure de vous accompagner à résoudre cela. Attention cependant, évitez dans la mesure du possible de vous faire remplacer : sur le long terme ça ralentirai votre accès à l'information, vous rendra moins autonome et vous déresponsabilisera. Cherchez plutôt à vous faire accompagner afin que sur le temps long vous n'en ayez plus besoin.
+Malgré tout ça, vous aurez peut-être toujours des problèmes. Parce qu'il y a une structure hiérarchique qui rend les choses compliquées. Parce qu'il y a une barrière de la langue. Parce que cette personne ne s'est pas montrée clémente la dernière fois que vous avez posé une question. Cela mériterait un ou plusieurs articles de blog pour aborder ce sujet. Mais une première piste serait de vous entourer de personnes qui seront en mesure de vous accompagner à résoudre cela. Attention cependant, évitez dans la mesure du possible de vous faire remplacer : sur le long terme ça ralentirait votre accès à l'information, vous rendra moins autonome et vous déresponsabilisera. Cherchez plutôt à vous faire accompagner afin que sur le temps long vous n'en ayez plus besoin.
 
 ## Récapitulatif
 
