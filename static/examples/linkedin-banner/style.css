@@ -1,0 +1,185 @@
+@font-face {
+	font-family: 'Assistant-fallback-linux';
+	size-adjust: 81.9%;
+	ascent-override: 114%;
+	src: local('DejaVu Sans');
+	unicode-range: U+20-5F, U+61-7A, U+7C, U+A0, U+A7, U+A9, U+AB, U+B2-B3, U+BB, U+C0, U+C2, U+C6-CB,
+		U+CE-CF, U+D4, U+D9, U+DB-DC, U+E0, U+E2, U+E6-EB, U+EE-EF, U+F4, U+F9, U+FB-FC, U+FF, U+152-153,
+		U+178, U+2B3, U+2E2, U+1D48-1D49, U+2010-2011, U+2013-2014, U+2019, U+201C-201D, U+2020-2021,
+		U+2026, U+202F-2030, U+20AC, U+2212;
+}
+
+@font-face {
+	font-family: 'Assistant-fallback-linux';
+	font-weight: 700;
+	size-adjust: 79%;
+	ascent-override: 106%;
+	src: local('DejaVu Sans Bold');
+	unicode-range: U+20-5F, U+61-7A, U+7C, U+A0, U+A7, U+A9, U+AB, U+B2-B3, U+BB, U+C0, U+C2, U+C6-CB,
+		U+CE-CF, U+D4, U+D9, U+DB-DC, U+E0, U+E2, U+E6-EB, U+EE-EF, U+F4, U+F9, U+FB-FC, U+FF, U+152-153,
+		U+178, U+2B3, U+2E2, U+1D48-1D49, U+2010-2011, U+2013-2014, U+2019, U+201C-201D, U+2020-2021,
+		U+2026, U+202F-2030, U+20AC, U+2212;
+}
+
+@font-face {
+	font-family: 'Assistant-fallback';
+	size-adjust: 92.94%;
+	ascent-override: 110%;
+	src: local('Arial');
+	unicode-range: U+20-5F, U+61-7A, U+7C, U+A0, U+A7, U+A9, U+AB, U+B2-B3, U+BB, U+C0, U+C2, U+C6-CB,
+		U+CE-CF, U+D4, U+D9, U+DB-DC, U+E0, U+E2, U+E6-EB, U+EE-EF, U+F4, U+F9, U+FB-FC, U+FF, U+152-153,
+		U+178, U+2B3, U+2E2, U+1D48-1D49, U+2010-2011, U+2013-2014, U+2019, U+201C-201D, U+2020-2021,
+		U+2026, U+202F-2030, U+20AC, U+2212;
+}
+
+@font-face {
+	font-family: 'Assistant-fallback';
+	font-weight: 700;
+	size-adjust: 80.4%;
+	ascent-override: 124%;
+	src: local('Arial Black');
+	unicode-range: U+20-5F, U+61-7A, U+7C, U+A0, U+A7, U+A9, U+AB, U+B2-B3, U+BB, U+C0, U+C2, U+C6-CB,
+		U+CE-CF, U+D4, U+D9, U+DB-DC, U+E0, U+E2, U+E6-EB, U+EE-EF, U+F4, U+F9, U+FB-FC, U+FF, U+152-153,
+		U+178, U+2B3, U+2E2, U+1D48-1D49, U+2010-2011, U+2013-2014, U+2019, U+201C-201D, U+2020-2021,
+		U+2026, U+202F-2030, U+20AC, U+2212;
+}
+
+@font-face {
+	font-family: 'Assistant';
+	font-weight: 200 800;
+	font-display: swap;
+	src: url(/fonts/Assistant.woff2) format('woff2');
+	unicode-range: U+20-5F, U+61-7A, U+7C, U+A0, U+A7, U+A9, U+AB, U+B2-B3, U+BB, U+C0, U+C2, U+C6-CB,
+		U+CE-CF, U+D4, U+D9, U+DB-DC, U+E0, U+E2, U+E6-EB, U+EE-EF, U+F4, U+F9, U+FB-FC, U+FF, U+152-153,
+		U+178, U+2B3, U+2E2, U+1D48-1D49, U+2010-2011, U+2013-2014, U+2019, U+201C-201D, U+2020-2021,
+		U+2026, U+202F-2030, U+20AC, U+2212;
+}
+
+:root {
+	--weight-normal: 400;
+	--weight-bold: 700;
+	--weight-black: 800;
+	--color-creme: #fff7f1;
+	--color-primary: rgb(207 58 0);
+	--color-primary-text: rgb(207 58 0);
+	--container-max-width: 60rem;
+	--container-padding: 0.5rem;
+}
+
+* {
+	box-sizing: border-box;
+}
+
+body {
+	margin: 0;
+	font-family: Assistant, Assistant-fallback, Assistant-fallback-linux, system-ui, sans-serif;
+	font-weight: var(--weight-normal);
+	line-height: 1.5;
+	word-break: normal;
+	overflow-wrap: anywhere;
+	scroll-behavior: smooth;
+}
+
+@media (max-width: 40rem) {
+	.sr-only-mobile {
+		border: 0 !important;
+		clip: rect(1px, 1px, 1px, 1px) !important; /* 1 */
+		-webkit-clip-path: inset(50%) !important;
+		clip-path: inset(50%) !important; /* 2 */
+		height: 1px !important;
+		margin: -1px !important;
+		overflow: hidden !important;
+		padding: 0 !important;
+		position: absolute !important;
+		width: 1px !important;
+		white-space: nowrap !important; /* 3 */
+	}
+}
+
+img {
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	color: var(--color-primary);
+	font-weight: var(--weight-black);
+}
+
+.button {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.5rem;
+	padding: 0.5rem 1rem;
+	background: var(--color-primary);
+	border: none;
+	color: white;
+	font-weight: var(--weight-black);
+	text-align: left;
+	text-decoration: none;
+	border-radius: 2rem;
+}
+
+h1 {
+	line-height: 1.2;
+	font-weight: var(--weight-black);
+}
+
+canvas {
+	transform: scale(1, -1);
+	transform-origin: center center;
+	display: block;
+}
+
+.container {
+	position: relative;
+	text-align: center;
+	width: 1536px;
+	margin: 3rem auto;
+}
+
+.text {
+	position: absolute;
+	top: 50%;
+	translate: 0 -50%;
+	right: 2rem;
+
+	background: var(--color-creme);
+	padding: 1.5rem 2rem;
+}
+
+h1 {
+	font-size: 3.07rem;
+	margin: -0.2rem 0 0 0;
+}
+
+p {
+	font-size: 1.68rem;
+	margin: -0.2rem 0 0 0;
+}
+
+ul {
+	display: flex;
+	justify-content: space-between;
+	max-width: 80%;
+	padding: 0;
+	margin: 1rem auto -0.1rem auto;
+	font-size: 1.2rem;
+	font-weight: var(--weight-black);
+	color: var(--color-primary-text);
+	letter-spacing: 0.05rem;
+}
+
+li {
+	display: contents;
+}
+
+li::before {
+	content: '•';
+	display: block;
+	margin: 0 1rem;
+}
+
+li:first-child::before {
+	content: none;
+}
