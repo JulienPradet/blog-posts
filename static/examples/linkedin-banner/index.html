@@ -8,8 +8,12 @@
 	<div class="container">
 		<canvas id="canvas" width="1584" height="396"></canvas>
 		<div class="text">
-			<h1>Expert Web Performance Freelance</h1>
-			<p>Votre taux de conversion est directement lié à la rapidité de votre site</p>
+			<h1 class="fit-to-width">
+				<span>Expert Web Performance Freelance</span>
+			</h1>
+			<p class="fit-to-width">
+				<span>La rapidité de votre site impacte votre taux de conversion</span>
+			</p>
 			<ul>
 				<li>Audit</li>
 				<li>Monitoring</li>
@@ -52,7 +56,7 @@
 			const ctx = canvas.getContext('2d');
 
 			const widthRatio = 0.3;
-			const horizonHeight = height * 0.8; //random.gaussian(0.67, 0.01);
+			const horizonHeight = height * 0.7; //random.gaussian(0.67, 0.01);
 			const maxGrassSize = horizonHeight / 4;
 			const minGrassSize = 5; // The smaller, the better, but the slower
 			const enableFlowers = true;

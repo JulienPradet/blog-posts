@@ -143,28 +143,31 @@ canvas {
 	top: 50%;
 	translate: 0 -50%;
 	right: 2rem;
+	width: calc(58% - 2rem);
 
 	background: var(--color-creme);
-	padding: 1.5rem 2rem;
+	padding: 2rem 2.5rem;
 }
 
 h1 {
-	font-size: 3.07rem;
+	font-size: 4rem;
+	font-weight: var(--weight-black);
 	margin: -0.2rem 0 0 0;
 }
 
 p {
-	font-size: 1.68rem;
-	margin: -0.2rem 0 0 0;
+	font-size: 2.3rem;
+	font-weight: var(--weight-bold);
+	margin: 0.8rem 0 0 0;
 }
 
 ul {
 	display: flex;
 	justify-content: space-between;
-	max-width: 80%;
+	max-width: 90%;
 	padding: 0;
-	margin: 1rem auto -0.1rem auto;
-	font-size: 1.2rem;
+	margin: 1.5rem auto 0.3rem auto;
+	font-size: 1.6rem;
 	font-weight: var(--weight-black);
 	color: var(--color-primary-text);
 	letter-spacing: 0.05rem;
@@ -182,4 +185,34 @@ li::before {
 
 li:first-child::before {
 	content: none;
+}
+
+/* https://kizu.dev/fit-to-width-text/ */
+@supports (animation-range: entry-crossing) {
+	.fit-to-width {
+		font-size: 13rem;
+		overflow: hidden;
+		scroll-snap-type: both mandatory;
+
+		& > * {
+			inline-size: max-content;
+			line-height: 1;
+			transform-origin: 0 0;
+
+			animation: apply-text-ratio linear;
+			animation-timeline: view(inline);
+			animation-range: entry-crossing;
+
+			display: block;
+			scroll-snap-align: start;
+			contain: layout;
+		}
+	}
+}
+
+@keyframes apply-text-ratio {
+	from {
+		transform: scale(0);
+		margin-block-end: -1lh;
+	}
 }
