@@ -42,8 +42,8 @@
 				</NavigationItem>
 			</svelte:fragment>
 		</NavigationItem>
-		<NavigationItem href="/developpeur-web-performance/">
-			<svelte:fragment slot="label">Travailler ensemble</svelte:fragment>
+		<NavigationItem href="/developpeur-web-performance/" type="main">
+			<svelte:fragment slot="label"><strong>Travailler ensemble</strong></svelte:fragment>
 		</NavigationItem>
 		<NavigationItem href="https://piaille.fr/@julienpradet">
 			<svelte:fragment slot="label">
@@ -77,29 +77,15 @@
 		flex-wrap: wrap;
 		margin: 0;
 		padding: 0;
-		gap: 1rem 1.5rem;
-		max-width: 15rem;
+		gap: 0.75rem 1.5rem;
+		max-width: 16rem;
 	}
 
 	.icon {
 		position: relative;
 		display: flex;
-		color: #5b5b56e0;
-	}
-	.icon::after {
-		content: '';
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		right: 0;
-		height: 1px;
-		background: rgb(118 114 110 / 50%);
-	}
-
-	.icon:hover::after,
-	.icon:focus::after {
-		height: 2px;
-		background: rgb(118 114 110 / 100%);
+		padding-top: 1px;
+		color: #5b5b56c0;
 	}
 
 	.icon :global(svg) {
@@ -113,7 +99,7 @@
 		margin: 0.8rem 0 0.6rem;
 	}
 
-	@media (min-width: 29rem) {
+	@media (min-width: 30rem) {
 		ul {
 			max-width: 100%;
 		}
