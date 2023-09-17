@@ -1,6 +1,8 @@
 <script>
 	import twitterSvg from '../components/icons/iconmonstr-twitter-1.svg?raw';
 	import githubSvg from '../components/icons/iconmonstr-github-1.svg?raw';
+	import linkedInSvg from '../components/icons/icon-linkedin.svg?raw';
+	import mastodonSvg from '../components/icons/icon-mastodon.svg?raw';
 	import NavigationItem from './NavigationItem.svelte';
 </script>
 
@@ -43,9 +45,19 @@
 		<NavigationItem href="/developpeur-web-performance/">
 			<svelte:fragment slot="label">Travailler ensemble</svelte:fragment>
 		</NavigationItem>
+		<NavigationItem href="https://piaille.fr/@julienpradet">
+			<svelte:fragment slot="label">
+				<span class="icon">{@html mastodonSvg}</span>
+			</svelte:fragment>
+		</NavigationItem>
 		<NavigationItem href="https://twitter.com/JulienPradet">
 			<svelte:fragment slot="label">
 				<span class="icon">{@html twitterSvg}</span>
+			</svelte:fragment>
+		</NavigationItem>
+		<NavigationItem href="https://www.linkedin.com/in/julienpradet/">
+			<svelte:fragment slot="label">
+				<span class="icon">{@html linkedInSvg}</span>
 			</svelte:fragment>
 		</NavigationItem>
 		<NavigationItem href="https://github.com/JulienPradet">
@@ -65,13 +77,14 @@
 		flex-wrap: wrap;
 		margin: 0;
 		padding: 0;
-		gap: 0.5rem 1rem;
+		gap: 1rem 1.5rem;
+		max-width: 15rem;
 	}
 
 	.icon {
 		position: relative;
 		display: flex;
-		color: #5b5b56;
+		color: #5b5b56e0;
 	}
 	.icon::after {
 		content: '';
@@ -98,6 +111,12 @@
 		height: 1px;
 		border: none;
 		margin: 0.8rem 0 0.6rem;
+	}
+
+	@media (min-width: 29rem) {
+		ul {
+			max-width: 100%;
+		}
 	}
 
 	@media (min-width: 720px) {

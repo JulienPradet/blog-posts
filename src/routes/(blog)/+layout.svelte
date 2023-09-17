@@ -25,11 +25,16 @@
 		--color-creme: #fff7f1;
 		--color-border: rgb(24 23 22 / 15%);
 		--color-dark: #181716;
-		--color-dark-lighter: #181716e0;
-		padding: 3rem var(--global-margin);
-		line-height: 1.5;
+		--color-dark-lighter: #18171690;
+		padding: 1rem var(--global-margin);
+		line-height: 1.55;
 		background: var(--color-creme);
 		color: var(--color-dark);
+	}
+	@media (min-width: 30rem) {
+		.page {
+			padding-top: 3rem;
+		}
 	}
 
 	.page :global(h1),
