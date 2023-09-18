@@ -41,7 +41,10 @@ const createRedirects = () => {
 					[
 						`/en/cv    /cv/en/    301`,
 						`/en/cv/    /cv/en/    301`,
-						`/images-transform/*    https://julienpradet.twic.pics/images/:splat    200`
+						`/images-transform/*    https://julienpradet.twic.pics/images/:splat    200`,
+						`/developpeur-web-performance-freelance/ /developpeur-web-performance/    301`,
+						`/reactions/la-parole-et-le-genre/ / 410`,
+						`/reactions/ / 410`
 					]
 				)
 				.join('\n')
