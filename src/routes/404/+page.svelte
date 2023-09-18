@@ -69,5 +69,6 @@
 		background: none;
 		border: 0;
 		text-decoration: none;
+		cursor: pointer;
 	}
 </style>
