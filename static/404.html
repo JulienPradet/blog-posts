@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="fr">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="preload" as="font" type="font/woff2" href="/fonts/Assistant.woff2" crossorigin />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link
+			rel="icon"
+			href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><rect x=%220%22 y=%220%22 width=%22100%22 height=%22100%22 fill=%22%23fff7f1%22 /><text y=%221.1em%22 x=%22.1em%22 font-size=%2270%22>🏠</text></svg>"
+		/>
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="manifest" href="/site.webmanifest" />
+		<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#181716" />
+		<meta name="apple-mobile-web-app-title" content="Julien Pradet" />
+		<meta name="application-name" content="Julien Pradet" />
+		<meta name="msapplication-TileColor" content="#fff7f1" />
+		<meta name="theme-color" content="#fff7f1" />
+		<meta name="viewport" content="width=device-width,viewport-fit=cover" />
+		<style>
+			@font-face {
+				font-family: Assistant-fallback-linux;
+				size-adjust: 81.9%;
+				ascent-override: 114%;
+				src: local('DejaVu Sans');
+				unicode-range: U+20-5F, U+61-7A, U+7C, U+A0, U+A7, U+A9, U+AB, U+B2-B3, U+BB, U+C0, U+C2,
+					U+C6-CB, U+CE-CF, U+D4, U+D9, U+DB-DC, U+E0, U+E2, U+E6-EB, U+EE-EF, U+F4, U+F9, U+FB-FC,
+					U+FF, U+152-153, U+178, U+2B3, U+2E2, U+1D48-1D49, U+2010-2011, U+2013-2014, U+2019,
+					U+201C-201D, U+2020-2021, U+2026, U+202F-2030, U+20AC, U+2212;
+			}
+			@font-face {
+				font-family: Assistant-fallback-linux;
+				font-weight: 700;
+				size-adjust: 79%;
+				ascent-override: 106%;
+				src: local('DejaVu Sans Bold');
+				unicode-range: U+20-5F, U+61-7A, U+7C, U+A0, U+A7, U+A9, U+AB, U+B2-B3, U+BB, U+C0, U+C2,
+					U+C6-CB, U+CE-CF, U+D4, U+D9, U+DB-DC, U+E0, U+E2, U+E6-EB, U+EE-EF, U+F4, U+F9, U+FB-FC,
+					U+FF, U+152-153, U+178, U+2B3, U+2E2, U+1D48-1D49, U+2010-2011, U+2013-2014, U+2019,
+					U+201C-201D, U+2020-2021, U+2026, U+202F-2030, U+20AC, U+2212;
+			}
+			@font-face {
+				font-family: Assistant-fallback;
+				size-adjust: 92.94%;
+				ascent-override: 110%;
+				src: local('Arial');
+				unicode-range: U+20-5F, U+61-7A, U+7C, U+A0, U+A7, U+A9, U+AB, U+B2-B3, U+BB, U+C0, U+C2,
+					U+C6-CB, U+CE-CF, U+D4, U+D9, U+DB-DC, U+E0, U+E2, U+E6-EB, U+EE-EF, U+F4, U+F9, U+FB-FC,
+					U+FF, U+152-153, U+178, U+2B3, U+2E2, U+1D48-1D49, U+2010-2011, U+2013-2014, U+2019,
+					U+201C-201D, U+2020-2021, U+2026, U+202F-2030, U+20AC, U+2212;
+			}
+			@font-face {
+				font-family: Assistant-fallback;
+				font-weight: 700;
+				size-adjust: 80.4%;
+				ascent-override: 124%;
+				src: local('Arial Black');
+				unicode-range: U+20-5F, U+61-7A, U+7C, U+A0, U+A7, U+A9, U+AB, U+B2-B3, U+BB, U+C0, U+C2,
+					U+C6-CB, U+CE-CF, U+D4, U+D9, U+DB-DC, U+E0, U+E2, U+E6-EB, U+EE-EF, U+F4, U+F9, U+FB-FC,
+					U+FF, U+152-153, U+178, U+2B3, U+2E2, U+1D48-1D49, U+2010-2011, U+2013-2014, U+2019,
+					U+201C-201D, U+2020-2021, U+2026, U+202F-2030, U+20AC, U+2212;
+			}
+			@font-face {
+				font-family: Assistant;
+				font-weight: 200 800;
+				font-display: swap;
+				src: url(/fonts/Assistant.woff2) format('woff2');
+				unicode-range: U+20-5F, U+61-7A, U+7C, U+A0, U+A7, U+A9, U+AB, U+B2-B3, U+BB, U+C0, U+C2,
+					U+C6-CB, U+CE-CF, U+D4, U+D9, U+DB-DC, U+E0, U+E2, U+E6-EB, U+EE-EF, U+F4, U+F9, U+FB-FC,
+					U+FF, U+152-153, U+178, U+2B3, U+2E2, U+1D48-1D49, U+2010-2011, U+2013-2014, U+2019,
+					U+201C-201D, U+2020-2021, U+2026, U+202F-2030, U+20AC, U+2212;
+			}
+			:root {
+				--weight-normal: 400;
+				--weight-bold: 700;
+				--weight-black: 800;
+			}
+			body {
+				font-family: Assistant, Assistant-fallback, Assistant-fallback-linux, system-ui, sans-serif;
+				font-weight: var(--weight-normal);
+			}
+			* {
+				box-sizing: border-box;
+				word-break: normal;
+				overflow-wrap: anywhere;
+			}
+			::selection {
+				background: rgb(207 58 0 / 100%);
+				color: #fff;
+			}
+			body {
+				margin: 0;
+			}
+			h1,
+			h2,
+			h3,
+			h4,
+			h5,
+			.h1,
+			.h2,
+			.h3,
+			.h4,
+			.h5 {
+				font-weight: var(--weight-black);
+			}
+			strong {
+				font-weight: var(--weight-bold);
+			}
+
+			canvas {
+				position: fixed;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+			}
+			.container {
+				display: flex;
+				align-items: flex-end;
+				justify-content: center;
+				height: 100vh;
+				height: 100dvh;
+				padding-bottom: 20vh;
+			}
+			.explanation {
+				padding: 1rem;
+				text-align: center;
+				font-size: max(1.5rem, calc(0.9rem + 2.5vw));
+				line-height: 1.5;
+			}
+			h1 {
+				margin: 0;
+				font-size: max(3rem, calc(1.8rem + 5vw));
+				line-height: 1.1;
+			}
+			p {
+				margin: 0.5rem 0 0;
+			}
+			.actions {
+				display: flex;
+				flex-wrap: wrap;
+				justify-content: center;
+				gap: 0.25rem 1rem;
+				margin-top: 0.5rem;
+			}
+			button,
+			a {
+				display: block;
+				padding: 0;
+				font: inherit;
+				color: #cf3a00;
+				font-weight: var(--weight-black);
+				font-size: max(1rem, calc(0.9rem + 0.5vw));
+				text-align: center;
+				background: none;
+				border: 0;
+				text-decoration: none;
+				cursor: pointer;
+			}
+		</style>
+	</head>
+	<body data-sveltekit-preload-data="hover">
+		<div style="display: contents">
+			<canvas></canvas>
+			<div class="container">
+				<div class="explanation">
+					<h1>404 Void Found</h1>
+					<p>Déso, j&#39;ai raté mon lien 😬</p>
+					<div class="actions">
+						<button onclick="window.history.back()">Revenir en arrière</button>
+						<a href="/">Aller à l&#39;accueil</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</body>
+</html>
