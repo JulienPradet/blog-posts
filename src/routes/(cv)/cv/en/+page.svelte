@@ -262,7 +262,7 @@
 	</Info>
 
 	<Info type="Other">
-		<p>Lived 9 years aboard: Scotland, Indonesia, United Arab Emirates (Dubaï)</p>
+		<p>Lived 9 years abroad: Scotland, Indonesia, United Arab Emirates (Dubai)</p>
 	</Info>
 </Section>
 
