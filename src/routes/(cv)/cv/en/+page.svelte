@@ -91,7 +91,7 @@
 			<li>Advanced JavaScript tooling (Webpack, SSR, tests…)</li>
 			<li>Advanced GraphQL API (NodeJS, Redis, Elasticsearch…)</li>
 		</ul>
-		<h4>Lead the development of the tooling</h4>
+		<h4>Led the development of the tooling</h4>
 		<ul>
 			<li>Evaluted and recommended many of the technologies currently in use</li>
 			<li>Kept the stack up to date, following the evolution of the ecosystem</li>
