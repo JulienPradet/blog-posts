@@ -57,7 +57,9 @@ export default defineConfig({
 		})
 	],
 	test: {
-		deps: { inline: ['@sveltejs/kit'] },
+		server: {
+			deps: { inline: ['@sveltejs/kit'] }
+		},
 		include: ['src/**/*.{test,spec}.{js,ts}'],
 		environment: 'jsdom',
 		setupFiles: ['./tests/setup.ts']

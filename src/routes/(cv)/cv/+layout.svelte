@@ -64,8 +64,11 @@
 		text-decoration-thickness: 1px;
 		text-underline-offset: 0.4em;
 		text-decoration-color: var(--color-highlight);
-		transition: opacity 0.1s ease-in-out, text-decoration-color 0.1s ease-in-out,
-			text-decoration-thickness 0.1s ease-in-out, text-decoration-offset 0.1s ease-in-out;
+		transition:
+			opacity 0.1s ease-in-out,
+			text-decoration-color 0.1s ease-in-out,
+			text-decoration-thickness 0.1s ease-in-out,
+			text-decoration-offset 0.1s ease-in-out;
 	}
 
 	.cv-layout :global(a strong),
@@ -158,7 +161,9 @@
 			text-align: center;
 			opacity: 0;
 			transform: translateY(50%);
-			transition: transform 0.15s ease-in-out, opacity 0.15s ease-in-out;
+			transition:
+				transform 0.15s ease-in-out,
+				opacity 0.15s ease-in-out;
 		}
 
 		.cv-layout :global(abbr[title]:focus::after) {

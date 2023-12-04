@@ -21,7 +21,7 @@ const getSiteInfo = (): Observable<SiteInfo> => {
 					twitter: packageInfo.twitter,
 					homepage: packageInfo.homepage,
 					site_name: packageInfo.site_name
-				} as unknown as SiteInfo)
+				}) as unknown as SiteInfo
 		)
 	);
 };
