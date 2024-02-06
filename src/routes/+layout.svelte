@@ -128,4 +128,10 @@
 	:global(strong) {
 		font-weight: var(--weight-bold);
 	}
+
+	@media (prefers-reduced-motion: reduce) {
+		:global(*) {
+			view-transition-name: unset !important;
+		}
+	}
 </style>

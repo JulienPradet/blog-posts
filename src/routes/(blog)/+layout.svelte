@@ -26,6 +26,7 @@
 		--color-border: rgb(24 23 22 / 15%);
 		--color-dark: #181716;
 		--color-dark-lighter: #18171690;
+		--color-primary: rgb(207 58 0);
 		padding: 1rem var(--global-margin);
 		line-height: 1.55;
 		background: var(--color-creme);
