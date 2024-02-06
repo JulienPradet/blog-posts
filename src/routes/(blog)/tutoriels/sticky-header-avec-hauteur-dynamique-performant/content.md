@@ -1,7 +1,7 @@
 En ce moment il y a deux nouvelles APIs qui sont en train d'arriver dans les navigateurs qui font fureur :
 
 - [Scroll Driven Animations](https://scroll-driven-animations.style/)
-- [View Transition API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API)
+- [View Transitions API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API)
 
 > 💡 Pour info ces APIs sont disponibles sur Chrome uniquement pour le moment. Mais dans les 2 cas, Webkit (= Safari) et Gecko (= Firefox) sont d'accord avec la proposition, donc ça va finir par arriver aussi.
 
