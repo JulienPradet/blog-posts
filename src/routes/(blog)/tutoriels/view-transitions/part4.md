@@ -1,7 +1,7 @@
 L'exemple est plus compliqué parce que :
 
 1. ce n'est pas juste un ajout de classe, la structure complète du DOM change. En effet, on passe d'un `<button>` quand on est dans la vue liste, à un `<h4>` quand on est sur la nouvelle page
-2. selon où on clique, on ne veut pas animer tous les éléments (si je clique sur 4, il vaut mieux que j'anime le 1)
+2. selon où on clique, on ne veut pas animer tous les éléments (si je clique sur 4, il ne faudrait pas que le 1 s'anime)
 3. la taille de l'élément change afin de simuler le comportement d'une bannière en haut de page
 
 Voyons donc comment gérer ces différentes problématiques pour obtenir une animation aux petits oignons.
