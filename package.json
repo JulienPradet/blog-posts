@@ -12,10 +12,10 @@
 	"twitter": "JulienPradet",
 	"scripts": {
 		"precommit": "lint-staged",
-		"generate": "ESBK_TSCONFIG_PATH=./tsconfig-generate.json tsx ./src/generator/generate.ts",
+		"generate": "tsx --tsconfig tsconfig-generate.json ./src/generator/generate.ts",
 		"dev": "vite dev",
 		"build": "pnpm run generate && vite build",
-		"generatepostbuild": "ESBK_TSCONFIG_PATH=./tsconfig-generate.json tsx ./src/generator/postBuild.ts",
+		"generatepostbuild": "tsx --tsconfig tsconfig-generate.json ./src/generator/postBuild.ts",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
