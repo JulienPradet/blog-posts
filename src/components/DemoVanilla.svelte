@@ -1,27 +1,40 @@
 <script lang="ts">
-	export let standby: boolean = true;
+	import { tick } from 'svelte';
 
-	function runDemo() {
+	export let html: string;
+	export let style: string | null = null;
+	export let callback: (container: HTMLDivElement) => void;
+
+	let standby: boolean = true;
+	let container: HTMLDivElement;
+
+	async function runDemo() {
 		standby = false;
-	}
 
-	function stopDemo() {
-		standby = true;
+		await tick();
+
+		const scope = `demo-vanilla-${(Math.random() * Number.MAX_SAFE_INTEGER).toFixed(0)}`;
+		container.classList.add(scope);
+		container.innerHTML = `
+            <style>
+                .${scope} {
+                    ${style}
+                }
+            </style>${html}`;
+		callback(container);
 	}
 </script>
 
-<div class={`demo ${standby === false ? 'demo--live' : ''}`}>
+<div class="demo">
 	{#if standby}
 		<button on:click={runDemo} class="demo__launch"> Run demo </button>
 	{:else}
-		<slot />
-		<button on:click={stopDemo} class="demo__stop">Arrêter la demo</button>
+		<div bind:this={container}></div>
 	{/if}
 </div>
 
 <style>
 	.demo {
-		position: relative;
 		min-height: 6em;
 		background: #e6e6e6;
 		padding: 1em;
@@ -64,21 +77,5 @@
 		border-bottom: 3em solid transparent;
 		transform: scale(0.45, 0.3) translate(0.5em);
 		cursor: pointer;
-	}
-	.demo__stop {
-		position: absolute;
-		bottom: 1rem;
-		right: 1rem;
-		appearance: none;
-		border: 0px;
-		font-size: 1rem;
-		color: inherit;
-		background-color: transparent;
-		opacity: 0.65;
-		cursor: pointer;
-	}
-
-	.demo--live {
-		padding-bottom: 3rem;
 	}
 </style>
