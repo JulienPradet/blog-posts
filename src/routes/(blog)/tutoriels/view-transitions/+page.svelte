@@ -28,7 +28,7 @@
 
 <Meta {meta} location="/tutoriels/view-transitions/" />
 
-<Headline headline={meta.title} subtitle="lundi 04 décembre 2023" />
+<Headline headline={meta.title} subtitle="lundi 06 février 2024" />
 
 <MainContent>
 	<Content>
