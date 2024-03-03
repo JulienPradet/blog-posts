@@ -47,22 +47,22 @@
 		<ul>
 			<li>
 				Structured best practices in Front-End development (Components, Atomic Design,
-				<abbr title="Block Element Modifier">BEM</abbr>, automated tests, CI, etc.)
+				<abbr tabIndex="-1" title="Block Element Modifier">BEM</abbr>, automated tests, CI, etc.)
 			</li>
 			<li>
 				Architect on strategic product projects (product minded feedbacks, progressive delivery, AB
 				tests analysis)
 			</li>
 			<li>
-				Improved Web Performance and Core Web Vitals (Mobile <abbr title="Largest Contentful Paint"
+				Improved Web Performance and Core Web Vitals (Mobile <abbr tabIndex="-1" title="Largest Contentful Paint"
 					>LCP</abbr
 				>
 				{'<'} 2.4s from 65% to 92%)
 			</li>
 			<li>
-				Proposals & development of tools to improve back/front collaboration & efficiency (<abbr
+				Proposals & development of tools to improve back/front collaboration & efficiency (<abbr tabIndex="-1"
 					title="Request For Comments">RFC</abbr
-				>, <abbr title="Architecture Decision Record">ADR</abbr>, Roadmaps)
+				>, <abbr tabIndex="-1" title="Architecture Decision Record">ADR</abbr>, Roadmaps)
 			</li>
 			<li>
 				Led the Front-End Guild owning the creation and the progressive adoption of the Design
@@ -167,7 +167,7 @@
 	<Competence type="Paradigms">
 		<p>
 			Programmation Fonctionnelle, Programmation Réactive,{' '}
-			<abbr title="Programmation Orienté Objet">POO</abbr>
+			<abbr tabIndex="-1" title="Programmation Orienté Objet">POO</abbr>
 		</p>
 	</Competence>
 	<Competence type="Languages">
@@ -237,7 +237,7 @@
 		<p>
 			I often publish new projects on github to have a playground allowing me to discover new
 			technologies. (Animation library, Design System tool,{' '}
-			<abbr title="Static Site Generator">SSG</abbr>…)
+			<abbr tabIndex="-1" title="Static Site Generator">SSG</abbr>…)
 		</p>
 	</Projet>
 	<Projet name="Ter Aelis">

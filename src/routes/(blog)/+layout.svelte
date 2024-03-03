@@ -281,6 +281,33 @@
 		text-underline-offset: 3px;
 	}
 
+	@media (hover: none) {
+		.page :global(abbr[title]::after) {
+			z-index: 1;
+			pointer-events: none;
+			position: fixed;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			content: attr(title);
+			margin-top: -2.5em;
+			background: var(--color-white);
+			border-top: 1px solid var(--color-primary);
+			padding: 2rem 1.5rem;
+			text-align: center;
+			opacity: 0;
+			transform: translateY(50%);
+			transition:
+				transform 0.15s ease-in-out,
+				opacity 0.15s ease-in-out;
+		}
+
+		.page :global(abbr[title]:focus::after) {
+			transform: none;
+			opacity: 1;
+		}
+	}
+
 	footer {
 		position: relative;
 	}

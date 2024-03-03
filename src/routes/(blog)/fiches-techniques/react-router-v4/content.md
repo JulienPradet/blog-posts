@@ -1,6 +1,6 @@
-[React Router](https://github.com/ReactTraining/react-router) est une librairie qui affiche vos composants en fonction de l'URL de votre navigateur. En gros, c'est indispensable si vous voulez faire une <abbr title="Single Page Application">SPA</abbr> et que vous voulez que l'utilisateur puisse croire que c'est un site normal qu'il peut partager, bookmarker, etc.
+[React Router](https://github.com/ReactTraining/react-router) est une librairie qui affiche vos composants en fonction de l'URL de votre navigateur. En gros, c'est indispensable si vous voulez faire une <abbr tabIndex="-1" title="Single Page Application">SPA</abbr> et que vous voulez que l'utilisateur puisse croire que c'est un site normal qu'il peut partager, bookmarker, etc.
 
-C'est donc un composant essentiel de votre application qui devra gérer tous les cas de figure : <abbr title="Server Side Rendering">SSR</abbr>, Testing, Code Splitting, Authentification, etc. On est donc bien content quand une lib s'en charge pour nous.
+C'est donc un composant essentiel de votre application qui devra gérer tous les cas de figure : <abbr tabIndex="-1" title="Server Side Rendering">SSR</abbr>, Testing, Code Splitting, Authentification, etc. On est donc bien content quand une lib s'en charge pour nous.
 
 A l'heure où j'écris cet article, la [v4](https://reacttraining.com/react-router/) est en *beta*. Cependant, j'utilise déjà depuis un moment la v4 *alpha* sur mes projets persos. Sûrement parce que je suis un **#coolkid** mais surtout parce qu'elle me paraît plus intuitive et s'incorpore mieux dans les projets React. C'est ce que je vais essayer de détailler dans cet article.
 
@@ -90,7 +90,7 @@ Ainsi, si `/:article` devait avoir les sous-routes `/:article/read` et `/:articl
 
 Non. La peur du spaghetti vient du fait qu'on ne connait pas d'avance la structure globale de l'ensemble de l'application. Mais quand on fait du React, **le but n'est pas de faire une *grosse* application, mais plein de *petites* applications**. D'une part, c'est plus facile de raisonner ainsi parce qu'il n'y a plus besoin de connaître tous les rouages pour savoir ce qu'on peut casser avec nos modifications. D'autre part on accède au graal du mode `plug-n-play`&nbsp;: pour rajouter toute la gestion des articles il n'y a qu'une `Route` à ajouter.
 
-De plus, cela simplifie la gestion des besoins avancés tels que le <abbr title="Hot Module Replacement">HMR</abbr> (même si je n'en ressens pas le besoin sur des applications avec Router), le SSR, le Code Splitting, etc.
+De plus, cela simplifie la gestion des besoins avancés tels que le <abbr tabIndex="-1" title="Hot Module Replacement">HMR</abbr> (même si je n'en ressens pas le besoin sur des applications avec Router), le SSR, le Code Splitting, etc.
 
 #### Autant de Routes que l'on veut
 

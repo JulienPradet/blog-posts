@@ -526,7 +526,7 @@ Avec cela vous devriez donc avoir tout ce qu'il faut pour commencer à écrire d
 
 L'avantage est que vos tests seront très peu couplés à votre framework et seront en grande partie réutilisable le jour où vous imaginez une migration.
 
-C'est aussi un excellent outil à avoir à disposition car il vous permettra d'exécuter plus de tests plus rapidement qu'une suite <abbr title="End-To-End">e2e</abbr>. Notamment sur une suite e2e on va généralement se concentrer sur des scenarios là où avec ces tests unitaires vous pourrez aller tester les cas limites et toutes les subtilités de votre composant.
+C'est aussi un excellent outil à avoir à disposition car il vous permettra d'exécuter plus de tests plus rapidement qu'une suite <abbr tabIndex="-1" title="End-To-End">e2e</abbr>. Notamment sur une suite e2e on va généralement se concentrer sur des scenarios là où avec ces tests unitaires vous pourrez aller tester les cas limites et toutes les subtilités de votre composant.
 
 Enfin, sachez que je n'ai présenté que le minimum vital pour que vous puissiez lancer vos premiers tests. Un sujet intéressant à creuser si vous êtes sur Twig serait de mocker des Extensions Twigs. En effet, dans votre application Symfony vous avez sûrement des fonctions ou des filtres globaux que vous utilisez dans vos templates. Un bon point d'entré pour démarrer serait cette documentation : [Extending Twing](https://nightlycommit.github.io/twing/advanced.html).
 

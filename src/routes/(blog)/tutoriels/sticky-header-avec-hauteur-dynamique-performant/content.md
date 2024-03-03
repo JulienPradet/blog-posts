@@ -5,7 +5,7 @@ En ce moment il y a deux nouvelles APIs qui sont en train d'arriver dans les nav
 
 > 💡 Pour info ces APIs sont disponibles sur Chrome uniquement pour le moment. Mais dans les 2 cas, Webkit (= Safari) et Gecko (= Firefox) sont d'accord avec la proposition, donc ça va finir par arriver aussi.
 
-C'est pour moi la preuve qu'il y a une réelle appétence pour avoir un web plus dynamique, plus animé. Et personnellement, je pense que c'est l'unique raison pour laquelle, dans l'imaginaire collectif, les applications mobiles ont l'air plus <abbr title="qualitatives">quali</abbr> que le web (et, accessoirement, la quantité affolante de pubs et de bandeaux de cookies).
+C'est pour moi la preuve qu'il y a une réelle appétence pour avoir un web plus dynamique, plus animé. Et personnellement, je pense que c'est l'unique raison pour laquelle, dans l'imaginaire collectif, les applications mobiles ont l'air plus <abbr tabIndex="-1" title="qualitatives">quali</abbr> que le web (et, accessoirement, la quantité affolante de pubs et de bandeaux de cookies).
 
 Et preuve supplémentaire de cette appétence, j'ai rarement vu autant de devs front se mettre à tester de nouvelles APIs, alors que ce n'est même pas encore dispo sur tous les navigateurs.
 
@@ -552,7 +552,7 @@ En effet, certains contenus animés peuvent donner des nausées aux personnes qu
 
 Il existe une media query pour ça en CSS : `@media (prefers-reduced-motion: reduce)`. En JS, on peut donc la reproduire via `window.matchMedia('(prefers-reduced-motion: reduce)').matches`. Si vous êtes passé directement par ma librairie `animate` mentionnée plus haut, sachez que c'est déjà géré à l'intérieur. Mais si vous utilisez un autre système, pensez à bien vérifier qu'en activant l'option, vos animations ne sont plus déclenchées.
 
-Pour le tester dans les DevTools de Chrome, vous pouvez aller dans <abbr title="Customize and control DevTools">⋮</abbr> > More tools > Rendering, puis activer l'option `prefers-reduced-motion: reduce`:
+Pour le tester dans les DevTools de Chrome, vous pouvez aller dans <abbr tabIndex="-1" title="Customize and control DevTools">⋮</abbr> > More tools > Rendering, puis activer l'option `prefers-reduced-motion: reduce`:
 
 <figure tabindex="-1">
 <img src="/images/posts/sticky/reduced-motion.png" alt="Screenshot de l'option &quot;Emulate CSS meda feature prefers-reduced-motion&quot; dans les DevTools de Chrome" width="339" height="94" loading="lazy">

@@ -59,7 +59,7 @@ Ainsi, en faisant ces présentations à SINGULART, ça m'a donné une visibilit�
 
 ## 2. Collaboration inter-équipe
 
-Pendant les premiers mois nous êtions tous dans la même équipe. Mais dès que l'équipe a commencé à grossir, il y a eu une séparation en 2 puis 4 squads différentes (<abbr title="Also Known As">a.k.a.</abbr> équipes ou Product/Feature Team). Au maximum nous étions 6 développeurs purement front, et une petite dizaine de full-stack à travailler de temps à temps sur le front.
+Pendant les premiers mois nous êtions tous dans la même équipe. Mais dès que l'équipe a commencé à grossir, il y a eu une séparation en 2 puis 4 squads différentes (<abbr tabIndex="-1" title="Also Known As">a.k.a.</abbr> équipes ou Product/Feature Team). Au maximum nous étions 6 développeurs purement front, et une petite dizaine de full-stack à travailler de temps à temps sur le front.
 
 Dès qu'il y a eu 2 squads, nous avons commencé à avoir besoin de nous synchroniser entre fronts. C'était d'autant plus nécessaire qu'on commençait à extraire des composants qu'on allait réutiliser entre nous. Si personne n'était au courant du composant, c'était comme s'il n'existait pas. Alors il fallait qu'on se parle :
 

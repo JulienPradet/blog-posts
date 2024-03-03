@@ -102,7 +102,7 @@ C'est pour cette raison que lorsque vous vous tournez vers une personne pour obt
 
 Ceci est encore accentué par le fait que certaines des questions se trouveront à l'intersection de plusieurs expertises :
 
-> **Quand une personne soumet ce formulaire, tu préfères recevoir un mail ou qu'on crée un Contact dans notre outil de gestion des clients (<abbr title="Customer Relationship Management">CRM</abbr>) ?**
+> **Quand une personne soumet ce formulaire, tu préfères recevoir un mail ou qu'on crée un Contact dans notre outil de gestion des clients (<abbr tabIndex="-1" title="Customer Relationship Management">CRM</abbr>) ?**
 
 Dans un monde idéal, le CRM est certainement la solution la plus pérenne. Mais en réalité, la question est plutôt :
 

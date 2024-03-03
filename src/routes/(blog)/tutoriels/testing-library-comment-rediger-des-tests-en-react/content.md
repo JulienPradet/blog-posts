@@ -27,7 +27,7 @@ De cette liste de descriptions, je vais passer dans un format qui me facilite l'
 2. **When** : lorsqu'il se passe tel action (ex: quand l'utilisateur clique sur le bouton)
 3. **Then** : alors il devrait se passer tel chose (ex: alors les éléments cachés devraient s'afficher)
 
-> ℹ️ Sachez que vous pouvez aussi trouver le pattern AAA (Arrange, Act, Assert). Cela correspond aux mêmes étapes avec des noms différents. Je trouve cependant que le Given When Then pousse à réfléchir du point de vue de l'utilisateur et a l'avantage d'être un format très répandu lorsque vous vous approchez du <abbr title="Behavior Driven Developpment">BDD</abbr> avec notamment la syntaxe [Gherkin](https://docs.behat.org/en/v2.5/guides/1.gherkin.html).
+> ℹ️ Sachez que vous pouvez aussi trouver le pattern AAA (Arrange, Act, Assert). Cela correspond aux mêmes étapes avec des noms différents. Je trouve cependant que le Given When Then pousse à réfléchir du point de vue de l'utilisateur et a l'avantage d'être un format très répandu lorsque vous vous approchez du <abbr tabIndex="-1" title="Behavior Driven Developpment">BDD</abbr> avec notamment la syntaxe [Gherkin](https://docs.behat.org/en/v2.5/guides/1.gherkin.html).
 
 En construisant ainsi vos tests vous aurez une meilleure vision de ce que doit faire votre composant et ce que vous devez tester. C'est la partie la plus dure parce que ça demande de penser à un maximum de cas. Mais ce sera bénéfique pour la prochaine personne qui lira votre code, que ce soit un·e collègue ou votre moi futur. Si techniquement vous n'arrivez pas à les implémenter, ce n'est pas grave. [Skippez](https://jestjs.io/docs/api#describeskipname-fn) les s'il le faut, mais conservez une trace de votre intention.
 

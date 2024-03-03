@@ -200,7 +200,7 @@ Si vous êtes arrivés jusqu'ici, vous avez sûrement votre test qui passe au ve
 
 Cependant, avant de passer la suite je veux retenir votre attention sur un point : quand vous écrivez des mocks, il y a des grandes chances de s'emmêler les pinceaux. En effet, on implémente une version simplifiée de la réalité qui, par essence, est fausse. Il y a donc de fortes chances pour que le mock ne fasse pas réellement ce que vous imaginez **ou** que votre test empêche des régressions sur votre mock au lieu d'empêcher des régressions sur votre code.
 
-Pensez donc à casser votre code (ce qu'il y a dans `addClassOnMobile.js`), pour vous assurer que votre test détectera toute régression. **Tant que vous n'aurez jamais vu votre test échouer (rouge), vous pouvez considérer que votre test ne marche pas.** Je ne compte plus le nombre de fois où je pensais avoir fini d'écrire mes tests mais où je me suis rendu compte que je ne testais rien. C'est d'ailleurs un des avantages du <abbr title="Test Driven Development">TDD</abbr> : vu que vous n'avez pas encore codé au moment d'écrire vos tests, vous le verrez forcément rouge.
+Pensez donc à casser votre code (ce qu'il y a dans `addClassOnMobile.js`), pour vous assurer que votre test détectera toute régression. **Tant que vous n'aurez jamais vu votre test échouer (rouge), vous pouvez considérer que votre test ne marche pas.** Je ne compte plus le nombre de fois où je pensais avoir fini d'écrire mes tests mais où je me suis rendu compte que je ne testais rien. C'est d'ailleurs un des avantages du <abbr tabIndex="-1" title="Test Driven Development">TDD</abbr> : vu que vous n'avez pas encore codé au moment d'écrire vos tests, vous le verrez forcément rouge.
 
 ### Penser à nettoyer son mock après les tests
 
@@ -340,7 +340,7 @@ Vous sentez-vous capable d'attaquer les mocks dont vous avez besoin dans vos tes
 En attendant, s'il n'y a que quelques éléments que je veux que vous reteniez de cet article, ce serait :
 
 - ce n'est pas parce que jsdom n'implémente pas une API qu'il n'est pas possible de la tester unitairement
-- évitez cependant de mocker tout ce qui repose sur une orchestration complexe ou sur des pixels, les tests <abbr title="End-To-End">e2e</abbr> ou les tests visuels seront plus adaptés
+- évitez cependant de mocker tout ce qui repose sur une orchestration complexe ou sur des pixels, les tests <abbr tabIndex="-1" title="End-To-End">e2e</abbr> ou les tests visuels seront plus adaptés
 - les mocks reposent souvent sur des variables globales, pensez à les nettoyer
 - veillez à toujours casser votre code quand vous avez fini d'écrire votre test : tant que le test n'aura pas été rouge vous n'êtes pas sûr que votre test est bon.
 

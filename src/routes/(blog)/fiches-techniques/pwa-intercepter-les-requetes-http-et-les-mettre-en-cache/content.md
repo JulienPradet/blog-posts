@@ -64,7 +64,7 @@ Là tout de suite, vous ne vous en rendez peut-être pas compte étant donné qu
 
 Il devient par exemple assez tentant de vouloir ajouter des traitements sur les requêtes au niveau du Service Worker. On peut rapidement en devenir dépendant. Cependant il est **très important de se débrouiller pour que le site fonctionne sans Service Worker**.
 
-Il est par exemple tout à fait possible que le navigateur de l'utilisateur [ne supporte pas encore les Service Workers](https://jakearchibald.github.io/isserviceworkerready/#service-worker-enthusiasm) ou que ceux-ci soient désactivés. Mais il est aussi possible que votre page se retrouve détachée du Service Worker pour on ne sait quelle raison (<abbr title="Also Known As">a.k.a.</abbr> un bug).
+Il est par exemple tout à fait possible que le navigateur de l'utilisateur [ne supporte pas encore les Service Workers](https://jakearchibald.github.io/isserviceworkerready/#service-worker-enthusiasm) ou que ceux-ci soient désactivés. Mais il est aussi possible que votre page se retrouve détachée du Service Worker pour on ne sait quelle raison (<abbr tabIndex="-1" title="Also Known As">a.k.a.</abbr> un bug).
 
 Ainsi, il est interdit de faire en sorte que certaines requêtes ne fonctionnent que si un Service Worker est présent. Il faudra plutôt mettre en place un serveur qui fournisse `/toto` pour que la requête fonctionne aussi lorsque le Service Worker est absent. Ainsi, s'il y a un Service Worker, on améliore les performances ressenties. S'il n'y en a pas, on a toujours accès au contenu.
 

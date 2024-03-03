@@ -52,7 +52,7 @@ Cela dit, les exemples sont tellement nombreux et variés qu'on peut quand même
 
 ### SEO
 
-Un autre impact auquel on peut s'attendre est au niveau du <abbr title="Search Engine Optimisation">SEO</abbr> : Google considérera que votre site est rapide (et [le prendra en compte pour le ranking de votre page](https://support.google.com/webmasters/answer/9205520?hl=fr)) si LCP < 2.5s. Plus exactement, si 75% des personnes qui visitent votre page ont un LCP < 2.5s.
+Un autre impact auquel on peut s'attendre est au niveau du <abbr tabIndex="-1" title="Search Engine Optimisation">SEO</abbr> : Google considérera que votre site est rapide (et [le prendra en compte pour le ranking de votre page](https://support.google.com/webmasters/answer/9205520?hl=fr)) si LCP < 2.5s. Plus exactement, si 75% des personnes qui visitent votre page ont un LCP < 2.5s.
 
 <figure tabindex="0">
 <img alt="LCP : Good < 2.5s, Needs improvements < 4.0s, Bad >= 4.0s" src="/images/posts/lcp/lcp-good-bad.svg" loading="lazy"/>

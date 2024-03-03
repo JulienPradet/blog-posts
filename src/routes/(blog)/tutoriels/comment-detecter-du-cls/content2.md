@@ -28,7 +28,7 @@ Lighthouse vous donnera aussi des premières pistes pour régler les problèmes 
 <figcaption>La section Diagnostic de l'audit Lighthouse ne contient maintenant que des conseils associés au CLS</figcaption>
 </figure>
 
-L'autre intérêt de PageSpeed Insights est que si votre site est suffisamment fréquenté, il vous présentera les données du <abbr title="Chrome UX Report">CrUX</abbr> qui sont des données mises à disposition par Google qui indiquent quelle a été la rapidité d'affichage de votre site pour les utilisateurices de Chrome. Cela inclut le CLS. L'intérêt est que cela vous donnera une vision sur ce que ressentent réellement vos utilisateurices plutôt que de vous contenter de données dîtes de laboratoire. N'hésitez pas à vous référer à <a href="/tutoriels/pourquoi-ameliorer-le-lcp/#commencer-par-analyser-le-chargement-de-votre-page">mon article d'introduction pour en savoir plus sur le CrUX</a>.
+L'autre intérêt de PageSpeed Insights est que si votre site est suffisamment fréquenté, il vous présentera les données du <abbr tabIndex="-1" title="Chrome UX Report">CrUX</abbr> qui sont des données mises à disposition par Google qui indiquent quelle a été la rapidité d'affichage de votre site pour les utilisateurices de Chrome. Cela inclut le CLS. L'intérêt est que cela vous donnera une vision sur ce que ressentent réellement vos utilisateurices plutôt que de vous contenter de données dîtes de laboratoire. N'hésitez pas à vous référer à <a href="/tutoriels/pourquoi-ameliorer-le-lcp/#commencer-par-analyser-le-chargement-de-votre-page">mon article d'introduction pour en savoir plus sur le CrUX</a>.
 
 <figure tabindex="0">
 <img src="/images/posts/cls/crux.png" alt="Core Web Vitals ">
@@ -66,7 +66,7 @@ Généralement je commence à me pencher sur du CLS si on est au delà de 0.01 m
 
 WebPageTest est donc un très bon outil pour analyser le chargement de la page. Cependant, comme j'ai pu l'évoquer précédemment, le CLS ne concerne pas que le chargement initial : si vous scrollez tout en bas de votre page et que vous cherchez à cliquer dans votre footer mais qu'un bandeau de Newsletter apparaît juste au dessus au moment du clic, vous aurez aussi du Layout Shift.
 
-Ainsi, vous pouvez vous retrouver avec Lighthouse, WebPageTest & co qui vous disent que votre CLS est à 0 et quand même constater du CLS dans le CrUX. Pour cette raison, **je vous conseille vivement de mettre en place des <abbr title="Real User Monitoring">RUM</abbr>** afin de placer des sondes chez les vrais utilisateurices de votre site. Grâce à cela, vous aurez une vue beaucoup plus fine (et cross-browser) que ce que peut proposer le CrUX qui vous dira si vous avez du CLS à régler ou non.
+Ainsi, vous pouvez vous retrouver avec Lighthouse, WebPageTest & co qui vous disent que votre CLS est à 0 et quand même constater du CLS dans le CrUX. Pour cette raison, **je vous conseille vivement de mettre en place des <abbr tabIndex="-1" title="Real User Monitoring">RUM</abbr>** afin de placer des sondes chez les vrais utilisateurices de votre site. Grâce à cela, vous aurez une vue beaucoup plus fine (et cross-browser) que ce que peut proposer le CrUX qui vous dira si vous avez du CLS à régler ou non.
 
 Mais une fois que vous savez que vous avez des problèmes, comment savoir précisément d'où ils viennent ?
 
@@ -270,7 +270,7 @@ Cependant un point que je n'avais pas détaillé, parce qu'il ne s'agit pas de l
 
 En effet, cette unité un peu particulière permet de préciser une longueur à partir de la taille du caractère `0` dans votre police. Cette unité est généralement utilisée pour caractériser des largeur maximales dans vos textes. Notamment, en ergonomie on considère que pour qu'un paragraphe soit lisible il faut qu'il soit entre 50 et 90 caractères. Je prends une fourchette très grande parce que [tout le monde n'est pas d'accord](https://ux.stackexchange.com/questions/108801/what-is-the-best-number-of-paragraph-width-for-readability) et que ça dépend de pleins de facteurs (un mobile ? un desktop ? quel genre de contenu ?). Mais dans l'idée on peut imaginer `max-width: 70ch;`
 
-Or, ce que vous pouvez constater c'est que `0` ou 0 n'ont pas la même largeur. A quelques pixels ou dixième de pixels près, mais cette différence existe. Et en multipliant cette différence par `70`, on se retrouve avec d'assez grosses différences entre la largeur maximale de votre paragraphe selon si c'est la police de fallback (que ce soit <abbr title="Flash Of Unstyled Text">FOUT</abbr> ou <abbr title="Flash Of Inivisible Text">FOIT</abbr>) ou la police définitive qui est affichée.
+Or, ce que vous pouvez constater c'est que `0` ou 0 n'ont pas la même largeur. A quelques pixels ou dixième de pixels près, mais cette différence existe. Et en multipliant cette différence par `70`, on se retrouve avec d'assez grosses différences entre la largeur maximale de votre paragraphe selon si c'est la police de fallback (que ce soit <abbr tabIndex="-1" title="Flash Of Unstyled Text">FOUT</abbr> ou <abbr tabIndex="-1" title="Flash Of Inivisible Text">FOIT</abbr>) ou la police définitive qui est affichée.
 
 Ainsi pour éviter au navigateur de recalculer la taille de vos colonnes et de vos textes, évitez d'utiliser l'unité `ch`.
 

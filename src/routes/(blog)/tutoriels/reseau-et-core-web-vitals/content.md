@@ -80,7 +80,7 @@ En particulier, regardons la troisième ligne : le téléchargement de `style.cs
 
 Cela vient du fait que le fichier `style.css` est sur le nom de domaine `https://assets.julienpradet.fr/` alors que nous sommes en train d'afficher une page sur `https://www.julienpradet.fr/`. Ainsi, virtuellement, le simple fait de déplacer notre ficher sur le bon nom de domaine peut nous faire économiser 750ms.
 
-> ℹ️ Si vous êtes vous aussi dans cette configuration, il y a de grandes chances que ce soit parce que vous utilisez un <abbr title="Content Delivery Network">CDN</abbr>. Le but d'un CDN est généralement de mettre en cache et d'accélérer le téléchargement de certaines ressources. C'est assez pratique à mettre en place et représente un réel gain. Cependant par défaut c'est souvent configuré sur un nom de domaine propre au CDN que vous avez choisi (Cloudfront, Cloudflare, etc.). Si c'est le cas, contactez la personne en charge de l'infrastructure pour que vous ayez une route sur votre propre nom de domaine qui redirige vers le CDN (ex: toutes les URLs `www.julienpradet.fr/assets` font en fait proxy vers `cdn.example.com`).
+> ℹ️ Si vous êtes vous aussi dans cette configuration, il y a de grandes chances que ce soit parce que vous utilisez un <abbr tabIndex="-1" title="Content Delivery Network">CDN</abbr>. Le but d'un CDN est généralement de mettre en cache et d'accélérer le téléchargement de certaines ressources. C'est assez pratique à mettre en place et représente un réel gain. Cependant par défaut c'est souvent configuré sur un nom de domaine propre au CDN que vous avez choisi (Cloudfront, Cloudflare, etc.). Si c'est le cas, contactez la personne en charge de l'infrastructure pour que vous ayez une route sur votre propre nom de domaine qui redirige vers le CDN (ex: toutes les URLs `www.julienpradet.fr/assets` font en fait proxy vers `cdn.example.com`).
 
 Changeons donc cela : migrons tous les `assets.julienpradet.fr` vers `www.julienpradet.fr`. Attention cependant, pour que le gain soit effective, l'objectif est de le faire sur le plus de domaines possibles. Idéalement, vous ne devriez jamais voir d'étapes `dns` (turquoise), `connect` (orange), `ssl` (fuchsia) autre que pour la toute première requête tant que votre LCP n'est pas atteint. Dans cet exemple, nous migrerons donc aussi `images.julienpradet.fr`.
 
@@ -89,7 +89,7 @@ Changeons donc cela : migrons tous les `assets.julienpradet.fr` vers `www.julien
 <figcaption>Cascade réseau après avoir migré les sous domaines assets et images</figcaption>
 </figure>
 
-Après avoir effectué le changement, on se retrouve avec un LCP non plus à 4.4s mais à 3.6s. On vient donc d'économiser 0.8s juste avec cette optimisation ! Attention toutefois, n'imaginez pas que du jour au lendemain vous gagnerez 800ms de chargement sur votre site en prod. Nous sommes dans un environnement synthetic qui est pessimiste quant à la connexion du navigateur (4G avec beaucoup de latence). Cela dit, sur un site en prod, j'ai pu constater une amélioration de 10% sur le 75ème percentile de nos <abbr title="Real User Monitoring">RUM</abbr> sur des sites avec des dizaines de milliers de sessions par jour.
+Après avoir effectué le changement, on se retrouve avec un LCP non plus à 4.4s mais à 3.6s. On vient donc d'économiser 0.8s juste avec cette optimisation ! Attention toutefois, n'imaginez pas que du jour au lendemain vous gagnerez 800ms de chargement sur votre site en prod. Nous sommes dans un environnement synthetic qui est pessimiste quant à la connexion du navigateur (4G avec beaucoup de latence). Cela dit, sur un site en prod, j'ai pu constater une amélioration de 10% sur le 75ème percentile de nos <abbr tabIndex="-1" title="Real User Monitoring">RUM</abbr> sur des sites avec des dizaines de milliers de sessions par jour.
 
 Par ailleurs, c'est une amélioration qui n'aura pas seulement un effet sur le LCP, mais aussi sur le FCP (First Contentful Paint). Cela veut dire que l'utilisateur verra la page plus tôt et aura un fort impact sur la performance ressentie du site.
 
@@ -151,7 +151,7 @@ C'est d'autant plus vrai que toutes les pages n'auront pas forcément une image 
 
 ### Est-ce la seule cascade sur le site ?
 
-Nous avons étudié de près la font, mais <abbr title="qu'en est-il">quid</abbr> des autres ressources ? A-t-on d'autres cascades sur le site ?
+Nous avons étudié de près la font, mais <abbr tabIndex="-1" title="qu'en est-il">quid</abbr> des autres ressources ? A-t-on d'autres cascades sur le site ?
 
 Sans connaître réellement le fonctionnement du site, ça peut être difficile de le voir juste avec le graphe. Cependant, si on regarde le LCP, il a lieu juste après le chargement de l'image qui termine par `...ohOuk-unsplash.jpg`. En ouvrant cette image, on constate que c'est celle de la bannière. Alors même que ça devrait être la première à charger, elle se retrouve téléchargée en dernier. Pourquoi ?
 
@@ -404,7 +404,7 @@ Si nous récapitulons tous les changements que nous avons fait jusque là :
 
 Comme vous pouvez le constater, nous nous sommes concentrés uniquement sur des optimisations réseau sans changer fondamentalement la manière dont le code était écrit. Pourtant nous sommes passés de ~4.4s à ~2.4s sur le LCP, soit **une réduction de -45%** !
 
-Gardons quand même en tête que cela a été fait avec des mesures Synthetics qui ont des configurations assez extrêmes (mobile lent, connexion lente). Sur vos utilisateurs et sur vos <abbr title="Real User Monitoring">RUM</abbr>, vous n'observerez peut-être pas les mêmes valeurs. Cependant, ce sont des modifications que vous pouvez généralement configurer à l'échelle globale de votre site et donc être une bonne première étape pour tester comment la performance impacte vos utilisateurs et votre entreprise.
+Gardons quand même en tête que cela a été fait avec des mesures Synthetics qui ont des configurations assez extrêmes (mobile lent, connexion lente). Sur vos utilisateurs et sur vos <abbr tabIndex="-1" title="Real User Monitoring">RUM</abbr>, vous n'observerez peut-être pas les mêmes valeurs. Cependant, ce sont des modifications que vous pouvez généralement configurer à l'échelle globale de votre site et donc être une bonne première étape pour tester comment la performance impacte vos utilisateurs et votre entreprise.
 
 Si vous avez besoin d'aide dans ces premiers pas, n'hésitez pas à me contacter par [mail](mailto:julien.pradet+article-blog@gmail.com). Peut-être pouvons nous travailler ensemble pour réaliser vos premières analyses et mettre en place les outils dont vous aurez besoin pour faire progresser la culture de la performance dans votre entreprise.
 

@@ -28,7 +28,7 @@ Aujourd'hui on va se concentrer sur cette 3ème solution pour laquelle les Scrol
 
 > **Attention :** A ce jour, ce que je vais vous présenter n'est disponible que sur les dernières versions de Chrome ([caniuse](https://caniuse.com/?search=animation-timeline)). Evitez donc de l'utiliser en production pour le moment ou à minima, pensez à utiliser `@supports (animation-timeline: view()) {}` pour éviter des mauvaises surprises sur les autres navigateurs.
 
-## <abbr title="Too long; Didn't read">TL;DR</abbr>
+## <abbr tabIndex="-1" title="Too long; Didn't read">TL;DR</abbr>
 
 Vous pouvez accéder au code et à la démo ici : https://codepen.io/julienpradet/pen/gOqObbW
 

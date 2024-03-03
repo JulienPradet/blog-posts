@@ -2,7 +2,7 @@ Dans ma série d'article sur [les animations performantes](/tutoriels/des-animat
 
 Mais en vrai, c'est compliqué. En effet, en se limitant au niveau des propriétés CSS, on perd malheureusement une grande partie de ce que nous permet de faire le CSS.
 
-Il existe cependant une technique qui permet d'inverser le problème et nous délivre de toutes les étapes manuelles qu'il faudrait faire pour n'utiliser que `transform` et `opacity`. Il s'agit de _<abbr title="First, Last, Invert, Play">FLIP</abbr>_, présentée au monde par Paul Lewis (a.k.a. [@aerotwist](https://twitter.com/aerotwist)) dans [un des ses articles](https://aerotwist.com/blog/flip-your-animations/).
+Il existe cependant une technique qui permet d'inverser le problème et nous délivre de toutes les étapes manuelles qu'il faudrait faire pour n'utiliser que `transform` et `opacity`. Il s'agit de _<abbr tabIndex="-1" title="First, Last, Invert, Play">FLIP</abbr>_, présentée au monde par Paul Lewis (a.k.a. [@aerotwist](https://twitter.com/aerotwist)) dans [un des ses articles](https://aerotwist.com/blog/flip-your-animations/).
 
 Dans la suite de cet article, je vais essentiellement réexpliquer ce qui est déjà présenté par Paul Lewis. Cela dit, je me concentrerai moins sur la partie code et approfondirai les cas d'utilisation.
 

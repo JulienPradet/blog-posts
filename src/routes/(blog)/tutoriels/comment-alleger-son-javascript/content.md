@@ -207,7 +207,7 @@ Pour cela, nous aurons globalement 2 options :
 
 #### Séparer le JavaScript par pages
 
-De plus en plus de sites aujourd'hui sont des <abbr title="Single Page Application">SPA</abbr>, cela veut dire que les pages ne sont pas rechargées complètement à chaque fois qu'on clique sur un lien. Le risque est alors de charger tout votre JavaScript d'un seul coup, y compris pour la page de FAQ cachée derrière trois liens.
+De plus en plus de sites aujourd'hui sont des <abbr tabIndex="-1" title="Single Page Application">SPA</abbr>, cela veut dire que les pages ne sont pas rechargées complètement à chaque fois qu'on clique sur un lien. Le risque est alors de charger tout votre JavaScript d'un seul coup, y compris pour la page de FAQ cachée derrière trois liens.
 
 La plupart des meta frameworks (Next, Nuxt, SvelteKit, etc.) le gèrent pour vous. Je ne rentrerai donc pas plus en détail sur ce sujet. Mais si votre site n'en utilise aucun, il est bon de vérifier le taux de Coverage de votre site.
 

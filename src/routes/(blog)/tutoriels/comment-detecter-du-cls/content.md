@@ -24,7 +24,7 @@ Si vous voulez en savoir plus sur la Web Performance, n'hésitez pas à jeter un
 - Quelles métriques suivre en dehors des Core Web Vitals ? (bientôt)
 - Et plus encore 🫶
 
-## Qu'est-ce que le <abbr title="Cumulative Layout Shift">CLS</abbr> ?
+## Qu'est-ce que le <abbr tabIndex="-1" title="Cumulative Layout Shift">CLS</abbr> ?
 
 Pour comprendre ce qu'est le CLS, je vous propose d'essayer de cliquer sur le bouton "Revenir à l'article" de la vidéo suivante ou en allant directement sur la [démo](/examples/webperf/slow-cls.html).
 

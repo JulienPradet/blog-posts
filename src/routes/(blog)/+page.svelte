@@ -58,7 +58,7 @@
 	<div class="summary">
 		<Content>
 			<h2 class="content-title">
-				Pour découvrir la <abbr title="Web Performance">WebPerf</abbr>
+				Pour découvrir la <abbr tabIndex="-1" title="Web Performance">WebPerf</abbr>
 			</h2>
 
 			<ul>
