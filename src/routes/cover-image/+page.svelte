@@ -8,12 +8,18 @@
 <div class="container">
 	<div class="info">
 		<p class="logo">🏠</p>
+		<img class="avatar" src="/images/avatar.png" alt="Julien Pradet" width={180} height={180} />
 		<h1>{title}</h1>
-		<p class="subline">
-			julienpradet.fr{#if date}&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;{Intl.DateTimeFormat('fr-FR', {
-					dateStyle: 'short'
-				}).format(date)}{/if}
-		</p>
+		<div class="subline">
+			<p>
+				julienpradet.fr{#if date}&nbsp;&nbsp;&nbsp;•&nbsp;&nbsp;&nbsp;{Intl.DateTimeFormat(
+						'fr-FR',
+						{
+							dateStyle: 'short'
+						}
+					).format(date)}{/if}
+			</p>
+		</div>
 	</div>
 </div>
 
@@ -42,13 +48,14 @@
 		width: 1600px;
 		overflow: hidden;
 		background: var(--color-creme);
-		padding: 2em;
+		padding: 2em 2em 2em 2em;
 		display: grid;
 		grid-template-areas:
 			'. .'
 			'Author .'
 			'Info .';
 		grid-template-rows: 1fr auto auto;
+		border-bottom: 0.5em solid var(--color-primary);
 	}
 
 	.info {
@@ -64,6 +71,25 @@
 		z-index: -1;
 	}
 
+	.avatar {
+		display: block;
+		width: 3.5em;
+		height: 3.5em;
+		margin-bottom: 1em;
+		border-radius: 2em;
+		border: 0.25em solid var(--color-primary);
+	}
+
+	.avatar::before {
+		content: '';
+		position: absolute;
+		top: -2em;
+		left: -2em;
+		right: -2em;
+		height: 1em;
+		background: var(--color-primary);
+	}
+
 	h1 {
 		margin: 0;
 		color: var(--color-primary);
@@ -74,8 +100,15 @@
 	}
 
 	.subline {
+		display: flex;
+		align-items: center;
+		margin: 1rem 0 0 0;
+		gap: 0.75em;
 		color: var(--color-shade);
 		font-size: 1.1em;
-		margin: 1rem 0 0 0;
+	}
+
+	.subline p {
+		margin: 0;
 	}
 </style>
