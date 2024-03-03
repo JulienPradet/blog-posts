@@ -21,7 +21,7 @@
 					name: meta.title,
 					description: meta.description,
 					datePublished: formatIsoDate(meta.date)
-			  }
+				}
 			: null;
 </script>
 
@@ -44,6 +44,12 @@
 	<meta property="og:image" content={`${siteInfo.homepage}${image}`} />
 	<meta property="og:description" content={meta.description} />
 	<link rel="canonical" href={`${siteInfo.homepage}${location}`} />
+	<link
+		rel="alternate"
+		type="application/atom+xml"
+		title="Articles"
+		href="${siteInfo.homepage}/feed.xml"
+	/>
 	{#if jsonDescription !== null}
 		{@html jsonLd(jsonDescription)}
 	{/if}
