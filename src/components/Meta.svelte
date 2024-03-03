@@ -48,7 +48,7 @@
 		rel="alternate"
 		type="application/atom+xml"
 		title="Articles"
-		href="${siteInfo.homepage}/feed.xml"
+		href="{siteInfo.homepage}/feed.xml"
 	/>
 	{#if jsonDescription !== null}
 		{@html jsonLd(jsonDescription)}

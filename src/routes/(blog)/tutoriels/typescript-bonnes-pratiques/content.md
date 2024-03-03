@@ -18,7 +18,7 @@ Cependant, TypeScript peut vite devenir douloureux dès lors :
 
 Pour s'en prémunir, je vais vous présenter ce que je considère comme les **3 règles d'or** quand je code au quotidien :
 
-- [définir les types uniquement lorsque nécessaire](#definir-des-types-uniquement-lorsque-c-est-necessaire) (essentiellement pour des signatures de fonction)
+- [définir les types uniquement lorsque nécessaire](#definir-des-types-uniquement-lorsque-necessaire) (essentiellement pour des signatures de fonction)
 - [ne (presque) jamais utiliser `any` ou de `as`](#ne-jamais-utiliser-any)
 - [privilégier des dérivations de types plutôt que de les réécrire](#privilegier-la-derivation-de-types)
 
