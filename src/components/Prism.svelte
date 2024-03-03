@@ -1,5 +1,6 @@
 <script lang="ts">
 	import Prism from 'prismjs';
+	import 'prismjs/components/prism-typescript';
 	import 'prismjs/components/prism-jsx';
 	import 'prismjs/components/prism-css';
 	import 'prismjs/components/prism-diff';
