@@ -53,4 +53,10 @@
 	{#if jsonDescription !== null}
 		{@html jsonLd(jsonDescription)}
 	{/if}
+	{#if meta.prev}
+		<link rel="prev" href={`${siteInfo.homepage}${meta.prev}`} />
+	{/if}
+	{#if meta.next}
+		<link rel="next" href={`${siteInfo.homepage}${meta.next}`} />
+	{/if}
 </svelte:head>

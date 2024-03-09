@@ -209,6 +209,12 @@
 			padding-left: var(--global-margin);
 			padding-right: var(--global-margin);
 		}
+		.page :global(blockquote pre) {
+			margin-left: -1rem;
+			margin-right: calc(-1 * var(--global-margin) - 2.5rem);
+			padding-left: 1rem;
+			padding-right: calc(var(--global-margin) + 2.5rem);
+		}
 	}
 
 	@media (max-width: 480px) {
@@ -452,6 +458,14 @@
 			left: 0;
 			top: 0;
 			transform: translateX(-200%);
+		}
+
+		.page :global(blockquote h1),
+		.page :global(blockquote h2),
+		.page :global(blockquote h3),
+		.page :global(blockquote h4),
+		.page :global(blockquote h5) {
+			margin-left: 1.1em;
 		}
 	}
 </style>

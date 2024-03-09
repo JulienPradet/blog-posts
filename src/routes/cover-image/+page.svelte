@@ -77,6 +77,7 @@
 		height: 3.5em;
 		margin-bottom: 1em;
 		border-radius: 2em;
+		background: var(--color-primary);
 		border: 0.25em solid var(--color-primary);
 	}
 

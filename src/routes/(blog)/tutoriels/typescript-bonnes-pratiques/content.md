@@ -389,11 +389,9 @@ Plus votre code est générique, plus vous aurez besoin d'y avoir recours. Les p
 
 Cela dit, on peut aussi vite s'y perdre. C'est vraiment la partie la plus velue de TypeScript, et ça met du temps à rentrer. Mais petit à petit vous deviendrez à l'aise avec certains concepts et pourrez en découvrir d'autres.
 
-Pour vous aider dans cette quête, je compte publier un nouvel article **"Maîtriser les types avancés en TypeScript"** dès la semaine prochaine &ndash; il est déjà écrit, il faut juste que je finisse 2-3 pétouilles.
+Pour vous aider dans cette quête, n'hésitez pas à aller lire la suite de cet article : [**"Maîtriser les types avancés en TypeScript"**](/tutoriels/typescript-types-avances/).
 
-Alors si ça vous intéresse, n'hésitez pas à me suivre sur les réseaux sociaux ([Mastodon](https://piaille.fr/@julienpradet), [LinkedIn](https://www.linkedin.com/in/julienpradet/), [Twitter](https://twitter.com/JulienPradet)) ou via mon flux [RSS](/feed.xml).
-
-Si vous êtes trop impatients, sachez aussi qu'une excellente ressource pour continuer de vous améliorer est [Total TypeScript (EN)](https://www.totaltypescript.com/). Il va bientôt publier un bouquin, mais vous avez déjà beaucoup à apprendre juste avec la partie gratuite de son contenu, profitez-en !
+Sachez aussi qu'une excellente ressource pour continuer de vous améliorer est [Total TypeScript (EN)](https://www.totaltypescript.com/). Il va bientôt publier un bouquin, mais vous avez déjà beaucoup à apprendre juste avec la partie gratuite de son contenu, profitez-en !
 
 ## Conclusion
 
