@@ -1,7 +1,7 @@
 <script lang="ts">
 	import { page } from '$app/stores';
 
-	if (typeof navigator !== 'undefined' && 'serviceWorker' in window.navigator) {
+	if (typeof window !== 'undefined' && typeof navigator !== 'undefined' && 'serviceWorker' in window.navigator) {
 		window.navigator.serviceWorker.getRegistrations().then((registrations) => {
 			registrations.forEach((registration) => {
 				registration.unregister();
