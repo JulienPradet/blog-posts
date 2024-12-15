@@ -14,8 +14,8 @@ Avant d'attaquer, posons nous un petit instant sur le fonctionnement du SVG. En 
 
 ```html
 <svg viewBox="0 0 15 15">
-  <rect fill="#FFC107" width="15" height="15" />
-  <rect fill="#EF5350" width="10" height="10" />
+	<rect fill="#FFC107" width="15" height="15" />
+	<rect fill="#EF5350" width="10" height="10" />
 </svg>
 ```
 
@@ -25,23 +25,22 @@ C'est pour cette raison que pour représenter cet arbre, je préfère écrire le
 
 ```jsx
 <Tree>
-  <Node name="Camille">
-    <Node name="Bob">
-      <Node name="Raymonde">
-        <Node name="Jules" />
-      </Node>
-      <Node name="Pierre" />
-    </Node>
-    <Node name="Alice">
-      <Node name="Alphonse" />
-      <Node name="Gertrude" />
-    </Node>
-  </Node>
+	<Node name="Camille">
+		<Node name="Bob">
+			<Node name="Raymonde">
+				<Node name="Jules" />
+			</Node>
+			<Node name="Pierre" />
+		</Node>
+		<Node name="Alice">
+			<Node name="Alphonse" />
+			<Node name="Gertrude" />
+		</Node>
+	</Node>
 </Tree>
 ```
 
 Ainsi, dans un arbre (`Tree`) j'ai un noeud (`Node`) qui lui même peut avoir des enfants qui sont à leur tour des noeuds (`Node`).
-
 
 ### Représentation d'un noeud
 
@@ -51,36 +50,36 @@ Ok. Commençons par le commencement et représentons un noeud unique. Celui-ci e
 const width = 80;
 const height = 30;
 
-const Node = props => (
-  <g>
-    <rect
-      width={width}
-      height={height}
-      strokeWidth={1}
-      stroke="#484848"
-      fill="white"
-      rx={5}
-      ry={5}
-    />
-    <text
-      x={width / 2}
-      y={height / 2}
-      textAnchor="middle"
-      alignmentBaseline="middle"
-      fill="#484848"
-      fontSize={14}
-    >
-      {props.name}
-    </text>
-  </g>
+const Node = (props) => (
+	<g>
+		<rect
+			width={width}
+			height={height}
+			strokeWidth={1}
+			stroke="#484848"
+			fill="white"
+			rx={5}
+			ry={5}
+		/>
+		<text
+			x={width / 2}
+			y={height / 2}
+			textAnchor="middle"
+			alignmentBaseline="middle"
+			fill="#484848"
+			fontSize={14}
+		>
+			{props.name}
+		</text>
+	</g>
 );
 
-const Tree = props => <svg>{props.children}</svg>;
+const Tree = (props) => <svg>{props.children}</svg>;
 
 const Demo = () => (
-  <Tree>
-    <Node name="Camille" />
-  </Tree>
+	<Tree>
+		<Node name="Camille" />
+	</Tree>
 );
 ```
 

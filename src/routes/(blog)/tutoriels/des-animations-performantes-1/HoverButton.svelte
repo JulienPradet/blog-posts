@@ -7,7 +7,9 @@
 		text-align: center;
 	}
 	.hover-button {
-		transition: transform 0.3s ease, background 0.3s ease;
+		transition:
+			transform 0.3s ease,
+			background 0.3s ease;
 		background: #00c9c9;
 		color: white;
 		padding: 0.5em 2em;

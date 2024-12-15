@@ -105,6 +105,7 @@
 </script>
 
 <div class="container">
+	<!-- eslint-disable-next-line @typescript-eslint/no-unused-vars -->
 	{#each new Array(length).fill(0) as _, index}
 		<button bind:this={node[index]} on:click={toggle}>
 			{opened ? 'Click to close' : 'Click to expand'}

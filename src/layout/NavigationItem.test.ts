@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { waitFor } from '@testing-library/dom';
 import { tick } from 'svelte';
 
-const { click, hover, unhover, keyboard, pointer } = userEvent;
+const { click, keyboard, pointer } = userEvent;
 
 declare module '$app/navigation' {
 	function navigate(): void;
@@ -31,7 +31,8 @@ vi.mock('$app/navigation', () => {
 });
 
 describe('NavigationItem', () => {
-	let NavigationItem;
+	// eslint-disable-next-line @typescript-eslint/no-explicit-any
+	let NavigationItem: any;
 
 	beforeEach(async () => {
 		NavigationItem = await import('./NavigationItem.test.svelte');

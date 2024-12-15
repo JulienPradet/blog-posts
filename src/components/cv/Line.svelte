@@ -56,7 +56,7 @@
 			margin-left: 1.5rem;
 			flex: 1;
 		}
-		.line__content > :first-child {
+		.line__content > :global(:first-child) {
 			margin-top: 0;
 		}
 		.line__content > :global(p:first-child) {

@@ -62,21 +62,21 @@
 	}
 
 	:global(
-			pre[class*='language-']::-moz-selection,
-			pre[class*='language-'] ::-moz-selection,
-			code[class*='language-']::-moz-selection,
-			code[class*='language-'] ::-moz-selection
-		) {
+		pre[class*='language-']::-moz-selection,
+		pre[class*='language-'] ::-moz-selection,
+		code[class*='language-']::-moz-selection,
+		code[class*='language-'] ::-moz-selection
+	) {
 		text-shadow: none;
 		background: #383e49;
 	}
 
 	:global(
-			pre[class*='language-']::selection,
-			pre[class*='language-'] ::selection,
-			code[class*='language-']::selection,
-			code[class*='language-'] ::selection
-		) {
+		pre[class*='language-']::selection,
+		pre[class*='language-'] ::selection,
+		code[class*='language-']::selection,
+		code[class*='language-'] ::selection
+	) {
 		text-shadow: none;
 		background: #383e49;
 	}
@@ -121,14 +121,14 @@
 	}
 
 	:global(
-			.token.property,
-			.token.boolean,
-			.token.number,
-			.token.constant,
-			.token.symbol,
-			.token.attr-name,
-			.token.deleted
-		) {
+		.token.property,
+		.token.boolean,
+		.token.number,
+		.token.constant,
+		.token.symbol,
+		.token.attr-name,
+		.token.deleted
+	) {
 		color: #d19a66;
 	}
 
@@ -137,12 +137,12 @@
 	}
 
 	:global(
-			.token.operator,
-			.token.entity,
-			.token.url,
-			.language-css .token.string,
-			.style .token.string
-		) {
+		.token.operator,
+		.token.entity,
+		.token.url,
+		.language-css .token.string,
+		.style .token.string
+	) {
 		color: #56b6c2;
 	}
 

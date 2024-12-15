@@ -1,24 +1,30 @@
 <p id="result">En attente de l'installation du Service Worker.</p>
 
-<p>
-    Ouvrez la console de votre navigateur.
-</p>
+<p>Ouvrez la console de votre navigateur.</p>
 <ol>
-    <li>Si c'est la première fois que affichez cet exemple, vous pouvez voir un message venant de App et un message venant du
-        Service Worker (SW).</li>
-    <li>Si vous rafraîchissez la page, il n'y a plus le message du Service Worker.</li>
-    <li>Si vous changez le contenu du fichier `service-worker.js` et que vous rafraîchissez, le message apparaît de nouveau,
-        mais avec un délai cette fois-ci.</li>
+	<li>
+		Si c'est la première fois que affichez cet exemple, vous pouvez voir un message venant de App et
+		un message venant du Service Worker (SW).
+	</li>
+	<li>Si vous rafraîchissez la page, il n'y a plus le message du Service Worker.</li>
+	<li>
+		Si vous changez le contenu du fichier `service-worker.js` et que vous rafraîchissez, le message
+		apparaît de nouveau, mais avec un délai cette fois-ci.
+	</li>
 </ol>
 
 <p>
-    Pour repartir de 0, faites en sorte de retirer le Service Worker de votre navigateur (`unregister`). (cf.
-    <a href="https://jakearchibald.github.io/isserviceworkerready/#debugging">les outils de debugging</a>)
+	Pour repartir de 0, faites en sorte de retirer le Service Worker de votre navigateur
+	(`unregister`). (cf.
+	<a href="https://jakearchibald.github.io/isserviceworkerready/#debugging"
+		>les outils de debugging</a
+	>)
 </p>
 
 <p>
-    A noter que dans certains navigateurs, il est possible de forcer la mise à jour d'un Service Worker au rafraîchissement.
-    Le cas n°2 ne sera donc pas possible tant que cette fonctionnalité est activée.
+	A noter que dans certains navigateurs, il est possible de forcer la mise à jour d'un Service
+	Worker au rafraîchissement. Le cas n°2 ne sera donc pas possible tant que cette fonctionnalité est
+	activée.
 </p>
 
 <script src="script.js"></script>

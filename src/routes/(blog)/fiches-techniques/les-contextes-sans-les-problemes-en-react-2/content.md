@@ -1,3 +1,5 @@
+> **Mise à jour :** Cet article existait à une époque où React ne fournissait pas de bons outils. Aujourd'hui avec [`useContext`](https://react.dev/reference/react/useContext) et une bonne memoization, vous ne devriez pas avoir besoin de tout ça.
+
 Cet article fait suite à [celui de la semaine dernière](/fiches-techniques/les-contextes-sans-les-problemes-en-react/).
 Dans ce dernier, nous avons vu comment éviter de noyer nos composants React avec des milliers de propriétés en tirant partie des contextes qui sont une fonctionnalité native de React. Nous nous sommes aussi préparés aux futurs _breaking changes_, étant donné que les contextes sont une fonctionnalité dite _expérimentale_.
 

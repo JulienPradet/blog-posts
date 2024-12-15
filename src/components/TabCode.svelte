@@ -27,7 +27,7 @@
 		margin: 1em 0;
 	}
 
-	.code-tab__list {
+	ul.code-tab__list {
 		padding: 0;
 		margin: 0 0;
 		display: flex;

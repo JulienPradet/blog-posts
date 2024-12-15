@@ -18,7 +18,7 @@ Comme à chaque fois, tout est question de contexte.
 
 ### ✅ Changement de position
 
-**Les animations FLIP excellent** lorsque le contenu *change de place*. Ce sont les animations dans lesquelles il n'y a pas de transformation en hauteur ou en largeur mais uniquement des déplacements. La librairie [react-flip-move](http://joshwcomeau.github.io/react-flip-move/examples/#/shuffle?_k=n14dtx) illustre très bien ce principe.
+**Les animations FLIP excellent** lorsque le contenu _change de place_. Ce sont les animations dans lesquelles il n'y a pas de transformation en hauteur ou en largeur mais uniquement des déplacements. La librairie [react-flip-move](http://joshwcomeau.github.io/react-flip-move/examples/#/shuffle?_k=n14dtx) illustre très bien ce principe.
 
 MaJ: D'ailleurs, j'ai découvert ce [bout de doc dans Vue.js](https://vuejs.org/v2/guide/transitions.html#List-Move-Transitions) le lendemain de la publication de cet article&nbsp;! Le composant `transition` y est implémenté avec les animations FLIP :)
 

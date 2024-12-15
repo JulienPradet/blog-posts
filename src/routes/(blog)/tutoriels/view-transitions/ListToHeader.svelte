@@ -126,9 +126,9 @@
 	}
 
 	:global(
-			html::view-transition-old(list-element-final),
-			html::view-transition-new(list-element-final)
-		) {
+		html::view-transition-old(list-element-final),
+		html::view-transition-new(list-element-final)
+	) {
 		block-size: unset;
 		inline-size: unset;
 		translate: -50% -50%;

@@ -21,6 +21,8 @@
 	};
 </script>
 
+<!-- eslint-disable no-irregular-whitespace -->
+
 <Meta {meta} location="/" />
 
 <Headline
@@ -157,7 +159,7 @@
 	}
 
 	.summary li p {
-		margin: 0;
+		margin: 0 !important;
 	}
 
 	@media (min-width: 75rem) {

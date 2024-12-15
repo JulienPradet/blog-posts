@@ -1,6 +1,6 @@
 Le schéma prend toute la place qui lui est mis à disposition.
 
-Voilà qui est mieux. Si on a un `Node` dans notre arbre, on sait que le SVG fera *80&nbsp;&times;&nbsp;30*. Cela dit, est-on bien sûr qu'il fasse *80&nbsp;&times;&nbsp;30*&nbsp;? Après tout, si le noeud a des enfants qui eux même ont des enfants, il sera bien plus grand que *80&nbsp;&times;&nbsp;30*.
+Voilà qui est mieux. Si on a un `Node` dans notre arbre, on sait que le SVG fera _80&nbsp;&times;&nbsp;30_. Cela dit, est-on bien sûr qu'il fasse _80&nbsp;&times;&nbsp;30_&nbsp;? Après tout, si le noeud a des enfants qui eux même ont des enfants, il sera bien plus grand que _80&nbsp;&times;&nbsp;30_.
 
 Nous allons donc devoir déléguer le calcul de cette taille à l'enfant. On pourrait donc remplacer `viewBox = "0 0 80 30"` par quelque chose du style&nbsp;: `Node.getViewBox(nodeElement.props)`. Cela permet de mettre le calcul de la `viewBox` au bon endroit.
 

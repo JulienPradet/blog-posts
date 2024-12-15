@@ -1,6 +1,4 @@
 <script lang="ts">
-	import { afterUpdate } from 'svelte';
-
 	let state = 'idle';
 	let message: string;
 	let name: string;

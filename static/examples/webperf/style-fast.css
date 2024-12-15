@@ -16,8 +16,8 @@
 	font-style: normal;
 	font-display: fallback;
 	src: url(/examples/webperf/Ovo-critical.woff2) format('woff2');
-	unicode-range: U+9, U+A, U+20, U+27-29, U+2C-2E, U+3F, U+41-48, U+4A-4E, U+50, U+52, U+53, U+55-57,
-		U+5A, U+5F, U+61-69, U+6B-7A, U+A0, U+E0, U+E8-EA, U+F4, U+F9, U+142, U+1F50E;
+	unicode-range: U+9, U+A, U+20, U+27-29, U+2C-2E, U+3F, U+41-48, U+4A-4E, U+50, U+52, U+53,
+		U+55-57, U+5A, U+5F, U+61-69, U+6B-7A, U+A0, U+E0, U+E8-EA, U+F4, U+F9, U+142, U+1F50E;
 }
 
 :root {

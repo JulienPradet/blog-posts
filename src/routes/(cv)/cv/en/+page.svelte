@@ -10,7 +10,7 @@
 </script>
 
 <svelte:head>
-	<html lang="en-us" />
+	<html lang="en-us"></html>
 	<title>Julien Pradet's Resume</title>
 	<meta
 		name="description"
@@ -54,13 +54,15 @@
 				tests analysis)
 			</li>
 			<li>
-				Improved Web Performance and Core Web Vitals (Mobile <abbr tabIndex="-1" title="Largest Contentful Paint"
-					>LCP</abbr
+				Improved Web Performance and Core Web Vitals (Mobile <abbr
+					tabIndex="-1"
+					title="Largest Contentful Paint">LCP</abbr
 				>
 				{'<'} 2.4s from 65% to 92%)
 			</li>
 			<li>
-				Proposals & development of tools to improve back/front collaboration & efficiency (<abbr tabIndex="-1"
+				Proposals & development of tools to improve back/front collaboration & efficiency (<abbr
+					tabIndex="-1"
 					title="Request For Comments">RFC</abbr
 				>, <abbr tabIndex="-1" title="Architecture Decision Record">ADR</abbr>, Roadmaps)
 			</li>

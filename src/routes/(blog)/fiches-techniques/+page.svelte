@@ -6,13 +6,13 @@
 
 	import { pages } from '../../../../.svelte-kit/custom/pages';
 	import meta from './meta';
-	import type { ArticleMeta } from '../../../components/ArticleMeta';
+	import type { ArticleMeta, WithLocation } from '../../../components/ArticleMeta';
 	import { sortByDate } from '../../../components/util/sortByDate';
 	import Meta from '../../../components/Meta.svelte';
 
 	const articles = pages.filter(
 		(page) => page.type === 'article' && meta.filter(page)
-	) as ArticleMeta[];
+	) as WithLocation<ArticleMeta>[];
 
 	articles.sort(sortByDate);
 </script>

@@ -1,47 +1,43 @@
-import React from "react";
-import PropTypes from "prop-types";
+import React, { createContext, useCallback, useMemo, useState } from 'react';
 
-class SpyProvider extends React.Component {
-  constructor() {
-    super();
-    this.state = {
-      targets: {}
-    };
-    this.registerTarget = this.registerTarget.bind(this);
-  }
+export const SpyContext = createContext({
+	targets: {},
+	/**
+	 * @param {string} _key
+	 * @param {unknown} _value
+	 */
+	registerTarget: (_key, _value) => {}
+});
 
-  getChildContext() {
-    return {
-      spy: {
-        registerTarget: this.registerTarget,
-        targets: this.state.targets
-      }
-    };
-  }
+/**
+ * @param {Object} param0
+ * @param {import('react').ReactNode} param0.children
+ */
+function SpyProvider({ children }) {
+	const [targets, setTargets] = useState({});
+	const registerTarget = useCallback(
+		/**
+		 *
+		 * @param {string} key
+		 * @param {unknown} target
+		 */
+		(key, target) => {
+			setTargets((oldTargets) => ({
+				...oldTargets,
+				[key]: target
+			}));
+		},
+		[]
+	);
 
-  registerTarget(key, target) {
-    this.setState(state => ({
-      targets: {
-        ...state.targets,
-        [key]: target
-      }
-    }));
-  }
+	const contextValue = useMemo(() => {
+		return {
+			registerTarget,
+			targets
+		};
+	}, []);
 
-  render() {
-    return React.Children.only(this.props.children);
-  }
+	return <SpyContext.Provider value={contextValue}>{children}</SpyContext.Provider>;
 }
-
-SpyProvider.propTypes = {
-  children: PropTypes.node.isRequired
-};
-
-SpyProvider.childContextTypes = {
-  spy: PropTypes.shape({
-    registerTarget: PropTypes.func.isRequired,
-    targets: PropTypes.object.isRequired
-  }).isRequired
-};
 
 export default SpyProvider;

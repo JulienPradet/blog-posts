@@ -1,6 +1,6 @@
 import { relative, dirname } from 'path';
 import { filter, mergeMap, of } from 'rxjs';
-import { PageType, WithLocation } from '../../components/ArticleMeta';
+import { type PageType, type WithLocation } from '../../components/ArticleMeta';
 import paths from '../paths.js';
 import { getRecursiveFiles } from '../util/fs';
 import reduceObservable from '../util/reduceObservable';
@@ -30,9 +30,9 @@ const getMetas = () => {
 	);
 
 	return reduceObservable<WithLocation<PageType>[], WithLocation<PageType>>(
-		(acc, meta) => [...acc, meta],
+		(acc, meta) => (meta === null ? acc : [...acc, meta]),
 		[],
-		meta$
+		meta$.pipe(filter((meta) => meta !== null))
 	);
 };
 

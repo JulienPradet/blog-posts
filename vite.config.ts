@@ -1,20 +1,25 @@
+/* eslint-disable @typescript-eslint/ban-ts-comment */
 import { sveltekit } from '@sveltejs/kit/vite';
 import babel from 'vite-plugin-babel';
 import { defineConfig } from 'vitest/config';
 import { plugin as mdPlugin, Mode } from 'vite-plugin-markdown';
 import markdownIt from 'markdown-it';
 import markdownItAnchor from 'markdown-it-anchor';
+// @ts-expect-error
 import markdownItCheckbox from 'markdown-it-checkbox';
 
 export default defineConfig({
 	plugins: [
+		// @ts-expect-error
 		sveltekit(),
+		// @ts-expect-error
 		babel({
 			filter: /\.(mdx|jsx|tsx)$/,
 			babelConfig: {
 				presets: ['@babel/preset-react']
 			}
 		}),
+		// @ts-expect-error
 		mdPlugin({
 			mode: [Mode.HTML],
 			markdown: (body: string) => {

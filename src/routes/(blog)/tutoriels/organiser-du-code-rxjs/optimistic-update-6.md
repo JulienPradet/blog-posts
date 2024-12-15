@@ -1,5 +1,4 @@
-
-Et voilà ! Nous avons de l'optimistic update dans notre application ! On a dû faire quelques modifications, mais dans l'ensemble, on n'a pas eu *beaucoup* de travail.
+Et voilà ! Nous avons de l'optimistic update dans notre application ! On a dû faire quelques modifications, mais dans l'ensemble, on n'a pas eu _beaucoup_ de travail.
 
 C'est d'une part grâce à la programmation réactive&nbsp;: en ajoutant des fonctionnalités, on n'a aucune chance de casser le reste à condition de ne pas renommer à tord et à travers les variables.
 
@@ -15,7 +14,6 @@ Essayez donc de rester le plus possible sur des structures immutables. C'est un 
 
 /!\ TODO Lien explicatif de l'immutabilité + lien article pour faire de l'immutable en JS + lien vers immutable.js /!\
 
-
 #### Ajouter d'autres données dans le model$
 
 Afin de rester sur un tutoriel à peu près digeste, j'ai fait en sorte que le `model$` soit constitué uniquement de la liste des messages. Cependant, dans une application, vraisemblablement, on doit stocker plus de choses dans le modèle. Comment faire ?
@@ -23,12 +21,11 @@ Afin de rester sur un tutoriel à peu près digeste, j'ai fait en sorte que le `
 L'idée est de traiter chaque partie du modèle séparément puis de les fusionner. Par exemple, si je veux stocker dans mon modèle le nom de l'utilisateur connecté et le nom de la personne avec qui je suis entrain de discuter, je commencerais par construire deux nouveaux Observables `me$` et `contact$` qui auront leur propre cycle de vie. Une fois qu'ils sont construits, je peux alors les fusionner&nbsp;:
 
 ```js
-const model$ = messageList$
-  .combineLatest(me$, contact$, (messageList, me, contact) => ({
-    messageList,
-    me,
-    contact
-  }))
+const model$ = messageList$.combineLatest(me$, contact$, (messageList, me, contact) => ({
+	messageList,
+	me,
+	contact
+}));
 ```
 
 C'est un peu comme si on avait plusieurs petites applications dans une seule application. Cette méthode est d'ailleurs à privilégier plutôt que de complexifier le modèle existant.

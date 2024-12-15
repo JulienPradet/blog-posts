@@ -28,8 +28,8 @@ function animate(elements, changeCallback) {
 	const elementsArray = Array.isArray(elements)
 		? elements
 		: elements.length
-		  ? [...elements]
-		  : [elements];
+			? [...elements]
+			: [elements];
 
 	const flipList = elementsArray.filter(Boolean).map((element) => new Flip(element));
 

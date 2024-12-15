@@ -11,23 +11,3 @@ declare module '*.md' {
 	// Modify below per your usage
 	export { attributes, toc, html };
 }
-
-declare module '*?inline' {
-	const html: string;
-	export default html;
-}
-
-declare module '*?raw' {
-	const html: string;
-	export default html;
-}
-
-declare module '*.png' {
-	const url: string;
-	export default url;
-}
-
-declare module '*.jpg' {
-	const url: string;
-	export default url;
-}

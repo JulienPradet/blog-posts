@@ -42,7 +42,7 @@
 				</NavigationItem>
 			</svelte:fragment>
 		</NavigationItem>
-		<NavigationItem href="/developpeur-web-performance/" type="main">
+		<NavigationItem href="/developpeur-web-performance/">
 			<svelte:fragment slot="label"><strong>Travailler ensemble</strong></svelte:fragment>
 		</NavigationItem>
 		<NavigationItem href="https://piaille.fr/@julienpradet">

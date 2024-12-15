@@ -9,8 +9,8 @@
 	import { html as howItWorks } from './how-it-works.md';
 	import { html as whatAboutLayout1 } from './what-about-layout1.md';
 	import { html as whatAboutLayout2 } from './what-about-layout2.md';
-	import whatAboutLayoutHtmlCode from './what-about-layout-html.css?inline';
-	import whatAboutLayoutCssCode from './what-about-layout-css.css?inline';
+	import whatAboutLayoutHtmlCode from './what-about-layout-html.txt?raw';
+	import whatAboutLayoutCssCode from './what-about-layout-css.txt?raw';
 	import HoverButton from './HoverButton.svelte';
 	import Headline from '../../../../components/Headline.svelte';
 	import MainContent from '../../../../components/MainContent.svelte';

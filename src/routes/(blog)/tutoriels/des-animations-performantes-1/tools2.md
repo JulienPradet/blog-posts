@@ -7,10 +7,11 @@ Techniquement, il faut&nbsp;:
 
 ```css
 button {
-  transition: transform 0.3s ease;
+	transition: transform 0.3s ease;
 }
-button:hover, button:focus {
-  transform: scale(1.2);
+button:hover,
+button:focus {
+	transform: scale(1.2);
 }
 ```
 

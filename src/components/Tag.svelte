@@ -41,7 +41,9 @@
 		right: 0.5rem;
 		height: 0;
 		background: var(--color-creme);
-		transition: height 0.15s ease-in-out, background-color 0.15s ease-in-out;
+		transition:
+			height 0.15s ease-in-out,
+			background-color 0.15s ease-in-out;
 	}
 
 	:global(.page) .tag:hover::before,

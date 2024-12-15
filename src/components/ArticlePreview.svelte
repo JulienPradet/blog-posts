@@ -8,7 +8,7 @@
 </script>
 
 <article class="article-preview">
-	<p class="metadata small" />
+	<p class="metadata small"></p>
 	<h2 class="h4">
 		<a href={article.location}>{article.title}</a>
 	</h2>
@@ -32,7 +32,7 @@
 		margin-bottom: 0.5rem;
 	}
 	.metadata {
-		margin: 0;
+		margin: 0.5rem 0 0 0;
 	}
 	.description {
 		margin: 0.5rem 0 0 0;

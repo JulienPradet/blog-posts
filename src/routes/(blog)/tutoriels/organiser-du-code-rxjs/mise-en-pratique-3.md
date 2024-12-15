@@ -13,9 +13,9 @@ Au niveau applicatif, comment ça se passe pour envoyer un message&nbsp;? Un uti
 // de soumission du formulaire et on le transforme
 // en intention
 const sendMessageIntent$ = submitMessageEvent$
-  // A partir de l'évènement, on récupère le formulaire
-  .map((event) => event.sourceTarget)
-  // A partir du formulaire, on récupère les données
-  .map((formElement) => new FormData(formElement))
-  .map((formData) => formData.serialize())
+	// A partir de l'évènement, on récupère le formulaire
+	.map((event) => event.sourceTarget)
+	// A partir du formulaire, on récupère les données
+	.map((formElement) => new FormData(formElement))
+	.map((formData) => formData.serialize());
 ```

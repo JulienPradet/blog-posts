@@ -2,7 +2,7 @@
 
 C'est donc un composant essentiel de votre application qui devra gérer tous les cas de figure : <abbr tabIndex="-1" title="Server Side Rendering">SSR</abbr>, Testing, Code Splitting, Authentification, etc. On est donc bien content quand une lib s'en charge pour nous.
 
-A l'heure où j'écris cet article, la [v4](https://reacttraining.com/react-router/) est en *beta*. Cependant, j'utilise déjà depuis un moment la v4 *alpha* sur mes projets persos. Sûrement parce que je suis un **#coolkid** mais surtout parce qu'elle me paraît plus intuitive et s'incorpore mieux dans les projets React. C'est ce que je vais essayer de détailler dans cet article.
+A l'heure où j'écris cet article, la [v4](https://reacttraining.com/react-router/) est en _beta_. Cependant, j'utilise déjà depuis un moment la v4 _alpha_ sur mes projets persos. Sûrement parce que je suis un **#coolkid** mais surtout parce qu'elle me paraît plus intuitive et s'incorpore mieux dans les projets React. C'est ce que je vais essayer de détailler dans cet article.
 
 ### Comment c'était avant ?
 
@@ -12,22 +12,22 @@ Concrètement, ça ressemblait à ça :
 
 ```jsx
 ReactDOM.render(
-  <Router history={browserHistory}>
-    <Route path='/' component={Layout}>
-      <IndexRoute component={Home} />
-      <Route path='about' component={About} />
-      <Route path=':article' component={Article} />
-    </Route>
-  </Router>,
-  domElement
-)
+	<Router history={browserHistory}>
+		<Route path="/" component={Layout}>
+			<IndexRoute component={Home} />
+			<Route path="about" component={About} />
+			<Route path=":article" component={Article} />
+		</Route>
+	</Router>,
+	domElement
+);
 ```
 
 En prenant cette configuration de routes, si vous êtes sur l'url `/`, c'est comme si vous aviez écrit :
 
 ```jsx
 <Layout>
-  <Home />
+	<Home />
 </Layout>
 ```
 
@@ -35,9 +35,11 @@ Si vous êtes sur `/super-article-qu-il-faut-partager`, ce serait plutôt :
 
 ```jsx
 <Layout>
-  <Article params={{
-    article: 'super-article-qu-il-faut-partager'
-  }} />
+	<Article
+		params={{
+			article: 'super-article-qu-il-faut-partager'
+		}}
+	/>
 </Layout>
 ```
 
@@ -49,30 +51,24 @@ Si on veut transformer l'exemple des routes du dessus, en pratique cela ressembl
 
 ```jsx
 ReactDOM.render(
-  <BrowserRouter>
-    <Layout>
-      <Switch>
-        <Route path='/' render={() => (
-          <Home />
-        )} />
-        <Route path='/about' render={() => (
-          <About />
-        )} />
-        <Route path='/:article' render={({ match }) => (
-          <Article id={match.params.article} />
-        )} />
-      </Switch>
-    </Layout>
-  </BrowserRouter>,
-  domElement
-)
+	<BrowserRouter>
+		<Layout>
+			<Switch>
+				<Route path="/" render={() => <Home />} />
+				<Route path="/about" render={() => <About />} />
+				<Route path="/:article" render={({ match }) => <Article id={match.params.article} />} />
+			</Switch>
+		</Layout>
+	</BrowserRouter>,
+	domElement
+);
 ```
 
 Ce n'est pas très impressionnant et n'apporte pas beaucoup de valeur. En gros, pour faire cette transformation, on a :
 
-* mis `Layout` directement dans le `ReactDOM.render` plutôt que dans une route
-* entouré les routes filles dans un [`Switch`](https://reacttraining.com/react-router/#switch)
-* et changé un peu l'API des routes (en vrai, vous pourriez rester sur la propriété [`component`](https://reacttraining.com/react-router/#route.component), mais j'aime beaucoup ce `render`)
+- mis `Layout` directement dans le `ReactDOM.render` plutôt que dans une route
+- entouré les routes filles dans un [`Switch`](https://reacttraining.com/react-router/#switch)
+- et changé un peu l'API des routes (en vrai, vous pourriez rester sur la propriété [`component`](https://reacttraining.com/react-router/#route.component), mais j'aime beaucoup ce `render`)
 
 Voilà, vous savez migrer vers la v4.
 
@@ -86,82 +82,85 @@ La première chose, c'est que les `Routes` peuvent être utilisées dans n'impor
 
 Ainsi, si `/:article` devait avoir les sous-routes `/:article/read` et `/:article/comment`, vous pourriez les définir directement dans le composant `Article` plutôt que de devoir le faire à la racine de votre application. Résultat&nbsp;: Vous pouvez enfin réellement découper votre application en mini-applications.
 
-> *&ndash; Oulah, ça va faire des spaghettis ça&nbsp;!*
+> _&ndash; Oulah, ça va faire des spaghettis ça&nbsp;!_
 
-Non. La peur du spaghetti vient du fait qu'on ne connait pas d'avance la structure globale de l'ensemble de l'application. Mais quand on fait du React, **le but n'est pas de faire une *grosse* application, mais plein de *petites* applications**. D'une part, c'est plus facile de raisonner ainsi parce qu'il n'y a plus besoin de connaître tous les rouages pour savoir ce qu'on peut casser avec nos modifications. D'autre part on accède au graal du mode `plug-n-play`&nbsp;: pour rajouter toute la gestion des articles il n'y a qu'une `Route` à ajouter.
+Non. La peur du spaghetti vient du fait qu'on ne connait pas d'avance la structure globale de l'ensemble de l'application. Mais quand on fait du React, **le but n'est pas de faire une _grosse_ application, mais plein de _petites_ applications**. D'une part, c'est plus facile de raisonner ainsi parce qu'il n'y a plus besoin de connaître tous les rouages pour savoir ce qu'on peut casser avec nos modifications. D'autre part on accède au graal du mode `plug-n-play`&nbsp;: pour rajouter toute la gestion des articles il n'y a qu'une `Route` à ajouter.
 
 De plus, cela simplifie la gestion des besoins avancés tels que le <abbr tabIndex="-1" title="Hot Module Replacement">HMR</abbr> (même si je n'en ressens pas le besoin sur des applications avec Router), le SSR, le Code Splitting, etc.
 
 #### Autant de Routes que l'on veut
 
-Avant, le Router choisissait à votre place la route affichée. La première qui *matchait* était élue grande gagnante et avait l'honneur d'apparaître sur votre page. Dorénavant, si vous enlevez le `Switch` et qu'une route *match* elle est affichée, y compris si celle au-dessus *match* aussi.
+Avant, le Router choisissait à votre place la route affichée. La première qui _matchait_ était élue grande gagnante et avait l'honneur d'apparaître sur votre page. Dorénavant, si vous enlevez le `Switch` et qu'une route _match_ elle est affichée, y compris si celle au-dessus _match_ aussi.
 
 Concrètement, si j'utilise ce bout de code, et que je vais sur l'URL `/about`, qu'est ce qui est affiché ?
 
 ```jsx
 ReactDOM.render(
-  <BrowserRouter>
-    <Layout>
-      <Route path='/' render={() => <Home />} />
-      <Route path='/about' render={() => <About />} />
-      <Route path='/:article' render={({ match }) => <Article id={match.params.article} />} />
-    </Layout>
-  </BrowserRouter>,
-  domElement
-)
+	<BrowserRouter>
+		<Layout>
+			<Route path="/" render={() => <Home />} />
+			<Route path="/about" render={() => <About />} />
+			<Route path="/:article" render={({ match }) => <Article id={match.params.article} />} />
+		</Layout>
+	</BrowserRouter>,
+	domElement
+);
 ```
 
-* `Home` va matcher étant donné que l'url commence par `/`
-* `About` aussi vu que c'est exactement cette URL que l'on utilise
-* `Article` aussi avec `"about"` pour `id` .
+- `Home` va matcher étant donné que l'url commence par `/`
+- `About` aussi vu que c'est exactement cette URL que l'on utilise
+- `Article` aussi avec `"about"` pour `id` .
 
-Je ne vous cache pas que pour le coeur des `Routes`, c'est embêtant. Mais depuis que la *beta* est là, [`Switch`](https://reacttraining.com/react-router/#switch) permet de répondre à ce besoin.
+Je ne vous cache pas que pour le coeur des `Routes`, c'est embêtant. Mais depuis que la _beta_ est là, [`Switch`](https://reacttraining.com/react-router/#switch) permet de répondre à ce besoin.
 
 Par contre, pour tout le reste, c'est absoluement génial. Grâce à ça vous pouvez par exemple gérer votre menu et sous-menus avec les Routes !
 
 ```jsx
 <ul>
-  // 1. La Route est tout le temps affichée
-  <Route path='/super-article' children={({match}) => (
-    // 2. Affichage conditionnel
-    <li className={match && match.isExact ? 'active' : ''}>
-      // 3. Affichage permanent
-      <Link to='/super-article'>Mon Super Article</Link>
-      // 4. Affichage du sous-menu
-      {match && (
-        <ul>
-          <Link to='/read'>Lire</Link>
-          <Link to='/comment'>Commenter</Link>
-        </ul>
-      )}
-    </li>
-  )} />
-
-  // Possible de rajouter d'autres routes ici
+	// 1. La Route est tout le temps affichée
+	<Route
+		path="/super-article"
+		children={({ match }) => (
+			// 2. Affichage conditionnel
+			<li className={match && match.isExact ? 'active' : ''}>
+				// 3. Affichage permanent
+				<Link to="/super-article">Mon Super Article</Link>
+				// 4. Affichage du sous-menu
+				{match && (
+					<ul>
+						<Link to="/read">Lire</Link>
+						<Link to="/comment">Commenter</Link>
+					</ul>
+				)}
+			</li>
+		)}
+	/>
+	// Possible de rajouter d'autres routes ici
 </ul>
 ```
-  1. **La Route est tout le temps affichée**  
-    Le but est de tout le temps afficher le lien vers mon article. Pour cela, il y a la propriété `children` qui force l'affichage de la Route. Cependant, l'objet `match` ne sera définit que si la Route correspond à l'URL en cours d'affichage.
 
-  2. **Affichage conditionnel**  
-    Je peux jouer sur l'affichage de cet élément en fonction de l'URL en cours de visite. Ici, je l'ai fait avec une classe, mais on pourrait imaginer ajouter une mini description, etc. (`isExact` permet de faire en sorte que ce soit exactement cette URL et pas une sous-route.)
+1. **La Route est tout le temps affichée**  
+   Le but est de tout le temps afficher le lien vers mon article. Pour cela, il y a la propriété `children` qui force l'affichage de la Route. Cependant, l'objet `match` ne sera définit que si la Route correspond à l'URL en cours d'affichage.
 
-  3. **Affichage permanent**  
-    Il faut que mon lien soit tout le temps affiché pour amener vers mon article.
+2. **Affichage conditionnel**  
+   Je peux jouer sur l'affichage de cet élément en fonction de l'URL en cours de visite. Ici, je l'ai fait avec une classe, mais on pourrait imaginer ajouter une mini description, etc. (`isExact` permet de faire en sorte que ce soit exactement cette URL et pas une sous-route.)
 
-  4. **Affichage du sous-menu**  
-    Le sous-menu ne doit s'afficher que lorsque l'URL correspond. J'ai mis des liens en dur dans la liste, mais on pourrait imaginer de nouvelles Routes.
+3. **Affichage permanent**  
+   Il faut que mon lien soit tout le temps affiché pour amener vers mon article.
+
+4. **Affichage du sous-menu**  
+   Le sous-menu ne doit s'afficher que lorsque l'URL correspond. J'ai mis des liens en dur dans la liste, mais on pourrait imaginer de nouvelles Routes.
 
 Et le mieux dans tout ça, c'est que ce ne sont que des composants. Il est donc tout à fait possible de faire un composant qui simplifieras l'écriture finale :
 
 ```jsx
 <ul>
-  <MenuItem to='/super-article' label='Mon Super Article'>
-    <ul>
-      <Link to='/read'>Lire</Link>
-      <Link to='/comment'>Commenter</Link>
-    </ul>
-  </MenuItem>
+	<MenuItem to="/super-article" label="Mon Super Article">
+		<ul>
+			<Link to="/read">Lire</Link>
+			<Link to="/comment">Commenter</Link>
+		</ul>
+	</MenuItem>
 </ul>
 ```
 
@@ -213,9 +212,9 @@ Si vous avez déjà du code en production, la migration sera peut-être un petit
 
 En tout cas, si un point n'est pas clair ou si vous avez juste envie de commenter, n'hésitez pas à venir [me poser des questions](https://twitter.com/JulienPradet). :)
 
-----
+---
 
 Sources complémentaires :
 
-* [React Router - Github](https://github.com/ReactTraining/react-router)
-* [React Router V4 - Documentation](https://reacttraining.com/react-router)
+- [React Router - Github](https://github.com/ReactTraining/react-router)
+- [React Router V4 - Documentation](https://reacttraining.com/react-router)

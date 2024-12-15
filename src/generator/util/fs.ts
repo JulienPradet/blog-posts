@@ -1,4 +1,4 @@
-import { EMPTY, expand, filter, map, mergeMap, Observable, ObservableInput, of } from 'rxjs';
+import { EMPTY, expand, filter, map, mergeMap, Observable, type ObservableInput, of } from 'rxjs';
 import fs from 'fs';
 import path from 'path';
 import { mkdirp as mkdirpLib } from 'mkdirp';
@@ -88,7 +88,9 @@ function mkdirp(path: string) {
 	});
 }
 
-function getRecursiveFiles(inputDir$: Observable<string>) {
+function getRecursiveFiles(
+	inputDir$: Observable<string>
+): Observable<{ filepath: string; isDirectory: false }> {
 	return inputDir$.pipe(
 		mergeMap((dirpath) => readdir(dirpath)),
 		mergeMap((files) => files), // flatten all files
@@ -103,7 +105,7 @@ function getRecursiveFiles(inputDir$: Observable<string>) {
 			ObservableInput<{ filepath: string; isDirectory: boolean }>
 		>(({ filepath, isDirectory }) => (isDirectory ? getRecursiveFiles(of(filepath)) : EMPTY)),
 		filter(({ isDirectory }) => !isDirectory),
-		map(({ filepath }: { filepath: string }) => ({ filepath }))
+		map(({ filepath }: { filepath: string }) => ({ filepath, isDirectory: false }))
 	);
 }
 

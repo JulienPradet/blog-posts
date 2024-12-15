@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { afterUpdate, beforeUpdate, onMount } from 'svelte';
+	import { afterUpdate, beforeUpdate } from 'svelte';
 	import Flip from './flip/flip';
 
 	let container: HTMLDivElement | null = null;

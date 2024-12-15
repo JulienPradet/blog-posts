@@ -1,3 +1,5 @@
+> **Mise à jour :** Cet article existait à une époque où React ne fournissait pas de bons outils. Aujourd'hui avec [`useContext`](https://react.dev/reference/react/useContext) et une bonne memoization, vous ne devriez pas avoir besoin de tout ça.
+
 L'idée derrière React est de construire un arbre de composants. Le père indique au fils comment s'afficher en lui passant des propriétés. Le fils passe à son tour des propriétés à ses propres fils, etc. Pourtant, aujourd'hui je ne vais pas vous parler des propriétés, mais je vais plutôt vous parler de comment éviter de passer des propriétés.
 
 En effet, quand les gens commencent sur cette techno, la première déception est la verbosité que cela impose&nbsp;: il faut passer les propriétés une par une. D'autant plus qu'il fortement conseillé de réduire la taille de ses composants. Le nombre de passations à faire explose rapidement.

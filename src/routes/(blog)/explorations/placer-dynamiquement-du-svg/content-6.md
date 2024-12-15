@@ -1,10 +1,10 @@
 ### Affichage des enfants des noeuds
 
 Maintenant qu'un noeud peut avoir une taille dynamique sans poser problème au parent, rendons le vraiment dynamique. Pour cela, nous allons utiliser exactement la même technique mais à l'intérieur de chaque noeud&nbsp;:
+
 1. on construit le contexte qui contient tous les enfants pour savoir comment les afficher
 2. on calcule la taille globale du noeud en incluant les enfants (`width`, `height`)
 3. on reforme le noeud à afficher en incluant les enfants (`element`)
-
 
 ```jsx
 Node.getContext = props => {
@@ -38,7 +38,7 @@ Node.getContext = props => {
   const children = Array.isArray(props.children)
     ? props.children :
     [props.children]
-  
+
   // Chaque enfant vient ajouter sa
   // largeur et sa hauteur au contexte
   // global et ajoute les éléments

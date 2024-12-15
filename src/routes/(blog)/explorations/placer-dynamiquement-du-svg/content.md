@@ -6,4 +6,4 @@ C'est donc naturellement que j'aime lier les deux.
 
 ## Faire des schémas en SVG
 
-C'est ainsi que je me suis retrouvé à écrire une bibliothèque qui génère des schemas en SVG représentant des Observables (au sens des bibliothèques de programmation reactive, ex&nbsp;: *RxJS*). Voici un exemple de ce à quoi ça peut ressembler&nbsp;:
+C'est ainsi que je me suis retrouvé à écrire une bibliothèque qui génère des schemas en SVG représentant des Observables (au sens des bibliothèques de programmation reactive, ex&nbsp;: _RxJS_). Voici un exemple de ce à quoi ça peut ressembler&nbsp;:

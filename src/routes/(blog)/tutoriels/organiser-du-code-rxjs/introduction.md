@@ -1,4 +1,4 @@
-RxJS est une librairie permettant de tirer profit des *Observables* et ainsi coder de manière *réactive*. Si ces termes vous sont inconnus, n'hésitez pas à jeter un coup d'oeil à [mon article d'introduction sur le sujet](https://www.julienpradet.fr/posts/introduction-a-rxjs "Introduction à RxJS").
+RxJS est une librairie permettant de tirer profit des _Observables_ et ainsi coder de manière _réactive_. Si ces termes vous sont inconnus, n'hésitez pas à jeter un coup d'oeil à [mon article d'introduction sur le sujet](https://www.julienpradet.fr/posts/introduction-a-rxjs 'Introduction à RxJS').
 
 Ce que j'apprécie avec cette librairie, c'est son paradigme. On n'est plus sous l'étandard de la traditionnelle programmation impérative et on passe du côté de la programmation fonctionnelle et réactive. Malheureusement, en changeant de pardigme, on perd nos repères. Il faut donc les reconstruire, sous peine de faire des spaghettis.
 

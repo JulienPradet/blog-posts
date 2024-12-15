@@ -5,24 +5,25 @@ Le but de ce dépôt est de fournir les exemples disponibles dans ["PWA : Interc
 Afin d'accéder aux exemples&nbsp;:
 
 1. récupérez le dépôt sur Github :
-    ```
-    git clone git@github.com:JulienPradet/blog-posts.git
-    ```
+   ```
+   git clone git@github.com:JulienPradet/blog-posts.git
+   ```
 2. Allez dans le dossier d'exemple
-    ```
-    cd blog-posts/src/content/fiches-techniques/pwa-intercepter-les-requetes-http-et-les-mettre-en-cache/examples
-    ```
+   ```
+   cd blog-posts/src/content/fiches-techniques/pwa-intercepter-les-requetes-http-et-les-mettre-en-cache/examples
+   ```
 3. Installez les dépendances
-    ```
-    npm install
-    ```
+   ```
+   npm install
+   ```
 4. Lancez le serveur qui met à disposition les exemples
-    ```
-    npm start
-    ```
+   ```
+   npm start
+   ```
 5. Ouvrez l'adresse `http://localhost:8080/` dans votre navigateur
 
 Si vous avez des problèmes lors de l'affichage des exemples, veillez à ce que&nbsp;:
+
 1. le serveur ait pu démarré convenablement
 2. un Service Worker ne soit pas déjà installé sur localhost:8080
 3. votre navigateur supporte les Service Workers

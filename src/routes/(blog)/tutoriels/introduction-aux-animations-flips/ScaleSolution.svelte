@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { afterUpdate, beforeUpdate, onMount } from 'svelte';
+	import { afterUpdate, beforeUpdate } from 'svelte';
 	import Flip from './flip/flip';
 
 	let opened = false;
@@ -41,7 +41,7 @@
 		</button>
 	</div>
 	<div class="child">
-		<div class="background" bind:this={background} />
+		<div class="background" bind:this={background}></div>
 
 		<div bind:this={container} class="content">
 			<div class="inner-content">Salut, moi c'est le contenu&nbsp;! HOHO</div>

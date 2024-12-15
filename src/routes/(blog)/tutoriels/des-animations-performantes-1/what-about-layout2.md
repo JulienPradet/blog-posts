@@ -1,4 +1,4 @@
-Ici, l'étape de *Layout* va commencer par représenter la balise `nav`.
+Ici, l'étape de _Layout_ va commencer par représenter la balise `nav`.
 
 Il calcule donc la position du titre et celui-ci se positionne à gauche et prend le moins de place possible (`float: left`).
 
@@ -11,29 +11,31 @@ Le positionnement de la navigation est fini et le navigateur peut passer à la s
 Maintenant, imaginons que vous changiez la taille de votre titre au survol.
 
 ```css
-h1:hover { font-size: 2em; }
+h1:hover {
+	font-size: 2em;
+}
 ```
 
 Cela veut dire que la taille que va prendre le titre va doubler. Mais cela veut aussi dire qu'il reste moins de place pour la liste du menu, et donc qu'elle va potentiellement passer sur plusieurs lignes et prendre plus de place en hauteur. Et si la navigation prend plus de place, le reste de la page va aussi descendre et donc a besoin d'être recalculé. Bref, il a besoin de tout recalculer à partir de la seule balise qui a changé de style.
 
-En soit, qu'il recalcule tout n'est pas très grave parce que à l'échelle de l'utilisateur ce n'est pas très long. Par contre, si ce changement est animé, cela veut dire que chaque nouvel affichage prendra plus longtemps, et donc que l'animation sera ralentie, voire *moche*.
+En soit, qu'il recalcule tout n'est pas très grave parce que à l'échelle de l'utilisateur ce n'est pas très long. Par contre, si ce changement est animé, cela veut dire que chaque nouvel affichage prendra plus longtemps, et donc que l'animation sera ralentie, voire _moche_.
 
 ### Comment l'optimiser&nbsp;?
 
-Pour éviter d'avoir à tout recalculer à chaque fois, on va essayer de ne plus changer le *Layout* à chaque étape de l'animation. C'est possible parce que certaines propriétés ne changent pas le *flow* de la page.
+Pour éviter d'avoir à tout recalculer à chaque fois, on va essayer de ne plus changer le _Layout_ à chaque étape de l'animation. C'est possible parce que certaines propriétés ne changent pas le _flow_ de la page.
 
 C'est valable notamment pour toutes les propriétés qui affectent les couleurs (dont `opacity`), mais aussi pour la propriété `transform` étant donné que celle-ci n'a pas d'impact sur le reste des éléments.
 
 ### Comment savoir si la propriété est bonne ou mauvaise&nbsp;?
 
-Pour le constater par vous même, vous pouvez ouvrir vos DevTools dans votre navigateur préféré et aller dans l'onglet permettant d'inspecter les performances de votre application (*Timeline* sur Chrome&Co, *Performance* sur Firefox). Une fois sur l'onglet, il vous faut enregistrer une séquence pendant laquelle vous lancerez manuellement votre animation.
+Pour le constater par vous même, vous pouvez ouvrir vos DevTools dans votre navigateur préféré et aller dans l'onglet permettant d'inspecter les performances de votre application (_Timeline_ sur Chrome&Co, _Performance_ sur Firefox). Une fois sur l'onglet, il vous faut enregistrer une séquence pendant laquelle vous lancerez manuellement votre animation.
 
 <figure tabindex="0">
 <img src="/images/posts/des-animations-performantes/layout.png" alt="Timeline Google Chrome avec du Layout" />
 <figcaption>Voici à quoi ressemble la Timeline enregistrée via Chrome</figcaption>
 </figure>
 
-Et ce qui va vous intéresser, c'est la partie où il y a écrit *Layout* (en violet). Si elle est présente tout au long de votre animation, c'est que votre animation est couteuse. Et, bien que cela puisse s'afficher correctement dans votre navigateur, pensez aux mobiles qui auront du mal à suivre le rythme&nbsp;!
+Et ce qui va vous intéresser, c'est la partie où il y a écrit _Layout_ (en violet). Si elle est présente tout au long de votre animation, c'est que votre animation est couteuse. Et, bien que cela puisse s'afficher correctement dans votre navigateur, pensez aux mobiles qui auront du mal à suivre le rythme&nbsp;!
 
 Il est important de faire le test sur plusieurs navigateurs car l'animation peut être rapide sur l'un et lente sur l'autre.
 
@@ -51,6 +53,6 @@ La semaine prochaine, toujours sur les performances, nous verrons qu'il est poss
 
 En attendant, voici quelques sources pour vous permettre d'approfondir le sujet&nbsp;:
 
-* [How Browsers Work](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/#Main_flow_examples)
-* [10 principles for smooth web animations](https://blog.gyrosco.pe/smooth-css-animations-7d8ffc2c1d29#.5nmo6c7wj)
-* [FLIP Your Animations](https://aerotwist.com/blog/flip-your-animations/)
+- [How Browsers Work](https://www.html5rocks.com/en/tutorials/internals/howbrowserswork/#Main_flow_examples)
+- [10 principles for smooth web animations](https://blog.gyrosco.pe/smooth-css-animations-7d8ffc2c1d29#.5nmo6c7wj)
+- [FLIP Your Animations](https://aerotwist.com/blog/flip-your-animations/)

@@ -20,7 +20,7 @@ const typeToTitleColor = {
 const appendChar = ' ';
 let longestTitle = 10;
 
-const appendSpaces = (n, subject = '') => {
+const appendSpaces = (n: number, subject = '') => {
 	while (subject.length < n) {
 		subject = appendChar + subject;
 	}

@@ -12,13 +12,13 @@ Si vous avez des questions, des remarques ou des envies, n'hésitez pas à me co
 
 A bientôt pour de nouvelles aventures&nbsp;!
 
-------
+---
 
 Sources complémentaires&nbsp;:
 
 - [Model-View-Intent](http://futurice.com/blog/reactive-mvc-and-the-virtual-dom) un pattern pour structurer son code en RxJS
 - [Visualisateur d'Observables](https://rxviz.com/)
-- [Faire un ChatBot en Rx](http://real34.github.io/slides/si-utilisateur-etait-fonction-v2/)  - slides de conférence
+- [Faire un ChatBot en Rx](http://real34.github.io/slides/si-utilisateur-etait-fonction-v2/) - slides de conférence
 - [Apprendre à utiliser les opérateurs complexes en RxJS](https://egghead.io/courses/rxjs-beyond-the-basics-operators-in-depth)
 - [CycleJS](https://github.com/cyclejs/cyclejs) - framework qui a mis en place le MVI
 - [Apprendre CycleJS](https://egghead.io/courses/cycle-js-fundamentals)

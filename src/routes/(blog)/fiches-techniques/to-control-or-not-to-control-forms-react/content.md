@@ -1,18 +1,18 @@
-Quand vous faites une application en React, assez rapidement, vous allez avoir besoin de passer par des formulaires. Vous allez donc suivre ce que dit la documentation dans la section [*Forms*](https://facebook.github.io/react/docs/forms.html) et commencer l'implémentation. Ils appellent ça des *Controlled Components*. Ok, cool.
+Quand vous faites une application en React, assez rapidement, vous allez avoir besoin de passer par des formulaires. Vous allez donc suivre ce que dit la documentation dans la section [_Forms_](https://facebook.github.io/react/docs/forms.html) et commencer l'implémentation. Ils appellent ça des _Controlled Components_. Ok, cool.
 
-Une fois que vous avez fini, vous vous rendez compte que tout en bas de la doc il existe une autre façon de faire à base de *[Uncontrolled Components](https://facebook.github.io/react/docs/uncontrolled-components.html)*. *Zut&nbsp;! Encore un choix à faire&nbsp;!* Mais comment ?
+Une fois que vous avez fini, vous vous rendez compte que tout en bas de la doc il existe une autre façon de faire à base de _[Uncontrolled Components](https://facebook.github.io/react/docs/uncontrolled-components.html)_. _Zut&nbsp;! Encore un choix à faire&nbsp;!_ Mais comment ?
 
 ## Controlled Components
 
 ### Kesako&nbsp;?
 
-Ce qu'on appelle communément *Controlled Components* sont les composants sur lesquels vous allez choisir vous-même la valeur qui apparaît. Autrement dit, à tout moment, vous allez lui donner une `value` claire et précise.
+Ce qu'on appelle communément _Controlled Components_ sont les composants sur lesquels vous allez choisir vous-même la valeur qui apparaît. Autrement dit, à tout moment, vous allez lui donner une `value` claire et précise.
 
 ```jsx
 class ControlledInput extends React.Component {
-  render () {
-    return <input type="text" value="valeur de l'input" />
-  }
+	render() {
+		return <input type="text" value="valeur de l'input" />;
+	}
 }
 ```
 
@@ -22,27 +22,23 @@ Cela va donner quelque chose qui ressemble à ça&nbsp;:
 
 ```jsx
 class ControlledInput extends React.Component {
-  constructor () {
-    super()
-    this.state = {
-      value: ''
-    }
-    this.onChange = this.onChange.bind(this)
-  }
+	constructor() {
+		super();
+		this.state = {
+			value: ''
+		};
+		this.onChange = this.onChange.bind(this);
+	}
 
-  onChange (event) {
-    this.setState({
-      value: event.target.value
-    })
-  }
+	onChange(event) {
+		this.setState({
+			value: event.target.value
+		});
+	}
 
-  render () {
-    return <input
-      type="text"
-      value={this.state.value}
-      onChange={this.onChange}
-    />
-  }
+	render() {
+		return <input type="text" value={this.state.value} onChange={this.onChange} />;
+	}
 }
 ```
 
@@ -52,7 +48,7 @@ Cette fois ci, votre input sera convenablement mis à jour.
 
 ### Quels avantages ?
 
-Le principal avantage est que vous *contrôlez* la valeur de vos composants.
+Le principal avantage est que vous _contrôlez_ la valeur de vos composants.
 
 Ainsi, si vous décidez de rajouter de la validation sur votre champ, vous pouvez le faire sur votre fonction de mise à jour de l'état (ici `onChange`)&nbsp;:
 
@@ -70,8 +66,8 @@ Vous pourriez aussi définir une valeur initiale en changeant le state initial d
 
 ```jsx
 this.state = {
-  value: this.props.defaultValue
-}
+	value: this.props.defaultValue
+};
 ```
 
 Vous pouvez aussi ajouter un évènement externe au formulaire qui impacterait les valeurs du formulaire&nbsp;:
@@ -90,13 +86,13 @@ En soit, les possibilités sont infinies et vous retrouvez derrière ce concept 
 
 ### Kesako ?
 
-Ce qu'on appelle communément *Uncontrolled Components* sont les composants sur lesquels la mise à jour de la valeur ne change pas l'état de votre composant. La valeur de l'input sera donc toujours celle envoyée par l'utilisateur.
+Ce qu'on appelle communément _Uncontrolled Components_ sont les composants sur lesquels la mise à jour de la valeur ne change pas l'état de votre composant. La valeur de l'input sera donc toujours celle envoyée par l'utilisateur.
 
 ```jsx
 class UncontrolledInput extends React.Component {
-  render () {
-    return <input type="text" defaultValue="valeur de l'input" />
-  }
+	render() {
+		return <input type="text" defaultValue="valeur de l'input" />;
+	}
 }
 ```
 
@@ -104,40 +100,43 @@ class UncontrolledInput extends React.Component {
 
 Il y a alors plusieurs manières possibles de récupérer les données entrées par l'utilisateur&nbsp;:
 
-* Soit on ajoute une référence pour pouvoir récupérer la valeur à tout moment et manipuler l'élément directement via les méthodes du DOM
-    ```jsx
-    <input type="text" ref={(ref) => this.input = ref} />
-    ```
-* Soit on se branche sur un évènement de l'input pour déclencher une action
-    ```jsx
-    <input type="text" onChange={this.doSomethingWithChangeEvent} />
-    ```
-* Soit on écoute l'évènement de soumission du formulaire de l'input pour traiter directement les données liées à ce formulaire
-    ```jsx
-    class Form extends React.Component {
-      constructor () {
-        super()
-        this.onSubmit = this.onSubmit.bind(this)
-      }
+- Soit on ajoute une référence pour pouvoir récupérer la valeur à tout moment et manipuler l'élément directement via les méthodes du DOM
+  ```jsx
+  <input type="text" ref={(ref) => (this.input = ref)} />
+  ```
+- Soit on se branche sur un évènement de l'input pour déclencher une action
+  ```jsx
+  <input type="text" onChange={this.doSomethingWithChangeEvent} />
+  ```
+- Soit on écoute l'évènement de soumission du formulaire de l'input pour traiter directement les données liées à ce formulaire
 
-      onSubmit (event) {
-        event.preventDefault()
-        var data = new FormData(event.target)
-        console.log(Array.from(data.entries()))
-      }
+  ```jsx
+  class Form extends React.Component {
+  	constructor() {
+  		super();
+  		this.onSubmit = this.onSubmit.bind(this);
+  	}
 
-      render () {
-        return <form onSubmit={this.onSubmit}>
-          <input type="text" name="input_name" />
-          <button>Submit</button>
-        </form>
-      }
-    }
-    ```
+  	onSubmit(event) {
+  		event.preventDefault();
+  		var data = new FormData(event.target);
+  		console.log(Array.from(data.entries()));
+  	}
+
+  	render() {
+  		return (
+  			<form onSubmit={this.onSubmit}>
+  				<input type="text" name="input_name" />
+  				<button>Submit</button>
+  			</form>
+  		);
+  	}
+  }
+  ```
 
 ### Quels avantages ?
 
-Le principal avantage est que vous n'avez pas besoin de *contrôler* la valeur de vos inputs.
+Le principal avantage est que vous n'avez pas besoin de _contrôler_ la valeur de vos inputs.
 
 Ca peut être très utile si vous avez déjà une librairie qui sait gérer des formulaires mais qui n'est pas écrite en React. Cependant, je vais plutôt vous parler d'un cas concret sans utiliser de librairie externe.
 
@@ -147,41 +146,37 @@ Par exemple, si cette recherche demande trop de ressources, vous ne voudrez pas 
 
 ```jsx
 class SearchFilters extends React.Component {
-  constructor () {
-    super()
-    this.onChange = this.onChange.bind(this)
-  }
+	constructor() {
+		super();
+		this.onChange = this.onChange.bind(this);
+	}
 
-  onChange (event) {
-    event.preventDefault()
+	onChange(event) {
+		event.preventDefault();
 
-    if (this.ongoingRequest) {
-      // Il y avait déjà une requête programmée.
-      // On la coupe avant de lancer la nouvelle
-      clearTimeout(this.ongoingRequest)
-    }
+		if (this.ongoingRequest) {
+			// Il y avait déjà une requête programmée.
+			// On la coupe avant de lancer la nouvelle
+			clearTimeout(this.ongoingRequest);
+		}
 
-    // On programme une requête dans 100ms
-    this.ongoingRequest = setTimeout(() => {
-      // On récupère le nom et la valeur de l'input
-      const name = event.target.name
-      const value = event.target.value
+		// On programme une requête dans 100ms
+		this.ongoingRequest = setTimeout(() => {
+			// On récupère le nom et la valeur de l'input
+			const name = event.target.name;
+			const value = event.target.value;
 
-      // On met à jour la recherche
-      this.props.setSearchFilters(name, value)
+			// On met à jour la recherche
+			this.props.setSearchFilters(name, value);
 
-      // La requête est terminée
-      this.ongoingRequest = null
-    }, 500)
-  }
+			// La requête est terminée
+			this.ongoingRequest = null;
+		}, 500);
+	}
 
-  render () {
-    return <input
-      type="text"
-      name="search"
-      onChange={this.onChange}
-    />
-  }
+	render() {
+		return <input type="text" name="search" onChange={this.onChange} />;
+	}
 }
 ```
 
@@ -189,7 +184,7 @@ En voyant ce bout de code, on se rend compte que la mise à jour de la recherche
 
 ## Que choisir ?
 
-Pour moi, le choix se résume à savoir si vos inputs ont besoin d'avoir des validations/resets/transformations. Si oui, partez sur des *Controlled Components*. Si non, vous pouvez vous contenter d'*Uncontrolled Components*, ce qui sera généralement moins prise de tête.
+Pour moi, le choix se résume à savoir si vos inputs ont besoin d'avoir des validations/resets/transformations. Si oui, partez sur des _Controlled Components_. Si non, vous pouvez vous contenter d'_Uncontrolled Components_, ce qui sera généralement moins prise de tête.
 
 Une petite note de fin cependant pour dire qu'il est aussi possible de cumuler les deux. En effet, il faudrait que le formulaire soit contrôlé, mais que l'écoute des changements se fasse au niveau du formulaire complet plutôt que de l'input. Cela permet d'avoir le meilleur des deux mondes, même si c'est un peu plus lourd à mettre en place.
 

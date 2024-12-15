@@ -1,6 +1,6 @@
 import { join } from 'path';
 import { map, mergeMap, tap } from 'rxjs';
-import { PageMeta } from '../../components/ArticleMeta';
+import { type PageMeta } from '../../components/ArticleMeta';
 import paths from '../paths';
 import { mkdirp, writefile } from '../util/fs';
 import createLog from '../util/log';

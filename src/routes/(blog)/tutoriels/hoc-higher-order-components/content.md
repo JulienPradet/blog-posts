@@ -8,46 +8,46 @@ Mais le pattern HOC est une version simplifiée des HOF. Après avoir lu cet art
 
 ## Késako&nbsp;?
 
-Tout d'abord ce qu'il est important de comprendre, c'est que derrière ce pattern se retrouve une seule formule&nbsp;: `(Base) => Enhanced`. Le HOC sera une fonction qui, à partir d'un truc de base, renvoie un truc amélioré. Le but derrière tout ça est de *rendre votre code plus* ***lisible*** en cachant la logique derrière une fonction.
+Tout d'abord ce qu'il est important de comprendre, c'est que derrière ce pattern se retrouve une seule formule&nbsp;: `(Base) => Enhanced`. Le HOC sera une fonction qui, à partir d'un truc de base, renvoie un truc amélioré. Le but derrière tout ça est de _rendre votre code plus_ **_lisible_** en cachant la logique derrière une fonction.
 
-> *&ndash; Ouais, bah c'est le principe d'une fonction hein&nbsp;!* &ndash; Tout à fait. :)
+> _&ndash; Ouais, bah c'est le principe d'une fonction hein&nbsp;!_ &ndash; Tout à fait. :)
 
 ### Avec des tableaux, qu'est ce que ça donne&nbsp;?
 
 Prenons l'exemple d'une fonction qui prend en entrée une liste de questions et renvoie une liste de réponses.
 
 ```jsx
-function answerQuestions (questions) {
-  return questions
-    .filter((question) => isNotTroll(question))
-    .filter((question) => canIAnswer(question))
-    .map((question) => rephraseIfNeeded(question))
-    .map((question) => computeAnswer(question))
+function answerQuestions(questions) {
+	return questions
+		.filter((question) => isNotTroll(question))
+		.filter((question) => canIAnswer(question))
+		.map((question) => rephraseIfNeeded(question))
+		.map((question) => computeAnswer(question));
 }
 ```
 
-Le type de départ est un tableau. Le type d'arrivée est un tableau. Vous pouvez donc considérer que c'est un HOA : Higher Order Array. *Ce concept, dans la vraie vie, n'existe pas.* D'ailleurs, si vous êtes un pro du fonctionnel, vous avez peut-être envie de me sauter à la gorge en ce moment même, étant donné qu'un tableau n'est, ni de près, ni de loin, une fonction. Mais je trouve qu'il représente assez bien le concept.
+Le type de départ est un tableau. Le type d'arrivée est un tableau. Vous pouvez donc considérer que c'est un HOA : Higher Order Array. _Ce concept, dans la vraie vie, n'existe pas._ D'ailleurs, si vous êtes un pro du fonctionnel, vous avez peut-être envie de me sauter à la gorge en ce moment même, étant donné qu'un tableau n'est, ni de près, ni de loin, une fonction. Mais je trouve qu'il représente assez bien le concept.
 
-Si ça peut vous aider, vous pouvez même appeler ça une *Factory*. Je ne vous en voudrais pas parce que ça m'a aidé aussi. Ou *Enhancer*.
+Si ça peut vous aider, vous pouvez même appeler ça une _Factory_. Je ne vous en voudrais pas parce que ça m'a aidé aussi. Ou _Enhancer_.
 
 Maintenant, considérons que la personne qui va lire votre code ne connait ni `filter`, ni `map` mais qu'elle a envie de comprendre ce que fait la fonction `answerQuestions`. Vous allez donc devoir améliorer un petit peu plus la lisiblité de votre code&nbsp;:
 
 ```jsx
-function filterQuestions (questions) {
-  return questions
-    .filter((question) => isNotTroll(question))
-    .filter((question) => canIAnswer(question))
+function filterQuestions(questions) {
+	return questions
+		.filter((question) => isNotTroll(question))
+		.filter((question) => canIAnswer(question));
 }
 
-function getAnswers (questions) {
- return questions
-   .map((question) => rephraseIfNeeded(question))
-   .map((question) => computeAnswer(question))
+function getAnswers(questions) {
+	return questions
+		.map((question) => rephraseIfNeeded(question))
+		.map((question) => computeAnswer(question));
 }
 
-function answerQuestions (questions) {
-  var valuableQuestions = filterQuestions(questions)
-  return getAnswers(valuableQuestions)
+function answerQuestions(questions) {
+	var valuableQuestions = filterQuestions(questions);
+	return getAnswers(valuableQuestions);
 }
 ```
 
@@ -56,13 +56,10 @@ En soit, vous avez juste découpé votre fonction en deux et nommé convenableme
 Et maintenant, on en vient à l'avantage majeur des HOC : la composition. Puisque `filterQuestions` et `getAnswers` sont eux aussi des HOC, vous allez pouvoir les mettre bout à bout pour construire le HOC plus global `answerQuestions`.
 
 ```jsx
-var answerQuestions = pipe(
-  filterQuestions,
-  getAnswers
-)
+var answerQuestions = pipe(filterQuestions, getAnswers);
 ```
 
-Ce qui se lit&nbsp;: *`answerQuestions` est la succession des étapes `filterQuestions` et `getAnswers`*.  
+Ce qui se lit&nbsp;: _`answerQuestions` est la succession des étapes `filterQuestions` et `getAnswers`_.  
 <small>[`pipe` est tiré de ramda.](http://ramdajs.com/0.21.0/docs/#pipe) [L'équivalent serait `flow` en lodash.](https://lodash.com/docs#flow)</small>
 
 Si cette étape de composition vous paraît trop complexe, ce n'est pas grave. Vous pourrez toujours y revenir plus tard quand vous serez plus à l'aise avec les fonctions de fonctions.
@@ -79,29 +76,19 @@ Voici notre composant initial&nbsp;:
 
 ```jsx
 function User(props) {
-  return props.loading
-    ? <StylishSpinner />
-    : <div>
-        {props.user.name}
-      </div>
+	return props.loading ? <StylishSpinner /> : <div>{props.user.name}</div>;
 }
 ```
 
-Ce qui est gênant ici, c'est que la partie qui apporte réellement de la valeur (*comment est-ce que j'affiche un user*) est noyée avec la partie qui s'occupe de l'affichage du chargement. On va donc l'extraire&nbsp;:
+Ce qui est gênant ici, c'est que la partie qui apporte réellement de la valeur (_comment est-ce que j'affiche un user_) est noyée avec la partie qui s'occupe de l'affichage du chargement. On va donc l'extraire&nbsp;:
 
 ```jsx
-function DumbUser (props) {
-  return (
-    <div>
-      {props.user.name}
-    </div>
-  )
+function DumbUser(props) {
+	return <div>{props.user.name}</div>;
 }
 
-function User (props) {
-  return props.loading
-    ? <StylishSpinner />
-    : <DumbUser {...props} />
+function User(props) {
+	return props.loading ? <StylishSpinner /> : <DumbUser {...props} />;
 }
 ```
 
@@ -138,18 +125,13 @@ function withLoading (BaseComponent) {
 Cependant, nous pouvons encore l'améliorer. Admettons que vous avez un autre composant ailleurs qui utilise `props.isDone` plutôt que `props.loading` pour définir s'il est entrain de charger ou non. Cela veut dire qu'il faut aussi extraire cette partie et la mettre en paramètre&nbsp;:
 
 ```jsx
-function withLoading (isLoading, BaseComponent) {
-  return function (props) {
-    isLoading(props)
-      ? <StylishSpinner />
-      : <BaseComponent {...props} />
-  }
+function withLoading(isLoading, BaseComponent) {
+	return function (props) {
+		isLoading(props) ? <StylishSpinner /> : <BaseComponent {...props} />;
+	};
 }
 
-var User = withLoading(
-  (props) => props.loading,
-  DumbUser
-)
+var User = withLoading((props) => props.loading, DumbUser);
 ```
 
 Et paf&nbsp;! On a fait un HOC.
@@ -199,33 +181,34 @@ function fetchData ({
 ```
 
 1. **Définition des paramètres**  
-    Le HOC est toujours une fonction. Celle-ci a plus de paramètres mais il y a toujours le BaseComponent en entrée.
+   Le HOC est toujours une fonction. Celle-ci a plus de paramètres mais il y a toujours le BaseComponent en entrée.
 
 2. **Renvoie d'un nouveau composant**  
-    Le but est de renvoyer un composant amélioré. Tout à l'heure c'était un composant Stateless et donc ce n'était pas forcément très visible. Ici avec le mot clé `class`, c'est peut-être plus facile de voir la différence entre le `HOC` et le `EnhancedComponent`. Et qui dit composant dit qu'il est capable de faire exactement la même chose que ce qu'il aurait dû faire en dehors d'un HOC&nbsp;: constructeur, lifecycle, **render**, etc.
+   Le but est de renvoyer un composant amélioré. Tout à l'heure c'était un composant Stateless et donc ce n'était pas forcément très visible. Ici avec le mot clé `class`, c'est peut-être plus facile de voir la différence entre le `HOC` et le `EnhancedComponent`. Et qui dit composant dit qu'il est capable de faire exactement la même chose que ce qu'il aurait dû faire en dehors d'un HOC&nbsp;: constructeur, lifecycle, **render**, etc.
 
 3. **Personnalisation grâce aux paramètres**  
-    Les paramètres permettent d'extraire la véritable valeur du composant en posant les bonnes questions&nbsp;:
-    * Quelle requête faut-il faire à l'API&nbsp;?
-    * Quelles propriétés venant de l'API faut-il ajouter en propriété à mon `BaseComponent`&nbsp;? *Cette question sera très souvent posée dans vos HOC car chaque BaseComponent aura besoin de propriétés différentes. De plus, cela permet d'expliciter l'arrivée de nouvelles propriétés.*
+   Les paramètres permettent d'extraire la véritable valeur du composant en posant les bonnes questions&nbsp;:
 
-    Ainsi, quand on lit les paramètres on n'a plus besoin de comprendre le fonctionnement intrinsèque du composant pour savoir ce qu'il fait.
+   - Quelle requête faut-il faire à l'API&nbsp;?
+   - Quelles propriétés venant de l'API faut-il ajouter en propriété à mon `BaseComponent`&nbsp;? _Cette question sera très souvent posée dans vos HOC car chaque BaseComponent aura besoin de propriétés différentes. De plus, cela permet d'expliciter l'arrivée de nouvelles propriétés._
+
+   Ainsi, quand on lit les paramètres on n'a plus besoin de comprendre le fonctionnement intrinsèque du composant pour savoir ce qu'il fait.
 
 Pour faire un composant qui va chercher dans une API l'utilisateur connecté puis qui l'affiche, cela donne donc&nbsp;:
 
 ```jsx
 var LoggedUser = fetchData({
-  getRequest: function (props) {
-    return fetch('/api/me')
-  },
-  addResultToProps: function (props, result) {
-    return {
-      ...props,
-      user: result.data
-    }
-  },
-  BaseComponent: User
-})
+	getRequest: function (props) {
+		return fetch('/api/me');
+	},
+	addResultToProps: function (props, result) {
+		return {
+			...props,
+			user: result.data
+		};
+	},
+	BaseComponent: User
+});
 ```
 
 NB&nbsp;: Il est possible que vous ayez plus de mal à comprendre le fonctionnement de ce HOC. Si c'est le cas, essayez de le réécrire comme vous l'auriez écrit sans HOC afin de refaire les étapes d'extraction que j'ai explicité sur le `withLoading`.
@@ -235,31 +218,26 @@ NB&nbsp;: Il est possible que vous ayez plus de mal à comprendre le fonctionnem
 Maintenant qu'on a deux HOC, on peut se dire qu'on va essayer de faire un HOC plus général qui permettra de faire directement le lien entre `LoggedUser` et `DumbUser`. En effet, pour l'instant ça ne s'enchaîne pas très bien&nbsp;:
 
 ```jsx
-function DumbUser (props) {
-  return (
-    <div>
-      {props.user.name}
-    </div>
-  )
+function DumbUser(props) {
+	return <div>{props.user.name}</div>;
 }
 
-var CurrentUsername = withLoading(
-  function (props) { return props.loading },
-  DumbUser
-)
+var CurrentUsername = withLoading(function (props) {
+	return props.loading;
+}, DumbUser);
 
 var LoggedUser = fetchData({
-  getRequest: function (props) {
-    return fetch('/api/me')
-  },
-  addResultToProps: function (props, result) {
-    return {
-      ...props,
-      user: result.data
-    }
-  },
-  BaseComponent: CurrentUsername
-})
+	getRequest: function (props) {
+		return fetch('/api/me');
+	},
+	addResultToProps: function (props, result) {
+		return {
+			...props,
+			user: result.data
+		};
+	},
+	BaseComponent: CurrentUsername
+});
 ```
 
 Si vous avez suivi le `pipe` de tout à l'heure, ça marchait bien parce qu'à chaque fois, en paramètre, on n'avait qu'un tableau et que le résultat n'était qu'un tableau. On va donc réécrire nos HOC pour les faire fonctionner de la même façon. C'est à dire que l'on va créer des fonctions qui génèrent des HOC qui n'ont que le `BaseComponent` en paramètre.
@@ -307,7 +285,7 @@ Cela se lit&nbsp;: `LoggedUser` va mettre à disposition des données venant de 
 
 <small>[`compose` est tiré de ramda.](http://ramdajs.com/0.21.0/docs/#compose) [L'équivalent serait `flowRight` en lodash.](https://lodash.com/docs#flowLeft) La différence par rapport au `pipe` ou `flow` est le sens de composition. Ici c'est le résultat de `withLoading` qui est passé à `fetchData` et non l'inverse.</small>
 
-Et là, on atteint le stade *Chocapic* parce qu'on arrive à composer nos HOC et donc à bien enchaîner la lecture des étapes d'améliorations.
+Et là, on atteint le stade _Chocapic_ parce qu'on arrive à composer nos HOC et donc à bien enchaîner la lecture des étapes d'améliorations.
 
 #### Mise en pratique au quotidien
 

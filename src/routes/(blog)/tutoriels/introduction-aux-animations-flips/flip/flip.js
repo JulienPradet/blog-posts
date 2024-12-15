@@ -1,3 +1,5 @@
+// eslint-disable-next-line @typescript-eslint/ban-ts-comment
+// @ts-nocheck
 const getDataFromElement = (element) => {
 	const style = window.getComputedStyle(element);
 	return {
@@ -92,6 +94,9 @@ class Flip {
 
 		this._start = window.performance.now() + this.options.delay * slowMotionFactor;
 
+		/**
+		 * @type {Promise<void>}
+		 */
 		const promise = new Promise((resolve, reject) => {
 			this.resolve = resolve;
 			this.reject = reject;
@@ -141,7 +146,7 @@ class Flip {
 		this.element.style.opacity = null;
 		this.element.style.willChange = null;
 		this.element.style.zIndex = null;
-		this.resolve && this.resolve();
+		this.resolve?.();
 	}
 }
 

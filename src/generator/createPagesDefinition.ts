@@ -5,7 +5,7 @@ import reduceObservable from './util/reduceObservable';
 import { readPages } from './readPages';
 import createLog from './util/log';
 import paths from './paths';
-import { getSiteInfo, SiteInfo } from './getSiteInfo';
+import { getSiteInfo, type SiteInfo } from './getSiteInfo';
 
 const log = createLog('PAGES');
 

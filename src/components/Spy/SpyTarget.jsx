@@ -1,55 +1,22 @@
-import React from "react";
-import PropTypes from "prop-types";
+// @ts-nocheck
+import { useCallback, useContext, useEffect } from 'react';
+import { SpyContext } from './SpyProvider';
 
-class SpyTarget extends React.Component {
-  constructor() {
-    super();
-    this.setSpyTarget = this.setSpyTarget.bind(this);
-    this.updateTarget = this.updateTarget.bind(this);
-  }
+function SpyTarget({ name, nodeTransformer, children }) {
+	const { targets, registerTarget } = useContext(SpyContext);
 
-  componentDidMount() {
-    this.updateTarget();
-    window.addEventListener("resize", this.updateTarget);
-  }
+	const updateTarget = useCallback((target) => {
+		const transformer = nodeTransformer || ((x) => x);
+		registerTarget(name, transformer(target));
+	}, []);
 
-  componentWillUnmount() {
-    window.removeEventListener("resize", this.updateTarget);
-  }
+	useEffect(() => {
+		updateTarget();
+		window.addEventListener('resize', updateTarget);
+		return () => window.removeEventListener('resize', updateTarget);
+	}, []);
 
-  setSpyTarget(target) {
-    this.target = target;
-  }
-
-  transformNode(target) {
-    const nodeTransformer = this.props.nodeTransformer || (x => x);
-
-    return nodeTransformer(target);
-  }
-
-  updateTarget() {
-    this.context.spy.registerTarget(
-      this.props.name,
-      this.transformNode(this.target)
-    );
-  }
-
-  render() {
-    return this.props.children({ setSpyTarget: this.setSpyTarget });
-  }
+	return children({ setSpyTarget: updateTarget });
 }
-
-SpyTarget.contextTypes = {
-  spy: PropTypes.shape({
-    registerTarget: PropTypes.func.isRequired,
-    targets: PropTypes.object.isRequired
-  }).isRequired
-};
-
-SpyTarget.propTypes = {
-  children: PropTypes.func.isRequired,
-  name: PropTypes.string.isRequired,
-  nodeTransformer: PropTypes.func
-};
 
 export default SpyTarget;

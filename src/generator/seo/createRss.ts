@@ -31,7 +31,7 @@ const createRss = () => {
 		withLatestFrom(siteInfo$, (metas, siteInfo) => ({ metas, siteInfo })),
 		tap(({ metas, siteInfo }) => {
 			metas
-				.filter((meta) => (meta.type === 'article' ? meta.isListed : true))
+				.filter((meta) => ('type' in meta && meta.type === 'article' ? meta.isListed : true))
 				.sort((metaA, metaB) => {
 					if (metaA.date < metaB.date) {
 						return 1;

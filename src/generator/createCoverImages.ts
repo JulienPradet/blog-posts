@@ -11,7 +11,8 @@ const log = createLog('IMAGES');
 const imagesPath = join(process.cwd(), 'static/images/cover/');
 
 let browser: Browser;
-const renderQueue: { location: string; resolve: () => void; reject: (error: Error) => void }[] = [];
+const renderQueue: { location: string; resolve: () => void; reject: (error: unknown) => void }[] =
+	[];
 let closeTimeout: NodeJS.Timeout;
 let isQueueRunning = false;
 
@@ -30,11 +31,16 @@ const launchQueue = async () => {
 	isQueueRunning = true;
 
 	clearTimeout(closeTimeout);
-	const { location, resolve, reject } = renderQueue.shift();
+	const firstElement = renderQueue.shift();
+	if (!firstElement) {
+		return;
+	}
+
+	const { location, resolve, reject } = firstElement;
 
 	try {
 		if (!browser) {
-			browser = await puppeteer.launch({ headless: 'new' });
+			browser = await puppeteer.launch({ headless: true });
 		}
 
 		const page = await browser.newPage();
@@ -55,9 +61,9 @@ const launchQueue = async () => {
 
 		isQueueRunning = false;
 		launchQueue();
-	} catch (e) {
-		console.error(e);
-		reject(e);
+	} catch (error) {
+		console.error(error);
+		reject(error);
 	}
 };
 
@@ -65,7 +71,7 @@ const renderCover = async (location: string) => {
 	try {
 		await access(join(imagesPath, location, 'image.jpg'));
 		return Promise.resolve();
-	} catch (e) {
+	} catch {
 		return new Promise<void>((resolve, reject) => {
 			renderQueue.push({ resolve, reject, location });
 			launchQueue();

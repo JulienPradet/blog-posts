@@ -1,21 +1,11 @@
-import React from "react";
-import PropTypes from "prop-types";
+// @ts-nocheck
+import { useContext } from 'react';
+import { SpyContext } from './SpyProvider';
 
-class SpySubscriber extends React.Component {
-  render() {
-    return this.props.children(this.context.spy.targets);
-  }
-}
+const SpySubscriber = ({ children }) => {
+	const { targets } = useContext(SpyContext);
 
-SpySubscriber.contextTypes = {
-  spy: PropTypes.shape({
-    registerTarget: PropTypes.func.isRequired,
-    targets: PropTypes.object.isRequired
-  }).isRequired
-};
-
-SpySubscriber.propTypes = {
-  children: PropTypes.func.isRequired
+	return children(targets);
 };
 
 export default SpySubscriber;
