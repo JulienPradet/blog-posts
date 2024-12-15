@@ -6,7 +6,7 @@
 	<NavigationItem href="/item/1/">
 		<svelte:fragment slot="label">Item 1</svelte:fragment>
 	</NavigationItem>
-	<NavigationItem href="/item/2/">
+	<NavigationItem href={null}>
 		<svelte:fragment slot="label">Item 2</svelte:fragment>
 		<svelte:fragment slot="children">
 			<NavigationItem href="/item/2/child/1/">

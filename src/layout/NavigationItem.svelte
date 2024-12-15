@@ -53,7 +53,7 @@
 
 	const onClick = (event: Event) => {
 		if ($$slots.children) {
-			if (state !== State.opened) {
+			if (![State.opened, State.opening].includes(state)) {
 				event.preventDefault();
 				event.stopPropagation();
 				open();

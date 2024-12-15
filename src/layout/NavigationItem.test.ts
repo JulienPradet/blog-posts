@@ -4,7 +4,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import { waitFor } from '@testing-library/dom';
 import { tick } from 'svelte';
 
-const { hover, unhover, keyboard, pointer } = userEvent;
+const { click, hover, unhover, keyboard, pointer } = userEvent;
 
 declare module '$app/navigation' {
 	function navigate(): void;
@@ -66,8 +66,8 @@ describe('NavigationItem', () => {
 	});
 
 	describe.each([
-		{ id: 2, type: 'link' }
-		// { id: 3, type: 'button' }
+		{ id: 2, type: 'link' },
+		{ id: 3, type: 'button' }
 	])('for items with children (when item is a $type)', ({ id }) => {
 		it('should open and close sub navigation on hover', async () => {
 			const { findByText, queryByText } = render(NavigationItem, {});
@@ -76,13 +76,13 @@ describe('NavigationItem', () => {
 			expect(firstChild).not.toBeInTheDocument();
 
 			const simpleItem = await findByText(`Item ${id}`);
-			await hover(simpleItem);
+			await click(simpleItem);
 
 			firstChild = await findByText(`Item ${id} Child 1`);
 			expect(firstChild).toBeVisible();
 			expect(firstChild).not.toHaveAttribute('href="/item/2/child/1/"');
 
-			await unhover(simpleItem);
+			await click(simpleItem);
 
 			fireEvent(
 				firstChild.closest('ul') as HTMLUListElement,
@@ -138,7 +138,7 @@ describe('NavigationItem', () => {
 			expect(firstChild).not.toBeInTheDocument();
 
 			const simpleItem = await findByText(`Item ${id}`);
-			await hover(simpleItem);
+			await click(simpleItem);
 
 			const visibleChild = await findByText(`Item ${id} Child 1`);
 
