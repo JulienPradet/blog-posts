@@ -172,6 +172,11 @@
 		}
 	}
 
+	.cv-layout :global(.tech-stack) {
+		margin-top: 0.25em;
+		font-style: italic;
+	}
+
 	@media screen and (max-width: 400px) {
 		.cv-layout {
 			font-size: 1em;

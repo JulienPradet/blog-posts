@@ -35,7 +35,45 @@
 </Header>
 
 <Section title="Work Experience">
-	<Experience lang="en-US" startDate={new Date('2021-04-06')} title="SINGULART" type="Remote">
+	<Experience lang="en-US" startDate={new Date('2024-03-04')} title="Shipup" type="Remote">
+		<h4>
+			Staff Front-End Engineer &ndash; B2B SaaS that helps merchants manage their post purchase
+			communication (E.Leclerc, L'Occitane, Photobox, etc.)
+		</h4>
+		<p>
+			My role went from Lead Front-End, mainly involved in a single squad, to cross squad
+			involvement with 10 fullstack/backend devs.
+		</p>
+		<ul>
+			<li>
+				Led the revamp of the email editor, core business of Shipup, shipped 6 months after my
+				arrival. Continuous improvements since, by suggesting solutions based on client feedbacks.
+			</li>
+			<li>
+				Championed and set up an AI translation tool, through Anthropic's API. Clients now want to
+				spread this feature to the rest of the product.
+			</li>
+			<li>
+				Revival of the Design System, gone from 0 to 25 releases per quarters, including 10 by other
+				devs.
+			</li>
+			<li>
+				Mentored devs to revive TypeScript adoption and systematize unit testing (from 60% to +68%
+				coverage)
+			</li>
+			<li>Set up guilds and strategic influence on hiring</li>
+		</ul>
+		<p class="tech-stack">
+			Tech Stack: TypeScript, React, Redux, TanStack Query, Jest, Ruby on Rails
+		</p>
+	</Experience>
+	<Experience
+		lang="en-US"
+		startDate={new Date('2021-04-06')}
+		endDate={new Date('2024-01-31')}
+		title="SINGULART"
+		type="Remote"
+	>
 		<h4>
 			Staff Front-End Engineer &ndash; 1st online art gallery representing over 10,000 artists
 			worldwide
@@ -52,6 +90,9 @@
 			<li>
 				Architect on strategic product projects (product minded feedbacks, progressive delivery, AB
 				tests analysis)
+			</li>
+			<li>
+				Shipped in 1 month a chat based AI assistant to help collectors browse through the catalog
 			</li>
 			<li>
 				Improved Web Performance and Core Web Vitals (Mobile <abbr
@@ -76,6 +117,9 @@
 				programming)
 			</li>
 		</ul>
+		<p class="tech-stack">
+			Tech Stack: TypeScript, Stimulus, Storybook, Jest, Cypress, PHP, Symfony
+		</p>
 	</Experience>
 	<Experience
 		lang="en-US"
@@ -88,27 +132,23 @@
 			Front-End Software Engineer &ndash; A developer tool enabling the usage of headless eCommerce
 			services
 		</h4>
+
 		<ul>
-			<li>eCommerce themes & Design System (React, Sass, Apollo, Storybook…)</li>
-			<li>Advanced JavaScript tooling (Webpack, SSR, tests…)</li>
-			<li>Advanced GraphQL API (NodeJS, Redis, Elasticsearch…)</li>
-		</ul>
-		<h4>Led the development of the tooling</h4>
-		<ul>
-			<li>Evaluted and recommended many of the technologies currently in use</li>
-			<li>Kept the stack up to date, following the evolution of the ecosystem</li>
+			<li>Creation of an e-commerce theme and its Design System</li>
+			<li>Creation of a GraphQL API and its optimization systems</li>
 			<li>
-				Always watching technologies around the Front-End ecosystem (frameworks, bundlers, JAMStack,
-				Web perf…)
+				Management of updates and migration processes (Progressive migration, Breaking changes,
+				Changelog)
 			</li>
+			<li>Technical writing for the product documentation</li>
+			<li>Championing technical decisions</li>
+			<li>
+				Important research on the Front-End ecosystem (Framworks, Tooling, Web Performance,
+				Accessibilité, PWAs, etc.)
+			</li>
+			<li>Training developers and providing support to the teams relying on the product</li>
 		</ul>
-		<h4>Trained developers and provided support to the teams relying on our product</h4>
-		<ul>
-			<li>Remote and inhouse trainings</li>
-			<li>Support and consulting on client cases</li>
-			<li>Documentation and tutorials</li>
-			<li>Provided easy to follow migration paths</li>
-		</ul>
+		<p class="tech-stack">Tech Stack: React, Apollo, SSR, Express, Node.js, Redis</p>
 	</Experience>
 	<Experience
 		lang="en-US"
@@ -160,7 +200,7 @@
 		<p>School renamed to Cy Tech - <a href="https://cytech.cyu.fr/">https://cytech.cyu.fr/</a></p>
 	</Formation>
 	<Formation lang="en-US" startDate={new Date('2010-09-01')} endDate={new Date('2012-07-01')}>
-		<h4>Lycée Louis Barthou</h4>
+		<h4>Lycée Louis Barthou - MPSI/MP</h4>
 		<p>Undergraduate studies to prepare for competitive entry exams to engineering schools</p>
 	</Formation>
 </Section>
@@ -173,11 +213,11 @@
 		</p>
 	</Competence>
 	<Competence type="Languages">
-		<p>JavaScript, HTML, CSS, PHP, Java, OCaml</p>
+		<p>TypeScript, JavaScript, HTML, CSS, PHP, Java, OCaml</p>
 	</Competence>
 	<Competence type="Web">
-		<p>React, RxJS, Babel, Webpack, Jest, Vite, Vitest, Cypress, Svelte, Next</p>
-		<p>Symfony, Express, Fastify</p>
+		<p>React, Webpack, Jest, Vite, Vitest, Cypress, Svelte, Next.js</p>
+		<p>Symfony, Express, Fastify, NestJS</p>
 	</Competence>
 </Section>
 
@@ -231,28 +271,19 @@
 			<a href="https://www.julienpradet.fr/">https://www.julienpradet.fr/</a>
 		</h4>
 		<p>A blog where I share my knownledge and experiences related to the web.</p>
+		<p>Web performance, TypeScript, advanced CSS techniques, etc.</p>
 	</Projet>
 	<Projet name="Side projects">
 		<h4>
 			<a href="https://github.com/JulienPradet"> https://github.com/JulienPradet </a>
 		</h4>
-		<p>
-			I often publish new projects on github to have a playground allowing me to discover new
-			technologies. (Animation library, Design System tool,{' '}
-			<abbr tabIndex="-1" title="Static Site Generator">SSG</abbr>…)
-		</p>
-	</Projet>
-	<Projet name="Ter Aelis">
-		<h4>
-			<a href="http://ter-aelis.fr/">http://ter-aelis.fr/</a>
-		</h4>
-		Created a community forum using Symfony for an artists assocation.
+		<p>I often play around with new technologies and publish my experiments on github.</p>
 	</Projet>
 </Section>
 
 <Section title="Additional information">
 	<Info type="Languages">
-		<p>French (native), English (TOEIC: 945/990)</p>
+		<p>French (native), English (TOEIC: 945/990 - currently working in english day-to-day)</p>
 	</Info>
 	<Info type="Hobbies">
 		<p>Illustration, Design and Sculpture</p>
